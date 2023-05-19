@@ -8,7 +8,7 @@
 
 # Purpose
 
-Downloads raw and pre-processed data to populate the ce-observatory - a UK national CE-Observatory dashboard for detailed description of current baseline states and comparison of alternative target future circular economy configurations for specific resource-product-industry categories.
+Downloads raw and pre-processed data to populate the ce-observatory - a UK national CE-Observatory dashboard for detailed description of current baseline and comparison of alternative target future circular economy configurations for specific resource-product-industry categories.
 
 ## Mapping sources to end-points
 
