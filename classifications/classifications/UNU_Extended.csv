@@ -1,0 +1,72 @@
+﻿UNU KEY,DESCRIPTION,EEE CATEGORY UNDER EU-6,EEE CATEGORY UNDER EU-10
+0001,Central Heating (household installed),Large equipment,Large household appliances
+0002,Photovoltaic Panels (incl. inverters),Large equipment,Consumer equipment
+0101,Professional Heating & Ventilation (excl. cooling equipment),Large equipment,Large household appliances
+0102,Dishwashers,Large equipment,Large household appliances
+0103,"Kitchen equipment (e.g. large furnaces, ovens, cooking equipment)",Large equipment,Large household appliances
+0104,Washing Machines (incl. combined dryers),Large equipment,Large household appliances
+0105,"Dryers (wash dryers, centrifuges)",Large equipment,Large household appliances
+0106,"Household Heating & Ventilation (e.g. hoods, ventilators, space heaters)",Large equipment,Large household appliances
+0108,Fridges (incl. combi-fridges),Temperature exchange equipment,Large household appliances
+0109,Freezers,Temperature exchange equipment,Large household appliances
+0111,Air Conditioners (household installed and portable),Temperature exchange equipment,Large household appliances
+0112,"Other cooling equipment (e.g. dehumidifiers, heat pump dryers)",Temperature exchange equipment,Large household appliances
+0113,"Professional cooling equipment (e.g. large air conditioners, cooling displays) ",Temperature exchange equipment,Large household appliances
+0114,"Microwaves (incl. combined, excl. grills)",Small equipment,Large household appliances
+0201,"Other small household equipment (e.g. small ventilators, irons, clocks, adapters) ",Small equipment,Small household appliances
+0202,"Equipment for food preparation (e.g. toaster, grills, food processing, frying pans) ",Small equipment,Small household appliances
+0203,"Small household equipment for hot water preparation (e.g. coffee, tea, water cookers)",Small equipment,Small household appliances
+0204,Vacuum Cleaners (exc. professional),Small equipment,Small household appliances
+0205,"Personal Care equipment (e.g. toothbrushes, hairdryers, razors)",Small equipment,Small household appliances
+0301,"Small IT equipment (e.g. routers, mice, keyboards, external drives & accessories)",Small IT,IT and telecommunications equipment
+0302,"Desktop PCs (excl. monitors, accessories)",Small IT,IT and telecommunications equipment
+0303,Laptops (incl. tablets),Screens and monitors,IT and telecommunications equipment
+0304,"Printers (e.g. scanners, multi-functionals, faxes)",Small IT,IT and telecommunications equipment
+0305,"Telecommunication equipment (e.g. cordless phones, answering machines)",Small IT,IT and telecommunications equipment
+0306,"Mobile Phones (incl. smartphones, pagers)",Small IT,IT and telecommunications equipment
+0307,"Professional IT equipment (e.g. servers, routers, data storage, copiers)",Large equipment,IT and telecommunications equipment
+0308,Cathode Ray Tube Monitors,Screens and monitors,IT and telecommunications equipment
+0309,"Flat Display Panel Monitors (LCD, LED)",Screens and monitors,IT and telecommunications equipment
+0401,"Small Consumer Electronics (e.g. headphones, remote controls)",Small equipment,Consumer equipment
+0402,"Portable Audio & Video (e.g. MP3, e-readers, car navigation)",Small equipment,Consumer equipment
+0403,"Music Instruments, Radio, Hi-Fi (incl. audio sets)",Small equipment,Consumer equipment
+0404,"Video (e.g. Video recorders, DVD, Blue Ray, set-top boxes) and projectors",Small equipment,Consumer equipment
+0405,Speakers,Small equipment,Consumer equipment
+0406,"Cameras (e.g. camcorders, photo & digital still cameras)",Small equipment,Consumer equipment
+0407,Cathode Ray Tube TVs,Screens and monitors,Consumer equipment
+0408,"Flat Display Panel TVs (LCD, LED, Plasma)",Screens and monitors,Consumer equipment
+0501,Small lighting equipment (excl. LED & incandescent),Small equipment,Lighting equipment
+0502,Compact Fluorescent Lamps (incl. retrofit & non-retrofit),Lamps,Lighting equipment
+0503,Straight Tube Fluorescent Lamps,Lamps,Lighting equipment
+0504,"Special Lamps (e.g. professional mercury, high & low pressure sodium)",Lamps,Lighting equipment
+0505,LED Lamps (incl. retrofit LED lamps),Lamps,Lighting equipment
+0506,Household Luminaires (incl. household incandescent fittings & household LED luminaires),Small equipment,Lighting equipment
+0507,"Professional Luminaires (offices, public space, industry)",Small equipment,Lighting equipment
+0601,"Household Tools (e.g. drills, saws, high pressure cleaners, lawn mowers)",Small equipment,Electrical and electronic tools
+0602,"Professional Tools (e.g. for welding, soldering, milling)",Large equipment,Electrical and electronic tools
+0701,"Toys (e.g. car racing sets, electric trains, music toys, biking computers, drones)",Small equipment,Toys
+0702,Game Consoles,Small IT,Toys
+0703,"Leisure equipment (e.g. sports equipment, electric bikes, juke boxes)",Large equipment,Toys
+0801,"Household medical equipment (e.g. thermometers, blood pressure meters)",Small equipment,Medical devices
+0802,"Professional medical equipment (e.g. hospital, dentist, diagnostics)",Large equipment,Medical devices
+0901,"Household Monitoring & Control equipment (alarm, heat, smoke, excl. screens)",Small equipment,Monitoring and control instruments
+0902,"Professional Monitoring & Control equipment (e.g. laboratory, control panels)",Large equipment,Monitoring and control instruments
+1001,"Non-cooled Dispensers (e.g. for vending, hot drinks, tickets, money)",Large equipment,Automatic dispensers
+1002,"Cooled Dispensers (e.g. for vending, cold drinks)",Temperature exchange equipment,Automatic dispensers
+1101,Cars,NA,NA
+1102a,BEVs,NA,NA
+1102b,PHEVs,NA,NA
+1103,HEVs,NA,NA
+1104,"Snowmobiles, golf cart etc",NA,NA
+1105,Trucks,NA,NA
+1106,Buses,NA,NA
+1107,Motorhomes,NA,NA
+1109,Electric bikes,NA,NA
+1201,Industrial machines & motors,NA,NA
+1202,Industrial pumps,NA,NA
+1203,Lifting and conveying machines,NA,NA
+1204,Shaping machines,NA,NA
+1205a,"Wind turbine, onshore",NA,NA
+1205b,"Wind turbine, offshore",NA,NA
+1206,Industrial robots,NA,NA
+1301,FCC Catalysts,NA,NA

@@ -1,0 +1,2225 @@
+"","model","year","component","product","material","value"
+"1","Nokia 5165 ","1998","Display","Basic mobile phone","Aluminum",1.7
+"2","Nokia 5165 ","1998","Display","Basic mobile phone","Plastic",1.7
+"3","Nokia 5165 ","1998","Display","Basic mobile phone","Flat panel glass",4.8
+"4","Nokia 5165 ","1998","Main body","Basic mobile phone","Steel",2.2
+"5","Nokia 5165 ","1998","Main body","Basic mobile phone","Plastic",45.7
+"6","Nokia 5165 ","1998","Main body","Basic mobile phone","Li-ion battery",73.3
+"7","Nokia 5165 ","1998","Main body","Basic mobile phone","PCB",42.6
+"8","Nokia 5165 ","1998","Main body","Basic mobile phone","Others",1.1
+"9","Sanyo SCP 4000 ","1999","Display","Basic mobile phone","Flat panel glass",5.7
+"10","Sanyo SCP 4000 ","1999","Main body","Basic mobile phone","Steel",2.9
+"11","Sanyo SCP 4000 ","1999","Main body","Basic mobile phone","Plastic",30.3
+"12","Sanyo SCP 4000 ","1999","Main body","Basic mobile phone","Li-ion battery",47.6
+"13","Sanyo SCP 4000 ","1999","Main body","Basic mobile phone","PCB",30.6
+"14","Sanyo SCP 4000 ","1999","Main body","Basic mobile phone","Others",7.5
+"15","LG VX 3200 ","2004","Display","Basic mobile phone","Plastic",2.2
+"16","LG VX 3200 ","2004","Display","Basic mobile phone","Flat panel glass",3.7
+"17","LG VX 3200 ","2004","Main body","Basic mobile phone","Copper",6.5
+"18","LG VX 3200 ","2004","Main body","Basic mobile phone","Steel",0.4
+"19","LG VX 3200 ","2004","Main body","Basic mobile phone","Plastic",36.7
+"20","LG VX 3200 ","2004","Main body","Basic mobile phone","Li-ion battery",22.7
+"21","LG VX 3200 ","2004","Main body","Basic mobile phone","PCB",17.6
+"22","LG VX 3200 ","2004","Main body","Basic mobile phone","Others",5.8
+"23","Mototrola V276 ","2004","Display","Basic mobile phone","Aluminum",0.2
+"24","Mototrola V276 ","2004","Display","Basic mobile phone","Plastic",3.5
+"25","Mototrola V276 ","2004","Display","Basic mobile phone","PCB",2.7
+"26","Mototrola V276 ","2004","Display","Basic mobile phone","Flat panel glass",5
+"27","Mototrola V276 ","2004","Main body","Basic mobile phone","Aluminum",7
+"28","Mototrola V276 ","2004","Main body","Basic mobile phone","Copper",5.4
+"29","Mototrola V276 ","2004","Main body","Basic mobile phone","Steel",0.6
+"30","Mototrola V276 ","2004","Main body","Basic mobile phone","Plastic",37.7
+"31","Mototrola V276 ","2004","Main body","Basic mobile phone","Li-ion battery",23.1
+"32","Mototrola V276 ","2004","Main body","Basic mobile phone","PCB",16.7
+"33","Mototrola V276 ","2004","Main body","Basic mobile phone","Others",8.1
+"34","LG VX5200 ","2005","Display","Basic mobile phone","Aluminum",1.5
+"35","LG VX5200 ","2005","Display","Basic mobile phone","Plastic",2.6
+"36","LG VX5200 ","2005","Display","Basic mobile phone","PCB",1.8
+"37","LG VX5200 ","2005","Display","Basic mobile phone","Flat panel glass",5.4
+"38","LG VX5200 ","2005","Main body","Basic mobile phone","Aluminum",0.5
+"39","LG VX5200 ","2005","Main body","Basic mobile phone","Copper",5
+"40","LG VX5200 ","2005","Main body","Basic mobile phone","Steel",0.3
+"41","LG VX5200 ","2005","Main body","Basic mobile phone","Plastic",37.3
+"42","LG VX5200 ","2005","Main body","Basic mobile phone","Li-ion battery",21.6
+"43","LG VX5200 ","2005","Main body","Basic mobile phone","PCB",13.4
+"44","LG VX5200 ","2005","Main body","Basic mobile phone","Others",8.9
+"45","Motorola RAZR V3c ","2005","Display","Basic mobile phone","Flat panel glass",15.2
+"46","Motorola RAZR V3c ","2005","Main body","Basic mobile phone","Aluminum",27.6
+"47","Motorola RAZR V3c ","2005","Main body","Basic mobile phone","Steel",0.6
+"48","Motorola RAZR V3c ","2005","Main body","Basic mobile phone","Plastic",16.7
+"49","Motorola RAZR V3c ","2005","Main body","Basic mobile phone","Li-ion battery",19.6
+"50","Motorola RAZR V3c ","2005","Main body","Basic mobile phone","PCB",11.6
+"51","Motorola RAZR V3c ","2005","Main body","Basic mobile phone","Others",8.9
+"52","LG enV VX9100 ","2008","Display","Basic mobile phone","Flat panel glass",13.7
+"53","LG enV VX9100 ","2008","Main body","Basic mobile phone","Aluminum",13.1
+"54","LG enV VX9100 ","2008","Main body","Basic mobile phone","Steel",0.7
+"55","LG enV VX9100 ","2008","Main body","Basic mobile phone","Plastic",41.7
+"56","LG enV VX9100 ","2008","Main body","Basic mobile phone","Li-ion battery",23.7
+"57","LG enV VX9100 ","2008","Main body","Basic mobile phone","PCB",24.2
+"58","LG enV VX9100 ","2008","Main body","Basic mobile phone","Others",7.6
+"59","LG VX 8360 ","2009","Display","Basic mobile phone","Flat panel glass",10.4
+"60","LG VX 8360 ","2009","Main body","Basic mobile phone","Aluminum",3
+"61","LG VX 8360 ","2009","Main body","Basic mobile phone","Copper",1.7
+"62","LG VX 8360 ","2009","Main body","Basic mobile phone","Steel",0.3
+"63","LG VX 8360 ","2009","Main body","Basic mobile phone","Plastic",39.9
+"64","LG VX 8360 ","2009","Main body","Basic mobile phone","Li-ion battery",20.5
+"65","LG VX 8360 ","2009","Main body","Basic mobile phone","PCB",14.4
+"66","LG VX 8360 ","2009","Main body","Basic mobile phone","Others",5.2
+"67","LG VN 530 Octane ","2010","Display","Basic mobile phone","Flat panel glass",19
+"68","LG VN 530 Octane ","2010","Main body","Basic mobile phone","Steel",3
+"69","LG VN 530 Octane ","2010","Main body","Basic mobile phone","Plastic",55.6
+"70","LG VN 530 Octane ","2010","Main body","Basic mobile phone","Li-ion battery",21
+"71","LG VN 530 Octane ","2010","Main body","Basic mobile phone","PCB",22.1
+"72","LG VN 530 Octane ","2010","Main body","Basic mobile phone","Others",6.1
+"73","Samsung BD P1000 ","2006","Case","Blu-ray player ","Aluminum",26.5
+"74","Samsung BD P1000 ","2006","Case","Blu-ray player ","Steel",1976.5
+"75","Samsung BD P1000 ","2006","Case","Blu-ray player ","Plastic",315.4
+"76","Samsung BD P1000 ","2006","Disk drive","Blu-ray player ","Copper",133
+"77","Samsung BD P1000 ","2006","Disk drive","Blu-ray player ","Steel",625.5
+"78","Samsung BD P1000 ","2006","Disk drive","Blu-ray player ","Plastic",178.7
+"79","Samsung BD P1000 ","2006","Disk drive","Blu-ray player ","PCB",84.8
+"80","Samsung BD P1000 ","2006","Disk drive","Blu-ray player ","Others",55.2
+"81","Samsung BD P1000 ","2006","Interior modules","Blu-ray player ","Copper",28.6
+"82","Samsung BD P1000 ","2006","Interior modules","Blu-ray player ","Steel",4.9
+"83","Samsung BD P1000 ","2006","Interior modules","Blu-ray player ","Plastic",55.6
+"84","Samsung BD P1000 ","2006","Interior modules","Blu-ray player ","PCB",952.6
+"85","Samsung BD P1000 ","2006","Interior modules","Blu-ray player ","Other glass",22.2
+"86","Samsung BD P1400 ","2007","Case","Blu-ray player ","Steel",1890
+"87","Samsung BD P1400 ","2007","Case","Blu-ray player ","Plastic",276.4
+"88","Samsung BD P1400 ","2007","Disk drive","Blu-ray player ","Copper",18.3
+"89","Samsung BD P1400 ","2007","Disk drive","Blu-ray player ","Steel",654.3
+"90","Samsung BD P1400 ","2007","Disk drive","Blu-ray player ","Plastic",178.4
+"91","Samsung BD P1400 ","2007","Disk drive","Blu-ray player ","PCB",78.2
+"92","Samsung BD P1400 ","2007","Disk drive","Blu-ray player ","Others",58.5
+"93","Samsung BD P1400 ","2007","Interior modules","Blu-ray player ","Copper",101.7
+"94","Samsung BD P1400 ","2007","Interior modules","Blu-ray player ","Steel",148.1
+"95","Samsung BD P1400 ","2007","Interior modules","Blu-ray player ","Plastic",46.8
+"96","Samsung BD P1400 ","2007","Interior modules","Blu-ray player ","PCB",532
+"97","Samsung BD P1400 ","2007","Interior modules","Blu-ray player ","Other glass",25
+"98","Toshiba BDK33KU ","approx. 2012","Case","Blu-ray player ","Steel",455
+"99","Toshiba BDK33KU ","approx. 2012","Case","Blu-ray player ","Plastic",80
+"100","Toshiba BDK33KU ","approx. 2012","Disk drive","Blu-ray player ","Copper",4.8
+"101","Toshiba BDK33KU ","approx. 2012","Disk drive","Blu-ray player ","Steel",67.19
+"102","Toshiba BDK33KU ","approx. 2012","Disk drive","Blu-ray player ","Plastic",137.6
+"103","Toshiba BDK33KU ","approx. 2012","Disk drive","Blu-ray player ","PCB",0.8
+"104","Toshiba BDK33KU ","approx. 2012","Disk drive","Blu-ray player ","Others",2.9
+"105","Toshiba BDK33KU ","approx. 2012","Interior modules","Blu-ray player ","Copper",33.2
+"106","Toshiba BDK33KU ","approx. 2012","Interior modules","Blu-ray player ","Steel",6.1
+"107","Toshiba BDK33KU ","approx. 2012","Interior modules","Blu-ray player ","Plastic",55.5
+"108","Toshiba BDK33KU ","approx. 2012","Interior modules","Blu-ray player ","PCB",140
+"109","Toshiba BDK33KU ","approx. 2012","Cabinet","CRT monitor","Plastic",2480
+"110","Toshiba BDK33KU ","approx. 2012","Display","CRT monitor","CRT glass",7749
+"111","Toshiba BDK33KU ","approx. 2012","Electrolytic capacitors","CRT monitor","Aluminum",61.13
+"112","Toshiba BDK33KU ","approx. 2012","Electrolytic capacitors","CRT monitor","Copper",61.13
+"113","Toshiba BDK33KU ","approx. 2012","Electrolytic capacitors","CRT monitor","Others",30.56
+"114","Toshiba BDK33KU ","approx. 2012","Frame","CRT monitor","Steel",439
+"115","Toshiba BDK33KU ","approx. 2012","Heat sink","CRT monitor","Aluminum",280.96
+"116","Toshiba BDK33KU ","approx. 2012","ICs","CRT monitor","PCB",13.86
+"117","Toshiba BDK33KU ","approx. 2012","Inductor coils","CRT monitor","Copper",37.52
+"118","Toshiba BDK33KU ","approx. 2012","Inductor coils","CRT monitor","Steel",37.52
+"119","Toshiba BDK33KU ","approx. 2012","Inductor coils","CRT monitor","Plastic",18.76
+"120","Toshiba BDK33KU ","approx. 2012","monitor cable","CRT monitor","Copper",217.8
+"121","Toshiba BDK33KU ","approx. 2012","monitor cable","CRT monitor","Plastic",72.6
+"122","Toshiba BDK33KU ","approx. 2012","Motherboard","CRT monitor","Steel",105.21
+"123","Toshiba BDK33KU ","approx. 2012","Motherboard","CRT monitor","PCB",645.47
+"124","Toshiba BDK33KU ","approx. 2012","Socket","CRT monitor","Plastic",338.37
+"125","Toshiba BDK33KU ","approx. 2012","Transformers","CRT monitor","Copper",254.7
+"126","Toshiba BDK33KU ","approx. 2012","Transformers","CRT monitor","Steel",254.7
+"127","Toshiba BDK33KU ","approx. 2012","Chasis","CRT TV","Copper",7
+"128","Toshiba BDK33KU ","approx. 2012","Chasis","CRT TV","Steel",60
+"129","Toshiba BDK33KU ","approx. 2012","Chasis","CRT TV","Plastic",4600
+"130","Toshiba BDK33KU ","approx. 2012","Chasis","CRT TV","Other metals",673
+"131","Toshiba BDK33KU ","approx. 2012","Display","CRT TV","Copper",1745
+"132","Toshiba BDK33KU ","approx. 2012","Display","CRT TV","Steel",4046
+"133","Toshiba BDK33KU ","approx. 2012","Display","CRT TV","Plastic",421
+"134","Toshiba BDK33KU ","approx. 2012","Display","CRT TV","PCB",28
+"135","Toshiba BDK33KU ","approx. 2012","Display","CRT TV","CRT glass",27360.4
+"136","Toshiba BDK33KU ","approx. 2012","Display","CRT TV","Other metals",93
+"137","Toshiba BDK33KU ","approx. 2012","Display","CRT TV","Others",3
+"138","Toshiba BDK33KU ","approx. 2012","Motherboard","CRT TV","Aluminum",321
+"139","Toshiba BDK33KU ","approx. 2012","Motherboard","CRT TV","Steel",66
+"140","Toshiba BDK33KU ","approx. 2012","Motherboard","CRT TV","Plastic",2
+"141","Toshiba BDK33KU ","approx. 2012","Motherboard","CRT TV","PCB",349
+"142","Toshiba BDK33KU ","approx. 2012","Motherboard","CRT TV","Other metals",886.8
+"143","Toshiba BDK33KU ","approx. 2012","Motherboard","CRT TV","Others",98
+"144","Toshiba BDK33KU ","approx. 2012","Power supply unit","CRT TV","PCB",38
+"145","Toshiba BDK33KU ","approx. 2012","Power supply unit","CRT TV","Other metals",372.7
+"146","Toshiba BDK33KU ","approx. 2012","Power supply unit","CRT TV","Others",2
+"147","Toshiba BDK33KU ","approx. 2012","Remote","CRT TV","Steel",2
+"148","Toshiba BDK33KU ","approx. 2012","Remote","CRT TV","Plastic",72
+"149","Toshiba BDK33KU ","approx. 2012","Remote","CRT TV","PCB",14
+"150","Toshiba BDK33KU ","approx. 2012","Remote","CRT TV","Other metals",36.2
+"151","Toshiba BDK33KU ","approx. 2012","Remote","CRT TV","Others",17.2
+"152","Toshiba BDK33KU ","approx. 2012","Other components*","CRT TV","Copper",53
+"153","Toshiba BDK33KU ","approx. 2012","Other components*","CRT TV","Steel",58
+"154","Toshiba BDK33KU ","approx. 2012","Other components*","CRT TV","Plastic",75
+"155","Toshiba BDK33KU ","approx. 2012","Other components*","CRT TV","Other metals",1
+"156","Toshiba BDK33KU ","approx. 2012","Other components*","CRT TV","Others",17
+"157","RCA DVD/CD player ","approx. 2004","Case","DVD player","Steel",2103.05
+"158","RCA DVD/CD player ","approx. 2004","Case","DVD player","Plastic",276.85
+"159","RCA DVD/CD player ","approx. 2004","Case","DVD player","Others",0.9
+"160","RCA DVD/CD player ","approx. 2004","DVD drive","DVD player","Copper",9.56
+"161","RCA DVD/CD player ","approx. 2004","DVD drive","DVD player","Steel",200.64
+"162","RCA DVD/CD player ","approx. 2004","DVD drive","DVD player","Plastic",779.1
+"163","RCA DVD/CD player ","approx. 2004","DVD drive","DVD player","PCB",45
+"164","RCA DVD/CD player ","approx. 2004","DVD drive","DVD player","Others",0.8
+"165","RCA DVD/CD player ","approx. 2004","Motherboard","DVD player","Copper",318
+"166","RCA DVD/CD player ","approx. 2004","Motherboard","DVD player","Steel",539.9
+"167","RCA DVD/CD player ","approx. 2004","Motherboard","DVD player","Plastic",212
+"168","RCA DVD/CD player ","approx. 2004","Motherboard","DVD player","PCB",520
+"169","RCA DVD/CD player ","approx. 2004","Other components*","DVD player","Aluminum",46.5
+"170","RCA DVD/CD player ","approx. 2004","Other components*","DVD player","Plastic",108.5
+"171","Sony SLV D360P ","2005","Case","DVD player","Steel",905
+"172","Sony SLV D360P ","2005","Case","DVD player","Plastic",563.7
+"173","Sony SLV D360P ","2005","DVD drive","DVD player","Aluminum",12.2
+"174","Sony SLV D360P ","2005","DVD drive","DVD player","Copper",19.2
+"175","Sony SLV D360P ","2005","DVD drive","DVD player","Steel",109.16
+"176","Sony SLV D360P ","2005","DVD drive","DVD player","Plastic",217.9
+"177","Sony SLV D360P ","2005","DVD drive","DVD player","PCB",110.6
+"178","Sony SLV D360P ","2005","DVD drive","DVD player","Others",18
+"179","Sony SLV D360P ","2005","Motherboard","DVD player","PCB",547.7
+"180","Sony SLV D360P ","2005","Other components*","DVD player","Aluminum",74.4
+"181","Sony SLV D360P ","2005","Other components*","DVD player","Copper",124.1
+"182","Sony SLV D360P ","2005","Other components*","DVD player","Steel",763.6
+"183","Sony SLV D360P ","2005","Other components*","DVD player","Plastic",109.3
+"184","Sony SLV D360P ","2005","Other components*","DVD player","Others",1.4
+"185","Aspire Digital AD N820B ","approx. 2005","Case","DVD player","Steel",798.2
+"186","Aspire Digital AD N820B ","approx. 2005","Case","DVD player","Plastic",861
+"187","Aspire Digital AD N820B ","approx. 2005","DVD drive","DVD player","Steel",151.4
+"188","Aspire Digital AD N820B ","approx. 2005","DVD drive","DVD player","Plastic",162.9
+"189","Aspire Digital AD N820B ","approx. 2005","DVD drive","DVD player","PCB",1.3
+"190","Aspire Digital AD N820B ","approx. 2005","DVD drive","DVD player","Others",2.7
+"191","Aspire Digital AD N820B ","approx. 2005","Motherboard","DVD player","Copper",10.85
+"192","Aspire Digital AD N820B ","approx. 2005","Motherboard","DVD player","Steel",5.2
+"193","Aspire Digital AD N820B ","approx. 2005","Motherboard","DVD player","Plastic",16.25
+"194","Aspire Digital AD N820B ","approx. 2005","Motherboard","DVD player","PCB",210.6
+"195","Aspire Digital AD N820B ","approx. 2005","Other components*","DVD player","Aluminum",1.2
+"196","Aspire Digital AD N820B ","approx. 2005","Other components*","DVD player","Copper",31.5
+"197","Aspire Digital AD N820B ","approx. 2005","Other components*","DVD player","Plastic",84.6
+"198","HP Compaq 6000 ","2009","Access panel","Traditional desktop","Steel",1102.62
+"199","HP Compaq 6000 ","2009","Access panel","Traditional desktop","Plastic",2.38
+"200","HP Compaq 6000 ","2009","Bottom casing","Traditional desktop","Plastic",4535.9
+"201","HP Compaq 6000 ","2009","Front bezel","Traditional desktop","Plastic",242.9
+"202","HP Compaq 6000 ","2009","Hard drive","Traditional desktop","Aluminum",255.8
+"203","HP Compaq 6000 ","2009","Hard drive","Traditional desktop","Copper",20.29
+"204","HP Compaq 6000 ","2009","Hard drive","Traditional desktop","Steel",47.3
+"205","HP Compaq 6000 ","2009","Hard drive","Traditional desktop","Plastic",20.7
+"206","HP Compaq 6000 ","2009","Hard drive","Traditional desktop","PCB",16.7
+"207","HP Compaq 6000 ","2009","Hard drive","Traditional desktop","Others",23
+"208","HP Compaq 6000 ","2009","Heat sink","Traditional desktop","Aluminum",211.39
+"209","HP Compaq 6000 ","2009","Heat sink","Traditional desktop","Copper",28.8
+"210","HP Compaq 6000 ","2009","Heat sink","Traditional desktop","Steel",51.31
+"211","HP Compaq 6000 ","2009","Motherboard","Traditional desktop","Steel",7.6
+"212","HP Compaq 6000 ","2009","Motherboard","Traditional desktop","PCB",580.9
+"213","HP Compaq 6000 ","2009","Motherboard fan","Traditional desktop","Aluminum",10.25
+"214","HP Compaq 6000 ","2009","Motherboard fan","Traditional desktop","Copper",10.07
+"215","HP Compaq 6000 ","2009","Motherboard fan","Traditional desktop","Steel",16.58
+"216","HP Compaq 6000 ","2009","Motherboard fan","Traditional desktop","Plastic",140.52
+"217","HP Compaq 6000 ","2009","Motherboard fan","Traditional desktop","PCB",1.49
+"218","HP Compaq 6000 ","2009","Motherboard Port","Traditional desktop","Aluminum",12.76
+"219","HP Compaq 6000 ","2009","Motherboard Port","Traditional desktop","Copper",24.43
+"220","HP Compaq 6000 ","2009","Motherboard Port","Traditional desktop","Steel",0.9
+"221","HP Compaq 6000 ","2009","Motherboard Port","Traditional desktop","Plastic",62.51
+"222","HP Compaq 6000 ","2009","Optical drive","Traditional desktop","Copper",23.22
+"223","HP Compaq 6000 ","2009","Optical drive","Traditional desktop","Steel",446.4
+"224","HP Compaq 6000 ","2009","Optical drive","Traditional desktop","Plastic",169.79
+"225","HP Compaq 6000 ","2009","Optical drive","Traditional desktop","PCB",32.9
+"226","HP Compaq 6000 ","2009","Power supply","Traditional desktop","Steel",731.2
+"227","HP Compaq 6000 ","2009","Power supply","Traditional desktop","PCB",533.3
+"228","HP Compaq 6000 ","2009","Power switch","Traditional desktop","Copper",1.7
+"229","HP Compaq 6000 ","2009","Power switch","Traditional desktop","Plastic",8.9
+"230","HP Compaq 6000 ","2009","Rear fan","Traditional desktop","Aluminum",10.27
+"231","HP Compaq 6000 ","2009","Rear fan","Traditional desktop","Copper",10.09
+"232","HP Compaq 6000 ","2009","Rear fan","Traditional desktop","Steel",18.92
+"233","HP Compaq 6000 ","2009","Rear fan","Traditional desktop","Plastic",63.94
+"234","HP Compaq 6000 ","2009","Rear fan","Traditional desktop","PCB",1.49
+"235","HP Compaq 6000 ","2009","Speaker","Traditional desktop","Aluminum",27.7
+"236","HP Compaq 6000 ","2009","Speaker","Traditional desktop","Copper",1.12
+"237","HP Compaq 6000 ","2009","Speaker","Traditional desktop","Steel",1.8
+"238","Desktop ","unkown model and year","Disk drive/CD ROM","Traditional desktop","Aluminum",433.43
+"239","Desktop ","unkown model and year","Disk drive/CD ROM","Traditional desktop","Steel",286.56
+"240","Desktop ","unkown model and year","Disk drive/CD ROM","Traditional desktop","Plastic",18.83
+"241","Desktop ","unkown model and year","Disk drive/CD ROM","Traditional desktop","PCB",144.91
+"242","Desktop ","unkown model and year","Floppy drive","Traditional desktop","Aluminum",405.52
+"243","Desktop ","unkown model and year","Floppy drive","Traditional desktop","Steel",234.42
+"244","Desktop ","unkown model and year","Floppy drive","Traditional desktop","PCB",31.14
+"245","Desktop ","unkown model and year","Hard disk drive","Traditional desktop","Aluminum",409.13
+"246","Desktop ","unkown model and year","Hard disk drive","Traditional desktop","PCB",31.39
+"247","Desktop ","unkown model and year","Motherboard","Traditional desktop","Aluminum",40
+"248","Desktop ","unkown model and year","Motherboard","Traditional desktop","PCB",930
+"249","Desktop ","unkown model and year","Power supply","Traditional desktop","Aluminum",151.21
+"250","Desktop ","unkown model and year","Power supply","Traditional desktop","Copper",148.55
+"251","Desktop ","unkown model and year","Power supply","Traditional desktop","Steel",635.13
+"252","Desktop ","unkown model and year","Power supply","Traditional desktop","Plastic",111.25
+"253","Desktop ","unkown model and year","Power supply","Traditional desktop","PCB",79.47
+"254","Desktop ","unkown model and year","Power supply","Traditional desktop","Others",5.32
+"255","Desktop ","unkown model and year","Other components*","Traditional desktop","Copper",181.25
+"256","Desktop ","unkown model and year","Other components*","Traditional desktop","Steel",5198.91
+"257","Desktop ","unkown model and year","Other components*","Traditional desktop","Plastic",453.26
+"258","Desktop ","unkown model and year","Other components*","Traditional desktop","PCB",38.91
+"259","Dell Optiplex 780 ultra small form factor ","2010","Casing","Traditional desktop","Steel",1195
+"260","Dell Optiplex 780 ultra small form factor ","2010","Casing","Traditional desktop","Plastic",63
+"261","Dell Optiplex 780 ultra small form factor ","2010","Interior modules","Traditional desktop","Aluminum",303.58
+"262","Dell Optiplex 780 ultra small form factor ","2010","Interior modules","Traditional desktop","Copper",69
+"263","Dell Optiplex 780 ultra small form factor ","2010","Interior modules","Traditional desktop","Steel",312
+"264","Dell Optiplex 780 ultra small form factor ","2010","Interior modules","Traditional desktop","PCB",7.42
+"265","Dell Optiplex 780 ultra small form factor ","2010","Interior modules","Traditional desktop","Others",104
+"266","Dell Optiplex 780 ultra small form factor ","2010","Motherboard","Traditional desktop","Aluminum",37
+"267","Dell Optiplex 780 ultra small form factor ","2010","Motherboard","Traditional desktop","Copper",30
+"268","Dell Optiplex 780 ultra small form factor ","2010","Motherboard","Traditional desktop","Steel",33
+"269","Dell Optiplex 780 ultra small form factor ","2010","Motherboard","Traditional desktop","Plastic",2
+"270","Dell Optiplex 780 ultra small form factor ","2010","Motherboard","Traditional desktop","PCB",258
+"271","Dell Optiplex 780 ultra small form factor ","2010","Motherboard","Traditional desktop","Other metals",31
+"272","Dell Optiplex 780 ultra small form factor ","2010","Motherboard","Traditional desktop","Others",36
+"273","Dell Optiplex 780 ultra small form factor ","2010","Power supply","Traditional desktop","Aluminum",11
+"274","Dell Optiplex 780 ultra small form factor ","2010","Power supply","Traditional desktop","Copper",125
+"275","Dell Optiplex 780 ultra small form factor ","2010","Power supply","Traditional desktop","Steel",220
+"276","Dell Optiplex 780 ultra small form factor ","2010","Power supply","Traditional desktop","Plastic",6
+"277","Dell Optiplex 780 ultra small form factor ","2010","Power supply","Traditional desktop","PCB",96
+"278","Dell Optiplex 780 ultra small form factor ","2010","Power supply","Traditional desktop","Others",18
+"279","Dell Optiplex 780 ultra small form factor ","2010","RAM","Traditional desktop","PCB",14
+"280","HP Touchsmart 20"" 310-1125f ","2011","Case","Integrated desktop","Steel",6.62
+"281","HP Touchsmart 20"" 310-1125f ","2011","Case","Integrated desktop","Plastic",937.3
+"282","HP Touchsmart 20"" 310-1125f ","2011","Case","Integrated desktop","Other metals",1.68
+"283","HP Touchsmart 20"" 310-1125f ","2011","Display","Integrated desktop","Steel",1080.7
+"284","HP Touchsmart 20"" 310-1125f ","2011","Display","Integrated desktop","Plastic",987
+"285","HP Touchsmart 20"" 310-1125f ","2011","Display","Integrated desktop","PCB",30
+"286","HP Touchsmart 20"" 310-1125f ","2011","Display","Integrated desktop","Flat panel glass",460
+"287","HP Touchsmart 20"" 310-1125f ","2011","Display","Integrated desktop","Other glass",567
+"288","HP Touchsmart 20"" 310-1125f ","2011","Display","Integrated desktop","Others",7.1
+"289","HP Touchsmart 20"" 310-1125f ","2011","Hard drive","Integrated desktop","Aluminum",114.79
+"290","HP Touchsmart 20"" 310-1125f ","2011","Hard drive","Integrated desktop","Copper",13.62
+"291","HP Touchsmart 20"" 310-1125f ","2011","Hard drive","Integrated desktop","Steel",432.1
+"292","HP Touchsmart 20"" 310-1125f ","2011","Hard drive","Integrated desktop","Plastic",6.8
+"293","HP Touchsmart 20"" 310-1125f ","2011","Hard drive","Integrated desktop","PCB",26.5
+"294","HP Touchsmart 20"" 310-1125f ","2011","Hard drive","Integrated desktop","Other metals",193.25
+"295","HP Touchsmart 20"" 310-1125f ","2011","Hard drive","Integrated desktop","Others",36.55
+"296","HP Touchsmart 20"" 310-1125f ","2011","Heat sink","Integrated desktop","Aluminum",36.15
+"297","HP Touchsmart 20"" 310-1125f ","2011","Heat sink","Integrated desktop","Copper",56.18
+"298","HP Touchsmart 20"" 310-1125f ","2011","Heat sink","Integrated desktop","Steel",5.4
+"299","HP Touchsmart 20"" 310-1125f ","2011","Heat sink","Integrated desktop","PCB",14.92
+"300","HP Touchsmart 20"" 310-1125f ","2011","Heat sink","Integrated desktop","Other metals",36.15
+"301","HP Touchsmart 20"" 310-1125f ","2011","Interior modules","Integrated desktop","Steel",1436.6
+"302","HP Touchsmart 20"" 310-1125f ","2011","Motherboard","Integrated desktop","Steel",2.2
+"303","HP Touchsmart 20"" 310-1125f ","2011","Motherboard","Integrated desktop","Plastic",1.9
+"304","HP Touchsmart 20"" 310-1125f ","2011","Motherboard","Integrated desktop","PCB",385
+"305","HP Touchsmart 20"" 310-1125f ","2011","Optical drive","Integrated desktop","Aluminum",55.43
+"306","HP Touchsmart 20"" 310-1125f ","2011","Optical drive","Integrated desktop","Copper",3.75
+"307","HP Touchsmart 20"" 310-1125f ","2011","Optical drive","Integrated desktop","Steel",79.8
+"308","HP Touchsmart 20"" 310-1125f ","2011","Optical drive","Integrated desktop","Plastic",42.75
+"309","HP Touchsmart 20"" 310-1125f ","2011","Optical drive","Integrated desktop","PCB",13.9
+"310","HP Touchsmart 20"" 310-1125f ","2011","Optical drive","Integrated desktop","Other metals",2.98
+"311","HP Touchsmart 20"" 310-1125f ","2011","Optical drive","Integrated desktop","Others",1.39
+"312","HP Touchsmart 20"" 310-1125f ","2011","Rear fan","Integrated desktop","Copper",0.45
+"313","HP Touchsmart 20"" 310-1125f ","2011","Rear fan","Integrated desktop","Steel",3.7
+"314","HP Touchsmart 20"" 310-1125f ","2011","Rear fan","Integrated desktop","Plastic",61.05
+"315","HP Touchsmart 20"" 310-1125f ","2011","Speaker","Integrated desktop","Steel",32.4
+"316","HP Touchsmart 20"" 310-1125f ","2011","Speaker","Integrated desktop","Plastic",91.6
+"317","HP Touchsmart 20"" 310-1125f ","2011","Speaker","Integrated desktop","Others",1.6
+"318","HP Touchsmart 20"" 310-1125f ","2011","Vertical support","Integrated desktop","Aluminum",264
+"319","HP Touchsmart 20"" 310-1125f ","2011","Vertical support","Integrated desktop","Steel",1145.5
+"320","HP Touchsmart 20"" 310-1125f ","2011","Vertical support","Integrated desktop","Plastic",440
+"321","HP Touchsmart 20"" 310-1125f ","2011","Other components*","Integrated desktop","Copper",15
+"322","HP Touchsmart 20"" 310-1125f ","2011","Other components*","Integrated desktop","Steel",32.6
+"323","HP Touchsmart 20"" 310-1125f ","2011","Other components*","Integrated desktop","Plastic",38.2
+"324","HP Touchsmart 20"" 310-1125f ","2011","Other components*","Integrated desktop","PCB",3.5
+"325","Sony Handycam CCD-TR940 ","1998","Battery","Digital camcorder","Aluminum",1.4
+"326","Sony Handycam CCD-TR940 ","1998","Battery","Digital camcorder","Copper",1.3
+"327","Sony Handycam CCD-TR940 ","1998","Battery","Digital camcorder","Plastic",19
+"328","Sony Handycam CCD-TR940 ","1998","Battery","Digital camcorder","Li-ion battery",64.6
+"329","Sony Handycam CCD-TR940 ","1998","Battery","Digital camcorder","PCB",12.9
+"330","Sony Handycam CCD-TR940 ","1998","Cassette Side","Digital camcorder","Copper",1.6
+"331","Sony Handycam CCD-TR940 ","1998","Cassette Side","Digital camcorder","Steel",6.7
+"332","Sony Handycam CCD-TR940 ","1998","Cassette Side","Digital camcorder","Plastic",50.9
+"333","Sony Handycam CCD-TR940 ","1998","Eyepiece","Digital camcorder","Plastic",22.7
+"334","Sony Handycam CCD-TR940 ","1998","Eyepiece","Digital camcorder","PCB",9.4
+"335","Sony Handycam CCD-TR940 ","1998","Eyepiece","Digital camcorder","Flat panel glass",2.6
+"336","Sony Handycam CCD-TR940 ","1998","Eyepiece","Digital camcorder","Others",5.1
+"337","Sony Handycam CCD-TR940 ","1998","Lens","Digital camcorder","Copper",2.4
+"338","Sony Handycam CCD-TR940 ","1998","Lens","Digital camcorder","Steel",31.4
+"339","Sony Handycam CCD-TR940 ","1998","Lens","Digital camcorder","Plastic",96.5
+"340","Sony Handycam CCD-TR940 ","1998","Lens","Digital camcorder","PCB",10
+"341","Sony Handycam CCD-TR940 ","1998","Lens","Digital camcorder","Others",1.7
+"342","Sony Handycam CCD-TR940 ","1998","Main body","Digital camcorder","Aluminum",24.4
+"343","Sony Handycam CCD-TR940 ","1998","Main body","Digital camcorder","Copper",16
+"344","Sony Handycam CCD-TR940 ","1998","Main body","Digital camcorder","Steel",198.2
+"345","Sony Handycam CCD-TR940 ","1998","Main body","Digital camcorder","Plastic",46.4
+"346","Sony Handycam CCD-TR940 ","1998","Main body","Digital camcorder","PCB",50.6
+"347","Sony Handycam CCD-TR940 ","1998","Main body","Digital camcorder","Others",11.9
+"348","Sony Handycam CCD-TR940 ","1998","Settings features","Digital camcorder","Aluminum",2.6
+"349","Sony Handycam CCD-TR940 ","1998","Settings features","Digital camcorder","Copper",2
+"350","Sony Handycam CCD-TR940 ","1998","Settings features","Digital camcorder","Steel",2.8
+"351","Sony Handycam CCD-TR940 ","1998","Settings features","Digital camcorder","Plastic",116.8
+"352","Sony Handycam CCD-TR940 ","1998","Settings features","Digital camcorder","PCB",14.4
+"353","Sony Handycam CCD-TR940 ","1998","Settings features","Digital camcorder","Others",7.9
+"354","Sony Handycam CCD-TR940 ","1998","Others*","Digital camcorder","Aluminum",1.1
+"355","Sony Handycam CCD-TR940 ","1998","Others*","Digital camcorder","Steel",13
+"356","Kodak Easy Share LS 443 ","2002","Casing","Digital camera","Aluminum",24.1
+"357","Kodak Easy Share LS 443 ","2002","Casing","Digital camera","Copper",0.4
+"358","Kodak Easy Share LS 443 ","2002","Casing","Digital camera","Steel",0.4
+"359","Kodak Easy Share LS 443 ","2002","Casing","Digital camera","Plastic",25.9
+"360","Kodak Easy Share LS 443 ","2002","Casing","Digital camera","Others",0.2
+"361","Kodak Easy Share LS 443 ","2002","Flash assembly","Digital camera","Aluminum",1.7
+"362","Kodak Easy Share LS 443 ","2002","Flash assembly","Digital camera","Copper",1.9
+"363","Kodak Easy Share LS 443 ","2002","Flash assembly","Digital camera","Plastic",1.5
+"364","Kodak Easy Share LS 443 ","2002","Flash assembly","Digital camera","PCB",0.9
+"365","Kodak Easy Share LS 443 ","2002","Flash assembly","Digital camera","Others",8.2
+"366","Kodak Easy Share LS 443 ","2002","LCD assembly","Digital camera","Aluminum",4.5
+"367","Kodak Easy Share LS 443 ","2002","LCD assembly","Digital camera","Copper",0.2
+"368","Kodak Easy Share LS 443 ","2002","LCD assembly","Digital camera","Plastic",2.2
+"369","Kodak Easy Share LS 443 ","2002","LCD assembly","Digital camera","PCB",0.3
+"370","Kodak Easy Share LS 443 ","2002","LCD assembly","Digital camera","Flat panel glass",4.8
+"371","Kodak Easy Share LS 443 ","2002","LCD assembly","Digital camera","Others",0.9
+"372","Kodak Easy Share LS 443 ","2002","Lens assembly","Digital camera","Aluminum",1.3
+"373","Kodak Easy Share LS 443 ","2002","Lens assembly","Digital camera","Copper",0.4
+"374","Kodak Easy Share LS 443 ","2002","Lens assembly","Digital camera","Steel",4.8
+"375","Kodak Easy Share LS 443 ","2002","Lens assembly","Digital camera","Plastic",33.5
+"376","Kodak Easy Share LS 443 ","2002","Lens assembly","Digital camera","PCB",0.5
+"377","Kodak Easy Share LS 443 ","2002","Lens assembly","Digital camera","Other glass",7.5
+"378","Kodak Easy Share LS 443 ","2002","Lens assembly","Digital camera","Others",5
+"379","Samsung Digimax 201/2.0 mega pixel ","2002","Casing","Digital camera","Aluminum",5.2
+"380","Samsung Digimax 201/2.0 mega pixel ","2002","Casing","Digital camera","Plastic",51.9
+"381","Samsung Digimax 201/2.0 mega pixel ","2002","Casing","Digital camera","PCB",43.5
+"382","Samsung Digimax 201/2.0 mega pixel ","2002","Flash assembly","Digital camera","Copper",0.5
+"383","Samsung Digimax 201/2.0 mega pixel ","2002","Flash assembly","Digital camera","Steel",1.5
+"384","Samsung Digimax 201/2.0 mega pixel ","2002","Flash assembly","Digital camera","Plastic",10.3
+"385","Samsung Digimax 201/2.0 mega pixel ","2002","Flash assembly","Digital camera","Others",6.4
+"386","Samsung Digimax 201/2.0 mega pixel ","2002","LCD assembly","Digital camera","Copper",0.3
+"387","Samsung Digimax 201/2.0 mega pixel ","2002","LCD assembly","Digital camera","Steel",1.5
+"388","Samsung Digimax 201/2.0 mega pixel ","2002","LCD assembly","Digital camera","Plastic",4.7
+"389","Samsung Digimax 201/2.0 mega pixel ","2002","LCD assembly","Digital camera","Flat panel glass",4.7
+"390","Samsung Digimax 201/2.0 mega pixel ","2002","LCD assembly","Digital camera","Others",0.2
+"391","Samsung Digimax 201/2.0 mega pixel ","2002","Lens assembly","Digital camera","Aluminum",1.7
+"392","Samsung Digimax 201/2.0 mega pixel ","2002","Lens assembly","Digital camera","Steel",3.4
+"393","Samsung Digimax 201/2.0 mega pixel ","2002","Lens assembly","Digital camera","Plastic",2.4
+"394","Samsung Digimax 201/2.0 mega pixel ","2002","Lens assembly","Digital camera","Other glass",1.5
+"395","Samsung Digimax 201/2.0 mega pixel ","2002","Lens assembly","Digital camera","Others",1.6
+"396","Canon Power Shot S410 ","2004","Casing","Digital camera","Aluminum",41.9
+"397","Canon Power Shot S410 ","2004","Casing","Digital camera","Plastic",12
+"398","Canon Power Shot S410 ","2004","Casing","Digital camera","PCB",19.1
+"399","Canon Power Shot S410 ","2004","Flash assembly","Digital camera","Aluminum",7.8
+"400","Canon Power Shot S410 ","2004","Flash assembly","Digital camera","Copper",3
+"401","Canon Power Shot S410 ","2004","Flash assembly","Digital camera","Steel",17.7
+"402","Canon Power Shot S410 ","2004","Flash assembly","Digital camera","Plastic",0.6
+"403","Canon Power Shot S410 ","2004","Flash assembly","Digital camera","PCB",1.3
+"404","Canon Power Shot S410 ","2004","Flash assembly","Digital camera","Other glass",0.5
+"405","Canon Power Shot S410 ","2004","Flash assembly","Digital camera","Others",7.3
+"406","Canon Power Shot S410 ","2004","LCD assembly","Digital camera","Aluminum",2.6
+"407","Canon Power Shot S410 ","2004","LCD assembly","Digital camera","Copper",0.1
+"408","Canon Power Shot S410 ","2004","LCD assembly","Digital camera","Steel",0.4
+"409","Canon Power Shot S410 ","2004","LCD assembly","Digital camera","Plastic",1.5
+"410","Canon Power Shot S410 ","2004","LCD assembly","Digital camera","Flat panel glass",3.1
+"411","Canon Power Shot S410 ","2004","Lens assembly","Digital camera","Aluminum",2.9
+"412","Canon Power Shot S410 ","2004","Lens assembly","Digital camera","Copper",0.1
+"413","Canon Power Shot S410 ","2004","Lens assembly","Digital camera","Steel",11.2
+"414","Canon Power Shot S410 ","2004","Lens assembly","Digital camera","Plastic",9
+"415","Canon Power Shot S410 ","2004","Lens assembly","Digital camera","Others",7.9
+"416","Kodak Easy Share CX7300 ","2004","Casing","Digital camera","Plastic",51.1
+"417","Kodak Easy Share CX7300 ","2004","Casing","Digital camera","PCB",44.2
+"418","Kodak Easy Share CX7300 ","2004","Flash assembly","Digital camera","Copper",0.2
+"419","Kodak Easy Share CX7300 ","2004","Flash assembly","Digital camera","Steel",7
+"420","Kodak Easy Share CX7300 ","2004","Flash assembly","Digital camera","Plastic",12.42
+"421","Kodak Easy Share CX7300 ","2004","Flash assembly","Digital camera","Others",8.5
+"422","Kodak Easy Share CX7300 ","2004","LCD assembly","Digital camera","Steel",3.4
+"423","Kodak Easy Share CX7300 ","2004","LCD assembly","Digital camera","Plastic",3.4
+"424","Kodak Easy Share CX7300 ","2004","LCD assembly","Digital camera","Flat panel glass",4.2
+"425","Kodak Easy Share CX7300 ","2004","LCD assembly","Digital camera","Others",1.5
+"426","Kodak Easy Share CX7300 ","2004","Lens assembly","Digital camera","Copper",0.4
+"427","Kodak Easy Share CX7300 ","2004","Lens assembly","Digital camera","Steel",3.5
+"428","Kodak Easy Share CX7300 ","2004","Lens assembly","Digital camera","Other glass",2.88
+"429","Kodak Easy Share CX7300 ","2004","Lens assembly","Digital camera","Others",3.5
+"430","GE A730 compact digital camera ","2007","Casing","Digital camera","Aluminum",9.9
+"431","GE A730 compact digital camera ","2007","Casing","Digital camera","Plastic",33.6
+"432","GE A730 compact digital camera ","2007","Casing","Digital camera","PCB",19.9
+"433","GE A730 compact digital camera ","2007","Flash assembly","Digital camera","Aluminum",3
+"434","GE A730 compact digital camera ","2007","Flash assembly","Digital camera","Copper",1.1
+"435","GE A730 compact digital camera ","2007","Flash assembly","Digital camera","Steel",3.7
+"436","GE A730 compact digital camera ","2007","Flash assembly","Digital camera","Plastic",21.74
+"437","GE A730 compact digital camera ","2007","Flash assembly","Digital camera","Others",7.8
+"438","GE A730 compact digital camera ","2007","LCD assembly","Digital camera","Copper",0.2
+"439","GE A730 compact digital camera ","2007","LCD assembly","Digital camera","Steel",5.3
+"440","GE A730 compact digital camera ","2007","LCD assembly","Digital camera","Plastic",3.2
+"441","GE A730 compact digital camera ","2007","LCD assembly","Digital camera","Flat panel glass",6.3
+"442","GE A730 compact digital camera ","2007","Lens assembly","Digital camera","Aluminum",1.5
+"443","GE A730 compact digital camera ","2007","Lens assembly","Digital camera","Steel",9.92
+"444","GE A730 compact digital camera ","2007","Lens assembly","Digital camera","Plastic",2.88
+"445","GE A730 compact digital camera ","2007","Lens assembly","Digital camera","PCB",0.2
+"446","GE A730 compact digital camera ","2007","Lens assembly","Digital camera","Other glass",1.44
+"447","Kodak Easy Share ","2008","Casing","Digital camera","Aluminum",2.5
+"448","Kodak Easy Share ","2008","Casing","Digital camera","Steel",0.7
+"449","Kodak Easy Share ","2008","Casing","Digital camera","Plastic",42.9
+"450","Kodak Easy Share ","2008","Casing","Digital camera","PCB",3
+"451","Kodak Easy Share ","2008","Casing","Digital camera","Others",0.6
+"452","Kodak Easy Share ","2008","Flash assembly","Digital camera","Aluminum",0.1
+"453","Kodak Easy Share ","2008","Flash assembly","Digital camera","Steel",0.8
+"454","Kodak Easy Share ","2008","Flash assembly","Digital camera","Plastic",0.8
+"455","Kodak Easy Share ","2008","Flash assembly","Digital camera","PCB",0.3
+"456","Kodak Easy Share ","2008","Flash assembly","Digital camera","Others",4.7
+"457","Kodak Easy Share ","2008","LCD assembly","Digital camera","Aluminum",6.4
+"458","Kodak Easy Share ","2008","LCD assembly","Digital camera","Copper",0.1
+"459","Kodak Easy Share ","2008","LCD assembly","Digital camera","Plastic",2.9
+"460","Kodak Easy Share ","2008","LCD assembly","Digital camera","PCB",18.2
+"461","Kodak Easy Share ","2008","LCD assembly","Digital camera","Flat panel glass",7.4
+"462","Kodak Easy Share ","2008","Lens assembly","Digital camera","Copper",1
+"463","Kodak Easy Share ","2008","Lens assembly","Digital camera","Steel",9.3
+"464","Kodak Easy Share ","2008","Lens assembly","Digital camera","Plastic",21.2
+"465","Kodak Easy Share ","2008","Lens assembly","Digital camera","Other glass",2.6
+"466","Kodak Easy Share ","2008","Lens assembly","Digital camera","Others",0.9
+"467","Kodak Easy Share CD82 ","2009","Casing","Digital camera","Plastic",37.6
+"468","Kodak Easy Share CD82 ","2009","Casing","Digital camera","PCB",16.3
+"469","Kodak Easy Share CD82 ","2009","Flash assembly","Digital camera","Aluminum",3.8
+"470","Kodak Easy Share CD82 ","2009","Flash assembly","Digital camera","Steel",20.4
+"471","Kodak Easy Share CD82 ","2009","Flash assembly","Digital camera","Plastic",1
+"472","Kodak Easy Share CD82 ","2009","Flash assembly","Digital camera","Others",4.4
+"473","Kodak Easy Share CD82 ","2009","LCD assembly","Digital camera","Aluminum",4.5
+"474","Kodak Easy Share CD82 ","2009","LCD assembly","Digital camera","Copper",0.2
+"475","Kodak Easy Share CD82 ","2009","LCD assembly","Digital camera","Steel",1.6
+"476","Kodak Easy Share CD82 ","2009","LCD assembly","Digital camera","Plastic",4.2
+"477","Kodak Easy Share CD82 ","2009","LCD assembly","Digital camera","Flat panel glass",9.8
+"478","Kodak Easy Share CD82 ","2009","Lens assembly","Digital camera","Copper",1.5
+"479","Kodak Easy Share CD82 ","2009","Lens assembly","Digital camera","Steel",6.76
+"480","Kodak Easy Share CD82 ","2009","Lens assembly","Digital camera","Plastic",18.24
+"481","Kodak Easy Share CD82 ","2009","Lens assembly","Digital camera","Other glass",1.7
+"482","Kodak Easy Share CD82 ","2009","Lens assembly","Digital camera","Others",4.8
+"483","Nikon Coolpix S3000 ","2010","Casing","Digital camera","Aluminum",12.6
+"484","Nikon Coolpix S3000 ","2010","Casing","Digital camera","Steel",5.9
+"485","Nikon Coolpix S3000 ","2010","Casing","Digital camera","Plastic",0.9
+"486","Nikon Coolpix S3000 ","2010","Casing","Digital camera","Li-ion battery",14.6
+"487","Nikon Coolpix S3000 ","2010","Casing","Digital camera","PCB",9.3
+"488","Nikon Coolpix S3000 ","2010","Flash assembly","Digital camera","Steel",15.8
+"489","Nikon Coolpix S3000 ","2010","Flash assembly","Digital camera","Plastic",7.9
+"490","Nikon Coolpix S3000 ","2010","Flash assembly","Digital camera","Others",3.6
+"491","Nikon Coolpix S3000 ","2010","LCD assembly","Digital camera","Steel",4.6
+"492","Nikon Coolpix S3000 ","2010","LCD assembly","Digital camera","Plastic",2.6
+"493","Nikon Coolpix S3000 ","2010","LCD assembly","Digital camera","Flat panel glass",7.6
+"494","Nikon Coolpix S3000 ","2010","Lens assembly","Digital camera","Aluminum",3.95
+"495","Nikon Coolpix S3000 ","2010","Lens assembly","Digital camera","Copper",0.8
+"496","Nikon Coolpix S3000 ","2010","Lens assembly","Digital camera","Steel",4.8
+"497","Nikon Coolpix S3000 ","2010","Lens assembly","Digital camera","Plastic",11.35
+"498","Nikon Coolpix S3000 ","2010","Lens assembly","Digital camera","Other glass",1.9
+"499","Nikon Coolpix S3000 ","2010","Lens assembly","Digital camera","Others",2.2
+"500","DJI Phantom FC40 P330D ","2013","Balance charger","Drone ","Copper",0.85
+"501","DJI Phantom FC40 P330D ","2013","Balance charger","Drone ","Steel",1.8
+"502","DJI Phantom FC40 P330D ","2013","Balance charger","Drone ","Plastic",58.05
+"503","DJI Phantom FC40 P330D ","2013","Balance charger","Drone ","PCB",107.9
+"504","DJI Phantom FC40 P330D ","2013","Balance charger","Drone ","Others",0.6
+"505","DJI Phantom FC40 P330D ","2013","Connecting wires,adapters&extra parts","Drone ","Aluminum",17.01
+"506","DJI Phantom FC40 P330D ","2013","Connecting wires,adapters&extra parts","Drone ","Copper",27.32
+"507","DJI Phantom FC40 P330D ","2013","Connecting wires,adapters&extra parts","Drone ","Steel",48.67
+"508","DJI Phantom FC40 P330D ","2013","Connecting wires,adapters&extra parts","Drone ","Plastic",71.5
+"509","DJI Phantom FC40 P330D ","2013","Drone (mainbody + camera)","Drone ","Aluminum",28.95
+"510","DJI Phantom FC40 P330D ","2013","Drone (mainbody + camera)","Drone ","Copper",38.45
+"511","DJI Phantom FC40 P330D ","2013","Drone (mainbody + camera)","Drone ","Steel",191.45
+"512","DJI Phantom FC40 P330D ","2013","Drone (mainbody + camera)","Drone ","Plastic",523.9
+"513","DJI Phantom FC40 P330D ","2013","Drone (mainbody + camera)","Drone ","Li-ion battery",164.9
+"514","DJI Phantom FC40 P330D ","2013","Drone (mainbody + camera)","Drone ","PCB",86.3
+"515","DJI Phantom FC40 P330D ","2013","Drone (mainbody + camera)","Drone ","Other metals",0.7
+"516","DJI Phantom FC40 P330D ","2013","Drone (mainbody + camera)","Drone ","Others",10.1
+"517","DJI Phantom FC40 P330D ","2013","Remote control","Drone ","Aluminum",6.8
+"518","DJI Phantom FC40 P330D ","2013","Remote control","Drone ","Copper",3.68
+"519","DJI Phantom FC40 P330D ","2013","Remote control","Drone ","Steel",125.7
+"520","DJI Phantom FC40 P330D ","2013","Remote control","Drone ","Plastic",304.6
+"521","DJI Phantom FC40 P330D ","2013","Remote control","Drone ","PCB",38.8
+"522","DJI Phantom FC40 P330D ","2013","Remote control","Drone ","Others",0.4
+"523","UDI U818A Axis gyro RC quadcopter ","2014","Drone (mainbody + camera)","Drone ","Copper",6
+"524","UDI U818A Axis gyro RC quadcopter ","2014","Drone (mainbody + camera)","Drone ","Steel",17.9
+"525","UDI U818A Axis gyro RC quadcopter ","2014","Drone (mainbody + camera)","Drone ","Plastic",83.05
+"526","UDI U818A Axis gyro RC quadcopter ","2014","Drone (mainbody + camera)","Drone ","Li-ion battery",16.5
+"527","UDI U818A Axis gyro RC quadcopter ","2014","Drone (mainbody + camera)","Drone ","PCB",7
+"528","UDI U818A Axis gyro RC quadcopter ","2014","Drone (mainbody + camera)","Drone ","Others",0.25
+"529","UDI U818A Axis gyro RC quadcopter ","2014","Remote control","Drone ","Copper",1.4
+"530","UDI U818A Axis gyro RC quadcopter ","2014","Remote control","Drone ","Steel",5.8
+"531","UDI U818A Axis gyro RC quadcopter ","2014","Remote control","Drone ","Plastic",121.4
+"532","UDI U818A Axis gyro RC quadcopter ","2014","Remote control","Drone ","PCB",48.7
+"533","UDI U818A Axis gyro RC quadcopter ","2014","Remote control","Drone ","Flat panel glass",12.8
+"534","Protocol Neo mini RC ","2015","Drone (mainbody)","Drone ","Copper",0.9
+"535","Protocol Neo mini RC ","2015","Drone (mainbody)","Drone ","Steel",4.6
+"536","Protocol Neo mini RC ","2015","Drone (mainbody)","Drone ","Plastic",3.3
+"537","Protocol Neo mini RC ","2015","Drone (mainbody)","Drone ","Li-ion battery",4.1
+"538","Protocol Neo mini RC ","2015","Drone (mainbody)","Drone ","PCB",2.9
+"539","Protocol Neo mini RC ","2015","Remote control","Drone ","Copper",0.1
+"540","Protocol Neo mini RC ","2015","Remote control","Drone ","Steel",1.3
+"541","Protocol Neo mini RC ","2015","Remote control","Drone ","Plastic",31.4
+"542","Protocol Neo mini RC ","2015","Remote control","Drone ","PCB",23.4
+"543","Protocol Neo mini RC ","2015","Charger","Drone ","Copper",0.7
+"544","Protocol Neo mini RC ","2015","Charger","Drone ","Steel",1.4
+"545","Protocol Neo mini RC ","2015","Charger","Drone ","Plastic",6.3
+"546","Protocol Neo mini RC ","2015","Charger","Drone ","PCB",0.4
+"547","Promark P70-VR quadcopter ","2016","Drone (main body + camera)","Drone ","Aluminum",2.25
+"548","Promark P70-VR quadcopter ","2016","Drone (main body + camera)","Drone ","Copper",25.14
+"549","Promark P70-VR quadcopter ","2016","Drone (main body + camera)","Drone ","Steel",124.29
+"550","Promark P70-VR quadcopter ","2016","Drone (main body + camera)","Drone ","Plastic",348.12
+"551","Promark P70-VR quadcopter ","2016","Drone (main body + camera)","Drone ","Li-ion battery",113
+"552","Promark P70-VR quadcopter ","2016","Drone (main body + camera)","Drone ","PCB",27.2
+"553","Promark P70-VR quadcopter ","2016","Drone (main body + camera)","Drone ","Others",0.1
+"554","Promark P70-VR quadcopter ","2016","Remote control","Drone ","Aluminum",1.44
+"555","Promark P70-VR quadcopter ","2016","Remote control","Drone ","Copper",12.5
+"556","Promark P70-VR quadcopter ","2016","Remote control","Drone ","Steel",12.64
+"557","Promark P70-VR quadcopter ","2016","Remote control","Drone ","Plastic",177.36
+"558","Promark P70-VR quadcopter ","2016","Remote control","Drone ","PCB",38.3
+"559","Promark P70-VR quadcopter ","2016","Remote control","Drone ","Others",0.8
+"560","Promark P70-VR quadcopter ","2016","3D Glasses","Drone ","Steel",13.65
+"561","Promark P70-VR quadcopter ","2016","3D Glasses","Drone ","Plastic",308.85
+"562","Promark P70-VR quadcopter ","2016","3D Glasses","Drone ","Others",76.9
+"563","Amazon Kindle Graphite ","WiFi, 6"" ","Battery","E-reader","Li-ion battery",53.1
+"564","Amazon Kindle Graphite ","WiFi, 6"" ","Casing","E-reader","Aluminum",3.6
+"565","Amazon Kindle Graphite ","WiFi, 6"" ","Casing","E-reader","Plastic",57.5
+"566","Amazon Kindle Graphite ","WiFi, 6"" ","Casing","E-reader","Other metals",0.1
+"567","Amazon Kindle Graphite ","WiFi, 6"" ","Display","E-reader","Copper",0.8
+"568","Amazon Kindle Graphite ","WiFi, 6"" ","Display","E-reader","PCB",0.4
+"569","Amazon Kindle Graphite ","WiFi, 6"" ","Display","E-reader","Flat panel glass",31.3
+"570","Amazon Kindle Graphite ","WiFi, 6"" ","Interior modules","E-reader","Aluminum",0.2
+"571","Amazon Kindle Graphite ","WiFi, 6"" ","Interior modules","E-reader","Copper",1.6
+"572","Amazon Kindle Graphite ","WiFi, 6"" ","Interior modules","E-reader","Steel",24.7
+"573","Amazon Kindle Graphite ","WiFi, 6"" ","Interior modules","E-reader","Plastic",12.9
+"574","Amazon Kindle Graphite ","WiFi, 6"" ","Interior modules","E-reader","Other metals",0.1
+"575","Amazon Kindle Graphite ","WiFi, 6"" ","Interior modules","E-reader","Others",0.7
+"576","Amazon Kindle Graphite ","WiFi, 6"" ","Motherboard","E-reader","Aluminum",9.7
+"577","Amazon Kindle Graphite ","WiFi, 6"" ","Motherboard","E-reader","PCB",25.3
+"578","Amazon Kindle 7"" SQ46CW ","2014","Battery","E-reader","Li-ion battery",59.8
+"579","Amazon Kindle 7"" SQ46CW ","2014","Casing","E-reader","Plastic",53.62
+"580","Amazon Kindle 7"" SQ46CW ","2014","Display","E-reader","Copper",0.2
+"581","Amazon Kindle 7"" SQ46CW ","2014","Display","E-reader","Steel",1.8
+"582","Amazon Kindle 7"" SQ46CW ","2014","Display","E-reader","Plastic",26.1
+"583","Amazon Kindle 7"" SQ46CW ","2014","Display","E-reader","Flat panel glass",43.6
+"584","Amazon Kindle 7"" SQ46CW ","2014","Display","E-reader","Other glass",70.48
+"585","Amazon Kindle 7"" SQ46CW ","2014","Interior modules*","E-reader","Aluminum",4.7
+"586","Amazon Kindle 7"" SQ46CW ","2014","Interior modules*","E-reader","Copper",1.7
+"587","Amazon Kindle 7"" SQ46CW ","2014","Interior modules*","E-reader","Steel",2.1
+"588","Amazon Kindle 7"" SQ46CW ","2014","Interior modules*","E-reader","Plastic",6.6
+"589","Amazon Kindle 7"" SQ46CW ","2014","Interior modules*","E-reader","Other metals",28.9
+"590","Amazon Kindle 7"" SQ46CW ","2014","Interior modules*","E-reader","Others",0.7
+"591","Amazon Kindle 7"" SQ46CW ","2014","Motherboard","E-reader","PCB",30.8
+"592","RCR REB 1100 E-book reader ","2001","Battery","E-reader","Li-ion battery",91.89
+"593","RCR REB 1100 E-book reader ","2001","Casing","E-reader","Steel",28.63
+"594","RCR REB 1100 E-book reader ","2001","Casing","E-reader","Plastic",177.96
+"595","RCR REB 1100 E-book reader ","2001","Display","E-reader","Plastic",9.78
+"596","RCR REB 1100 E-book reader ","2001","Display","E-reader","Flat panel glass",114.85
+"597","RCR REB 1100 E-book reader ","2001","Display","E-reader","Other metals",0.36
+"598","RCR REB 1100 E-book reader ","2001","Display","E-reader","Others",0.59
+"599","RCR REB 1100 E-book reader ","2001","Motherboard","E-reader","Aluminum",9
+"600","RCR REB 1100 E-book reader ","2001","Motherboard","E-reader","PCB",82.33
+"601","Amazon Kindle 3rd generation WiFi ","2010","Battery","E-reader","Li-ion battery",51
+"602","Amazon Kindle 3rd generation WiFi ","2010","Casing","E-reader","Steel",1.5
+"603","Amazon Kindle 3rd generation WiFi ","2010","Casing","E-reader","Plastic",57
+"604","Amazon Kindle 3rd generation WiFi ","2010","Display","E-reader","Flat panel glass",34
+"605","Amazon Kindle 3rd generation WiFi ","2010","Interior modules","E-reader","Aluminum",25
+"606","Amazon Kindle 3rd generation WiFi ","2010","Interior modules","E-reader","Plastic",19.3
+"607","Amazon Kindle 3rd generation WiFi ","2010","Interior modules","E-reader","Others",1
+"608","Amazon Kindle 3rd generation WiFi ","2010","Motherboard","E-reader","Aluminum",9
+"609","Amazon Kindle 3rd generation WiFi ","2010","Motherboard","E-reader","PCB",25.9
+"610","Fitbit One clip-on FB103 ","2012","Clip","Fitness tracker","Steel",3.4
+"611","Fitbit One clip-on FB103 ","2012","Clip","Fitness tracker","Plastic",0.3
+"612","Fitbit One clip-on FB103 ","2012","Clip","Fitness tracker","Others",4.8
+"613","Fitbit One clip-on FB103 ","2012","Fitness tracker body","Fitness tracker","Aluminum",1.88
+"614","Fitbit One clip-on FB103 ","2012","Fitness tracker body","Fitness tracker","Steel",0.7
+"615","Fitbit One clip-on FB103 ","2012","Fitness tracker body","Fitness tracker","Plastic",1.7
+"616","Fitbit One clip-on FB103 ","2012","Fitness tracker body","Fitness tracker","Li-ion battery",1.4
+"617","Fitbit One clip-on FB103 ","2012","Fitness tracker body","Fitness tracker","PCB",1.4
+"618","Fitbit One clip-on FB103 ","2012","Fitness tracker body","Fitness tracker","Flat panel glass",0.7
+"619","Fitbit Zip wireless activity tracker FB150 ","2012","Fitness tracker body","Fitness tracker","Plastic",3
+"620","Fitbit Zip wireless activity tracker FB150 ","2012","Fitness tracker body","Fitness tracker","Li-ion battery",2.4
+"621","Fitbit Zip wireless activity tracker FB150 ","2012","Fitness tracker body","Fitness tracker","PCB",1.5
+"622","Fitbit Zip wireless activity tracker FB150 ","2012","Fitness tracker body","Fitness tracker","Flat panel glass",1
+"623","Fitbit Zip wireless activity tracker FB150 ","2012","Clip","Fitness tracker","Steel",3.2
+"624","Fitbit Zip wireless activity tracker FB150 ","2012","Clip","Fitness tracker","Plastic",0.3
+"625","Fitbit Zip wireless activity tracker FB150 ","2012","Clip","Fitness tracker","Others",5
+"626","Jawbone 2nd generation ","2013","Band cover","Fitness tracker","Others",6.8
+"627","Jawbone 2nd generation ","2013","End cap","Fitness tracker","Steel",0.5
+"628","Jawbone 2nd generation ","2013","End cap","Fitness tracker","Plastic",0.5
+"629","Jawbone 2nd generation ","2013","End plate","Fitness tracker","Steel",0.2
+"630","Jawbone 2nd generation ","2013","Inner band","Fitness tracker","Aluminum",0.2
+"631","Jawbone 2nd generation ","2013","Inner band","Fitness tracker","Steel",8
+"632","Jawbone 2nd generation ","2013","Inner band","Fitness tracker","Plastic",2.4
+"633","Jawbone 2nd generation ","2013","Inner band","Fitness tracker","Li-ion battery",0.8
+"634","Jawbone 2nd generation ","2013","Inner band","Fitness tracker","PCB",0.8
+"635","Jawbone 2nd generation ","2013","Inner band","Fitness tracker","Others",2.2
+"636","Samsung gear fit SMR350 ","2014","Cable","Fitness tracker","Copper",2.5
+"637","Samsung gear fit SMR350 ","2014","Cable","Fitness tracker","Steel",2
+"638","Samsung gear fit SMR350 ","2014","Cable","Fitness tracker","Plastic",5.8
+"639","Samsung gear fit SMR350 ","2014","Cradle","Fitness tracker","Plastic",3.1
+"640","Samsung gear fit SMR350 ","2014","Cradle","Fitness tracker","PCB",1.1
+"641","Samsung gear fit SMR350 ","2014","Fitness tracker body","Fitness tracker","Aluminum",1.7
+"642","Samsung gear fit SMR350 ","2014","Fitness tracker body","Fitness tracker","Steel",0.3
+"643","Samsung gear fit SMR350 ","2014","Fitness tracker body","Fitness tracker","Plastic",5.1
+"644","Samsung gear fit SMR350 ","2014","Fitness tracker body","Fitness tracker","Li-ion battery",3.5
+"645","Samsung gear fit SMR350 ","2014","Fitness tracker body","Fitness tracker","PCB",2.9
+"646","Samsung gear fit SMR350 ","2014","Fitness tracker body","Fitness tracker","Flat panel glass",2.9
+"647","Samsung gear fit SMR350 ","2014","Fitness tracker body","Fitness tracker","Others",10
+"648","Sony Smartwatch SWR30 ","2014","Fitness tracker body","Fitness tracker","Aluminum",0.9
+"649","Sony Smartwatch SWR30 ","2014","Fitness tracker body","Fitness tracker","Copper",0.2
+"650","Sony Smartwatch SWR30 ","2014","Fitness tracker body","Fitness tracker","Steel",2.7
+"651","Sony Smartwatch SWR30 ","2014","Fitness tracker body","Fitness tracker","Plastic",2.6
+"652","Sony Smartwatch SWR30 ","2014","Fitness tracker body","Fitness tracker","Li-ion battery",1.6
+"653","Sony Smartwatch SWR30 ","2014","Fitness tracker body","Fitness tracker","PCB",1.2
+"654","Sony Smartwatch SWR30 ","2014","Fitness tracker body","Fitness tracker","Flat panel glass",3.5
+"655","Sony Smartwatch SWR30 ","2014","Fitness tracker body","Fitness tracker","Others",11.1
+"656","Fitbit Charge HR FB405 ","2014","Band","Fitness tracker","Plastic",2.4
+"657","Fitbit Charge HR FB405 ","2014","Band","Fitness tracker","Others",14.5
+"658","Fitbit Charge HR FB405 ","2014","Buckle","Fitness tracker","Steel",3.1
+"659","Fitbit Charge HR FB405 ","2014","Buckle","Fitness tracker","Plastic",0.7
+"660","Fitbit Charge HR FB405 ","2014","Display","Fitness tracker","Steel",1.3
+"661","Fitbit Charge HR FB405 ","2014","Display","Fitness tracker","Plastic",2.5
+"662","Fitbit Charge HR FB405 ","2014","Display","Fitness tracker","Li-ion battery",1.3
+"663","Fitbit Charge HR FB405 ","2014","Display","Fitness tracker","PCB",1.5
+"664","Fitbit Charge HR FB405 ","2014","Display","Fitness tracker","Flat panel glass",0.4
+"665","Fitbit Charge HR FB405 ","2014","Display","Fitness tracker","Others",0.1
+"666","XBOX 360 ","2005","Casing","Gaming console","Plastic",665.9
+"667","XBOX 360 ","2005","CD tray","Gaming console","Copper",4.6
+"668","XBOX 360 ","2005","CD tray","Gaming console","Steel",411.1
+"669","XBOX 360 ","2005","CD tray","Gaming console","Plastic",160.5
+"670","XBOX 360 ","2005","CD tray","Gaming console","PCB",50.6
+"671","XBOX 360 ","2005","CD tray","Gaming console","Others",4.3
+"672","XBOX 360 ","2005","Charger","Gaming console","Aluminum",189.8
+"673","XBOX 360 ","2005","Charger","Gaming console","Plastic",218
+"674","XBOX 360 ","2005","Hard drive case","Gaming console","Steel",56.9
+"675","XBOX 360 ","2005","Hard drive case","Gaming console","Plastic",107.9
+"676","XBOX 360 ","2005","Hard drive","Gaming console","Aluminum",17.5
+"677","XBOX 360 ","2005","Hard drive","Gaming console","Steel",17
+"678","XBOX 360 ","2005","Hard drive","Gaming console","Plastic",21.1
+"679","XBOX 360 ","2005","Hard drive","Gaming console","PCB",3.25
+"680","XBOX 360 ","2005","Hard drive","Gaming console","Others",0.6
+"681","XBOX 360 ","2005","Motherboard","Gaming console","Aluminum",314.6
+"682","XBOX 360 ","2005","Motherboard","Gaming console","Steel",912.8
+"683","XBOX 360 ","2005","Motherboard","Gaming console","Plastic",174.5
+"684","XBOX 360 ","2005","Motherboard","Gaming console","PCB",380.1
+"685","XBOX 360 ","2005","Other components*","Gaming console","Aluminum",0.9
+"686","XBOX 360 ","2005","Other components*","Gaming console","Steel",55.4
+"687","XBOX 360 ","2005","Other components*","Gaming console","Plastic",0.2
+"688","Nintendo WII ","2006","Casing","Gaming console","Steel",284.3
+"689","Nintendo WII ","2006","Casing","Gaming console","Plastic",267.1
+"690","Nintendo WII ","2006","Casing","Gaming console","Others",0.2
+"691","Nintendo WII ","2006","Disc drive","Gaming console","Copper",18.6
+"692","Nintendo WII ","2006","Disc drive","Gaming console","Steel",177.3
+"693","Nintendo WII ","2006","Disc drive","Gaming console","Plastic",78.2
+"694","Nintendo WII ","2006","Disc drive","Gaming console","PCB",31.22
+"695","Nintendo WII ","2006","Disc drive","Gaming console","Others",7.6
+"696","Nintendo WII ","2006","Motherboard","Gaming console","Aluminum",68.6
+"697","Nintendo WII ","2006","Motherboard","Gaming console","Plastic",57.8
+"698","Nintendo WII ","2006","Motherboard","Gaming console","Li-ion battery",3
+"699","Nintendo WII ","2006","Motherboard","Gaming console","PCB",184.5
+"700","Playstation 3 ","2006","Casing","Gaming console","Aluminum",0.42
+"701","Playstation 3 ","2006","Casing","Gaming console","Steel",16.05
+"702","Playstation 3 ","2006","Casing","Gaming console","Plastic",497.85
+"703","Playstation 3 ","2006","Casing","Gaming console","PCB",4.2
+"704","Playstation 3 ","2006","Casing","Gaming console","Others",2.3
+"705","Playstation 3 ","2006","DVD drive","Gaming console","Aluminum",19.13
+"706","Playstation 3 ","2006","DVD drive","Gaming console","Copper",3.8
+"707","Playstation 3 ","2006","DVD drive","Gaming console","Steel",502.53
+"708","Playstation 3 ","2006","DVD drive","Gaming console","Plastic",227.65
+"709","Playstation 3 ","2006","DVD drive","Gaming console","PCB",118.2
+"710","Playstation 3 ","2006","DVD drive","Gaming console","Other metals",3.35
+"711","Playstation 3 ","2006","DVD drive","Gaming console","Others",3.09
+"712","Playstation 3 ","2006","Fan","Gaming console","Aluminum",300.8
+"713","Playstation 3 ","2006","Fan","Gaming console","Copper",172.8
+"714","Playstation 3 ","2006","Fan","Gaming console","Steel",186.8
+"715","Playstation 3 ","2006","Fan","Gaming console","Plastic",72
+"716","Playstation 3 ","2006","Fan","Gaming console","Other metals",0.31
+"717","Playstation 3 ","2006","Fan","Gaming console","Others",1.8
+"718","Playstation 3 ","2006","Inside","Gaming console","Aluminum",5.2
+"719","Playstation 3 ","2006","Inside","Gaming console","Steel",310
+"720","Playstation 3 ","2006","Inside","Gaming console","Plastic",470
+"721","Playstation 3 ","2006","Inside","Gaming console","PCB",6.1
+"722","Playstation 3 ","2006","Inside","Gaming console","Others",2.3
+"723","Playstation 3 ","2006","Motherboard","Gaming console","Aluminum",169.3
+"724","Playstation 3 ","2006","Motherboard","Gaming console","Copper",25
+"725","Playstation 3 ","2006","Motherboard","Gaming console","Steel",76.6
+"726","Playstation 3 ","2006","Motherboard","Gaming console","Plastic",40.2
+"727","Playstation 3 ","2006","Motherboard","Gaming console","Li-ion battery",3.2
+"728","Playstation 3 ","2006","Motherboard","Gaming console","PCB",536.2
+"729","Playstation 3 ","2006","Motherboard","Gaming console","Other metals",2.9
+"730","Playstation 3 ","2006","Motherboard","Gaming console","Others",13.2
+"731","Playstation 3 ","2006","Outer plug","Gaming console","Aluminum",6.24
+"732","Playstation 3 ","2006","Outer plug","Gaming console","Steel",13.8
+"733","Playstation 3 ","2006","Outer plug","Gaming console","Plastic",25.3
+"734","Playstation 3 ","2006","Power supply","Gaming console","Aluminum",149.36
+"735","Playstation 3 ","2006","Power supply","Gaming console","Copper",10
+"736","Playstation 3 ","2006","Power supply","Gaming console","Steel",131.94
+"737","Playstation 3 ","2006","Power supply","Gaming console","Plastic",47.81
+"738","Playstation 3 ","2006","Power supply","Gaming console","PCB",50
+"739","Dell Latitude CPi R -series PPX ","1999","Battery","Laptop","Aluminum",0.8
+"740","Dell Latitude CPi R -series PPX ","1999","Battery","Laptop","Plastic",44
+"741","Dell Latitude CPi R -series PPX ","1999","Battery","Laptop","Li-ion battery",368.6
+"742","Dell Latitude CPi R -series PPX ","1999","Battery","Laptop","PCB",9.4
+"743","Dell Latitude CPi R -series PPX ","1999","Battery","Laptop","Others",3.5
+"744","Dell Latitude CPi R -series PPX ","1999","Chasis bottom","Laptop","Aluminum",22.7
+"745","Dell Latitude CPi R -series PPX ","1999","Chasis bottom","Laptop","Steel",1.5
+"746","Dell Latitude CPi R -series PPX ","1999","Chasis bottom","Laptop","Plastic",206.3
+"747","Dell Latitude CPi R -series PPX ","1999","Chasis bottom","Laptop","Others",0.1
+"748","Dell Latitude CPi R -series PPX ","1999","Chasis top","Laptop","Steel",69.3
+"749","Dell Latitude CPi R -series PPX ","1999","Chasis top","Laptop","Plastic",226.5
+"750","Dell Latitude CPi R -series PPX ","1999","Chasis top","Laptop","Other metals",0.8
+"751","Dell Latitude CPi R -series PPX ","1999","Chasis top","Laptop","Others",0.4
+"752","Dell Latitude CPi R -series PPX ","1999","Display","Laptop","Copper",3.6
+"753","Dell Latitude CPi R -series PPX ","1999","Display","Laptop","Steel",170.5
+"754","Dell Latitude CPi R -series PPX ","1999","Display","Laptop","Plastic",263.5
+"755","Dell Latitude CPi R -series PPX ","1999","Display","Laptop","PCB",42.3
+"756","Dell Latitude CPi R -series PPX ","1999","Display","Laptop","Flat panel glass",265
+"757","Dell Latitude CPi R -series PPX ","1999","Display","Laptop","Others",4.8
+"758","Dell Latitude CPi R -series PPX ","1999","Fan","Laptop","Aluminum",0.3
+"759","Dell Latitude CPi R -series PPX ","1999","Fan","Laptop","Steel",0.3
+"760","Dell Latitude CPi R -series PPX ","1999","Fan","Laptop","Plastic",7
+"761","Dell Latitude CPi R -series PPX ","1999","Fan","Laptop","PCB",0.2
+"762","Dell Latitude CPi R -series PPX ","1999","Fan","Laptop","Others",0.1
+"763","Dell Latitude CPi R -series PPX ","1999","Hard drive","Laptop","Aluminum",27.85
+"764","Dell Latitude CPi R -series PPX ","1999","Hard drive","Laptop","Copper",1.81
+"765","Dell Latitude CPi R -series PPX ","1999","Hard drive","Laptop","Steel",94.3
+"766","Dell Latitude CPi R -series PPX ","1999","Hard drive","Laptop","Plastic",16.99
+"767","Dell Latitude CPi R -series PPX ","1999","Hard drive","Laptop","PCB",16.6
+"768","Dell Latitude CPi R -series PPX ","1999","Hard drive","Laptop","Others",18.24
+"769","Dell Latitude CPi R -series PPX ","1999","Heat sink","Laptop","Aluminum",37.3
+"770","Dell Latitude CPi R -series PPX ","1999","Heat sink","Laptop","Copper",14.1
+"771","Dell Latitude CPi R -series PPX ","1999","Heat sink","Laptop","Steel",0.5
+"772","Dell Latitude CPi R -series PPX ","1999","Keyboard","Laptop","Aluminum",109.42
+"773","Dell Latitude CPi R -series PPX ","1999","Keyboard","Laptop","Copper",0.1
+"774","Dell Latitude CPi R -series PPX ","1999","Keyboard","Laptop","Plastic",54.7
+"775","Dell Latitude CPi R -series PPX ","1999","Keyboard","Laptop","Other metals",10.5
+"776","Dell Latitude CPi R -series PPX ","1999","Keyboard","Laptop","Others",0.58
+"777","Dell Latitude CPi R -series PPX ","1999","Motherboard","Laptop","Aluminum",21.7
+"778","Dell Latitude CPi R -series PPX ","1999","Motherboard","Laptop","Steel",0.5
+"779","Dell Latitude CPi R -series PPX ","1999","Motherboard","Laptop","PCB",326.3
+"780","Dell Latitude CPi R -series PPX ","1999","Motherboard","Laptop","Others",1.2
+"781","Dell Latitude CPi R -series PPX ","1999","Optical drive","Laptop","Aluminum",86.8
+"782","Dell Latitude CPi R -series PPX ","1999","Optical drive","Laptop","Copper",1.7
+"783","Dell Latitude CPi R -series PPX ","1999","Optical drive","Laptop","Steel",31.5
+"784","Dell Latitude CPi R -series PPX ","1999","Optical drive","Laptop","Plastic",99.9
+"785","Dell Latitude CPi R -series PPX ","1999","Optical drive","Laptop","PCB",16.55
+"786","Dell Latitude CPi R -series PPX ","1999","Optical drive","Laptop","Others",27.65
+"787","Dell Latitude CPi R -series PPX ","1999","Speakers","Laptop","Aluminum",1.4
+"788","Dell Latitude CPi R -series PPX ","1999","Speakers","Laptop","Plastic",2.8
+"789","Dell Latitude CPi R -series PPX ","1999","Speakers","Laptop","Others",11.4
+"790","Dell Latitude CPi R -series PPX ","1999","Other components*","Laptop","Aluminum",58.8
+"791","Dell Latitude CPi R -series PPX ","1999","Other components*","Laptop","Copper",1
+"792","Dell Latitude CPi R -series PPX ","1999","Other components*","Laptop","Steel",58.8
+"793","Dell Latitude CPi R -series PPX ","1999","Other components*","Laptop","Plastic",102.5
+"794","Dell Latitude CPi R -series PPX ","1999","Other components*","Laptop","PCB",14.8
+"795","Dell Latitude CPi R -series PPX ","1999","Other components*","Laptop","Others",10.5
+"796","Dell CPX H5005T PPX ","2000","Battery","Laptop","Aluminum",0.7
+"797","Dell CPX H5005T PPX ","2000","Battery","Laptop","Plastic",50
+"798","Dell CPX H5005T PPX ","2000","Battery","Laptop","Li-ion battery",749.9
+"799","Dell CPX H5005T PPX ","2000","Battery","Laptop","PCB",8.9
+"800","Dell CPX H5005T PPX ","2000","Battery","Laptop","Others",2.7
+"801","Dell CPX H5005T PPX ","2000","Chasis bottom","Laptop","Aluminum",90
+"802","Dell CPX H5005T PPX ","2000","Chasis bottom","Laptop","Steel",7.1
+"803","Dell CPX H5005T PPX ","2000","Chasis bottom","Laptop","Plastic",215.9
+"804","Dell CPX H5005T PPX ","2000","Chasis bottom","Laptop","Others",7.9
+"805","Dell CPX H5005T PPX ","2000","Chasis top","Laptop","Steel",2.1
+"806","Dell CPX H5005T PPX ","2000","Chasis top","Laptop","Plastic",254.8
+"807","Dell CPX H5005T PPX ","2000","Chasis top","Laptop","Other metals",0.2
+"808","Dell CPX H5005T PPX ","2000","Chasis top","Laptop","Others",0.4
+"809","Dell CPX H5005T PPX ","2000","Display","Laptop","Aluminum",34.4
+"810","Dell CPX H5005T PPX ","2000","Display","Laptop","Copper",7.1
+"811","Dell CPX H5005T PPX ","2000","Display","Laptop","Steel",263.4
+"812","Dell CPX H5005T PPX ","2000","Display","Laptop","Plastic",287.7
+"813","Dell CPX H5005T PPX ","2000","Display","Laptop","PCB",29.1
+"814","Dell CPX H5005T PPX ","2000","Display","Laptop","Flat panel glass",283
+"815","Dell CPX H5005T PPX ","2000","Fan","Laptop","Aluminum",45.8
+"816","Dell CPX H5005T PPX ","2000","Fan","Laptop","Copper",22.2
+"817","Dell CPX H5005T PPX ","2000","Fan","Laptop","Steel",1.5
+"818","Dell CPX H5005T PPX ","2000","Fan","Laptop","Plastic",7.3
+"819","Dell CPX H5005T PPX ","2000","Fan","Laptop","PCB",56
+"820","Dell CPX H5005T PPX ","2000","Hard drive","Laptop","Aluminum",41.94
+"821","Dell CPX H5005T PPX ","2000","Hard drive","Laptop","Copper",3.48
+"822","Dell CPX H5005T PPX ","2000","Hard drive","Laptop","Steel",73.72
+"823","Dell CPX H5005T PPX ","2000","Hard drive","Laptop","Plastic",12.5
+"824","Dell CPX H5005T PPX ","2000","Hard drive","Laptop","PCB",13.96
+"825","Dell CPX H5005T PPX ","2000","Hard drive","Laptop","Others",15.3
+"826","Dell CPX H5005T PPX ","2000","Heat sink","Laptop","Aluminum",46.8
+"827","Dell CPX H5005T PPX ","2000","Heat sink","Laptop","Copper",11.7
+"828","Dell CPX H5005T PPX ","2000","Keyboard","Laptop","Aluminum",18.12
+"829","Dell CPX H5005T PPX ","2000","Keyboard","Laptop","Copper",47.5
+"830","Dell CPX H5005T PPX ","2000","Keyboard","Laptop","Steel",175.68
+"831","Dell CPX H5005T PPX ","2000","Keyboard","Laptop","Plastic",31.2
+"832","Dell CPX H5005T PPX ","2000","Keyboard","Laptop","Others",0.1
+"833","Dell CPX H5005T PPX ","2000","Motherboard","Laptop","Steel",1.9
+"834","Dell CPX H5005T PPX ","2000","Motherboard","Laptop","Plastic",1.1
+"835","Dell CPX H5005T PPX ","2000","Motherboard","Laptop","PCB",389.6
+"836","Dell CPX H5005T PPX ","2000","Optical drive","Laptop","Aluminum",60.6
+"837","Dell CPX H5005T PPX ","2000","Optical drive","Laptop","Copper",1.5
+"838","Dell CPX H5005T PPX ","2000","Optical drive","Laptop","Steel",58.2
+"839","Dell CPX H5005T PPX ","2000","Optical drive","Laptop","Plastic",102.1
+"840","Dell CPX H5005T PPX ","2000","Optical drive","Laptop","PCB",11.7
+"841","Dell CPX H5005T PPX ","2000","Optical drive","Laptop","Others",12.7
+"842","Dell CPX H5005T PPX ","2000","Speakers","Laptop","Aluminum",1.6
+"843","Dell CPX H5005T PPX ","2000","Speakers","Laptop","Steel",9.76
+"844","Dell CPX H5005T PPX ","2000","Speakers","Laptop","Plastic",2.44
+"845","Dell CPX H5005T PPX ","2000","Speakers","Laptop","Other metals",1.4
+"846","Dell CPX H5005T PPX ","2000","Speakers","Laptop","Others",0.8
+"847","Dell CPX H5005T PPX ","2000","Other components*","Laptop","Aluminum",1.22
+"848","Dell CPX H5005T PPX ","2000","Other components*","Laptop","Copper",1.7
+"849","Dell CPX H5005T PPX ","2000","Other components*","Laptop","Steel",51
+"850","Dell CPX H5005T PPX ","2000","Other components*","Laptop","Plastic",87.15
+"851","Dell CPX H5005T PPX ","2000","Other components*","Laptop","PCB",20.65
+"852","Dell CPX H5005T PPX ","2000","Other components*","Laptop","Other metals",2.1
+"853","Dell CPX H5005T PPX ","2000","Other components*","Laptop","Others",11.88
+"854","Dell Inspiron 14.1"" 4100 ","2001","Battery","Laptop","Aluminum",1.6
+"855","Dell Inspiron 14.1"" 4100 ","2001","Battery","Laptop","Plastic",51.4
+"856","Dell Inspiron 14.1"" 4100 ","2001","Battery","Laptop","Li-ion battery",359.1
+"857","Dell Inspiron 14.1"" 4100 ","2001","Battery","Laptop","PCB",8.9
+"858","Dell Inspiron 14.1"" 4100 ","2001","Battery","Laptop","Others",0.9
+"859","Dell Inspiron 14.1"" 4100 ","2001","Chasis bottom","Laptop","Steel",1
+"860","Dell Inspiron 14.1"" 4100 ","2001","Chasis bottom","Laptop","Plastic",147
+"861","Dell Inspiron 14.1"" 4100 ","2001","Chasis top","Laptop","Aluminum",15
+"862","Dell Inspiron 14.1"" 4100 ","2001","Chasis top","Laptop","Plastic",250
+"863","Dell Inspiron 14.1"" 4100 ","2001","Display*","Laptop","Aluminum",143.7
+"864","Dell Inspiron 14.1"" 4100 ","2001","Display*","Laptop","Copper",12
+"865","Dell Inspiron 14.1"" 4100 ","2001","Display*","Laptop","Steel",31
+"866","Dell Inspiron 14.1"" 4100 ","2001","Display*","Laptop","Plastic",81.95
+"867","Dell Inspiron 14.1"" 4100 ","2001","Display*","Laptop","PCB",22.15
+"868","Dell Inspiron 14.1"" 4100 ","2001","Display*","Laptop","Flat panel glass",166.02
+"869","Dell Inspiron 14.1"" 4100 ","2001","Display*","Laptop","Others",129.12
+"870","Dell Inspiron 14.1"" 4100 ","2001","Fan","Laptop","Aluminum",7
+"871","Dell Inspiron 14.1"" 4100 ","2001","Fan","Laptop","Steel",16
+"872","Dell Inspiron 14.1"" 4100 ","2001","Fan","Laptop","Plastic",18
+"873","Dell Inspiron 14.1"" 4100 ","2001","Fan","Laptop","PCB",0
+"874","Dell Inspiron 14.1"" 4100 ","2001","Fan","Laptop","Others",5
+"875","Dell Inspiron 14.1"" 4100 ","2001","Hard drive","Laptop","Aluminum",35
+"876","Dell Inspiron 14.1"" 4100 ","2001","Hard drive","Laptop","Steel",55
+"877","Dell Inspiron 14.1"" 4100 ","2001","Hard drive","Laptop","Plastic",9
+"878","Dell Inspiron 14.1"" 4100 ","2001","Hard drive","Laptop","PCB",14
+"879","Dell Inspiron 14.1"" 4100 ","2001","Hard drive","Laptop","Others",9
+"880","Dell Inspiron 14.1"" 4100 ","2001","Heat sink","Laptop","Aluminum",21
+"881","Dell Inspiron 14.1"" 4100 ","2001","Heat sink","Laptop","Copper",9
+"882","Dell Inspiron 14.1"" 4100 ","2001","Heat sink","Laptop","Steel",34
+"883","Dell Inspiron 14.1"" 4100 ","2001","Keyboard","Laptop","Aluminum",101
+"884","Dell Inspiron 14.1"" 4100 ","2001","Keyboard","Laptop","Plastic",11
+"885","Dell Inspiron 14.1"" 4100 ","2001","Motherboard","Laptop","PCB",290
+"886","Dell Inspiron 14.1"" 4100 ","2001","Motherboard","Laptop","Others",10
+"887","Dell Inspiron 14.1"" 4100 ","2001","Optical drive","Laptop","Aluminum",94
+"888","Dell Inspiron 14.1"" 4100 ","2001","Optical drive","Laptop","Copper",2
+"889","Dell Inspiron 14.1"" 4100 ","2001","Optical drive","Laptop","Steel",75
+"890","Dell Inspiron 14.1"" 4100 ","2001","Optical drive","Laptop","Plastic",87
+"891","Dell Inspiron 14.1"" 4100 ","2001","Optical drive","Laptop","PCB",24
+"892","Dell Inspiron 14.1"" 4100 ","2001","Optical drive","Laptop","Others",11
+"893","Dell Inspiron 14.1"" 4100 ","2001","Speakers","Laptop","Aluminum",4
+"894","Dell Inspiron 14.1"" 4100 ","2001","Speakers","Laptop","Plastic",2
+"895","Dell Inspiron 14.1"" 4100 ","2001","Speakers","Laptop","Others",10
+"896","Dell Inspiron 14.1"" 4100 ","2001","Other components*","Laptop","Aluminum",91
+"897","Dell Inspiron 14.1"" 4100 ","2001","Other components*","Laptop","Copper",1
+"898","Dell Inspiron 14.1"" 4100 ","2001","Other components*","Laptop","Steel",85
+"899","Dell Inspiron 14.1"" 4100 ","2001","Other components*","Laptop","Plastic",101
+"900","Dell Inspiron 14.1"" 4100 ","2001","Other components*","Laptop","PCB",83
+"901","Dell Inspiron 14.1"" 4100 ","2001","Other components*","Laptop","Others",2
+"902","Dell Latitude 14.1"" C600 ","2001","Battery","Laptop","Li-ion battery",423.7
+"903","Dell Latitude 14.1"" C600 ","2001","Chasis bottom","Laptop","Aluminum",142.6
+"904","Dell Latitude 14.1"" C600 ","2001","Chasis bottom","Laptop","Steel",24
+"905","Dell Latitude 14.1"" C600 ","2001","Chasis bottom","Laptop","Plastic",143.1
+"906","Dell Latitude 14.1"" C600 ","2001","Chasis bottom","Laptop","Others",2.1
+"907","Dell Latitude 14.1"" C600 ","2001","Chasis top","Laptop","Aluminum",4.9
+"908","Dell Latitude 14.1"" C600 ","2001","Chasis top","Laptop","Plastic",165
+"909","Dell Latitude 14.1"" C600 ","2001","Chasis top","Laptop","Others",14.1
+"910","Dell Latitude 14.1"" C600 ","2001","Display","Laptop","Aluminum",3.1
+"911","Dell Latitude 14.1"" C600 ","2001","Display","Laptop","Copper",8.5
+"912","Dell Latitude 14.1"" C600 ","2001","Display","Laptop","Steel",94.1
+"913","Dell Latitude 14.1"" C600 ","2001","Display","Laptop","Plastic",249.5
+"914","Dell Latitude 14.1"" C600 ","2001","Display","Laptop","PCB",22.1
+"915","Dell Latitude 14.1"" C600 ","2001","Display","Laptop","Flat panel glass",245
+"916","Dell Latitude 14.1"" C600 ","2001","Display","Laptop","Other metals",1.4
+"917","Dell Latitude 14.1"" C600 ","2001","Display","Laptop","Others",5.6
+"918","Dell Latitude 14.1"" C600 ","2001","Fan","Laptop","Aluminum",0.7
+"919","Dell Latitude 14.1"" C600 ","2001","Fan","Laptop","Plastic",14.1
+"920","Dell Latitude 14.1"" C600 ","2001","Fan","Laptop","Others",0.1
+"921","Dell Latitude 14.1"" C600 ","2001","Hard drive","Laptop","Aluminum",20.15
+"922","Dell Latitude 14.1"" C600 ","2001","Hard drive","Laptop","Copper",2.01
+"923","Dell Latitude 14.1"" C600 ","2001","Hard drive","Laptop","Steel",57
+"924","Dell Latitude 14.1"" C600 ","2001","Hard drive","Laptop","Plastic",29.64
+"925","Dell Latitude 14.1"" C600 ","2001","Hard drive","Laptop","Others",5.8
+"926","Dell Latitude 14.1"" C600 ","2001","Heat sink","Laptop","Aluminum",61.5
+"927","Dell Latitude 14.1"" C600 ","2001","Keyboard","Laptop","Steel",59.8
+"928","Dell Latitude 14.1"" C600 ","2001","Keyboard","Laptop","Plastic",39
+"929","Dell Latitude 14.1"" C600 ","2001","Keyboard","Laptop","Others",15.3
+"930","Dell Latitude 14.1"" C600 ","2001","Motherboard","Laptop","Aluminum",12.5
+"931","Dell Latitude 14.1"" C600 ","2001","Motherboard","Laptop","Plastic",290
+"932","Dell Latitude 14.1"" C600 ","2001","Motherboard","Laptop","Others",8.4
+"933","Dell Latitude 14.1"" C600 ","2001","Optical drive","Laptop","Aluminum",26.1
+"934","Dell Latitude 14.1"" C600 ","2001","Optical drive","Laptop","Steel",215.8
+"935","Dell Latitude 14.1"" C600 ","2001","Optical drive","Laptop","Plastic",113
+"936","Dell Latitude 14.1"" C600 ","2001","Speakers","Laptop","Copper",4.8
+"937","Dell Latitude 14.1"" C600 ","2001","Speakers","Laptop","Plastic",14.9
+"938","Dell Latitude 14.1"" C600 ","2001","Other components*","Laptop","Aluminum",21.8
+"939","Dell Latitude 14.1"" C600 ","2001","Other components*","Laptop","Copper",2.5
+"940","Dell Latitude 14.1"" C600 ","2001","Other components*","Laptop","Steel",16
+"941","Dell Latitude 14.1"" C600 ","2001","Other components*","Laptop","Plastic",127.6
+"942","Dell Latitude 14.1"" C610 ","2002","Battery","Laptop","Plastic",63.44
+"943","Dell Latitude 14.1"" C610 ","2002","Battery","Laptop","Li-ion battery",359.46
+"944","Dell Latitude 14.1"" C610 ","2002","Battery","Laptop","Others",2.6
+"945","Dell Latitude 14.1"" C610 ","2002","Chasis bottom","Laptop","Aluminum",81.6
+"946","Dell Latitude 14.1"" C610 ","2002","Chasis bottom","Laptop","Copper",0.5
+"947","Dell Latitude 14.1"" C610 ","2002","Chasis bottom","Laptop","Steel",9.8
+"948","Dell Latitude 14.1"" C610 ","2002","Chasis bottom","Laptop","Plastic",175.1
+"949","Dell Latitude 14.1"" C610 ","2002","Chasis bottom","Laptop","Others",0.2
+"950","Dell Latitude 14.1"" C610 ","2002","Chasis top","Laptop","Aluminum",14.2
+"951","Dell Latitude 14.1"" C610 ","2002","Chasis top","Laptop","Copper",9
+"952","Dell Latitude 14.1"" C610 ","2002","Chasis top","Laptop","Steel",0.4
+"953","Dell Latitude 14.1"" C610 ","2002","Chasis top","Laptop","Plastic",170.1
+"954","Dell Latitude 14.1"" C610 ","2002","Display","Laptop","Copper",12.2
+"955","Dell Latitude 14.1"" C610 ","2002","Display","Laptop","Steel",100.1
+"956","Dell Latitude 14.1"" C610 ","2002","Display","Laptop","Plastic",238.5
+"957","Dell Latitude 14.1"" C610 ","2002","Display","Laptop","PCB",33.8
+"958","Dell Latitude 14.1"" C610 ","2002","Display","Laptop","Flat panel glass",270
+"959","Dell Latitude 14.1"" C610 ","2002","Display","Laptop","Others",1.2
+"960","Dell Latitude 14.1"" C610 ","2002","Fan","Laptop","Copper",2.83
+"961","Dell Latitude 14.1"" C610 ","2002","Fan","Laptop","Steel",10.1
+"962","Dell Latitude 14.1"" C610 ","2002","Fan","Laptop","Plastic",3.04
+"963","Dell Latitude 14.1"" C610 ","2002","Fan","Laptop","PCB",4.33
+"964","Dell Latitude 14.1"" C610 ","2002","Fan","Laptop","Others",0.1
+"965","Dell Latitude 14.1"" C610 ","2002","Hard drive","Laptop","Aluminum",58.94
+"966","Dell Latitude 14.1"" C610 ","2002","Hard drive","Laptop","Steel",31.06
+"967","Dell Latitude 14.1"" C610 ","2002","Hard drive","Laptop","Plastic",18
+"968","Dell Latitude 14.1"" C610 ","2002","Hard drive","Laptop","PCB",13.5
+"969","Dell Latitude 14.1"" C610 ","2002","Hard drive","Laptop","Others",7.7
+"970","Dell Latitude 14.1"" C610 ","2002","Heat sink","Laptop","Aluminum",80.7
+"971","Dell Latitude 14.1"" C610 ","2002","Keyboard","Laptop","Aluminum",2.4
+"972","Dell Latitude 14.1"" C610 ","2002","Keyboard","Laptop","Copper",1.9
+"973","Dell Latitude 14.1"" C610 ","2002","Keyboard","Laptop","Steel",56.7
+"974","Dell Latitude 14.1"" C610 ","2002","Keyboard","Laptop","Plastic",41.4
+"975","Dell Latitude 14.1"" C610 ","2002","Keyboard","Laptop","PCB",2.4
+"976","Dell Latitude 14.1"" C610 ","2002","Keyboard","Laptop","Others",3.4
+"977","Dell Latitude 14.1"" C610 ","2002","Motherboard","Laptop","Aluminum",24.4
+"978","Dell Latitude 14.1"" C610 ","2002","Motherboard","Laptop","Steel",3.1
+"979","Dell Latitude 14.1"" C610 ","2002","Motherboard","Laptop","PCB",294.8
+"980","Dell Latitude 14.1"" C610 ","2002","Optical drive","Laptop","Aluminum",52.39
+"981","Dell Latitude 14.1"" C610 ","2002","Optical drive","Laptop","Copper",6.18
+"982","Dell Latitude 14.1"" C610 ","2002","Optical drive","Laptop","Steel",180.66
+"983","Dell Latitude 14.1"" C610 ","2002","Optical drive","Laptop","Plastic",97.89
+"984","Dell Latitude 14.1"" C610 ","2002","Optical drive","Laptop","PCB",23.1
+"985","Dell Latitude 14.1"" C610 ","2002","Optical drive","Laptop","Others",5.88
+"986","Dell Latitude 14.1"" C610 ","2002","Speakers","Laptop","Aluminum",2.7
+"987","Dell Latitude 14.1"" C610 ","2002","Speakers","Laptop","Copper",1.9
+"988","Dell Latitude 14.1"" C610 ","2002","Speakers","Laptop","Steel",1.3
+"989","Dell Latitude 14.1"" C610 ","2002","Speakers","Laptop","Plastic",12.3
+"990","Dell Latitude 14.1"" C610 ","2002","Speakers","Laptop","PCB",2.4
+"991","Dell Latitude 14.1"" C610 ","2002","Speakers","Laptop","Others",1.5
+"992","Dell Latitude 14.1"" C610 ","2002","Other components*","Laptop","Aluminum",41.49
+"993","Dell Latitude 14.1"" C610 ","2002","Other components*","Laptop","Copper",2.4
+"994","Dell Latitude 14.1"" C610 ","2002","Other components*","Laptop","Steel",2.8
+"995","Dell Latitude 14.1"" C610 ","2002","Other components*","Laptop","Plastic",117.18
+"996","Dell Latitude 14.1"" C610 ","2002","Other components*","Laptop","PCB",31.33
+"997","Dell Latitude 14.1"" C610 ","2002","Other components*","Laptop","Others",9.8
+"998","Dell Inspiron 14.1"" 5100 ","2003","Battery","Laptop","Aluminum",4.1
+"999","Dell Inspiron 14.1"" 5100 ","2003","Battery","Laptop","Plastic",75.4
+"1000","Dell Inspiron 14.1"" 5100 ","2003","Battery","Laptop","Li-ion battery",543.8
+"1001","Dell Inspiron 14.1"" 5100 ","2003","Battery","Laptop","PCB",7.6
+"1002","Dell Inspiron 14.1"" 5100 ","2003","Battery","Laptop","Others",2.8
+"1003","Dell Inspiron 14.1"" 5100 ","2003","Chasis bottom","Laptop","Aluminum",150.4
+"1004","Dell Inspiron 14.1"" 5100 ","2003","Chasis bottom","Laptop","Plastic",232.7
+"1005","Dell Inspiron 14.1"" 5100 ","2003","Chasis bottom","Laptop","Others",4.2
+"1006","Dell Inspiron 14.1"" 5100 ","2003","Chasis top","Laptop","Aluminum",48.9
+"1007","Dell Inspiron 14.1"" 5100 ","2003","Chasis top","Laptop","Plastic",253.5
+"1008","Dell Inspiron 14.1"" 5100 ","2003","Chasis top","Laptop","Other metals",40.7
+"1009","Dell Inspiron 14.1"" 5100 ","2003","Display","Laptop","Aluminum",202.7
+"1010","Dell Inspiron 14.1"" 5100 ","2003","Display","Laptop","Plastic",71.9
+"1011","Dell Inspiron 14.1"" 5100 ","2003","Display","Laptop","PCB",24.2
+"1012","Dell Inspiron 14.1"" 5100 ","2003","Display","Laptop","Flat panel glass",234.2
+"1013","Dell Inspiron 14.1"" 5100 ","2003","Display","Laptop","Others",180.7
+"1014","Dell Inspiron 14.1"" 5100 ","2003","Fan","Laptop","Plastic",14.7
+"1015","Dell Inspiron 14.1"" 5100 ","2003","Hard drive","Laptop","Aluminum",80.92
+"1016","Dell Inspiron 14.1"" 5100 ","2003","Hard drive","Laptop","Plastic",43.56
+"1017","Dell Inspiron 14.1"" 5100 ","2003","Hard drive","Laptop","PCB",14.52
+"1018","Dell Inspiron 14.1"" 5100 ","2003","Heat sink","Laptop","Aluminum",86.55
+"1019","Dell Inspiron 14.1"" 5100 ","2003","Heat sink","Laptop","Copper",85.35
+"1020","Dell Inspiron 14.1"" 5100 ","2003","Keyboard","Laptop","Aluminum",47.6
+"1021","Dell Inspiron 14.1"" 5100 ","2003","Keyboard","Laptop","Plastic",64.4
+"1022","Dell Inspiron 14.1"" 5100 ","2003","Keyboard","Laptop","PCB",20.6
+"1023","Dell Inspiron 14.1"" 5100 ","2003","Motherboard","Laptop","PCB",279.8
+"1024","Dell Inspiron 14.1"" 5100 ","2003","Motherboard","Laptop","Others",19.4
+"1025","Dell Inspiron 14.1"" 5100 ","2003","Optical drive","Laptop","Aluminum",129.74
+"1026","Dell Inspiron 14.1"" 5100 ","2003","Optical drive","Laptop","Steel",49.65
+"1027","Dell Inspiron 14.1"" 5100 ","2003","Optical drive","Laptop","Plastic",26.91
+"1028","Dell Inspiron 14.1"" 5100 ","2003","Optical drive","Laptop","PCB",11.9
+"1029","Dell Inspiron 14.1"" 5100 ","2003","Speakers","Laptop","Plastic",12.7
+"1030","Dell Inspiron 14.1"" 5100 ","2003","Other components*","Laptop","Aluminum",22.3
+"1031","Dell Inspiron 14.1"" 5100 ","2003","Other components*","Laptop","Steel",8.9
+"1032","Dell Inspiron 14.1"" 5100 ","2003","Other components*","Laptop","Plastic",136.8
+"1033","Dell Inspiron 14.1"" 5100 ","2003","Other components*","Laptop","PCB",24.6
+"1034","Dell Inspiron 14.1"" 5100 ","2003","Other components*","Laptop","Others",4.4
+"1035","Dell latitude 14.1"" D600 ","2003","Battery","Laptop","Aluminum",1.3
+"1036","Dell latitude 14.1"" D600 ","2003","Battery","Laptop","Plastic",32.6
+"1037","Dell latitude 14.1"" D600 ","2003","Battery","Laptop","Li-ion battery",274.9
+"1038","Dell latitude 14.1"" D600 ","2003","Battery","Laptop","PCB",8.8
+"1039","Dell latitude 14.1"" D600 ","2003","Battery","Laptop","Others",1.3
+"1040","Dell latitude 14.1"" D600 ","2003","Chasis bottom","Laptop","Aluminum",76.16
+"1041","Dell latitude 14.1"" D600 ","2003","Chasis bottom","Laptop","Plastic",144.54
+"1042","Dell latitude 14.1"" D600 ","2003","Chasis bottom","Laptop","Other metals",69.4
+"1043","Dell latitude 14.1"" D600 ","2003","Chasis top","Laptop","Aluminum",148.6
+"1044","Dell latitude 14.1"" D600 ","2003","Chasis top","Laptop","Plastic",51
+"1045","Dell latitude 14.1"" D600 ","2003","Display","Laptop","Aluminum",53.55
+"1046","Dell latitude 14.1"" D600 ","2003","Display","Laptop","Copper",9.36
+"1047","Dell latitude 14.1"" D600 ","2003","Display","Laptop","Steel",5.04
+"1048","Dell latitude 14.1"" D600 ","2003","Display","Laptop","Plastic",57.33
+"1049","Dell latitude 14.1"" D600 ","2003","Display","Laptop","PCB",2.7
+"1050","Dell latitude 14.1"" D600 ","2003","Display","Laptop","Flat panel glass",363.6
+"1051","Dell latitude 14.1"" D600 ","2003","Display","Laptop","Others",22.73
+"1052","Dell latitude 14.1"" D600 ","2003","Fan","Laptop","Plastic",23.3
+"1053","Dell latitude 14.1"" D600 ","2003","Hard drive","Laptop","Aluminum",62.8
+"1054","Dell latitude 14.1"" D600 ","2003","Hard drive","Laptop","Steel",61.81
+"1055","Dell latitude 14.1"" D600 ","2003","Hard drive","Laptop","Plastic",6.08
+"1056","Dell latitude 14.1"" D600 ","2003","Hard drive","Laptop","PCB",9.51
+"1057","Dell latitude 14.1"" D600 ","2003","Heat sink","Laptop","Aluminum",39.12
+"1058","Dell latitude 14.1"" D600 ","2003","Heat sink","Laptop","Copper",9.78
+"1059","Dell latitude 14.1"" D600 ","2003","Keyboard","Laptop","Aluminum",74.3
+"1060","Dell latitude 14.1"" D600 ","2003","Keyboard","Laptop","Plastic",37.28
+"1061","Dell latitude 14.1"" D600 ","2003","Motherboard","Laptop","PCB",288.3
+"1062","Dell latitude 14.1"" D600 ","2003","Motherboard","Laptop","Others",46.3
+"1063","Dell latitude 14.1"" D600 ","2003","Optical drive","Laptop","Aluminum",12.84
+"1064","Dell latitude 14.1"" D600 ","2003","Optical drive","Laptop","Copper",26.16
+"1065","Dell latitude 14.1"" D600 ","2003","Optical drive","Laptop","Steel",29.3
+"1066","Dell latitude 14.1"" D600 ","2003","Optical drive","Laptop","Plastic",59.36
+"1067","Dell latitude 14.1"" D600 ","2003","Optical drive","Laptop","PCB",15.94
+"1068","Dell latitude 14.1"" D600 ","2003","Speakers","Laptop","Plastic",27.6
+"1069","Dell latitude 14.1"" D600 ","2003","Other components*","Laptop","Aluminum",74.48
+"1070","Dell latitude 14.1"" D600 ","2003","Other components*","Laptop","Steel",13.7
+"1071","Dell latitude 14.1"" D600 ","2003","Other components*","Laptop","Plastic",153.22
+"1072","Dell latitude 14.1"" D600 ","2003","Other components*","Laptop","PCB",31.74
+"1073","Dell latitude 14.1"" D600 ","2003","Other components*","Laptop","Others",10.8
+"1074","Dell Latitude 14.1"" D610 ","2005","Battery","Laptop","Steel",3.92
+"1075","Dell Latitude 14.1"" D610 ","2005","Battery","Laptop","Plastic",32.9
+"1076","Dell Latitude 14.1"" D610 ","2005","Battery","Laptop","Li-ion battery",265.2
+"1077","Dell Latitude 14.1"" D610 ","2005","Battery","Laptop","PCB",8.6
+"1078","Dell Latitude 14.1"" D610 ","2005","Battery","Laptop","Others",0.98
+"1079","Dell Latitude 14.1"" D610 ","2005","Chasis bottom","Laptop","Aluminum",10.2
+"1080","Dell Latitude 14.1"" D610 ","2005","Chasis bottom","Laptop","Steel",10.2
+"1081","Dell Latitude 14.1"" D610 ","2005","Chasis bottom","Laptop","Plastic",154.8
+"1082","Dell Latitude 14.1"" D610 ","2005","Chasis bottom","Laptop","Others",6.3
+"1083","Dell Latitude 14.1"" D610 ","2005","Chasis top","Laptop","Aluminum",6.4
+"1084","Dell Latitude 14.1"" D610 ","2005","Chasis top","Laptop","Copper",6.5
+"1085","Dell Latitude 14.1"" D610 ","2005","Chasis top","Laptop","Steel",1.7
+"1086","Dell Latitude 14.1"" D610 ","2005","Chasis top","Laptop","Plastic",181.4
+"1087","Dell Latitude 14.1"" D610 ","2005","Chasis top","Laptop","Others",0.2
+"1088","Dell Latitude 14.1"" D610 ","2005","Display","Laptop","Aluminum",5.2
+"1089","Dell Latitude 14.1"" D610 ","2005","Display","Laptop","Steel",65
+"1090","Dell Latitude 14.1"" D610 ","2005","Display","Laptop","Plastic",219.9
+"1091","Dell Latitude 14.1"" D610 ","2005","Display","Laptop","PCB",26.6
+"1092","Dell Latitude 14.1"" D610 ","2005","Display","Laptop","Flat panel glass",208.1
+"1093","Dell Latitude 14.1"" D610 ","2005","Display","Laptop","Others",13.1
+"1094","Dell Latitude 14.1"" D610 ","2005","Fan","Laptop","Copper",0.75
+"1095","Dell Latitude 14.1"" D610 ","2005","Fan","Laptop","Steel",2.55
+"1096","Dell Latitude 14.1"" D610 ","2005","Fan","Laptop","Plastic",18.95
+"1097","Dell Latitude 14.1"" D610 ","2005","Fan","Laptop","PCB",0.45
+"1098","Dell Latitude 14.1"" D610 ","2005","Fan","Laptop","Others",0.2
+"1099","Dell Latitude 14.1"" D610 ","2005","Hard drive","Laptop","Aluminum",50.3
+"1100","Dell Latitude 14.1"" D610 ","2005","Hard drive","Laptop","Steel",38
+"1101","Dell Latitude 14.1"" D610 ","2005","Hard drive","Laptop","Plastic",7.05
+"1102","Dell Latitude 14.1"" D610 ","2005","Hard drive","Laptop","PCB",14.6
+"1103","Dell Latitude 14.1"" D610 ","2005","Hard drive","Laptop","Others",8.3
+"1104","Dell Latitude 14.1"" D610 ","2005","Heat sink","Laptop","Aluminum",45.6
+"1105","Dell Latitude 14.1"" D610 ","2005","Heat sink","Laptop","Copper",45.6
+"1106","Dell Latitude 14.1"" D610 ","2005","Heat sink","Laptop","Steel",0.4
+"1107","Dell Latitude 14.1"" D610 ","2005","Heat sink","Laptop","PCB",6.2
+"1108","Dell Latitude 14.1"" D610 ","2005","Heat sink","Laptop","Others",0.3
+"1109","Dell Latitude 14.1"" D610 ","2005","Keyboard","Laptop","Aluminum",77.6
+"1110","Dell Latitude 14.1"" D610 ","2005","Keyboard","Laptop","Steel",2.1
+"1111","Dell Latitude 14.1"" D610 ","2005","Keyboard","Laptop","Plastic",37
+"1112","Dell Latitude 14.1"" D610 ","2005","Keyboard","Laptop","Others",17.1
+"1113","Dell Latitude 14.1"" D610 ","2005","Motherboard","Laptop","Copper",2.6
+"1114","Dell Latitude 14.1"" D610 ","2005","Motherboard","Laptop","Steel",14.8
+"1115","Dell Latitude 14.1"" D610 ","2005","Motherboard","Laptop","Plastic",109
+"1116","Dell Latitude 14.1"" D610 ","2005","Motherboard","Laptop","PCB",231.2
+"1117","Dell Latitude 14.1"" D610 ","2005","Motherboard","Laptop","Others",4.2
+"1118","Dell Latitude 14.1"" D610 ","2005","Optical drive","Laptop","Aluminum",75
+"1119","Dell Latitude 14.1"" D610 ","2005","Optical drive","Laptop","Copper",4.6
+"1120","Dell Latitude 14.1"" D610 ","2005","Optical drive","Laptop","Steel",72.4
+"1121","Dell Latitude 14.1"" D610 ","2005","Optical drive","Laptop","Plastic",58
+"1122","Dell Latitude 14.1"" D610 ","2005","Optical drive","Laptop","PCB",20.7
+"1123","Dell Latitude 14.1"" D610 ","2005","Speakers","Laptop","Copper",0.1
+"1124","Dell Latitude 14.1"" D610 ","2005","Speakers","Laptop","Steel",4.3
+"1125","Dell Latitude 14.1"" D610 ","2005","Speakers","Laptop","Plastic",15.9
+"1126","Dell Latitude 14.1"" D610 ","2005","Speakers","Laptop","Others",0.8
+"1127","Dell Latitude 14.1"" D610 ","2005","Other components*","Laptop","Aluminum",14.52
+"1128","Dell Latitude 14.1"" D610 ","2005","Other components*","Laptop","Copper",2.1
+"1129","Dell Latitude 14.1"" D610 ","2005","Other components*","Laptop","Steel",8.2
+"1130","Dell Latitude 14.1"" D610 ","2005","Other components*","Laptop","Plastic",150.56
+"1131","Dell Latitude 14.1"" D610 ","2005","Other components*","Laptop","PCB",47
+"1132","Dell Latitude 14.1"" D610 ","2005","Other components*","Laptop","Other metals",1.1
+"1133","Dell Latitude 14.1"" D610 ","2005","Other components*","Laptop","Others",11.72
+"1134","Dell Latitude 14.1"" D620 ","2006","Battery","Laptop","Steel",5.4
+"1135","Dell Latitude 14.1"" D620 ","2006","Battery","Laptop","Plastic",75.9
+"1136","Dell Latitude 14.1"" D620 ","2006","Battery","Laptop","Li-ion battery",413.2
+"1137","Dell Latitude 14.1"" D620 ","2006","Battery","Laptop","PCB",6.6
+"1138","Dell Latitude 14.1"" D620 ","2006","Battery","Laptop","Others",4
+"1139","Dell Latitude 14.1"" D620 ","2006","Chasis bottom","Laptop","Steel",3.7
+"1140","Dell Latitude 14.1"" D620 ","2006","Chasis bottom","Laptop","Other metals",246.3
+"1141","Dell Latitude 14.1"" D620 ","2006","Chasis bottom","Laptop","Others",14.3
+"1142","Dell Latitude 14.1"" D620 ","2006","Chasis top","Laptop","Steel",3.4
+"1143","Dell Latitude 14.1"" D620 ","2006","Chasis top","Laptop","Plastic",14.7
+"1144","Dell Latitude 14.1"" D620 ","2006","Chasis top","Laptop","Other metals",159.8
+"1145","Dell Latitude 14.1"" D620 ","2006","Chasis top","Laptop","Others",0.8
+"1146","Dell Latitude 14.1"" D620 ","2006","Display","Laptop","Aluminum",4
+"1147","Dell Latitude 14.1"" D620 ","2006","Display","Laptop","Copper",24.6
+"1148","Dell Latitude 14.1"" D620 ","2006","Display","Laptop","Steel",105.2
+"1149","Dell Latitude 14.1"" D620 ","2006","Display","Laptop","Plastic",194.1
+"1150","Dell Latitude 14.1"" D620 ","2006","Display","Laptop","PCB",20.9
+"1151","Dell Latitude 14.1"" D620 ","2006","Display","Laptop","Flat panel glass",190
+"1152","Dell Latitude 14.1"" D620 ","2006","Display","Laptop","Others",9.9
+"1153","Dell Latitude 14.1"" D620 ","2006","Fan","Laptop","Aluminum",5.7
+"1154","Dell Latitude 14.1"" D620 ","2006","Fan","Laptop","Copper",5.6
+"1155","Dell Latitude 14.1"" D620 ","2006","Fan","Laptop","Steel",5.1
+"1156","Dell Latitude 14.1"" D620 ","2006","Fan","Laptop","Plastic",18.1
+"1157","Dell Latitude 14.1"" D620 ","2006","Fan","Laptop","PCB",1.4
+"1158","Dell Latitude 14.1"" D620 ","2006","Hard drive","Laptop","Aluminum",38.2
+"1159","Dell Latitude 14.1"" D620 ","2006","Hard drive","Laptop","Copper",0.6
+"1160","Dell Latitude 14.1"" D620 ","2006","Hard drive","Laptop","Steel",59.6
+"1161","Dell Latitude 14.1"" D620 ","2006","Hard drive","Laptop","Plastic",3.85
+"1162","Dell Latitude 14.1"" D620 ","2006","Hard drive","Laptop","PCB",10.7
+"1163","Dell Latitude 14.1"" D620 ","2006","Hard drive","Laptop","Others",14.7
+"1164","Dell Latitude 14.1"" D620 ","2006","Heat sink","Laptop","Aluminum",28.35
+"1165","Dell Latitude 14.1"" D620 ","2006","Heat sink","Laptop","Copper",28.35
+"1166","Dell Latitude 14.1"" D620 ","2006","Heat sink","Laptop","Others",1.7
+"1167","Dell Latitude 14.1"" D620 ","2006","Keyboard","Laptop","Aluminum",89.7
+"1168","Dell Latitude 14.1"" D620 ","2006","Keyboard","Laptop","Steel",3.1
+"1169","Dell Latitude 14.1"" D620 ","2006","Keyboard","Laptop","Plastic",32.8
+"1170","Dell Latitude 14.1"" D620 ","2006","Keyboard","Laptop","Others",16.6
+"1171","Dell Latitude 14.1"" D620 ","2006","Motherboard","Laptop","Copper",2.4
+"1172","Dell Latitude 14.1"" D620 ","2006","Motherboard","Laptop","Steel",15.95
+"1173","Dell Latitude 14.1"" D620 ","2006","Motherboard","Laptop","PCB",249.85
+"1174","Dell Latitude 14.1"" D620 ","2006","Motherboard","Laptop","Others",2
+"1175","Dell Latitude 14.1"" D620 ","2006","Optical drive","Laptop","Aluminum",71.4
+"1176","Dell Latitude 14.1"" D620 ","2006","Optical drive","Laptop","Copper",3.03
+"1177","Dell Latitude 14.1"" D620 ","2006","Optical drive","Laptop","Steel",62.89
+"1178","Dell Latitude 14.1"" D620 ","2006","Optical drive","Laptop","Plastic",65.1
+"1179","Dell Latitude 14.1"" D620 ","2006","Optical drive","Laptop","PCB",23.88
+"1180","Dell Latitude 14.1"" D620 ","2006","Optical drive","Laptop","Others",0.1
+"1181","Dell Latitude 14.1"" D620 ","2006","Speakers","Laptop","Copper",0.1
+"1182","Dell Latitude 14.1"" D620 ","2006","Speakers","Laptop","Steel",4.8
+"1183","Dell Latitude 14.1"" D620 ","2006","Speakers","Laptop","Plastic",6.8
+"1184","Dell Latitude 14.1"" D620 ","2006","Speakers","Laptop","Others",0.3
+"1185","Dell Latitude 14.1"" D620 ","2006","Other components*","Laptop","Aluminum",11.4
+"1186","Dell Latitude 14.1"" D620 ","2006","Other components*","Laptop","Copper",4.6
+"1187","Dell Latitude 14.1"" D620 ","2006","Other components*","Laptop","Steel",14.5
+"1188","Dell Latitude 14.1"" D620 ","2006","Other components*","Laptop","Plastic",166.3
+"1189","Dell Latitude 14.1"" D620 ","2006","Other components*","Laptop","PCB",38.8
+"1190","Dell Latitude 14.1"" D620 ","2006","Other components*","Laptop","Others",10.9
+"1191","Dell latitude 14.1"" D630 ","2007","Battery","Laptop","Copper",7.3
+"1192","Dell latitude 14.1"" D630 ","2007","Battery","Laptop","Steel",9.6
+"1193","Dell latitude 14.1"" D630 ","2007","Battery","Laptop","Plastic",74.7
+"1194","Dell latitude 14.1"" D630 ","2007","Battery","Laptop","Li-ion battery",406.5
+"1195","Dell latitude 14.1"" D630 ","2007","Battery","Laptop","PCB",7.2
+"1196","Dell latitude 14.1"" D630 ","2007","Battery","Laptop","Others",1.8
+"1197","Dell latitude 14.1"" D630 ","2007","Chasis bottom","Laptop","Aluminum",10
+"1198","Dell latitude 14.1"" D630 ","2007","Chasis bottom","Laptop","Steel",4.5
+"1199","Dell latitude 14.1"" D630 ","2007","Chasis bottom","Laptop","Plastic",3.4
+"1200","Dell latitude 14.1"" D630 ","2007","Chasis bottom","Laptop","Other metals",226.4
+"1201","Dell latitude 14.1"" D630 ","2007","Chasis bottom","Laptop","Others",7.6
+"1202","Dell latitude 14.1"" D630 ","2007","Chasis top","Laptop","Copper",12.9
+"1203","Dell latitude 14.1"" D630 ","2007","Chasis top","Laptop","Steel",2.6
+"1204","Dell latitude 14.1"" D630 ","2007","Chasis top","Laptop","Plastic",10.8
+"1205","Dell latitude 14.1"" D630 ","2007","Chasis top","Laptop","Other metals",161.9
+"1206","Dell latitude 14.1"" D630 ","2007","Chasis top","Laptop","Others",2.7
+"1207","Dell latitude 14.1"" D630 ","2007","Display","Laptop","Aluminum",3.9
+"1208","Dell latitude 14.1"" D630 ","2007","Display","Laptop","Copper",10.8
+"1209","Dell latitude 14.1"" D630 ","2007","Display","Laptop","Steel",117.2
+"1210","Dell latitude 14.1"" D630 ","2007","Display","Laptop","Plastic",193.4
+"1211","Dell latitude 14.1"" D630 ","2007","Display","Laptop","PCB",20.9
+"1212","Dell latitude 14.1"" D630 ","2007","Display","Laptop","Flat panel glass",190
+"1213","Dell latitude 14.1"" D630 ","2007","Display","Laptop","Others",2.8
+"1214","Dell latitude 14.1"" D630 ","2007","Fan","Laptop","Aluminum",5.8
+"1215","Dell latitude 14.1"" D630 ","2007","Fan","Laptop","Copper",3.6
+"1216","Dell latitude 14.1"" D630 ","2007","Fan","Laptop","Steel",0.4
+"1217","Dell latitude 14.1"" D630 ","2007","Fan","Laptop","Plastic",18.4
+"1218","Dell latitude 14.1"" D630 ","2007","Fan","Laptop","PCB",3.6
+"1219","Dell latitude 14.1"" D630 ","2007","Fan","Laptop","Others",0.1
+"1220","Dell latitude 14.1"" D630 ","2007","Hard drive","Laptop","Aluminum",67.88
+"1221","Dell latitude 14.1"" D630 ","2007","Hard drive","Laptop","Copper",2.7
+"1222","Dell latitude 14.1"" D630 ","2007","Hard drive","Laptop","Steel",33.08
+"1223","Dell latitude 14.1"" D630 ","2007","Hard drive","Laptop","Plastic",4.84
+"1224","Dell latitude 14.1"" D630 ","2007","Hard drive","Laptop","PCB",10.6
+"1225","Dell latitude 14.1"" D630 ","2007","Hard drive","Laptop","Others",11.8
+"1226","Dell latitude 14.1"" D630 ","2007","Heat sink","Laptop","Aluminum",27.55
+"1227","Dell latitude 14.1"" D630 ","2007","Heat sink","Laptop","Copper",27.55
+"1228","Dell latitude 14.1"" D630 ","2007","Keyboard","Laptop","Aluminum",93.3
+"1229","Dell latitude 14.1"" D630 ","2007","Keyboard","Laptop","Steel",2
+"1230","Dell latitude 14.1"" D630 ","2007","Keyboard","Laptop","Plastic",32.1
+"1231","Dell latitude 14.1"" D630 ","2007","Keyboard","Laptop","Others",18.3
+"1232","Dell latitude 14.1"" D630 ","2007","Motherboard","Laptop","Aluminum",2.1
+"1233","Dell latitude 14.1"" D630 ","2007","Motherboard","Laptop","Steel",4.9
+"1234","Dell latitude 14.1"" D630 ","2007","Motherboard","Laptop","Plastic",9.45
+"1235","Dell latitude 14.1"" D630 ","2007","Motherboard","Laptop","PCB",269.95
+"1236","Dell latitude 14.1"" D630 ","2007","Motherboard","Laptop","Others",1.9
+"1237","Dell latitude 14.1"" D630 ","2007","Optical drive","Laptop","Aluminum",83.8
+"1238","Dell latitude 14.1"" D630 ","2007","Optical drive","Laptop","Copper",4.1
+"1239","Dell latitude 14.1"" D630 ","2007","Optical drive","Laptop","Steel",42.82
+"1240","Dell latitude 14.1"" D630 ","2007","Optical drive","Laptop","Plastic",70.6
+"1241","Dell latitude 14.1"" D630 ","2007","Optical drive","Laptop","PCB",23.88
+"1242","Dell latitude 14.1"" D630 ","2007","Optical drive","Laptop","Others",0.2
+"1243","Dell latitude 14.1"" D630 ","2007","Speakers","Laptop","Copper",0.1
+"1244","Dell latitude 14.1"" D630 ","2007","Speakers","Laptop","Steel",4.8
+"1245","Dell latitude 14.1"" D630 ","2007","Speakers","Laptop","Plastic",6.8
+"1246","Dell latitude 14.1"" D630 ","2007","Speakers","Laptop","Others",0.3
+"1247","Dell latitude 14.1"" D630 ","2007","Other components*","Laptop","Aluminum",11.4
+"1248","Dell latitude 14.1"" D630 ","2007","Other components*","Laptop","Copper",7.66
+"1249","Dell latitude 14.1"" D630 ","2007","Other components*","Laptop","Steel",16.1
+"1250","Dell latitude 14.1"" D630 ","2007","Other components*","Laptop","Plastic",168.24
+"1251","Dell latitude 14.1"" D630 ","2007","Other components*","Laptop","PCB",39.2
+"1252","Dell latitude 14.1"" D630 ","2007","Other components*","Laptop","Others",5.5
+"1253","Dell Inspiron 15.4""1525 ","2008","Battery","Laptop","Copper",1.25
+"1254","Dell Inspiron 15.4""1525 ","2008","Battery","Laptop","Steel",1.25
+"1255","Dell Inspiron 15.4""1525 ","2008","Battery","Laptop","Plastic",40.2
+"1256","Dell Inspiron 15.4""1525 ","2008","Battery","Laptop","Li-ion battery",272.1
+"1257","Dell Inspiron 15.4""1525 ","2008","Battery","Laptop","PCB",7.8
+"1258","Dell Inspiron 15.4""1525 ","2008","Battery","Laptop","Others",1.2
+"1259","Dell Inspiron 15.4""1525 ","2008","Chasis bottom /Back cover","Laptop","Aluminum",0.4
+"1260","Dell Inspiron 15.4""1525 ","2008","Chasis bottom /Back cover","Laptop","Steel",128.8
+"1261","Dell Inspiron 15.4""1525 ","2008","Chasis bottom /Back cover","Laptop","Plastic",255.8
+"1262","Dell Inspiron 15.4""1525 ","2008","Chasis bottom /Back cover","Laptop","Others",1.6
+"1263","Dell Inspiron 15.4""1525 ","2008","Display","Laptop","Aluminum",82.3
+"1264","Dell Inspiron 15.4""1525 ","2008","Display","Laptop","Copper",2.1
+"1265","Dell Inspiron 15.4""1525 ","2008","Display","Laptop","Steel",74.3
+"1266","Dell Inspiron 15.4""1525 ","2008","Display","Laptop","Plastic",519.65
+"1267","Dell Inspiron 15.4""1525 ","2008","Display","Laptop","PCB",25.3
+"1268","Dell Inspiron 15.4""1525 ","2008","Display","Laptop","Flat panel glass",207.3
+"1269","Dell Inspiron 15.4""1525 ","2008","Display","Laptop","Others",6.95
+"1270","Dell Inspiron 15.4""1525 ","2008","Fan","Laptop","Aluminum",0.4
+"1271","Dell Inspiron 15.4""1525 ","2008","Fan","Laptop","Copper",1.1
+"1272","Dell Inspiron 15.4""1525 ","2008","Fan","Laptop","Steel",14.75
+"1273","Dell Inspiron 15.4""1525 ","2008","Fan","Laptop","Plastic",16.65
+"1274","Dell Inspiron 15.4""1525 ","2008","Fan","Laptop","PCB",0.7
+"1275","Dell Inspiron 15.4""1525 ","2008","Fan","Laptop","Others",2.1
+"1276","Dell Inspiron 15.4""1525 ","2008","Hard drive","Laptop","Aluminum",8.8
+"1277","Dell Inspiron 15.4""1525 ","2008","Hard drive","Laptop","Steel",25.7
+"1278","Dell Inspiron 15.4""1525 ","2008","Hard drive","Laptop","Plastic",50
+"1279","Dell Inspiron 15.4""1525 ","2008","Hard drive","Laptop","PCB",12.2
+"1280","Dell Inspiron 15.4""1525 ","2008","Hard drive","Laptop","Others",9.5
+"1281","Dell Inspiron 15.4""1525 ","2008","Heat sink","Laptop","Aluminum",17.7
+"1282","Dell Inspiron 15.4""1525 ","2008","Heat sink","Laptop","Copper",15.7
+"1283","Dell Inspiron 15.4""1525 ","2008","Heat sink","Laptop","Steel",4.5
+"1284","Dell Inspiron 15.4""1525 ","2008","Heat sink","Laptop","Plastic",0.1
+"1285","Dell Inspiron 15.4""1525 ","2008","Heat sink","Laptop","Others",1
+"1286","Dell Inspiron 15.4""1525 ","2008","Keyboard","Laptop","Aluminum",54
+"1287","Dell Inspiron 15.4""1525 ","2008","Keyboard","Laptop","Copper",0.35
+"1288","Dell Inspiron 15.4""1525 ","2008","Keyboard","Laptop","Steel",162
+"1289","Dell Inspiron 15.4""1525 ","2008","Keyboard","Laptop","Plastic",164.95
+"1290","Dell Inspiron 15.4""1525 ","2008","Keyboard","Laptop","PCB",24.9
+"1291","Dell Inspiron 15.4""1525 ","2008","Motherboard","Laptop","Steel",18.1
+"1292","Dell Inspiron 15.4""1525 ","2008","Motherboard","Laptop","Plastic",44.9
+"1293","Dell Inspiron 15.4""1525 ","2008","Motherboard","Laptop","PCB",138.9
+"1294","Dell Inspiron 15.4""1525 ","2008","Motherboard","Laptop","Others",8.3
+"1295","Dell Inspiron 15.4""1525 ","2008","Optical drive","Laptop","Aluminum",61.9
+"1296","Dell Inspiron 15.4""1525 ","2008","Optical drive","Laptop","Copper",3.5
+"1297","Dell Inspiron 15.4""1525 ","2008","Optical drive","Laptop","Steel",54.1
+"1298","Dell Inspiron 15.4""1525 ","2008","Optical drive","Laptop","Plastic",28.3
+"1299","Dell Inspiron 15.4""1525 ","2008","Optical drive","Laptop","PCB",12.8
+"1300","Dell Inspiron 15.4""1525 ","2008","Optical drive","Laptop","Others",13.1
+"1301","Dell Inspiron 15.4""1525 ","2008","Speakers","Laptop","Aluminum",0.25
+"1302","Dell Inspiron 15.4""1525 ","2008","Speakers","Laptop","Steel",2.3
+"1303","Dell Inspiron 15.4""1525 ","2008","Speakers","Laptop","Plastic",4.65
+"1304","Dell Inspiron 15.4""1525 ","2008","Speakers","Laptop","Others",0.1
+"1305","Dell Inspiron 15.4""1525 ","2008","Other components*","Laptop","Steel",30.35
+"1306","Dell Inspiron 15.4""1525 ","2008","Other components*","Laptop","Plastic",2.5
+"1307","Dell Inspiron 15.4""1525 ","2008","Other components*","Laptop","PCB",45.05
+"1308","Dell Inspiron 15.4""1525 ","2008","Other components*","Laptop","Others",0.5
+"1309","HP Elitebook 12.1"" 2530p ","2008","Battery","Laptop","Copper",1.62
+"1310","HP Elitebook 12.1"" 2530p ","2008","Battery","Laptop","Steel",2.93
+"1311","HP Elitebook 12.1"" 2530p ","2008","Battery","Laptop","Plastic",40.14
+"1312","HP Elitebook 12.1"" 2530p ","2008","Battery","Laptop","Li-ion battery",273.88
+"1313","HP Elitebook 12.1"" 2530p ","2008","Battery","Laptop","PCB",5.31
+"1314","HP Elitebook 12.1"" 2530p ","2008","Chasis bottom","Laptop","Aluminum",4.43
+"1315","HP Elitebook 12.1"" 2530p ","2008","Chasis bottom","Laptop","Steel",10.03
+"1316","HP Elitebook 12.1"" 2530p ","2008","Chasis bottom","Laptop","Plastic",32.92
+"1317","HP Elitebook 12.1"" 2530p ","2008","Chasis bottom","Laptop","Other metals",123.89
+"1318","HP Elitebook 12.1"" 2530p ","2008","Chasis bottom","Laptop","Others",1.87
+"1319","HP Elitebook 12.1"" 2530p ","2008","Display","Laptop","Aluminum",112.84
+"1320","HP Elitebook 12.1"" 2530p ","2008","Display","Laptop","Copper",5.43
+"1321","HP Elitebook 12.1"" 2530p ","2008","Display","Laptop","Steel",47.64
+"1322","HP Elitebook 12.1"" 2530p ","2008","Display","Laptop","Plastic",129.34
+"1323","HP Elitebook 12.1"" 2530p ","2008","Display","Laptop","PCB",18.26
+"1324","HP Elitebook 12.1"" 2530p ","2008","Display","Laptop","Flat panel glass",84.72
+"1325","HP Elitebook 12.1"" 2530p ","2008","Display","Laptop","Other metals",70.2
+"1326","HP Elitebook 12.1"" 2530p ","2008","Display","Laptop","Others",4.53
+"1327","HP Elitebook 12.1"" 2530p ","2008","Fan","Laptop","Copper",0.35
+"1328","HP Elitebook 12.1"" 2530p ","2008","Fan","Laptop","Steel",4.1
+"1329","HP Elitebook 12.1"" 2530p ","2008","Fan","Laptop","Plastic",4.91
+"1330","HP Elitebook 12.1"" 2530p ","2008","Fan","Laptop","PCB",2.59
+"1331","HP Elitebook 12.1"" 2530p ","2008","Fan","Laptop","Others",0.13
+"1332","HP Elitebook 12.1"" 2530p ","2008","Hard drive","Laptop","Copper",0.54
+"1333","HP Elitebook 12.1"" 2530p ","2008","Hard drive","Laptop","Steel",49.2
+"1334","HP Elitebook 12.1"" 2530p ","2008","Hard drive","Laptop","Plastic",3.6
+"1335","HP Elitebook 12.1"" 2530p ","2008","Hard drive","Laptop","PCB",5
+"1336","HP Elitebook 12.1"" 2530p ","2008","Hard drive","Laptop","Others",4.25
+"1337","HP Elitebook 12.1"" 2530p ","2008","Heat sink","Laptop","Aluminum",4.45
+"1338","HP Elitebook 12.1"" 2530p ","2008","Heat sink","Laptop","Copper",19.59
+"1339","HP Elitebook 12.1"" 2530p ","2008","Heat sink","Laptop","Steel",2.26
+"1340","HP Elitebook 12.1"" 2530p ","2008","Keyboard","Laptop","Aluminum",8.55
+"1341","HP Elitebook 12.1"" 2530p ","2008","Keyboard","Laptop","Copper",0.41
+"1342","HP Elitebook 12.1"" 2530p ","2008","Keyboard","Laptop","Steel",54.04
+"1343","HP Elitebook 12.1"" 2530p ","2008","Keyboard","Laptop","Plastic",141.73
+"1344","HP Elitebook 12.1"" 2530p ","2008","Keyboard","Laptop","PCB",20.86
+"1345","HP Elitebook 12.1"" 2530p ","2008","Keyboard","Laptop","Other metals",20.33
+"1346","HP Elitebook 12.1"" 2530p ","2008","Keyboard","Laptop","Others",4.02
+"1347","HP Elitebook 12.1"" 2530p ","2008","Motherboard","Laptop","Aluminum",0.16
+"1348","HP Elitebook 12.1"" 2530p ","2008","Motherboard","Laptop","Copper",4.82
+"1349","HP Elitebook 12.1"" 2530p ","2008","Motherboard","Laptop","Steel",34.79
+"1350","HP Elitebook 12.1"" 2530p ","2008","Motherboard","Laptop","Plastic",41.59
+"1351","HP Elitebook 12.1"" 2530p ","2008","Motherboard","Laptop","PCB",130.24
+"1352","HP Elitebook 12.1"" 2530p ","2008","Motherboard","Laptop","Others",3.35
+"1353","HP Elitebook 12.1"" 2530p ","2008","Optical drive","Laptop","Aluminum",56.76
+"1354","HP Elitebook 12.1"" 2530p ","2008","Optical drive","Laptop","Copper",3.68
+"1355","HP Elitebook 12.1"" 2530p ","2008","Optical drive","Laptop","Steel",50.55
+"1356","HP Elitebook 12.1"" 2530p ","2008","Optical drive","Laptop","Plastic",21.43
+"1357","HP Elitebook 12.1"" 2530p ","2008","Optical drive","Laptop","PCB",12.29
+"1358","HP Elitebook 12.1"" 2530p ","2008","Optical drive","Laptop","Others",0.43
+"1359","HP Elitebook 12.1"" 2530p ","2008","Speakers","Laptop","Copper",0.25
+"1360","HP Elitebook 12.1"" 2530p ","2008","Speakers","Laptop","Steel",2.93
+"1361","HP Elitebook 12.1"" 2530p ","2008","Speakers","Laptop","Plastic",1.95
+"1362","HP Elitebook 12.1"" 2530p ","2008","Other components*","Laptop","Aluminum",2.4
+"1363","HP Elitebook 12.1"" 2530p ","2008","Other components*","Laptop","Copper",2.21
+"1364","HP Elitebook 12.1"" 2530p ","2008","Other components*","Laptop","Steel",9.6
+"1365","HP Elitebook 12.1"" 2530p ","2008","Other components*","Laptop","Plastic",9.9
+"1366","HP Elitebook 12.1"" 2530p ","2008","Other components*","Laptop","PCB",34.17
+"1367","HP Elitebook 12.1"" 2530p ","2008","Other components*","Laptop","Others",0.53
+"1368","HP elitebook 14.1"" 6930p ","2008","Battery","Laptop","Copper",1.05
+"1369","HP elitebook 14.1"" 6930p ","2008","Battery","Laptop","Plastic",35.75
+"1370","HP elitebook 14.1"" 6930p ","2008","Battery","Laptop","Li-ion battery",274.5
+"1371","HP elitebook 14.1"" 6930p ","2008","Battery","Laptop","PCB",5
+"1372","HP elitebook 14.1"" 6930p ","2008","Battery","Laptop","Others",0.2
+"1373","HP elitebook 14.1"" 6930p ","2008","Chasis bottom","Laptop","Aluminum",12.8
+"1374","HP elitebook 14.1"" 6930p ","2008","Chasis bottom","Laptop","Steel",13.6
+"1375","HP elitebook 14.1"" 6930p ","2008","Chasis bottom","Laptop","Plastic",21.7
+"1376","HP elitebook 14.1"" 6930p ","2008","Chasis bottom","Laptop","Other metals",219.1
+"1377","HP elitebook 14.1"" 6930p ","2008","Chasis bottom","Laptop","Others",1.9
+"1378","HP elitebook 14.1"" 6930p ","2008","Chasis top","Laptop","Aluminum",108.39
+"1379","HP elitebook 14.1"" 6930p ","2008","Chasis top","Laptop","Other metals",96.12
+"1380","HP elitebook 14.1"" 6930p ","2008","Display","Laptop","Aluminum",86.75
+"1381","HP elitebook 14.1"" 6930p ","2008","Display","Laptop","Copper",0.65
+"1382","HP elitebook 14.1"" 6930p ","2008","Display","Laptop","Steel",45.25
+"1383","HP elitebook 14.1"" 6930p ","2008","Display","Laptop","Plastic",241.05
+"1384","HP elitebook 14.1"" 6930p ","2008","Display","Laptop","PCB",27
+"1385","HP elitebook 14.1"" 6930p ","2008","Display","Laptop","Flat panel glass",169.2
+"1386","HP elitebook 14.1"" 6930p ","2008","Display","Laptop","Others",4.4
+"1387","HP elitebook 14.1"" 6930p ","2008","Fan","Laptop","Aluminum",6.3
+"1388","HP elitebook 14.1"" 6930p ","2008","Fan","Laptop","Copper",1.2
+"1389","HP elitebook 14.1"" 6930p ","2008","Fan","Laptop","Steel",3.1
+"1390","HP elitebook 14.1"" 6930p ","2008","Fan","Laptop","Plastic",18.9
+"1391","HP elitebook 14.1"" 6930p ","2008","Fan","Laptop","PCB",0.5
+"1392","HP elitebook 14.1"" 6930p ","2008","Fan","Laptop","Others",3.3
+"1393","HP elitebook 14.1"" 6930p ","2008","Hard drive","Laptop","Aluminum",20.9
+"1394","HP elitebook 14.1"" 6930p ","2008","Hard drive","Laptop","Copper",0.6
+"1395","HP elitebook 14.1"" 6930p ","2008","Hard drive","Laptop","Steel",39.9
+"1396","HP elitebook 14.1"" 6930p ","2008","Hard drive","Laptop","Plastic",27.2
+"1397","HP elitebook 14.1"" 6930p ","2008","Hard drive","Laptop","PCB",11.1
+"1398","HP elitebook 14.1"" 6930p ","2008","Hard drive","Laptop","Others",9.7
+"1399","HP elitebook 14.1"" 6930p ","2008","Heat sink","Laptop","Aluminum",15.6
+"1400","HP elitebook 14.1"" 6930p ","2008","Heat sink","Laptop","Copper",19.2
+"1401","HP elitebook 14.1"" 6930p ","2008","Heat sink","Laptop","Steel",3.4
+"1402","HP elitebook 14.1"" 6930p ","2008","Heat sink","Laptop","Others",0.3
+"1403","HP elitebook 14.1"" 6930p ","2008","Keyboard","Laptop","Aluminum",101.91
+"1404","HP elitebook 14.1"" 6930p ","2008","Keyboard","Laptop","Copper",1.6
+"1405","HP elitebook 14.1"" 6930p ","2008","Keyboard","Laptop","Steel",53
+"1406","HP elitebook 14.1"" 6930p ","2008","Keyboard","Laptop","Plastic",137.29
+"1407","HP elitebook 14.1"" 6930p ","2008","Keyboard","Laptop","PCB",10.1
+"1408","HP elitebook 14.1"" 6930p ","2008","Keyboard","Laptop","Other metals",10.3
+"1409","HP elitebook 14.1"" 6930p ","2008","Keyboard","Laptop","Others",8.5
+"1410","HP elitebook 14.1"" 6930p ","2008","Motherboard","Laptop","Copper",1.95
+"1411","HP elitebook 14.1"" 6930p ","2008","Motherboard","Laptop","Steel",35.55
+"1412","HP elitebook 14.1"" 6930p ","2008","Motherboard","Laptop","Plastic",34
+"1413","HP elitebook 14.1"" 6930p ","2008","Motherboard","Laptop","PCB",138
+"1414","HP elitebook 14.1"" 6930p ","2008","Optical drive","Laptop","Aluminum",62.5
+"1415","HP elitebook 14.1"" 6930p ","2008","Optical drive","Laptop","Copper",8.6
+"1416","HP elitebook 14.1"" 6930p ","2008","Optical drive","Laptop","Steel",47.4
+"1417","HP elitebook 14.1"" 6930p ","2008","Optical drive","Laptop","Plastic",36.65
+"1418","HP elitebook 14.1"" 6930p ","2008","Optical drive","Laptop","PCB",15.4
+"1419","HP elitebook 14.1"" 6930p ","2008","Optical drive","Laptop","Others",9.35
+"1420","HP elitebook 14.1"" 6930p ","2008","Speakers","Laptop","Copper",0.4
+"1421","HP elitebook 14.1"" 6930p ","2008","Speakers","Laptop","Steel",3.8
+"1422","HP elitebook 14.1"" 6930p ","2008","Speakers","Laptop","Plastic",14.2
+"1423","HP elitebook 14.1"" 6930p ","2008","Other components*","Laptop","Aluminum",9.6
+"1424","HP elitebook 14.1"" 6930p ","2008","Other components*","Laptop","Copper",0.1
+"1425","HP elitebook 14.1"" 6930p ","2008","Other components*","Laptop","Steel",30.9
+"1426","HP elitebook 14.1"" 6930p ","2008","Other components*","Laptop","Plastic",25.8
+"1427","HP elitebook 14.1"" 6930p ","2008","Other components*","Laptop","PCB",61.3
+"1428","HP elitebook 14.1"" 6930p ","2008","Other components*","Laptop","Others",3.6
+"1429","HP Elitebook 17"" 8730w ","2008","Battery","Laptop","Steel",7.2
+"1430","HP Elitebook 17"" 8730w ","2008","Battery","Laptop","Plastic",45
+"1431","HP Elitebook 17"" 8730w ","2008","Battery","Laptop","Li-ion battery",373.7
+"1432","HP Elitebook 17"" 8730w ","2008","Battery","Laptop","PCB",4
+"1433","HP Elitebook 17"" 8730w ","2008","Chasis bottom","Laptop","Steel",17.5
+"1434","HP Elitebook 17"" 8730w ","2008","Chasis bottom","Laptop","Plastic",44.9
+"1435","HP Elitebook 17"" 8730w ","2008","Chasis bottom","Laptop","Other metals",305.7
+"1436","HP Elitebook 17"" 8730w ","2008","Chasis bottom","Laptop","Others",1.8
+"1437","HP Elitebook 17"" 8730w ","2008","Display","Laptop","Aluminum",231.31
+"1438","HP Elitebook 17"" 8730w ","2008","Display","Laptop","Steel",167.3
+"1439","HP Elitebook 17"" 8730w ","2008","Display","Laptop","Plastic",313.1
+"1440","HP Elitebook 17"" 8730w ","2008","Display","Laptop","PCB",25
+"1441","HP Elitebook 17"" 8730w ","2008","Display","Laptop","Flat panel glass",315
+"1442","HP Elitebook 17"" 8730w ","2008","Display","Laptop","Other metals",188
+"1443","HP Elitebook 17"" 8730w ","2008","Display","Laptop","Others",5.1
+"1444","HP Elitebook 17"" 8730w ","2008","Fan","Laptop","Aluminum",0.3
+"1445","HP Elitebook 17"" 8730w ","2008","Fan","Laptop","Copper",1.2
+"1446","HP Elitebook 17"" 8730w ","2008","Fan","Laptop","Steel",9.3
+"1447","HP Elitebook 17"" 8730w ","2008","Fan","Laptop","Plastic",15.6
+"1448","HP Elitebook 17"" 8730w ","2008","Fan","Laptop","PCB",0.5
+"1449","HP Elitebook 17"" 8730w ","2008","Heat sink","Laptop","Aluminum",82
+"1450","HP Elitebook 17"" 8730w ","2008","Heat sink","Laptop","Copper",58.5
+"1451","HP Elitebook 17"" 8730w ","2008","Heat sink","Laptop","Steel",18.9
+"1452","HP Elitebook 17"" 8730w ","2008","Heat sink","Laptop","Plastic",2
+"1453","HP Elitebook 17"" 8730w ","2008","Keyboard","Laptop","Aluminum",153.9
+"1454","HP Elitebook 17"" 8730w ","2008","Keyboard","Laptop","Copper",7.8
+"1455","HP Elitebook 17"" 8730w ","2008","Keyboard","Laptop","Steel",44.28
+"1456","HP Elitebook 17"" 8730w ","2008","Keyboard","Laptop","Plastic",197.39
+"1457","HP Elitebook 17"" 8730w ","2008","Keyboard","Laptop","PCB",17.63
+"1458","HP Elitebook 17"" 8730w ","2008","Keyboard","Laptop","Others",3.4
+"1459","HP Elitebook 17"" 8730w ","2008","Motherboard","Laptop","Aluminum",2.9
+"1460","HP Elitebook 17"" 8730w ","2008","Motherboard","Laptop","Steel",32.7
+"1461","HP Elitebook 17"" 8730w ","2008","Motherboard","Laptop","Plastic",29
+"1462","HP Elitebook 17"" 8730w ","2008","Motherboard","Laptop","PCB",280
+"1463","HP Elitebook 17"" 8730w ","2008","Motherboard","Laptop","Others",2.9
+"1464","HP Elitebook 17"" 8730w ","2008","Optical drive","Laptop","Aluminum",60.48
+"1465","HP Elitebook 17"" 8730w ","2008","Optical drive","Laptop","Copper",4.57
+"1466","HP Elitebook 17"" 8730w ","2008","Optical drive","Laptop","Steel",49.32
+"1467","HP Elitebook 17"" 8730w ","2008","Optical drive","Laptop","Plastic",33.95
+"1468","HP Elitebook 17"" 8730w ","2008","Optical drive","Laptop","PCB",17.84
+"1469","HP Elitebook 17"" 8730w ","2008","Optical drive","Laptop","Others",7.94
+"1470","HP Elitebook 17"" 8730w ","2008","Speakers","Laptop","Aluminum",0.4
+"1471","HP Elitebook 17"" 8730w ","2008","Speakers","Laptop","Copper",0.3
+"1472","HP Elitebook 17"" 8730w ","2008","Speakers","Laptop","Steel",4.6
+"1473","HP Elitebook 17"" 8730w ","2008","Speakers","Laptop","Plastic",31.8
+"1474","HP Elitebook 17"" 8730w ","2008","Speakers","Laptop","Others",0.1
+"1475","HP Elitebook 17"" 8730w ","2008","Other components*","Laptop","Aluminum",27.8
+"1476","HP Elitebook 17"" 8730w ","2008","Other components*","Laptop","Copper",0.4
+"1477","HP Elitebook 17"" 8730w ","2008","Other components*","Laptop","Steel",4.9
+"1478","HP Elitebook 17"" 8730w ","2008","Other components*","Laptop","Plastic",52.48
+"1479","HP Elitebook 17"" 8730w ","2008","Other components*","Laptop","PCB",23.6
+"1480","HP Elitebook 17"" 8730w ","2008","Other components*","Laptop","Others",3.22
+"1481","Dell Latitude 14.1"" E6410 ","2010","Battery","Laptop","Steel",1.5
+"1482","Dell Latitude 14.1"" E6410 ","2010","Battery","Laptop","Plastic",35
+"1483","Dell Latitude 14.1"" E6410 ","2010","Battery","Laptop","Li-ion battery",285
+"1484","Dell Latitude 14.1"" E6410 ","2010","Battery","Laptop","PCB",8
+"1485","Dell Latitude 14.1"" E6410 ","2010","Battery","Laptop","Others",1.5
+"1486","Dell Latitude 14.1"" E6410 ","2010","Chasis bottom","Laptop","Aluminum",32.64
+"1487","Dell Latitude 14.1"" E6410 ","2010","Chasis bottom","Laptop","Steel",1.2
+"1488","Dell Latitude 14.1"" E6410 ","2010","Chasis bottom","Laptop","Plastic",1.1
+"1489","Dell Latitude 14.1"" E6410 ","2010","Chasis bottom","Laptop","Other metals",239.7
+"1490","Dell Latitude 14.1"" E6410 ","2010","Chasis bottom","Laptop","Others",10.26
+"1491","Dell Latitude 14.1"" E6410 ","2010","Chasis top","Laptop","Aluminum",20.07
+"1492","Dell Latitude 14.1"" E6410 ","2010","Chasis top","Laptop","Copper",13.4
+"1493","Dell Latitude 14.1"" E6410 ","2010","Chasis top","Laptop","Steel",43.1
+"1494","Dell Latitude 14.1"" E6410 ","2010","Chasis top","Laptop","Plastic",16.3
+"1495","Dell Latitude 14.1"" E6410 ","2010","Chasis top","Laptop","PCB",0.6
+"1496","Dell Latitude 14.1"" E6410 ","2010","Chasis top","Laptop","Other metals",150.45
+"1497","Dell Latitude 14.1"" E6410 ","2010","Chasis top","Laptop","Others",7.48
+"1498","Dell Latitude 14.1"" E6410 ","2010","Display","Laptop","Steel",36.9
+"1499","Dell Latitude 14.1"" E6410 ","2010","Display","Laptop","Plastic",175
+"1500","Dell Latitude 14.1"" E6410 ","2010","Display","Laptop","PCB",20
+"1501","Dell Latitude 14.1"" E6410 ","2010","Display","Laptop","Flat panel glass",170
+"1502","Dell Latitude 14.1"" E6410 ","2010","Display","Laptop","Other metals",9
+"1503","Dell Latitude 14.1"" E6410 ","2010","Display","Laptop","Others",3.5
+"1504","Dell Latitude 14.1"" E6410 ","2010","Fan","Laptop","Aluminum",2.69
+"1505","Dell Latitude 14.1"" E6410 ","2010","Fan","Laptop","Copper",0.7
+"1506","Dell Latitude 14.1"" E6410 ","2010","Fan","Laptop","Steel",0.7
+"1507","Dell Latitude 14.1"" E6410 ","2010","Fan","Laptop","Plastic",15.2
+"1508","Dell Latitude 14.1"" E6410 ","2010","Fan","Laptop","PCB",2.5
+"1509","Dell Latitude 14.1"" E6410 ","2010","Fan","Laptop","Others",0.7
+"1510","Dell Latitude 14.1"" E6410 ","2010","Hard drive","Laptop","Copper",0.4
+"1511","Dell Latitude 14.1"" E6410 ","2010","Hard drive","Laptop","Steel",91.87
+"1512","Dell Latitude 14.1"" E6410 ","2010","Hard drive","Laptop","PCB",11.6
+"1513","Dell Latitude 14.1"" E6410 ","2010","Hard drive","Laptop","Others",6.5
+"1514","Dell Latitude 14.1"" E6410 ","2010","Heat sink","Laptop","Aluminum",22.7
+"1515","Dell Latitude 14.1"" E6410 ","2010","Heat sink","Laptop","Copper",22.6
+"1516","Dell Latitude 14.1"" E6410 ","2010","Heat sink","Laptop","Steel",8.6
+"1517","Dell Latitude 14.1"" E6410 ","2010","Keyboard","Laptop","Aluminum",63
+"1518","Dell Latitude 14.1"" E6410 ","2010","Keyboard","Laptop","Plastic",66.1
+"1519","Dell Latitude 14.1"" E6410 ","2010","Motherboard","Laptop","Steel",1.8
+"1520","Dell Latitude 14.1"" E6410 ","2010","Motherboard","Laptop","PCB",300
+"1521","Dell Latitude 14.1"" E6410 ","2010","Optical drive","Laptop","Aluminum",54.2
+"1522","Dell Latitude 14.1"" E6410 ","2010","Optical drive","Laptop","Copper",1.8
+"1523","Dell Latitude 14.1"" E6410 ","2010","Optical drive","Laptop","Steel",51
+"1524","Dell Latitude 14.1"" E6410 ","2010","Optical drive","Laptop","Plastic",23.3
+"1525","Dell Latitude 14.1"" E6410 ","2010","Optical drive","Laptop","PCB",16.3
+"1526","Dell Latitude 14.1"" E6410 ","2010","Optical drive","Laptop","Others",1
+"1527","Dell Latitude 14.1"" E6410 ","2010","Speakers","Laptop","Plastic",11.2
+"1528","Dell Latitude 14.1"" E6410 ","2010","Speakers","Laptop","Others",2.6
+"1529","Dell Latitude 14.1"" E6410 ","2010","Other components*","Laptop","Aluminum",1.8
+"1530","Dell Latitude 14.1"" E6410 ","2010","Other components*","Laptop","Steel",56.9
+"1531","Dell Latitude 14.1"" E6410 ","2010","Other components*","Laptop","Plastic",169.7
+"1532","Dell Latitude 14.1"" E6410 ","2010","Other components*","Laptop","PCB",17.9
+"1533","Dell Latitude 14.1"" E6410 ","2010","Other components*","Laptop","Others",22.8
+"1534","Apple Macbook pro 15.4"" A1286 ","2011","Battery","Laptop","Steel",1.3
+"1535","Apple Macbook pro 15.4"" A1286 ","2011","Battery","Laptop","Plastic",0.3
+"1536","Apple Macbook pro 15.4"" A1286 ","2011","Battery","Laptop","Li-ion battery",460
+"1537","Apple Macbook pro 15.4"" A1286 ","2011","Battery","Laptop","Others",4.7
+"1538","Apple Macbook pro 15.4"" A1286 ","2011","Chasis bottom","Laptop","Aluminum",198
+"1539","Apple Macbook pro 15.4"" A1286 ","2011","Chasis bottom","Laptop","Steel",1.3
+"1540","Apple Macbook pro 15.4"" A1286 ","2011","Chasis top","Laptop","Aluminum",288
+"1541","Apple Macbook pro 15.4"" A1286 ","2011","Chasis top","Laptop","Steel",24.8
+"1542","Apple Macbook pro 15.4"" A1286 ","2011","Chasis top","Laptop","Others",4.4
+"1543","Apple Macbook pro 15.4"" A1286 ","2011","Display","Laptop","Aluminum",86.3
+"1544","Apple Macbook pro 15.4"" A1286 ","2011","Display","Laptop","Copper",0.3
+"1545","Apple Macbook pro 15.4"" A1286 ","2011","Display","Laptop","Steel",2.2
+"1546","Apple Macbook pro 15.4"" A1286 ","2011","Display","Laptop","Plastic",145.1
+"1547","Apple Macbook pro 15.4"" A1286 ","2011","Display","Laptop","Flat panel glass",219
+"1548","Apple Macbook pro 15.4"" A1286 ","2011","Display","Laptop","Others",13.1
+"1549","Apple Macbook pro 15.4"" A1286 ","2011","Fan","Laptop","Aluminum",12.4
+"1550","Apple Macbook pro 15.4"" A1286 ","2011","Fan","Laptop","Copper",0.8
+"1551","Apple Macbook pro 15.4"" A1286 ","2011","Fan","Laptop","Steel",4.2
+"1552","Apple Macbook pro 15.4"" A1286 ","2011","Fan","Laptop","Plastic",5.2
+"1553","Apple Macbook pro 15.4"" A1286 ","2011","Fan","Laptop","PCB",2.4
+"1554","Apple Macbook pro 15.4"" A1286 ","2011","Fan","Laptop","Other metals",9
+"1555","Apple Macbook pro 15.4"" A1286 ","2011","Hard drive","Laptop","Aluminum",3.5
+"1556","Apple Macbook pro 15.4"" A1286 ","2011","Hard drive","Laptop","Copper",0.7
+"1557","Apple Macbook pro 15.4"" A1286 ","2011","Hard drive","Laptop","Steel",61.1
+"1558","Apple Macbook pro 15.4"" A1286 ","2011","Hard drive","Laptop","Plastic",29.5
+"1559","Apple Macbook pro 15.4"" A1286 ","2011","Hard drive","Laptop","PCB",11.4
+"1560","Apple Macbook pro 15.4"" A1286 ","2011","Hard drive","Laptop","Others",6.6
+"1561","Apple Macbook pro 15.4"" A1286 ","2011","Heat sink","Laptop","Aluminum",12
+"1562","Apple Macbook pro 15.4"" A1286 ","2011","Heat sink","Laptop","Copper",29
+"1563","Apple Macbook pro 15.4"" A1286 ","2011","Heat sink","Laptop","Steel",2.5
+"1564","Apple Macbook pro 15.4"" A1286 ","2011","Keyboard","Laptop","Aluminum",36
+"1565","Apple Macbook pro 15.4"" A1286 ","2011","Keyboard","Laptop","Steel",1
+"1566","Apple Macbook pro 15.4"" A1286 ","2011","Keyboard","Laptop","Plastic",56
+"1567","Apple Macbook pro 15.4"" A1286 ","2011","Motherboard","Laptop","Aluminum",2.7
+"1568","Apple Macbook pro 15.4"" A1286 ","2011","Motherboard","Laptop","Steel",1.9
+"1569","Apple Macbook pro 15.4"" A1286 ","2011","Motherboard","Laptop","PCB",195
+"1570","Apple Macbook pro 15.4"" A1286 ","2011","Motherboard","Laptop","Other metals",1
+"1571","Apple Macbook pro 15.4"" A1286 ","2011","Optical drive","Laptop","Aluminum",56.4
+"1572","Apple Macbook pro 15.4"" A1286 ","2011","Optical drive","Laptop","Copper",3.7
+"1573","Apple Macbook pro 15.4"" A1286 ","2011","Optical drive","Laptop","Steel",51.4
+"1574","Apple Macbook pro 15.4"" A1286 ","2011","Optical drive","Laptop","Plastic",5.9
+"1575","Apple Macbook pro 15.4"" A1286 ","2011","Optical drive","Laptop","PCB",10.3
+"1576","Apple Macbook pro 15.4"" A1286 ","2011","Optical drive","Laptop","Others",0.5
+"1577","Apple Macbook pro 15.4"" A1286 ","2011","Speakers","Laptop","Steel",0.5
+"1578","Apple Macbook pro 15.4"" A1286 ","2011","Speakers","Laptop","Plastic",13.6
+"1579","Apple Macbook pro 15.4"" A1286 ","2011","Speakers","Laptop","Others",0.3
+"1580","Apple Macbook pro 15.4"" A1286 ","2011","Other components*","Laptop","Aluminum",329.2
+"1581","Apple Macbook pro 15.4"" A1286 ","2011","Other components*","Laptop","Steel",2.5
+"1582","Apple Macbook pro 15.4"" A1286 ","2011","Other components*","Laptop","Plastic",24.4
+"1583","Apple Macbook pro 15.4"" A1286 ","2011","Other components*","Laptop","Others",1.5
+"1584","HP 19"" W1907 flat panel monitor ","2006","Casing","LCD monitor","Steel",3.6
+"1585","HP 19"" W1907 flat panel monitor ","2006","Casing","LCD monitor","Plastic",572
+"1586","HP 19"" W1907 flat panel monitor ","2006","Display","LCD monitor","Aluminum",19.8
+"1587","HP 19"" W1907 flat panel monitor ","2006","Display","LCD monitor","Steel",774.9
+"1588","HP 19"" W1907 flat panel monitor ","2006","Display","LCD monitor","Plastic",1052.8
+"1589","HP 19"" W1907 flat panel monitor ","2006","Display","LCD monitor","PCB",30
+"1590","HP 19"" W1907 flat panel monitor ","2006","Display","LCD monitor","Flat panel glass",392
+"1591","HP 19"" W1907 flat panel monitor ","2006","Display","LCD monitor","Others",6.2
+"1592","HP 19"" W1907 flat panel monitor ","2006","Interior frame","LCD monitor","Steel",792
+"1593","HP 19"" W1907 flat panel monitor ","2006","Motherboard","LCD monitor","PCB",279
+"1594","HP 19"" W1907 flat panel monitor ","2006","Speaker","LCD monitor","Steel",15.1
+"1595","HP 19"" W1907 flat panel monitor ","2006","Speaker","LCD monitor","Plastic",24.2
+"1596","HP 19"" W1907 flat panel monitor ","2006","Speaker","LCD monitor","Others",1.4
+"1597","HP 19"" W1907 flat panel monitor ","2006","Stand","LCD monitor","Aluminum",400
+"1598","HP 19"" W1907 flat panel monitor ","2006","Stand","LCD monitor","Steel",270.4
+"1599","HP 19"" W1907 flat panel monitor ","2006","Stand","LCD monitor","Plastic",245
+"1600","HP 19"" W1907 flat panel monitor ","2006","Stand","LCD monitor","Others",0.7
+"1601","HP 19"" W1907 flat panel monitor ","2006","Other components*","LCD monitor","Aluminum",4.6
+"1602","HP 19"" W1907 flat panel monitor ","2006","Other components*","LCD monitor","Steel",9
+"1603","HP 19"" W1907 flat panel monitor ","2006","Other components*","LCD monitor","Plastic",27.3
+"1604","HP 19"" W1907 flat panel monitor ","2006","Other components*","LCD monitor","PCB",43
+"1605","HP 19"" W1907 flat panel monitor ","2006","Other components*","LCD monitor","Others",7.1
+"1606","Dell 15"" E157FPB ","approx.  2008","Casing","LCD monitor","Steel",4.9
+"1607","Dell 15"" E157FPB ","approx.  2008","Casing","LCD monitor","Plastic",255
+"1608","Dell 15"" E157FPB ","approx.  2008","Display","LCD monitor","Aluminum",68
+"1609","Dell 15"" E157FPB ","approx.  2008","Display","LCD monitor","Copper",1.55
+"1610","Dell 15"" E157FPB ","approx.  2008","Display","LCD monitor","Steel",65.5
+"1611","Dell 15"" E157FPB ","approx.  2008","Display","LCD monitor","Plastic",574.85
+"1612","Dell 15"" E157FPB ","approx.  2008","Display","LCD monitor","PCB",17.4
+"1613","Dell 15"" E157FPB ","approx.  2008","Display","LCD monitor","Flat panel glass",295
+"1614","Dell 15"" E157FPB ","approx.  2008","Display","LCD monitor","Others",4
+"1615","Dell 15"" E157FPB ","approx.  2008","Interior frame","LCD monitor","Steel",585
+"1616","Dell 15"" E157FPB ","approx.  2008","Motherboard","LCD monitor","Steel",7.2
+"1617","Dell 15"" E157FPB ","approx.  2008","Motherboard","LCD monitor","PCB",235
+"1618","Dell 15"" E157FPB ","approx.  2008","Stand","LCD monitor","Aluminum",160
+"1619","Dell 15"" E157FPB ","approx.  2008","Stand","LCD monitor","Steel",354.1
+"1620","Dell 15"" E157FPB ","approx.  2008","Stand","LCD monitor","Plastic",162
+"1621","Dell 15"" E157FPB ","approx.  2008","Stand","LCD monitor","Others",0.3
+"1622","Dell 15"" E157FPB ","approx.  2008","Other components*","LCD monitor","Aluminum",21.2
+"1623","Dell 15"" E157FPB ","approx.  2008","Other components*","LCD monitor","Copper",2
+"1624","Dell 15"" E157FPB ","approx.  2008","Other components*","LCD monitor","Steel",11.6
+"1625","Dell 15"" E157FPB ","approx.  2008","Other components*","LCD monitor","Plastic",4.3
+"1626","Samsung Syncmaster 2243 21.5"" ","2009","Casing","LCD monitor","Steel",1003.5
+"1627","Samsung Syncmaster 2243 21.5"" ","2009","Casing","LCD monitor","Plastic",1153
+"1628","Samsung Syncmaster 2243 21.5"" ","2009","Display","LCD monitor","Flat panel glass",2350
+"1629","Samsung Syncmaster 2243 21.5"" ","2009","Motherboard","LCD monitor","Copper",4.7
+"1630","Samsung Syncmaster 2243 21.5"" ","2009","Motherboard","LCD monitor","PCB",35.4
+"1631","Samsung Syncmaster 2243 21.5"" ","2009","Power Supply","LCD monitor","Aluminum",18
+"1632","Samsung Syncmaster 2243 21.5"" ","2009","Power Supply","LCD monitor","Copper",101
+"1633","Samsung Syncmaster 2243 21.5"" ","2009","Power Supply","LCD monitor","PCB",18
+"1634","Samsung Syncmaster 2243 21.5"" ","2009","Power Supply","LCD monitor","Others",36.4
+"1635","Samsung Syncmaster 2243 21.5"" ","2009","Other components*","LCD monitor","Copper",350
+"1636","Samsung 40"" LN40B500P3F ","2009","Brackets","LCD TV","Steel",757.6
+"1637","Samsung 40"" LN40B500P3F ","2009","Brackets","LCD TV","Plastic",165
+"1638","Samsung 40"" LN40B500P3F ","2009","Case","LCD TV","Plastic",3650
+"1639","Samsung 40"" LN40B500P3F ","2009","Display","LCD TV","Plastic",1165
+"1640","Samsung 40"" LN40B500P3F ","2009","Display","LCD TV","PCB",96.1
+"1641","Samsung 40"" LN40B500P3F ","2009","Display","LCD TV","Flat panel glass",1780
+"1642","Samsung 40"" LN40B500P3F ","2009","Display","LCD TV","Others",166.6
+"1643","Samsung 40"" LN40B500P3F ","2009","Inner frame","LCD TV","Steel",5000
+"1644","Samsung 40"" LN40B500P3F ","2009","Motherboard","LCD TV","PCB",850
+"1645","Samsung 40"" LN40B500P3F ","2009","Outer frame","LCD TV","Plastic",350
+"1646","Samsung 40"" LN40B500P3F ","2009","Speakers","LCD TV","Steel",78.7
+"1647","Samsung 40"" LN40B500P3F ","2009","Speakers","LCD TV","Plastic",170.2
+"1648","Samsung 40"" LN40B500P3F ","2009","Speakers","LCD TV","PCB",121.6
+"1649","Samsung 40"" LN40B500P3F ","2009","Other components*","LCD TV","Steel",52.6
+"1650","Samsung 40"" LN40B500P3F ","2009","Other components*","LCD TV","Others",2.6
+"1651","LCD TV 32"" ","unknown model and year","Chasis","LCD TV","Aluminum",205
+"1652","LCD TV 32"" ","unknown model and year","Chasis","LCD TV","Steel",5498
+"1653","LCD TV 32"" ","unknown model and year","Chasis","LCD TV","Plastic",3725.5
+"1654","LCD TV 32"" ","unknown model and year","Chasis","LCD TV","Other metals",251.8
+"1655","LCD TV 32"" ","unknown model and year","Display","LCD TV","PCB",156
+"1656","LCD TV 32"" ","unknown model and year","Display","LCD TV","Flat panel glass",6990
+"1657","LCD TV 32"" ","unknown model and year","Display","LCD TV","Other metals",216
+"1658","LCD TV 32"" ","unknown model and year","Display","LCD TV","Others",5
+"1659","LCD TV 32"" ","unknown model and year","Motherboard","LCD TV","Aluminum",20
+"1660","LCD TV 32"" ","unknown model and year","Motherboard","LCD TV","Copper",1
+"1661","LCD TV 32"" ","unknown model and year","Motherboard","LCD TV","Steel",28
+"1662","LCD TV 32"" ","unknown model and year","Motherboard","LCD TV","PCB",467.6
+"1663","LCD TV 32"" ","unknown model and year","Motherboard","LCD TV","Other metals",29.2
+"1664","LCD TV 32"" ","unknown model and year","Motherboard","LCD TV","Others",121.9
+"1665","LCD TV 32"" ","unknown model and year","Power supply","LCD TV","Aluminum",84.5
+"1666","LCD TV 32"" ","unknown model and year","Power supply","LCD TV","Copper",22.8
+"1667","LCD TV 32"" ","unknown model and year","Power supply","LCD TV","Steel",10.2
+"1668","LCD TV 32"" ","unknown model and year","Power supply","LCD TV","Plastic",17.3
+"1669","LCD TV 32"" ","unknown model and year","Power supply","LCD TV","PCB",179.4
+"1670","LCD TV 32"" ","unknown model and year","Power supply","LCD TV","Other metals",492.1
+"1671","LCD TV 32"" ","unknown model and year","Power supply","LCD TV","Others",23.5
+"1672","LCD TV 32"" ","unknown model and year","Others components*","LCD TV","Copper",125.9
+"1673","LCD TV 32"" ","unknown model and year","Others components*","LCD TV","Steel",95.1
+"1674","LCD TV 32"" ","unknown model and year","Others components*","LCD TV","Plastic",53.4
+"1675","LCD TV 32"" ","unknown model and year","Others components*","LCD TV","Others",27.5
+"1676","LG Smart TV 43"" 43UH610A-UJ ","2016","Case","LED TV","Plastic",2270
+"1677","LG Smart TV 43"" 43UH610A-UJ ","2016","Display","LED TV","Plastic",1180
+"1678","LG Smart TV 43"" 43UH610A-UJ ","2016","Display","LED TV","PCB",25.6
+"1679","LG Smart TV 43"" 43UH610A-UJ ","2016","Display","LED TV","Flat panel glass",1460
+"1680","LG Smart TV 43"" 43UH610A-UJ ","2016","Inner frame","LED TV","Steel",2865
+"1681","LG Smart TV 43"" 43UH610A-UJ ","2016","Motherboard","LED TV","PCB",235
+"1682","LG Smart TV 43"" 43UH610A-UJ ","2016","Power supply board","LED TV","PCB",325
+"1683","LG Smart TV 43"" 43UH610A-UJ ","2016","Speakers","LED TV","Plastic",500
+"1684","LG Smart TV 43"" 43UH610A-UJ ","2016","Other components*","LED TV","Steel",24
+"1685","LG Smart TV 43"" 43UH610A-UJ ","2016","Other components*","LED TV","Plastic",363.5
+"1686","LG Smart TV 43"" 43UH610A-UJ ","2016","Other components*","LED TV","Others",28.7
+"1687","LG 24"" 24MP56HA LED monitor ","2014","Casing","LED monitor","Steel",1108
+"1688","LG 24"" 24MP56HA LED monitor ","2014","Casing","LED monitor","Plastic",623
+"1689","LG 24"" 24MP56HA LED monitor ","2014","Display","LED monitor","Plastic",488
+"1690","LG 24"" 24MP56HA LED monitor ","2014","Display","LED monitor","Flat panel glass",468
+"1691","LG 24"" 24MP56HA LED monitor ","2014","Display","LED monitor","Others",8
+"1692","LG 24"" 24MP56HA LED monitor ","2014","Interiors","LED monitor","Steel",10.8
+"1693","LG 24"" 24MP56HA LED monitor ","2014","Interiors","LED monitor","PCB",15
+"1694","LG 24"" 24MP56HA LED monitor ","2014","Interiors","LED monitor","Others",7
+"1695","LG 24"" 24MP56HA LED monitor ","2014","Motherboard","LED monitor","Plastic",20
+"1696","LG 24"" 24MP56HA LED monitor ","2014","Motherboard","LED monitor","PCB",67
+"1697","LG 24"" 24MP56HA LED monitor ","2014","Stand","LED monitor","Steel",66
+"1698","LG 24"" 24MP56HA LED monitor ","2014","Stand","LED monitor","Plastic",301
+"1699","Dell 23"" S2316M LED monitor ","2016","Casing","LED monitor","Steel",744
+"1700","Dell 23"" S2316M LED monitor ","2016","Casing","LED monitor","Plastic",523
+"1701","Dell 23"" S2316M LED monitor ","2016","Display","LED monitor","Plastic",451
+"1702","Dell 23"" S2316M LED monitor ","2016","Display","LED monitor","Flat panel glass",439
+"1703","Dell 23"" S2316M LED monitor ","2016","Display","LED monitor","Others",6
+"1704","Dell 23"" S2316M LED monitor ","2016","Interiors","LED monitor","Aluminum",17
+"1705","Dell 23"" S2316M LED monitor ","2016","Interiors","LED monitor","Copper",2.5
+"1706","Dell 23"" S2316M LED monitor ","2016","Interiors","LED monitor","Steel",255
+"1707","Dell 23"" S2316M LED monitor ","2016","Interiors","LED monitor","Plastic",2.5
+"1708","Dell 23"" S2316M LED monitor ","2016","Interiors","LED monitor","PCB",14
+"1709","Dell 23"" S2316M LED monitor ","2016","Interiors","LED monitor","Others",2.3
+"1710","Dell 23"" S2316M LED monitor ","2016","Motherboard","LED monitor","PCB",64
+"1711","Dell 23"" S2316M LED monitor ","2016","Stand","LED monitor","Steel",166
+"1712","Dell 23"" S2316M LED monitor ","2016","Stand","LED monitor","Plastic",356
+"1713","Philips Rush digital audio SA238/17 ","2004","Display","MP3 player","Flat panel glass",4.2
+"1714","Philips Rush digital audio SA238/17 ","2004","Main body","MP3 player","Steel",1.2
+"1715","Philips Rush digital audio SA238/17 ","2004","Main body","MP3 player","Plastic",27.1
+"1716","Philips Rush digital audio SA238/17 ","2004","Main body","MP3 player","PCB",18.9
+"1717","Philips Rush digital audio SA238/17 ","2004","Main body","MP3 player","Others",0.6
+"1718","Mini iPod MP5002 ","2004","Display","MP3 player","Copper",0.1
+"1719","Mini iPod MP5002 ","2004","Display","MP3 player","Plastic",2.4
+"1720","Mini iPod MP5002 ","2004","Display","MP3 player","Flat panel glass",3.6
+"1721","Mini iPod MP5002 ","2004","Display","MP3 player","Others",1.6
+"1722","Mini iPod MP5002 ","2004","Main body","MP3 player","Aluminum",31.4
+"1723","Mini iPod MP5002 ","2004","Main body","MP3 player","Copper",1.9
+"1724","Mini iPod MP5002 ","2004","Main body","MP3 player","Steel",20.8
+"1725","Mini iPod MP5002 ","2004","Main body","MP3 player","Plastic",5.7
+"1726","Mini iPod MP5002 ","2004","Main body","MP3 player","Li-ion battery",12.4
+"1727","Mini iPod MP5002 ","2004","Main body","MP3 player","PCB",16.1
+"1728","Mini iPod MP5002 ","2004","Main body","MP3 player","Others",2.2
+"1729","iPod classic A1136  ","2005","Display","MP3 player","Flat panel glass",9.6
+"1730","iPod classic A1136  ","2005","Main body","MP3 player","Aluminum",6.6
+"1731","iPod classic A1136  ","2005","Main body","MP3 player","Copper",0.2
+"1732","iPod classic A1136  ","2005","Main body","MP3 player","Steel",72.7
+"1733","iPod classic A1136  ","2005","Main body","MP3 player","Plastic",8.34
+"1734","iPod classic A1136  ","2005","Main body","MP3 player","Li-ion battery",11.5
+"1735","iPod classic A1136  ","2005","Main body","MP3 player","PCB",14.1
+"1736","iPod classic A1136  ","2005","Main body","MP3 player","Other glass",2.76
+"1737","iPod classic A1136  ","2005","Main body","MP3 player","Others",2.4
+"1738","iPod Touch ","2008","Display","MP3 player","Plastic",3.4
+"1739","iPod Touch ","2008","Display","MP3 player","Flat panel glass",7.2
+"1740","iPod Touch ","2008","Display","MP3 player","Other glass",24
+"1741","iPod Touch ","2008","Main body","MP3 player","Aluminum",48.4
+"1742","iPod Touch ","2008","Main body","MP3 player","Copper",1.3
+"1743","iPod Touch ","2008","Main body","MP3 player","Steel",0.3
+"1744","iPod Touch ","2008","Main body","MP3 player","Plastic",1.9
+"1745","iPod Touch ","2008","Main body","MP3 player","Li-ion battery",15.6
+"1746","iPod Touch ","2008","Main body","MP3 player","PCB",4.7
+"1747","iPod Touch ","2008","Main body","MP3 player","Others",0.6
+"1748","Sansa Fuze+ MP3 player ","2010","Display","MP3 player","Flat panel glass",6.5
+"1749","Sansa Fuze+ MP3 player ","2010","Main body","MP3 player","Aluminum",17
+"1750","Sansa Fuze+ MP3 player ","2010","Main body","MP3 player","Steel",0.3
+"1751","Sansa Fuze+ MP3 player ","2010","Main body","MP3 player","Plastic",11.13
+"1752","Sansa Fuze+ MP3 player ","2010","Main body","MP3 player","Li-ion battery",11.9
+"1753","Sansa Fuze+ MP3 player ","2010","Main body","MP3 player","PCB",9.2
+"1754","Sansa Fuze+ MP3 player ","2010","Main body","MP3 player","Other glass",6.37
+"1755","Sansa Fuze+ MP3 player ","2010","Main body","MP3 player","Others",0.7
+"1756","iPod Touch ","2009","Display*","MP3 player","Flat panel glass",11
+"1757","iPod Touch ","2009","Display*","MP3 player","Other glass",24
+"1758","iPod Touch ","2009","Main body","MP3 player","Aluminum",48.1
+"1759","iPod Touch ","2009","Main body","MP3 player","Copper",0.7
+"1760","iPod Touch ","2009","Main body","MP3 player","Steel",1.7
+"1761","iPod Touch ","2009","Main body","MP3 player","Plastic",3.3
+"1762","iPod Touch ","2009","Main body","MP3 player","Li-ion battery",16
+"1763","iPod Touch ","2009","Main body","MP3 player","PCB",3.8
+"1764","iPod Touch ","2009","Main body","MP3 player","Others",0.4
+"1765","Sony Vaio 10.4"" PCG-505FX ","1998*","Battery","Netbook ","Li-ion battery",227
+"1766","Sony Vaio 10.4"" PCG-505FX ","1998*","Chasis bottom","Netbook ","Aluminum",0.1
+"1767","Sony Vaio 10.4"" PCG-505FX ","1998*","Chasis bottom","Netbook ","Copper",2.6
+"1768","Sony Vaio 10.4"" PCG-505FX ","1998*","Chasis bottom","Netbook ","Steel",4.6
+"1769","Sony Vaio 10.4"" PCG-505FX ","1998*","Chasis bottom","Netbook ","Plastic",12.4
+"1770","Sony Vaio 10.4"" PCG-505FX ","1998*","Chasis bottom","Netbook ","PCB",0.2
+"1771","Sony Vaio 10.4"" PCG-505FX ","1998*","Chasis bottom","Netbook ","Others",6.4
+"1772","Sony Vaio 10.4"" PCG-505FX ","1998*","Chasis top","Netbook ","Other metals",120.3
+"1773","Sony Vaio 10.4"" PCG-505FX ","1998*","Display","Netbook ","Aluminum",2.8
+"1774","Sony Vaio 10.4"" PCG-505FX ","1998*","Display","Netbook ","Copper",2.2
+"1775","Sony Vaio 10.4"" PCG-505FX ","1998*","Display","Netbook ","Steel",49.7
+"1776","Sony Vaio 10.4"" PCG-505FX ","1998*","Display","Netbook ","Plastic",47.1
+"1777","Sony Vaio 10.4"" PCG-505FX ","1998*","Display","Netbook ","PCB",20.9
+"1778","Sony Vaio 10.4"" PCG-505FX ","1998*","Display","Netbook ","Flat panel glass",257.9
+"1779","Sony Vaio 10.4"" PCG-505FX ","1998*","Display","Netbook ","Other metals",30.2
+"1780","Sony Vaio 10.4"" PCG-505FX ","1998*","Display","Netbook ","Others",6.8
+"1781","Sony Vaio 10.4"" PCG-505FX ","1998*","Hard drive","Netbook ","Aluminum",9.65
+"1782","Sony Vaio 10.4"" PCG-505FX ","1998*","Hard drive","Netbook ","Copper",0.37
+"1783","Sony Vaio 10.4"" PCG-505FX ","1998*","Hard drive","Netbook ","Steel",62.11
+"1784","Sony Vaio 10.4"" PCG-505FX ","1998*","Hard drive","Netbook ","Plastic",16.92
+"1785","Sony Vaio 10.4"" PCG-505FX ","1998*","Hard drive","Netbook ","PCB",11.3
+"1786","Sony Vaio 10.4"" PCG-505FX ","1998*","Hard drive","Netbook ","Others",10
+"1787","Sony Vaio 10.4"" PCG-505FX ","1998*","Heat sink","Netbook ","Aluminum",0.1
+"1788","Sony Vaio 10.4"" PCG-505FX ","1998*","Heat sink","Netbook ","Steel",19.1
+"1789","Sony Vaio 10.4"" PCG-505FX ","1998*","Heat sink","Netbook ","Others",0.4
+"1790","Sony Vaio 10.4"" PCG-505FX ","1998*","Keyboard","Netbook ","Aluminum",24.8
+"1791","Sony Vaio 10.4"" PCG-505FX ","1998*","Keyboard","Netbook ","Copper",1.5
+"1792","Sony Vaio 10.4"" PCG-505FX ","1998*","Keyboard","Netbook ","Steel",1.7
+"1793","Sony Vaio 10.4"" PCG-505FX ","1998*","Keyboard","Netbook ","Plastic",61.7
+"1794","Sony Vaio 10.4"" PCG-505FX ","1998*","Keyboard","Netbook ","Others",3.24
+"1795","Sony Vaio 10.4"" PCG-505FX ","1998*","Motherboard","Netbook ","Aluminum",1.2
+"1796","Sony Vaio 10.4"" PCG-505FX ","1998*","Motherboard","Netbook ","Copper",3.3
+"1797","Sony Vaio 10.4"" PCG-505FX ","1998*","Motherboard","Netbook ","Steel",3.8
+"1798","Sony Vaio 10.4"" PCG-505FX ","1998*","Motherboard","Netbook ","Plastic",2
+"1799","Sony Vaio 10.4"" PCG-505FX ","1998*","Motherboard","Netbook ","PCB",171
+"1800","Sony Vaio 10.4"" PCG-505FX ","1998*","Motherboard","Netbook ","Others",0.8
+"1801","Sony Vaio 10.4"" PCG-505FX ","1998*","Other components*","Netbook ","Aluminum",41.86
+"1802","Sony Vaio 10.4"" PCG-505FX ","1998*","Other components*","Netbook ","Copper",2.74
+"1803","Sony Vaio 10.4"" PCG-505FX ","1998*","Other components*","Netbook ","Steel",0.1
+"1804","Sony Vaio 10.4"" PCG-505FX ","1998*","Other components*","Netbook ","Plastic",16
+"1805","Sony Vaio 10.4"" PCG-505FX ","1998*","Other components*","Netbook ","Other metals",56.2
+"1806","Sony Vaio 10.4"" PCG-505FX ","1998*","Other components*","Netbook ","Others",8.8
+"1807","Acer Aspire one 8"" ZG5 ","2008","Battery","Netbook ","Plastic",23.85
+"1808","Acer Aspire one 8"" ZG5 ","2008","Battery","Netbook ","Li-ion battery",129.31
+"1809","Acer Aspire one 8"" ZG5 ","2008","Battery","Netbook ","PCB",4.79
+"1810","Acer Aspire one 8"" ZG5 ","2008","Battery","Netbook ","Others",1.31
+"1811","Acer Aspire one 8"" ZG5 ","2008","Chasis bottom","Netbook ","Aluminum",1.7
+"1812","Acer Aspire one 8"" ZG5 ","2008","Chasis bottom","Netbook ","Steel",0.5
+"1813","Acer Aspire one 8"" ZG5 ","2008","Chasis bottom","Netbook ","Plastic",97.1
+"1814","Acer Aspire one 8"" ZG5 ","2008","Chasis bottom","Netbook ","Others",0.6
+"1815","Acer Aspire one 8"" ZG5 ","2008","Chasis top","Netbook ","Steel",1
+"1816","Acer Aspire one 8"" ZG5 ","2008","Chasis top","Netbook ","Plastic",86
+"1817","Acer Aspire one 8"" ZG5 ","2008","Chasis top","Netbook ","Other metals",2
+"1818","Acer Aspire one 8"" ZG5 ","2008","Display","Netbook ","Aluminum",4.7
+"1819","Acer Aspire one 8"" ZG5 ","2008","Display","Netbook ","Copper",1.3
+"1820","Acer Aspire one 8"" ZG5 ","2008","Display","Netbook ","Steel",49.2
+"1821","Acer Aspire one 8"" ZG5 ","2008","Display","Netbook ","Plastic",29.4
+"1822","Acer Aspire one 8"" ZG5 ","2008","Display","Netbook ","PCB",15.2
+"1823","Acer Aspire one 8"" ZG5 ","2008","Display","Netbook ","Flat panel glass",111.5
+"1824","Acer Aspire one 8"" ZG5 ","2008","Display","Netbook ","Other metals",0.7
+"1825","Acer Aspire one 8"" ZG5 ","2008","Display","Netbook ","Others",25.55
+"1826","Acer Aspire one 8"" ZG5 ","2008","Fan","Netbook ","Aluminum",0.3
+"1827","Acer Aspire one 8"" ZG5 ","2008","Fan","Netbook ","Copper",0.75
+"1828","Acer Aspire one 8"" ZG5 ","2008","Fan","Netbook ","Plastic",1.8
+"1829","Acer Aspire one 8"" ZG5 ","2008","Fan","Netbook ","PCB",0.3
+"1830","Acer Aspire one 8"" ZG5 ","2008","Fan","Netbook ","Other metals",0.75
+"1831","Acer Aspire one 8"" ZG5 ","2008","Hard drive","Netbook ","Aluminum",40.42
+"1832","Acer Aspire one 8"" ZG5 ","2008","Hard drive","Netbook ","Copper",1.66
+"1833","Acer Aspire one 8"" ZG5 ","2008","Hard drive","Netbook ","Steel",17
+"1834","Acer Aspire one 8"" ZG5 ","2008","Hard drive","Netbook ","Plastic",26.22
+"1835","Acer Aspire one 8"" ZG5 ","2008","Hard drive","Netbook ","PCB",12.1
+"1836","Acer Aspire one 8"" ZG5 ","2008","Hard drive","Netbook ","Others",7.3
+"1837","Acer Aspire one 8"" ZG5 ","2008","Heat sink","Netbook ","Aluminum",11.3
+"1838","Acer Aspire one 8"" ZG5 ","2008","Heat sink","Netbook ","Others",0.2
+"1839","Acer Aspire one 8"" ZG5 ","2008","Keyboard","Netbook ","Aluminum",63.9
+"1840","Acer Aspire one 8"" ZG5 ","2008","Keyboard","Netbook ","Copper",3.05
+"1841","Acer Aspire one 8"" ZG5 ","2008","Keyboard","Netbook ","Steel",0.6
+"1842","Acer Aspire one 8"" ZG5 ","2008","Keyboard","Netbook ","Plastic",30.35
+"1843","Acer Aspire one 8"" ZG5 ","2008","Motherboard","Netbook ","Aluminum",2
+"1844","Acer Aspire one 8"" ZG5 ","2008","Motherboard","Netbook ","Steel",1.5
+"1845","Acer Aspire one 8"" ZG5 ","2008","Motherboard","Netbook ","Plastic",1.1
+"1846","Acer Aspire one 8"" ZG5 ","2008","Motherboard","Netbook ","PCB",159.8
+"1847","Acer Aspire one 8"" ZG5 ","2008","Motherboard","Netbook ","Others",0.5
+"1848","Acer Aspire one 8"" ZG5 ","2008","Speakers","Netbook ","Aluminum",1
+"1849","Acer Aspire one 8"" ZG5 ","2008","Speakers","Netbook ","Copper",0.1
+"1850","Acer Aspire one 8"" ZG5 ","2008","Speakers","Netbook ","Steel",2.8
+"1851","Acer Aspire one 8"" ZG5 ","2008","Speakers","Netbook ","Plastic",1.2
+"1852","Acer Aspire one 8"" ZG5 ","2008","Speakers","Netbook ","Others",0.1
+"1853","Acer Aspire one 8"" ZG5 ","2008","Other components*","Netbook ","Aluminum",2.47
+"1854","Acer Aspire one 8"" ZG5 ","2008","Other components*","Netbook ","Steel",0.04
+"1855","Acer Aspire one 8"" ZG5 ","2008","Other components*","Netbook ","Plastic",100.83
+"1856","Acer Aspire one 8"" ZG5 ","2008","Other components*","Netbook ","PCB",8.4
+"1857","Acer Aspire one 8"" ZG5 ","2008","Other components*","Netbook ","Other metals",0.47
+"1858","Acer Aspire one 8"" ZG5 ","2008","Other components*","Netbook ","Others",0.3
+"1859","Asus EEE PC ","2008","Battery","Netbook ","Li-ion battery",211.9
+"1860","Asus EEE PC ","2008","Chasis top","Netbook ","Plastic",91
+"1861","Asus EEE PC ","2008","Chasis bottom","Netbook ","Plastic",88.6
+"1862","Asus EEE PC ","2008","Display","Netbook ","Aluminum",62.8
+"1863","Asus EEE PC ","2008","Display","Netbook ","Copper",3.35
+"1864","Asus EEE PC ","2008","Display","Netbook ","Steel",14
+"1865","Asus EEE PC ","2008","Display","Netbook ","Plastic",70.55
+"1866","Asus EEE PC ","2008","Display","Netbook ","PCB",9.5
+"1867","Asus EEE PC ","2008","Display","Netbook ","Flat panel glass",47.9
+"1868","Asus EEE PC ","2008","Display","Netbook ","Others",10.7
+"1869","Asus EEE PC ","2008","Fan","Netbook ","Copper",0.9
+"1870","Asus EEE PC ","2008","Fan","Netbook ","Plastic",7
+"1871","Asus EEE PC ","2008","Fan","Netbook ","PCB",1
+"1872","Asus EEE PC ","2008","Keyboard","Netbook ","Aluminum",58.4
+"1873","Asus EEE PC ","2008","Keyboard","Netbook ","Plastic",56.8
+"1874","Asus EEE PC ","2008","Keyboard","Netbook ","PCB",4.1
+"1875","Asus EEE PC ","2008","Motherboard","Netbook ","Aluminum",1.7
+"1876","Asus EEE PC ","2008","Motherboard","Netbook ","PCB",147.2
+"1877","Asus EEE PC ","2008","Motherboard","Netbook ","Others",3.2
+"1878","Asus EEE PC ","2008","Others*","Netbook ","Steel",4.2
+"1879","Asus EEE PC ","2008","Others*","Netbook ","Others",1.2
+"1880","HP Mini 110-1030CA ","2009","Battery","Netbook ","Li-ion battery",178
+"1881","HP Mini 110-1030CA ","2009","Casing","Netbook ","Steel",25
+"1882","HP Mini 110-1030CA ","2009","Casing","Netbook ","Plastic",240
+"1883","HP Mini 110-1030CA ","2009","Display*","Netbook ","Aluminum",5.3
+"1884","HP Mini 110-1030CA ","2009","Display*","Netbook ","Flat panel glass",107
+"1885","HP Mini 110-1030CA ","2009","Display*","Netbook ","CRT glass",92
+"1886","HP Mini 110-1030CA ","2009","Daughter cards","Netbook ","Copper",1.8
+"1887","HP Mini 110-1030CA ","2009","Daughter cards","Netbook ","Steel",1
+"1888","HP Mini 110-1030CA ","2009","Daughter cards","Netbook ","PCB",27.5
+"1889","HP Mini 110-1030CA ","2009","Daughter cards","Netbook ","Other metals",4.5
+"1890","HP Mini 110-1030CA ","2009","Interior parts","Netbook ","Aluminum",84
+"1891","HP Mini 110-1030CA ","2009","Interior parts","Netbook ","Copper",33
+"1892","HP Mini 110-1030CA ","2009","Interior parts","Netbook ","Others",24
+"1893","HP Mini 110-1030CA ","2009","Keyboard","Netbook ","Plastic",104
+"1894","HP Mini 110-1030CA ","2009","Keyboard","Netbook ","PCB",5
+"1895","HP Mini 110-1030CA ","2009","Motherboard","Netbook ","Li-ion battery",1.8
+"1896","HP Mini 110-1030CA ","2009","Motherboard","Netbook ","PCB",88.4
+"1897","HP Mini 110-1030CA ","2009","Motherboard","Netbook ","Other metals",6.4
+"1898","HP Mini 110-1030CA ","2009","Motherboard","Netbook ","Others",5.4
+"1899","HP Mini 110-1030CA ","2009","RAM","Netbook ","PCB",7.9
+"1900","HP Mini 110-1030CA ","2009","Chasis","Plasma TV","Aluminum",735
+"1901","HP Mini 110-1030CA ","2009","Chasis","Plasma TV","Copper",14.3
+"1902","HP Mini 110-1030CA ","2009","Chasis","Plasma TV","Steel",13441.7
+"1903","HP Mini 110-1030CA ","2009","Chasis","Plasma TV","Plastic",2827
+"1904","HP Mini 110-1030CA ","2009","Chasis","Plasma TV","Other glass",2866.7
+"1905","HP Mini 110-1030CA ","2009","Chasis","Plasma TV","Others",111.5
+"1906","HP Mini 110-1030CA ","2009","Display","Plasma TV","Aluminum",3579.9
+"1907","HP Mini 110-1030CA ","2009","Display","Plasma TV","Copper",5.5
+"1908","HP Mini 110-1030CA ","2009","Display","Plasma TV","Steel",515
+"1909","HP Mini 110-1030CA ","2009","Display","Plasma TV","Plastic",648.5
+"1910","HP Mini 110-1030CA ","2009","Display","Plasma TV","PCB",322.5
+"1911","HP Mini 110-1030CA ","2009","Display","Plasma TV","Flat panel glass",9109
+"1912","HP Mini 110-1030CA ","2009","Display","Plasma TV","Other metals",133
+"1913","HP Mini 110-1030CA ","2009","Display","Plasma TV","Others",178.1
+"1914","HP Mini 110-1030CA ","2009","Motherboard","Plasma TV","Aluminum",181.7
+"1915","HP Mini 110-1030CA ","2009","Motherboard","Plasma TV","Copper",35.1
+"1916","HP Mini 110-1030CA ","2009","Motherboard","Plasma TV","Steel",70.6
+"1917","HP Mini 110-1030CA ","2009","Motherboard","Plasma TV","PCB",804.9
+"1918","HP Mini 110-1030CA ","2009","Motherboard","Plasma TV","Other metals",206.6
+"1919","HP Mini 110-1030CA ","2009","Motherboard","Plasma TV","Others",401.7
+"1920","HP Mini 110-1030CA ","2009","Power supply","Plasma TV","Aluminum",355.7
+"1921","HP Mini 110-1030CA ","2009","Power supply","Plasma TV","Copper",29.5
+"1922","HP Mini 110-1030CA ","2009","Power supply","Plasma TV","Steel",41.7
+"1923","HP Mini 110-1030CA ","2009","Power supply","Plasma TV","Plastic",64.3
+"1924","HP Mini 110-1030CA ","2009","Power supply","Plasma TV","PCB",246
+"1925","HP Mini 110-1030CA ","2009","Power supply","Plasma TV","Other metals",503.8
+"1926","HP Mini 110-1030CA ","2009","Power supply","Plasma TV","Others",310.3
+"1927","HP Mini 110-1030CA ","2009","Remote control","Plasma TV","Steel",43
+"1928","HP Mini 110-1030CA ","2009","Remote control","Plasma TV","Plastic",70
+"1929","HP Mini 110-1030CA ","2009","Remote control","Plasma TV","PCB",15
+"1930","HP Mini 110-1030CA ","2009","Remote control","Plasma TV","Other metals",4.5
+"1931","HP Mini 110-1030CA ","2009","Remote control","Plasma TV","Others",2.5
+"1932","HP Mini 110-1030CA ","2009","Other components*","Plasma TV","Copper",127.5
+"1933","HP Mini 110-1030CA ","2009","Other components*","Plasma TV","Steel",104.9
+"1934","HP Mini 110-1030CA ","2009","Other components*","Plasma TV","Plastic",130
+"1935","HP Deskjet 932C ","1999","Frame","Printer","Steel",2115
+"1936","HP Deskjet 932C ","1999","Main body","Printer","Aluminum",2.1
+"1937","HP Deskjet 932C ","1999","Main body","Printer","Plastic",985.1
+"1938","HP Deskjet 932C ","1999","Motherboard","Printer","PCB",252.9
+"1939","HP Deskjet 932C ","1999","Motor","Printer","Steel",183.3
+"1940","HP Deskjet 932C ","1999","Motor","Printer","Plastic",183.3
+"1941","HP Deskjet 932C ","1999","Tray","Printer","Steel",3.7
+"1942","HP Deskjet 932C ","1999","Tray","Printer","Plastic",482.5
+"1943","HP Deskjet 932C ","1999","Others*","Printer","Aluminum",67.7
+"1944","HP Deskjet 932C ","1999","Others*","Printer","Copper",40.6
+"1945","HP Deskjet 932C ","1999","Others*","Printer","Steel",752.9
+"1946","HP Deskjet 932C ","1999","Others*","Printer","Plastic",862.7
+"1947","HP Deskjet 932C ","1999","Others*","Printer","Others",32.7
+"1948","Dell photo printer 720 ","approx.  2004","Case","Printer","Plastic",932
+"1949","Dell photo printer 720 ","approx.  2004","Paper feed","Printer","Steel",165.7
+"1950","Dell photo printer 720 ","approx.  2004","Paper feed","Printer","Plastic",137.2
+"1951","Dell photo printer 720 ","approx.  2004","Paper feed","Printer","PCB",41.4
+"1952","Dell photo printer 720 ","approx.  2004","Paper feed","Printer","Others",22.3
+"1953","Dell photo printer 720 ","approx.  2004","Print catridge","Printer","Copper",9.9
+"1954","Dell photo printer 720 ","approx.  2004","Print catridge","Printer","Steel",367.8
+"1955","Dell photo printer 720 ","approx.  2004","Print catridge","Printer","Plastic",116.5
+"1956","Dell photo printer 720 ","approx.  2004","Print catridge","Printer","PCB",5.1
+"1957","Dell photo printer 720 ","approx.  2004","Print catridge","Printer","Others",2.7
+"1958","HP Officejet Pro 8000 ","2009","Access panel assembly","Printer","Steel",127.3
+"1959","HP Officejet Pro 8000 ","2009","Access panel assembly","Printer","Plastic",752.2
+"1960","HP Officejet Pro 8000 ","2009","Case assembly","Printer","Copper",0.4
+"1961","HP Officejet Pro 8000 ","2009","Case assembly","Printer","Steel",93.9
+"1962","HP Officejet Pro 8000 ","2009","Case assembly","Printer","Plastic",3090.7
+"1963","HP Officejet Pro 8000 ","2009","Case assembly","Printer","PCB",16.9
+"1964","HP Officejet Pro 8000 ","2009","Main assembly","Printer","Copper",55.7
+"1965","HP Officejet Pro 8000 ","2009","Main assembly","Printer","Steel",2147.3
+"1966","HP Officejet Pro 8000 ","2009","Main assembly","Printer","Plastic",1094.8
+"1967","HP Officejet Pro 8000 ","2009","Main assembly","Printer","PCB",162.3
+"1968","HP Officejet Pro 8000 ","2009","Main assembly","Printer","Others",94.7
+"1969","HP Officejet Pro 8000 ","2009","Print catridge","Printer","Copper",1.1
+"1970","HP Officejet Pro 8000 ","2009","Print catridge","Printer","Steel",54.7
+"1971","HP Officejet Pro 8000 ","2009","Print catridge","Printer","Plastic",510.6
+"1972","HP Officejet Pro 8000 ","2009","Print catridge","Printer","PCB",4.9
+"1973","HP Officejet Pro 8000 ","2009","Print catridge","Printer","Others",4
+"1974","Dell A940 all-in-one ","2003","Bottom assembly","Printer","Copper",12.3
+"1975","Dell A940 all-in-one ","2003","Bottom assembly","Printer","Steel",1002.5
+"1976","Dell A940 all-in-one ","2003","Bottom assembly","Printer","Plastic",2132.9
+"1977","Dell A940 all-in-one ","2003","Bottom assembly","Printer","PCB",139.6
+"1978","Dell A940 all-in-one ","2003","Bottom assembly","Printer","Others",3.8
+"1979","Dell A940 all-in-one ","2003","Feed tray","Printer","Steel",3.9
+"1980","Dell A940 all-in-one ","2003","Feed tray","Printer","Plastic",286.8
+"1981","Dell A940 all-in-one ","2003","Lid for scanner","Printer","Plastic",412.4
+"1982","Dell A940 all-in-one ","2003","Lid for scanner","Printer","Others",59.1
+"1983","Dell A940 all-in-one ","2003","Scanner","Printer","Copper",8.3
+"1984","Dell A940 all-in-one ","2003","Scanner","Printer","Steel",270.05
+"1985","Dell A940 all-in-one ","2003","Scanner","Printer","Plastic",1226.05
+"1986","Dell A940 all-in-one ","2003","Scanner","Printer","PCB",66.2
+"1987","Dell A940 all-in-one ","2003","Scanner","Printer","Flat panel glass",8.3
+"1988","Dell A940 all-in-one ","2003","Scanner","Printer","Other glass",721.4
+"1989","Dell A940 all-in-one ","2003","Scanner","Printer","Others",29.9
+"1990","Kodak printer ESP7 all-in-one ","2009","Display","Printer","Copper",51.7
+"1991","Kodak printer ESP7 all-in-one ","2009","Display","Printer","Flat panel glass",21.1
+"1992","Kodak printer ESP7 all-in-one ","2009","Display","Printer","Others",3.6
+"1993","Kodak printer ESP7 all-in-one ","2009","Motherboard","Printer","PCB",282.2
+"1994","Kodak printer ESP7 all-in-one ","2009","Motor","Printer","Steel",146.7
+"1995","Kodak printer ESP7 all-in-one ","2009","Motor","Printer","Plastic",146.7
+"1996","Kodak printer ESP7 all-in-one ","2009","Paper feed","Printer","Aluminum",4.2
+"1997","Kodak printer ESP7 all-in-one ","2009","Paper feed","Printer","Steel",423.8
+"1998","Kodak printer ESP7 all-in-one ","2009","Print nozzle","Printer","Steel",1075.3
+"1999","Kodak printer ESP7 all-in-one ","2009","Scanner","Printer","Plastic",3620
+"2000","Kodak printer ESP7 all-in-one ","2009","Scanner","Printer","Other glass",640
+"2001","Kodak printer ESP7 all-in-one ","2009","Other components*","Printer","Plastic",1733.2
+"2002","Kodak printer ESP7 all-in-one ","2009","Other components*","Printer","Others",180.7
+"2003","Palm Treo 650 ","2004*","Display","Smartphone","Flat panel glass",30.1
+"2004","Palm Treo 650 ","2004*","Main body","Smartphone","Aluminum",5.5
+"2005","Palm Treo 650 ","2004*","Main body","Smartphone","Copper",2.2
+"2006","Palm Treo 650 ","2004*","Main body","Smartphone","Steel",1
+"2007","Palm Treo 650 ","2004*","Main body","Smartphone","Plastic",37.9
+"2008","Palm Treo 650 ","2004*","Main body","Smartphone","Li-ion battery",41.5
+"2009","Palm Treo 650 ","2004*","Main body","Smartphone","PCB",48.3
+"2010","Palm Treo 650 ","2004*","Main body","Smartphone","Others",13.3
+"2011","LG VX5300 ","2006","Display","Smartphone","Flat panel glass",9.3
+"2012","LG VX5300 ","2006","Main body","Smartphone","Copper",2.2
+"2013","LG VX5300 ","2006","Main body","Smartphone","Steel",0.5
+"2014","LG VX5300 ","2006","Main body","Smartphone","Plastic",35.6
+"2015","LG VX5300 ","2006","Main body","Smartphone","Li-ion battery",22.4
+"2016","LG VX5300 ","2006","Main body","Smartphone","PCB",11.4
+"2017","LG VX5300 ","2006","Main body","Smartphone","Others",9.8
+"2018","iPhone 1st generation A1203 ","2007","Display","Smartphone","Aluminum",8
+"2019","iPhone 1st generation A1203 ","2007","Display","Smartphone","Plastic",3.8
+"2020","iPhone 1st generation A1203 ","2007","Display","Smartphone","Flat panel glass",5.4
+"2021","iPhone 1st generation A1203 ","2007","Display","Smartphone","Other glass",17
+"2022","iPhone 1st generation A1203 ","2007","Main body","Smartphone","Aluminum",44.2
+"2023","iPhone 1st generation A1203 ","2007","Main body","Smartphone","Copper",0.5
+"2024","iPhone 1st generation A1203 ","2007","Main body","Smartphone","Steel",0.5
+"2025","iPhone 1st generation A1203 ","2007","Main body","Smartphone","Plastic",16.7
+"2026","iPhone 1st generation A1203 ","2007","Main body","Smartphone","Li-ion battery",26.1
+"2027","iPhone 1st generation A1203 ","2007","Main body","Smartphone","PCB",14.6
+"2028","iPhone 1st generation A1203 ","2007","Main body","Smartphone","Others",7.6
+"2029","Motorola ROKR ","RIZR Z6 ","Display","Smartphone","Plastic",1.3
+"2030","Motorola ROKR ","RIZR Z6 ","Display","Smartphone","Flat panel glass",2.9
+"2031","Motorola ROKR ","RIZR Z6 ","Main body","Smartphone","Copper",1.5
+"2032","Motorola ROKR ","RIZR Z6 ","Main body","Smartphone","Steel",30.1
+"2033","Motorola ROKR ","RIZR Z6 ","Main body","Smartphone","Plastic",36.2
+"2034","Motorola ROKR ","RIZR Z6 ","Main body","Smartphone","Li-ion battery",19.4
+"2035","Motorola ROKR ","RIZR Z6 ","Main body","Smartphone","PCB",16.1
+"2036","iPhone 3G A1241 ","2008","Display","Smartphone","Aluminum",10.7
+"2037","iPhone 3G A1241 ","2008","Display","Smartphone","Plastic",5.1
+"2038","iPhone 3G A1241 ","2008","Display","Smartphone","Flat panel glass",7.3
+"2039","iPhone 3G A1241 ","2008","Display","Smartphone","Other glass",22.74
+"2040","iPhone 3G A1241 ","2008","Main body","Smartphone","Aluminum",26.6
+"2041","iPhone 3G A1241 ","2008","Main body","Smartphone","Copper",2.3
+"2042","iPhone 3G A1241 ","2008","Main body","Smartphone","Steel",0.4
+"2043","iPhone 3G A1241 ","2008","Main body","Smartphone","Plastic",19.8
+"2044","iPhone 3G A1241 ","2008","Main body","Smartphone","Li-ion battery",20.7
+"2045","iPhone 3G A1241 ","2008","Main body","Smartphone","PCB",15.1
+"2046","iPhone 3G A1241 ","2008","Main body","Smartphone","Others",2.76
+"2047","Blackberry Curve 8900 ","2008","Display","Smartphone","Aluminum",4.3
+"2048","Blackberry Curve 8900 ","2008","Display","Smartphone","Plastic",0.3
+"2049","Blackberry Curve 8900 ","2008","Display","Smartphone","PCB",1.1
+"2050","Blackberry Curve 8900 ","2008","Display","Smartphone","Flat panel glass",8.2
+"2051","Blackberry Curve 8900 ","2008","Main body","Smartphone","Steel",4.5
+"2052","Blackberry Curve 8900 ","2008","Main body","Smartphone","Plastic",22.4
+"2053","Blackberry Curve 8900 ","2008","Main body","Smartphone","Li-ion battery",29.7
+"2054","Blackberry Curve 8900 ","2008","Main body","Smartphone","PCB",17.9
+"2055","Blackberry Curve 8900 ","2008","Main body","Smartphone","Other metals",13.5
+"2056","Blackberry Curve 8900 ","2008","Main body","Smartphone","Others",4.4
+"2057","Motorola Droid MB810 ","2010","Display","Smartphone","Aluminum",7.2
+"2058","Motorola Droid MB810 ","2010","Display","Smartphone","Plastic",6
+"2059","Motorola Droid MB810 ","2010","Display","Smartphone","Flat panel glass",7.4
+"2060","Motorola Droid MB810 ","2010","Display","Smartphone","Other glass",18.1
+"2061","Motorola Droid MB810 ","2010","Main body","Smartphone","Aluminum",10.5
+"2062","Motorola Droid MB810 ","2010","Main body","Smartphone","Copper",0.9
+"2063","Motorola Droid MB810 ","2010","Main body","Smartphone","Steel",22.8
+"2064","Motorola Droid MB810 ","2010","Main body","Smartphone","Plastic",24.2
+"2065","Motorola Droid MB810 ","2010","Main body","Smartphone","Li-ion battery",30
+"2066","Motorola Droid MB810 ","2010","Main body","Smartphone","PCB",18.3
+"2067","Motorola Droid MB810 ","2010","Main body","Smartphone","Others",1.1
+"2068","Samsung Epic 4G SPHD700 ","2010","Display","Smartphone","Aluminum",8.2
+"2069","Samsung Epic 4G SPHD700 ","2010","Display","Smartphone","Plastic",5.2
+"2070","Samsung Epic 4G SPHD700 ","2010","Display","Smartphone","Flat panel glass",7.6
+"2071","Samsung Epic 4G SPHD700 ","2010","Display","Smartphone","Other glass",13.6
+"2072","Samsung Epic 4G SPHD700 ","2010","Main body","Smartphone","Copper",5.2
+"2073","Samsung Epic 4G SPHD700 ","2010","Main body","Smartphone","Steel",0.9
+"2074","Samsung Epic 4G SPHD700 ","2010","Main body","Smartphone","Plastic",28.9
+"2075","Samsung Epic 4G SPHD700 ","2010","Main body","Smartphone","Li-ion battery",32.1
+"2076","Samsung Epic 4G SPHD700 ","2010","Main body","Smartphone","PCB",14.1
+"2077","Samsung Epic 4G SPHD700 ","2010","Main body","Smartphone","Other metals",27
+"2078","Samsung Epic 4G SPHD700 ","2010","Main body","Smartphone","Others",13.1
+"2079","ZTE Z992 ","2013","Display","Smartphone","Aluminum",7
+"2080","ZTE Z992 ","2013","Display","Smartphone","Plastic",3.7
+"2081","ZTE Z992 ","2013","Display","Smartphone","Flat panel glass",7.9
+"2082","ZTE Z992 ","2013","Display","Smartphone","Other glass",14.7
+"2083","ZTE Z992 ","2013","Main body","Smartphone","Aluminum",0.1
+"2084","ZTE Z992 ","2013","Main body","Smartphone","Copper",0.3
+"2085","ZTE Z992 ","2013","Main body","Smartphone","Steel",19.8
+"2086","ZTE Z992 ","2013","Main body","Smartphone","Plastic",24.3
+"2087","ZTE Z992 ","2013","Main body","Smartphone","Li-ion battery",30.3
+"2088","ZTE Z992 ","2013","Main body","Smartphone","PCB",14.8
+"2089","Samsung Duos GTI9082 ","2013","Display","Smartphone","Aluminum",13.4
+"2090","Samsung Duos GTI9082 ","2013","Display","Smartphone","Plastic",8.6
+"2091","Samsung Duos GTI9082 ","2013","Display","Smartphone","PCB",0.6
+"2092","Samsung Duos GTI9082 ","2013","Display","Smartphone","Flat panel glass",12.4
+"2093","Samsung Duos GTI9082 ","2013","Display","Smartphone","Other glass",21.7
+"2094","Samsung Duos GTI9082 ","2013","Main body","Smartphone","Aluminum",0.5
+"2095","Samsung Duos GTI9082 ","2013","Main body","Smartphone","Copper",0.2
+"2096","Samsung Duos GTI9082 ","2013","Main body","Smartphone","Steel",5.3
+"2097","Samsung Duos GTI9082 ","2013","Main body","Smartphone","Plastic",47.5
+"2098","Samsung Duos GTI9082 ","2013","Main body","Smartphone","Li-ion battery",37.1
+"2099","Samsung Duos GTI9082 ","2013","Main body","Smartphone","PCB",14
+"2100","Motorola Moto_E XT1527 ","2015","Display","Smartphone","Aluminum",7.5
+"2101","Motorola Moto_E XT1527 ","2015","Display","Smartphone","Plastic",5.4
+"2102","Motorola Moto_E XT1527 ","2015","Display","Smartphone","Flat panel glass",7.8
+"2103","Motorola Moto_E XT1527 ","2015","Display","Smartphone","Other glass",20.4
+"2104","Motorola Moto_E XT1527 ","2015","Main body","Smartphone","Aluminum",1
+"2105","Motorola Moto_E XT1527 ","2015","Main body","Smartphone","Copper",1.4
+"2106","Motorola Moto_E XT1527 ","2015","Main body","Smartphone","Steel",4.9
+"2107","Motorola Moto_E XT1527 ","2015","Main body","Smartphone","Plastic",28.5
+"2108","Motorola Moto_E XT1527 ","2015","Main body","Smartphone","Li-ion battery",39
+"2109","Motorola Moto_E XT1527 ","2015","Main body","Smartphone","PCB",26.3
+"2110","Samsung Galaxy S6 SMG920V","2015","Display","Smartphone","Aluminum",0.4
+"2111","Samsung Galaxy S6 SMG920V","2015","Display","Smartphone","Flat panel glass",5.7
+"2112","Samsung Galaxy S6 SMG920V","2015","Display","Smartphone","Other glass",20.2
+"2113","Samsung Galaxy S6 SMG920V","2015","Main body","Smartphone","Aluminum",20.2
+"2114","Samsung Galaxy S6 SMG920V","2015","Main body","Smartphone","Copper",2.35
+"2115","Samsung Galaxy S6 SMG920V","2015","Main body","Smartphone","Steel",3.6
+"2116","Samsung Galaxy S6 SMG920V","2015","Main body","Smartphone","Plastic",15.05
+"2117","Samsung Galaxy S6 SMG920V","2015","Main body","Smartphone","Li-ion battery",39
+"2118","Samsung Galaxy S6 SMG920V","2015","Main body","Smartphone","PCB",17.6
+"2119","Samsung Galaxy S6 SMG920V","2015","Main body","Smartphone","Others",14.6
+"2120","Nest learning thermostat 1st generation 01A ","2011","Base plate assembly"," Smart & non-smart thermostat","Aluminum",0.5
+"2121","Nest learning thermostat 1st generation 01A ","2011","Base plate assembly"," Smart & non-smart thermostat","Steel",0.2
+"2122","Nest learning thermostat 1st generation 01A ","2011","Base plate assembly"," Smart & non-smart thermostat","Plastic",34.4
+"2123","Nest learning thermostat 1st generation 01A ","2011","Base plate assembly"," Smart & non-smart thermostat","PCB",12.5
+"2124","Nest learning thermostat 1st generation 01A ","2011","Display back part"," Smart & non-smart thermostat","Aluminum",0.6
+"2125","Nest learning thermostat 1st generation 01A ","2011","Display back part"," Smart & non-smart thermostat","Copper",0.3
+"2126","Nest learning thermostat 1st generation 01A ","2011","Display back part"," Smart & non-smart thermostat","Steel",5.4
+"2127","Nest learning thermostat 1st generation 01A ","2011","Display back part"," Smart & non-smart thermostat","Plastic",33.5
+"2128","Nest learning thermostat 1st generation 01A ","2011","Display front part assembly"," Smart & non-smart thermostat","Aluminum",23.8
+"2129","Nest learning thermostat 1st generation 01A ","2011","Display front part assembly"," Smart & non-smart thermostat","Copper",0.5
+"2130","Nest learning thermostat 1st generation 01A ","2011","Display front part assembly"," Smart & non-smart thermostat","Steel",13.1
+"2131","Nest learning thermostat 1st generation 01A ","2011","Display front part assembly"," Smart & non-smart thermostat","Plastic",40.7
+"2132","Nest learning thermostat 1st generation 01A ","2011","Display front part assembly"," Smart & non-smart thermostat","Li-ion battery",11.5
+"2133","Nest learning thermostat 1st generation 01A ","2011","Display front part assembly"," Smart & non-smart thermostat","PCB",15.7
+"2134","Nest learning thermostat 1st generation 01A ","2011","Display front part assembly"," Smart & non-smart thermostat","Flat panel glass",9.7
+"2135","Nest learning thermostat 1st generation 01A ","2011","Display front part assembly"," Smart & non-smart thermostat","Others",0.4
+"2136","Nest learning thermostat 1st generation 01A ","2011","Others components*"," Smart & non-smart thermostat","Steel",64.8
+"2137","Nest learning thermostat 1st generation 01A ","2011","Others components*"," Smart & non-smart thermostat","Plastic",65.3
+"2138","Ecobee 2nd generation EB-STATe3-02 ","2015","Base plate assembly"," Smart & non-smart thermostat","Steel",3
+"2139","Ecobee 2nd generation EB-STATe3-02 ","2015","Base plate assembly"," Smart & non-smart thermostat","Plastic",36.6
+"2140","Ecobee 2nd generation EB-STATe3-02 ","2015","Display back part"," Smart & non-smart thermostat","Plastic",16.1
+"2141","Ecobee 2nd generation EB-STATe3-02 ","2015","Display front part assembly"," Smart & non-smart thermostat","Copper",1.05
+"2142","Ecobee 2nd generation EB-STATe3-02 ","2015","Display front part assembly"," Smart & non-smart thermostat","Steel",0.8
+"2143","Ecobee 2nd generation EB-STATe3-02 ","2015","Display front part assembly"," Smart & non-smart thermostat","Plastic",47.75
+"2144","Ecobee 2nd generation EB-STATe3-02 ","2015","Display front part assembly"," Smart & non-smart thermostat","Li-ion battery",3.1
+"2145","Ecobee 2nd generation EB-STATe3-02 ","2015","Display front part assembly"," Smart & non-smart thermostat","PCB",43.4
+"2146","Ecobee 2nd generation EB-STATe3-02 ","2015","Display front part assembly"," Smart & non-smart thermostat","Flat panel glass",18
+"2147","Ecobee 2nd generation EB-STATe3-02 ","2015","Display front part assembly"," Smart & non-smart thermostat","Others",0.3
+"2148","Ecobee 2nd generation EB-STATe3-02 ","2015","Sensor"," Smart & non-smart thermostat","Steel",1.9
+"2149","Ecobee 2nd generation EB-STATe3-02 ","2015","Sensor"," Smart & non-smart thermostat","Plastic",15.5
+"2150","Ecobee 2nd generation EB-STATe3-02 ","2015","Sensor"," Smart & non-smart thermostat","Li-ion battery",3.1
+"2151","Ecobee 2nd generation EB-STATe3-02 ","2015","Sensor"," Smart & non-smart thermostat","PCB",5.5
+"2152","Honeywell non-programmable RTH111B ","approx. 2011","Base plate assembly"," Smart & non-smart thermostat","Steel",3.1
+"2153","Honeywell non-programmable RTH111B ","approx. 2011","Base plate assembly"," Smart & non-smart thermostat","Plastic",29.3
+"2154","Honeywell non-programmable RTH111B ","approx. 2011","Display back part"," Smart & non-smart thermostat","Steel",4.4
+"2155","Honeywell non-programmable RTH111B ","approx. 2011","Display back part"," Smart & non-smart thermostat","Plastic",17.8
+"2156","Honeywell non-programmable RTH111B ","approx. 2011","Display front part assembly"," Smart & non-smart thermostat","Plastic",39.5
+"2157","Honeywell non-programmable RTH111B ","approx. 2011","Display front part assembly"," Smart & non-smart thermostat","PCB",41.2
+"2158","Honeywell non-programmable RTH111B ","approx. 2011","Display front part assembly"," Smart & non-smart thermostat","Flat panel glass",6.3
+"2159","Honeywell non-programmable RTH111B ","approx. 2011","Display front part assembly"," Smart & non-smart thermostat","Others",1.8
+"2160","Honeywell programmable ","unknown model ","Base plate assembly"," Smart & non-smart thermostat","Steel",4.4
+"2161","Honeywell programmable ","unknown model ","Base plate assembly"," Smart & non-smart thermostat","Plastic",27.8
+"2162","Honeywell programmable ","unknown model ","Display back part"," Smart & non-smart thermostat","Plastic",17.8
+"2163","Honeywell programmable ","unknown model ","Display front part assembly"," Smart & non-smart thermostat","Plastic",36.6
+"2164","Honeywell programmable ","unknown model ","Display front part assembly"," Smart & non-smart thermostat","PCB",43.9
+"2165","Honeywell programmable ","unknown model ","Display front part assembly"," Smart & non-smart thermostat","Flat panel glass",9.2
+"2166","Honeywell programmable ","unknown model ","Display front part assembly"," Smart & non-smart thermostat","Others",3
+"2167","Samsung Galaxy Tab GT-P7510 ","2011","Battery","Tablet ","Steel",0.3
+"2168","Samsung Galaxy Tab GT-P7510 ","2011","Battery","Tablet ","Li-ion battery",135
+"2169","Samsung Galaxy Tab GT-P7510 ","2011","Casing","Tablet ","Plastic",75
+"2170","Samsung Galaxy Tab GT-P7510 ","2011","Display","Tablet ","Copper",1.2
+"2171","Samsung Galaxy Tab GT-P7510 ","2011","Display","Tablet ","Steel",20
+"2172","Samsung Galaxy Tab GT-P7510 ","2011","Display","Tablet ","Plastic",48.1
+"2173","Samsung Galaxy Tab GT-P7510 ","2011","Display","Tablet ","PCB",6.7
+"2174","Samsung Galaxy Tab GT-P7510 ","2011","Display","Tablet ","Flat panel glass",55
+"2175","Samsung Galaxy Tab GT-P7510 ","2011","Display","Tablet ","Other glass",110
+"2176","Samsung Galaxy Tab GT-P7510 ","2011","Display","Tablet ","Others",1.2
+"2177","Samsung Galaxy Tab GT-P7510 ","2011","Interior parts","Tablet ","Aluminum",45
+"2178","Samsung Galaxy Tab GT-P7510 ","2011","Interior parts","Tablet ","Copper",2.7
+"2179","Samsung Galaxy Tab GT-P7510 ","2011","Interior parts","Tablet ","Steel",7.8
+"2180","Samsung Galaxy Tab GT-P7510 ","2011","Interior parts","Tablet ","Plastic",4.3
+"2181","Samsung Galaxy Tab GT-P7510 ","2011","Interior parts","Tablet ","PCB",2.7
+"2182","Samsung Galaxy Tab GT-P7510 ","2011","Interior parts","Tablet ","Others",0.3
+"2183","Samsung Galaxy Tab GT-P7510 ","2011","Motherboard","Tablet ","PCB",45
+"2184","Samsung Galaxy Tab 4 SM-T530 ","2014","Battery","Tablet ","Steel",0.3
+"2185","Samsung Galaxy Tab 4 SM-T530 ","2014","Battery","Tablet ","Li-ion battery",125
+"2186","Samsung Galaxy Tab 4 SM-T530 ","2014","Casing","Tablet ","Plastic",65
+"2187","Samsung Galaxy Tab 4 SM-T530 ","2014","Casing","Tablet ","Others",1
+"2188","Samsung Galaxy Tab 4 SM-T530 ","2014","Display","Tablet ","Steel",20
+"2189","Samsung Galaxy Tab 4 SM-T530 ","2014","Display","Tablet ","Plastic",43.5
+"2190","Samsung Galaxy Tab 4 SM-T530 ","2014","Display","Tablet ","PCB",7.3
+"2191","Samsung Galaxy Tab 4 SM-T530 ","2014","Display","Tablet ","Flat panel glass",60
+"2192","Samsung Galaxy Tab 4 SM-T530 ","2014","Display","Tablet ","Other glass",90
+"2193","Samsung Galaxy Tab 4 SM-T530 ","2014","Display","Tablet ","Others",1.4
+"2194","Samsung Galaxy Tab 4 SM-T530 ","2014","Interior parts","Tablet ","Copper",2.2
+"2195","Samsung Galaxy Tab 4 SM-T530 ","2014","Interior parts","Tablet ","Steel",6.1
+"2196","Samsung Galaxy Tab 4 SM-T530 ","2014","Interior parts","Tablet ","Plastic",41.3
+"2197","Samsung Galaxy Tab 4 SM-T530 ","2014","Interior parts","Tablet ","PCB",2.4
+"2198","Samsung Galaxy Tab 4 SM-T530 ","2014","Interior parts","Tablet ","Others",0.2
+"2199","Samsung Galaxy Tab 4 SM-T530 ","2014","Motherboard","Tablet ","PCB",26.2
+"2200","Apple iPad 8GB 1st gen ","2009","Battery","Tablet ","Li-ion battery",129
+"2201","Apple iPad 8GB 1st gen ","2009","Casing","Tablet ","Aluminum",136
+"2202","Apple iPad 8GB 1st gen ","2009","Casing","Tablet ","Steel",3.1
+"2203","Apple iPad 8GB 1st gen ","2009","Casing","Tablet ","Plastic",12
+"2204","Apple iPad 8GB 1st gen ","2009","Display*","Tablet ","Flat panel glass",154
+"2205","Apple iPad 8GB 1st gen ","2009","Display*","Tablet ","Other glass",188
+"2206","Apple iPad 8GB 1st gen ","2009","Interior parts","Tablet ","Aluminum",1.2
+"2207","Apple iPad 8GB 1st gen ","2009","Interior parts","Tablet ","Copper",1.1
+"2208","Apple iPad 8GB 1st gen ","2009","Interior parts","Tablet ","Plastic",24.4
+"2209","Apple iPad 8GB 1st gen ","2009","Interior parts","Tablet ","Others",7.5
+"2210","Apple iPad 8GB 1st gen ","2009","Motherboard","Tablet ","Steel",9.4
+"2211","Apple iPad 8GB 1st gen ","2009","Motherboard","Tablet ","PCB",20.1
+"2212","Panasonic Omnivision, PV 4920 ","1990","Disc drive","VCR","Copper",26
+"2213","Panasonic Omnivision, PV 4920 ","1990","Disc drive","VCR","Steel",1453.7
+"2214","Panasonic Omnivision, PV 4920 ","1990","Disc drive","VCR","Plastic",63.8
+"2215","Panasonic Omnivision, PV 4920 ","1990","Disc drive","VCR","PCB",63.2
+"2216","Panasonic Omnivision, PV 4920 ","1990","Interiror frame","VCR","Plastic",343
+"2217","Panasonic Omnivision, PV 4920 ","1990","Interiror frame","VCR","PCB",69
+"2218","Panasonic Omnivision, PV 4920 ","1990","Motherboard","VCR","PCB",367
+"2219","Panasonic Omnivision, PV 4920 ","1990","Outer case","VCR","Steel",970.3
+"2220","Panasonic Omnivision, PV 4920 ","1990","Outer case","VCR","Plastic",257
+"2221","Panasonic Omnivision, PV 4920 ","1990","Power supply","VCR","Copper",33
+"2222","Panasonic Omnivision, PV 4920 ","1990","Power supply","VCR","Steel",69
+"2223","Panasonic Omnivision, PV 4920 ","1990","Power supply","VCR","Plastic",55
+"2224","Panasonic Omnivision, PV 4920 ","1990","Power supply","VCR","PCB",91

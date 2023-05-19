@@ -1,0 +1,1036 @@
+,RefID,RecordLastUpdated,Operator,SiteName,TechnologyType,InstalledCapacity,TurbineCapacity,No.ofTurbines,HeightofTurbines,DevelopmentStatus,Address,County,Region,Country,PostCode,X-coordinate,Y-coordinate,Operational,gov_coords
+2073,2555,09/05/2013,Ecotricity,South Beach Wind Turbine (Somerton),Wind Onshore,1.5,1.47,1.0,,Operational,"Somerton, Great Yarmouth, Norfolk",Norfolk,Eastern,England,,646953,318736.0,22/07/2000,"(52.7098941617513, 1.6544623487086005)"
+2074,2556,04/12/2008,LRZ Ltd (Taken over by NOVERA),Swaffham 1 - Ecotech Wind Park,Wind Onshore,1.5,1.47,1.0,,Operational,"East of West Acre Road
+Swaffham
+Norfolk",Norfolk,Eastern,England,,581585,309935.0,16/08/1999,"(52.65672934377144, 0.6832674613883248)"
+2075,2559,18/05/2006,Cynllun Trydan Gwynt,Mynydd Gorddu Wind Farm,Wind Onshore,10.2,0.54,19.0,,Operational,Mynydd Gorddu Elerch Tal-y-Bont Dyfed,Dyfed,Wales,Wales,,266200,287200.0,18/04/1998,"(52.466296522145704, -3.971000532131067)"
+2078,2563,22/04/2009,"Renewable Development Company Ltd, KENTECH Ltd",Cefn Croes Wind Farm,Wind Onshore,58.5,1.5,39.0,,Operational,"Canolbarth Forest,  Devils Bridge  Ceredigion",Dyfed,Wales,Wales,,281000,280000.0,25/01/2005,"(52.40502768181345, -3.750691129954679)"
+2079,2564,30/10/2011,RWE npower,Carno 'B' Wind Farm,Wind Onshore,16.8,0.6,28.0,,Operational,"Trannon Moor, Carno, Powys",Powys,Wales,Wales,,291053,295836.0,01/10/1996,"(52.54943253516271, -3.608162900298291)"
+2080,2565,30/10/2011,RWE npower,Carno 'A' Wind Farm,Wind Onshore,16.8,0.6,28.0,,Operational,"Cwm Cledan
+Carno
+Powys",Powys,Wales,Wales,,293000,295000.0,01/10/1996,"(52.542306419692125, -3.5791910905231066)"
+2081,2566,03/02/2010,Vestas,Cemmaes 'B' Wind Farm,Wind Onshore,3.4,0.56,6.0,,Operational,"Mynydd y Cemmaes
+Cemmaes
+Machynlleth
+Powys",Powys,Wales,Wales,,287000,308000.0,01/02/2002,"(52.65791061653896, -3.6720677381405245)"
+2082,2567,09/12/2003,RWE npower,Trysglwyn Wind Farm,Wind Onshore,5.6,0.4,14.0,,Operational,"Trysglwyn Fawr
+Rhosybol
+Isle of Anglesey
+Gwynedd",Gwynedd,Wales,Wales,,244000,389000.0,01/05/1996,"(53.374759720595314, -4.346466424972191)"
+2083,2568,03/10/2018,Private Developer,Hafoty Ucha '2' and '3' Wind Turbine,Wind Onshore,2.6,0.85,3.0,,Operational,"3 km South of Cerrigydrudion
+Llangwm",Clwyd,Wales,Wales,,293500,345500.0,15/12/2002,"(52.996202280528635, -3.5882564842916334)"
+2086,2574,10/02/2003,Mersey Docks and Harbour Company and Windcluster Limited,Royal Seaforth Dock Wind Farm,Wind Onshore,3.0,0.5,6.0,,Operational,"Royal Seaforth Dock Port of Liverpool Bootle, Sefton Merseyside",Merseyside,North West,England,,331100,397000.0,24/04/1999,"(53.465214429551324, -3.0393103753899644)"
+2087,2576,14/09/2010,Vestas,Cemmaes 'C' Wind Farm,Wind Onshore,15.3,0.85,18.0,,Operational,"Cemmaes
+Machynlleth
+Powys",Powys,Wales,Wales,,286800,306000.0,23/02/2002,"(52.63989715423626, -3.6743363711078767)"
+2092,2582,04/06/2005,MANWEB Generation Holdings,Llanbabo Wind Farm,Wind Onshore,20.4,2.25,9.0,,Operational,"Llanbabo Wind Farm
+Land tp the north of Llyn Alaw
+Isle of Anglesey
+Gwynedd",Gwynedd,Wales,Wales,,236000,387000.0,01/10/1997,"(53.35437569300462, -4.465565943413202)"
+2094,2586,18/01/2002,RWE npower,Tow Law Wind Farm,Wind Onshore,2.6,0.9,3.0,,Operational,"Tow Law, Crook, County Durham",County Durham,North East,England,,411500,541000.0,30/12/2001,"(54.763803959404896, -1.82280011955212)"
+2095,2587,10/06/2009,Border Wind Farms Ltd /AMEC,Kirkheaton Wind Farm,Wind Onshore,1.8,0.6,3.0,,Operational,"West Farm, Kirkheaton, Northumberland",Northumberland,North East,England,,400800,576900.0,22/05/2000,"(55.08653945425545, -1.9890039953830516)"
+2097,2591,07/10/2009,Border Windfarm Limited / AMEC,Great Eppleton Wind Farm,Wind Onshore,3.0,0.75,4.0,,Operational,"Great Eppleton Farm
+North Lane
+Hetton le Hole
+Tyne and Wear",Tyne and Wear,North East,England,,436900,548200.0,01/04/1997,"(54.82728530202714, -1.427157596797822)"
+2104,2613,30/10/2011,Great Orton Wind Farms (II) Ltd,Great Orton Wind Farm (Extension),Wind Onshore,2.3,0.4,6.0,,Operational,"Great Orton Airfield, near Wiggonby, Carlisle, Cumbria",Cumbria,North West,England,,331300,553400.0,01/02/2000,"(54.87063175305573, -3.072040365864967)"
+2105,2617,01/08/2016,The Wind Company,Harlock Hill Wind Farm,Wind Onshore,2.5,0.5,5.0,,Operational,"Harlock Hill Wind Farm, Pennington, Near Ulverston, Cumbria",Cumbria,North West,England,LA12 0,325300,479400.0,01/01/1997,"(54.2048795856387, -3.146715210620486)"
+2106,2618,06/05/2009,Wharrels Hill Windfarm Ltd/ National Windpower,Wharrels Hill Wind Farm,Wind Onshore,10.4,1.3,8.0,,Operational,"Wharrels Hill
+Bothel
+Cumbria",Cumbria,North West,England,,318000,537200.0,07/08/2007,"(54.72308136448613, -3.274644894513002)"
+2109,2624,30/10/2011,Windprospect / Windcluster,Siddick Wind Farm,Wind Onshore,4.2,0.6,7.0,,Operational,Siddick Wind Farm Siddick Workington Cumbria,Cumbria,North West,England,,300600,532100.0,01/08/1996,"(54.67412543274539, -3.54295590332423)"
+2110,2625,11/04/2011,Windprospect / Windcluster,Oldside Wind Farm,Wind Onshore,5.4,0.6,9.0,,Operational,"Oldside Wind Farm
+Workington
+Cumbria",Cumbria,North West,England,,299700,530500.0,01/09/1996,"(54.65957358911215, -3.5563570466576917)"
+2111,2626,11/04/2011,The Wind Company,Haverigg Extension Wind Farm,Wind Onshore,2.4,0.6,4.0,,Operational,"Kirksanton Airfield
+Part of Hemplands Farm
+Haverigg
+Millom
+Cumbria",Cumbria,North West,England,,313700,479500.0,01/07/1998,"(54.20395425770603, -3.3245331577353623)"
+2114,2630,26/08/2004,WINDJEN POWER LTD,Blaen Bowi Wind Farm,Wind Onshore,3.9,1.3,3.0,,Operational,"Moelfre Capel Iwan Dyfed, Carmarthenshire",Dyfed,Wales,Wales,,232500,236000.0,30/07/2002,"(51.997111483294475, -4.44125288787443)"
+2118,2636,30/10/2011,Micon Wind Turbines (UK) Limited,Parc-Cynog Wind Farm,Wind Onshore,3.6,0.7,5.0,,Operational,"Parc-Cynog Farm
+Pendine
+Carmarthenshire",Dyfed,Wales,Wales,,225500,209500.0,01/02/2001,"(51.7569301708759, -4.529707539247676)"
+2129,2653,03/03/2010,John Laing Environmental Assets Group ,Moel Maelogen A,Wind Onshore,2.6,1.3,2.0,,Operational,"Moel Maelogen
+Nr Llanrwst
+Conwy
+Gwynedd",Gwynedd,Wales,Wales,,284700,361300.0,30/01/2003,"(53.13634185749763, -3.7249756687259965)"
+2132,2659,22/04/2009,Powergen Renewables Developments Ltd,Out Newton Wind Farm,Wind Onshore,9.0,1.3,7.0,,Operational,"Southfield Farms
+Hull",Humberside,Yorkshire and Humber,England,,538800,421200.0,31/01/2002,"(53.66885367767143, 0.09944618179685724)"
+2140,2672,03/06/2013,Brockholes Farm,Brockholes Wind Cluster,Wind Onshore,2.4,0.8,3.0,,Operational,"Brockholes Farm, Grantshouse, Duns, Borders. TD11 3RL",Borders,Scotland,Scotland,,382080,663751.0,18/02/2013,"(55.866597786540794, -2.28790669334554)"
+2141,2673,17/10/2011,Falck Renewables,Kilbraur Windfarm Farlary - Extension,Wind Onshore,20.0,2.5,8.0,,Operational,"Dunrobin Glen, Golspie, The Highlands. KW10 6SE",Highland,Scotland,Scotland,,283124,902064.0,01/09/2011,"(57.99238593890469, -3.9786630078937923)"
+2142,2674,25/10/2011,Pennant Wind Energy Ventures,Maesgwyn,Wind Onshore,26.0,2.0,13.0,,Operational,"Maesgwyn, Glynneath, Neath, West Glamorgan. SA11",West Glamorgan,Wales,Wales,,285500,205500.0,14/04/2011,"(51.73647561352477, -3.659554358124413)"
+2145,2680,19/04/2013,,Spicer Hill Wind Farm,Wind Onshore,6.9,2.3,3.0,,Operational,"34 Spicer Hill, Whitley Road, Penistone, Sheffield, South Yorks. S36 7G",South Yorkshire,Yorkshire and Humber,England,,420500,404500.0,15/02/2013,"(53.53675392350311, -1.6921625095189219)"
+2148,2683,13/09/2011,,Ford Motor Company Ltd (Extension),Wind Onshore,2.0,2.0,1.0,,Operational,"Thames Avenue, Dagenham. RM9 6SA",London,London,England,,549268,183277.0,12/08/2011,"(51.52867924072731, 0.15044912222743534)"
+2152,2687,20/12/2011,FMC Technologies,FMC Technologies,Wind Onshore,1.5,0.75,2.0,,Operational,"Pitreavie Crescent, Pitreavie Business Park, Dunfermline, KY11 8UT",Fife,Scotland,Scotland,,310010,685787.0,07/12/2011,"(56.05644209370146, -3.446594758719101)"
+2156,2691,09/06/2010,Boyndie Wind Farm,Boyndie Airfield Extension,Wind Onshore,2.3,2.3,1.0,,Operational,"Boyndie, Banff, Grampian",Grampian,Scotland,Scotland,AB45 2LR,361206,863606.0,04/01/2010,"(57.66066512820481, -2.651820329224303)"
+2159,2694,29/11/2011,M H Leyland Ltd,Blue Gates Farm,Wind Onshore,1.5,1.5,1.0,,Operational,"Colchester Main Road, Alresford, Colchester",Essex,Eastern,England,CO7 8DE,606950,222545.0,01/03/2010,"(51.863089687029024, 1.0042149197587922)"
+2160,2695,21/02/2017,Ecotricity / Next Generation,Celcon Blocks Ltd,Wind Onshore,2.0,2.0,1.0,,Operational,"Heck and Pollington Lane, Pollington, Goole, Humbs",Humberside,Yorkshire and Humber,England,DN14 0BA,460597,420445.0,15/04/2016,"(53.67696722478946, -1.0841333714004235)"
+2162,2697,28/10/2010,Hammers Hill Energy Ltd,Hammar's Hill,Wind Onshore,4.3,0.9,5.0,,Operational,"Evie, Orkney",Orkney Islands,Scotland,Scotland,,338644,1023698.0,20/09/2010,"(59.09573680130949, -3.072660562513836)"
+2169,2704,26/04/2012,FMC Corp UK Ltd,"F M C Land, Pitreavie Business Park",Wind Onshore,1.5,1.5,1.0,,Operational,"Queensferry Road, Pitreavie Crescent, Dunfermline, Fife. KY11 8UD",Fife,Scotland,Scotland,,310145,685510.0,31/10/2011,"(56.05397953994282, -3.4443347551678998)"
+2173,2708,09/06/2010,Green Cat Renewables,Strath of Brydock - Extension,Wind Onshore,2.3,1.3,1.0,,Operational,"Strath of Brydock, Alvah, Banff",Grampian,Scotland,Scotland,,365391,859727.0,01/12/2009,"(57.6261666154948, -2.5811300426799524)"
+2175,2711,02/10/2018,Scottish Power Renewables,Hare Hill (East Ayrshire),Wind Onshore,13.2,0.66,20.0,,Operational,"New Cumnock, East Ayreshire",Strathclyde,Scotland,Scotland,,265320,609703.0,01/11/2000,"(55.36280437392024, -4.12628273504079)"
+2177,2713,05/08/2019,Npower Renewables,Kirkby Moor,Wind Onshore,4.8,0.4,12.0,,Operational,"approximately 4km from Ulverston, within a Site of Special Scientific Interest",Cumbria,North West,England,,326111,485242.0,01/01/1993,"(54.25749079528635, -3.135725255851302)"
+2179,2715,24/03/2010,,Bambers II,Wind Onshore,4.6,0.76,6.0,,Operational,"Mile Lane, Mablethorpe, Lincolnshire",Lincolnshire,East Midlands,England,,549195,382820.0,01/11/2006,"(53.32128365495736, 0.23842542978860756)"
+2187,2723,05/05/2011,West Coast Energy Ltd/Falck Renewables,Millennium Extension II,Wind Onshore,15.0,2.5,6.0,,Operational,"Millennium Windfarm, on The Achlain and Invergarry amd Aberchalder Estates, Glengarry Invergarry, Inverness-Shire, (nr Glen Moriston, Fort Augustus)",Highland,Scotland,Scotland,,225679,810840.0,01/04/2011,"(57.15522678150692, -4.883641231931057)"
+2188,2724,06/08/2010,Private Developer,Cairnmore Farm,Wind Onshore,2.6,0.85,3.0,,Operational, 3km south-east of Rhynie in Aberdeenshire,Grampian,Scotland,Scotland,,351086,825261.0,10/07/2010,"(57.31527780787161, -2.813707882320394)"
+2194,2741,22/03/2013,Greenspan Electric St Fergus Ltd,St Fergus Moss Wind Farm,Wind Onshore,6.0,2.0,3.0,,Operational,"Land at St Fergus Moss, St Fergus, Peterhead",Grampian,Scotland,Scotland,,405416,853549.0,18/12/2012,"(57.571979021369685, -1.9111110377729694)"
+2195,2742,07/06/2011,Scotrenewables (Scotland) Ltd,"West Hill, Flotta",Wind Onshore,2.0,2.0,1.0,,Operational,"West Hill, Flotta, Orkney",Orkney Islands,Scotland,Scotland,,335252,993820.0,01/07/2010,"(58.82696848842588, -3.123092466785486)"
+2197,2747,02/12/2011,Yorkshire Water,Chelker Reservoir (Retention of Turbines),Wind Onshore,1.2,0.3,4.0,,Operational,"Land adjacent to Chelker Reservoir, nr Skipton",North Yorkshire,Yorkshire and Humber,England,,405730,451820.0,01/05/2004,"(53.962432450225165, -1.9141544243898252)"
+2204,2757,19/04/2013,,Whitelee Windfarm Extension phase 2,Wind Onshore,109.0,3.0,39.0,,Operational,north of the Irvine Valley on Eaglesham Moor,Strathclyde,Scotland,Scotland,,254220,640867.0,15/01/2013,"(55.63942792702671, -4.317630408823729)"
+2205,2758,01/06/2010,Private Developer,Hill of Balquhindachy extension,Wind Onshore,1.7,0.85,2.0,,Operational,"Methlick, Ellon",Grampian,Scotland,Scotland,AB41 7BY,385642,842482.0,09/07/2010,"(57.47237030899301, -2.2410407024189962)"
+2219,2776,01/06/2011,Npower Renewables,Taff Ely Wind Farm,Wind Onshore,9.0,0.45,20.0,,Operational,10 kilometres (km) north east of Bridgend,Mid Glamorgan,Wales,Wales,,298574,186630.0,01/10/1993,"(51.56938794911213, -3.4648125546411617)"
+2221,2780,04/04/2016,Airvolution Energy,Mossmorran Wind Farm,Wind Onshore,4.6,2.0,2.0,,Operational,"Land At To The West Of Chemical Works, Mossmorran, ",Fife,Scotland,Scotland,,318109,689419.0,01/12/2015,"(56.09052118448165, -3.317698823137985)"
+2222,2782,14/09/2011,Private Developer,Courtstone Wind Turbine,Wind Onshore,2.3,2.3,1.0,,Operational,"Methlick
+Ellon
+AB41 7HH",Grampian,Scotland,Scotland,,384413,833537.0,04/06/2009,"(57.39198093378074, -2.260958354844384)"
+2232,2796,19/04/2012,ABO Wind,Lairg Wind Farm,Wind Onshore,7.5,2.5,3.0,,Operational,Land To South Of Toroboll Lairg Highland,Highland,Scotland,Scotland,,261293,903916.0,01/01/2012,"(58.00272971312136, -4.348700172572766)"
+2236,2804,03/08/2011,,G24 Innovations Turbine,Wind Onshore,2.3,2.3,1.0,,Operational,"Wentloog Environmental Centre, WENTLOOG AVENUE, WENTLOOG",South Glamorgan,Wales,Wales,,323460,179215.0,12/07/2011,"(51.506661856832416, -3.1042154405538374)"
+2242,2822,31/01/2012,Mornflake Oats/ Hamlyns Oats,Mornflake Oats Wind Turbine,Wind Onshore,2.3,2.3,1.0,,Operational,"Cairnton Road
+Boyndie
+Banff
+AB45 2LR",Grampian,Scotland,Scotland,,361543,863513.0,18/01/2012,"(57.65985881039102, -2.646158019570326)"
+2246,2830,24/08/2012,Brett Martin Ltd,Wind Turbine 1,Wind Onshore,2.3,2.3,1.0,,Operational,"24 ROUGHFORT ROAD
+MALLUSK
+NEWTOWNABBEY
+BT36 4RB
+Northern Ireland",Co. Antrim,Northern Ireland,Northern Ireland,,141041,539963.0,30/05/2011,"(54.68792229157066, -6.019599892141793)"
+2247,2839,26/02/2013,Private Developer,Clochnahill Wind Farm,Wind Onshore,5.2,1.3,4.0,,Operational,"Clochnahill, Stonehaven AB39 2XY",Grampian,Scotland,Scotland,,382413,782503.0,20/01/2012,"(56.933475783633654, -2.290609118975368)"
+2258,2866,16/08/2013,White Young Green Planning,Ballymena Wind Park Limited,Wind Onshore,4.7,2.35,2.0,,Operational,Michelin Tyre PLC Raceview Road Ballymena BT42 4HZ Northern Ireland,Co. Antrim,Northern Ireland,Northern Ireland,,128574,562072.0,24/01/2013,"(54.87950233874816, -6.2331532155347205)"
+2259,2867,16/08/2013,Auquhirie Land Company Ltd,St John Hill,Wind Onshore,7.7,2.5,3.0,,Operational,"St John Hill Windfarm Near Roadside of Kinneff, Stonehaven",Grampian,Scotland,Scotland,AB39 2UE,383502,778054.0,07/03/2013,"(56.89354966900157, -2.272423719013998)"
+2262,2875,29/04/2013,TCI Renewables,MARCH SEWAGE TREATMENT WORKS - WIND TURBINE,Wind Onshore,2.0,2.0,1.0,,Operational,"Anglian Water Authority, Creek Road, March, Cambridgeshire PE15 8RY",Cambridgeshire,Eastern,England,,543872,299171.0,01/09/2012,"(52.5713389127916, 0.12147833873308936)"
+2268,2888,03/04/2018,Greencoat,Brockaghboy Wind Farm - extension,Wind Onshore,10.0,3.0,4.0,,Operational,west of Dowlins Bridge.  in the townlands of Knockoneill and Dunavenny on the Drumbane Road.  7.5km south of Garvagh,Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,87959,566906.0,01/09/2017,"(54.89911239149278, -6.869208908206868)"
+2273,2902,03/11/2010,EDF Energies Nouvelles,Burnfoot Hill,Wind Onshore,26.0,2.0,13.0,,Operational,"Burnfoot Hill, Clackmannanshire",Clackmannanshire,Scotland,Scotland,,290135,703250.0,26/10/2010,"(56.2091107136808, -3.772784836838865)"
+2286,2921,06/07/2009,Yorkshire Water,Chelker Reservoir,Wind Onshore,1.3,0.3,4.0,,Operational,"Land adjacent to Chelker Reservoir, nr Skipton",North Yorkshire,Yorkshire and Humber,England,,405730,451820.0,01/06/1992,"(53.962432450225165, -1.9141544243898252)"
+2287,2922,09/06/2010,Green Cat Renewables,Strath of Brydock,Wind Onshore,4.6,1.3,2.0,,Operational,"Strath of Brydock
+Alvah
+Banff",Grampian,Scotland,Scotland,,365391,859727.0,01/06/2009,"(57.6261666154948, -2.5811300426799524)"
+2288,2923,28/10/2010,Green Cat Renewables,House O'Hill,Wind Onshore,5.0,1.67,3.0,,Operational,"Land Around House O'Hill
+Fraserburgh",Grampian,Scotland,Scotland,,397560,859107.0,04/10/2010,"(57.62192684941733, -2.0425087459832443)"
+2291,2927,29/07/2010,EF Energy,Owenreagh Extension,Wind Onshore,5.1,0.85,6.0,,Operational,"Land near Craignagapple 10km South East of Strabane, County Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,57401,558796.0,01/08/2008,"(54.80655389575144, -7.334086360393337)"
+2292,2928,16/08/2012,Munich Re (previously Wind Prospect),Bagmoor,Wind Onshore,16.0,2.0,8.0,,Operational,2km East of Flixborough,Humberside,Yorkshire and Humber,England,,488240,415400.0,01/07/2009,"(53.62770469743423, -0.667197547311694)"
+2296,2932,04/12/2009,Croda Chemicals,Croda Chemicals Europe,Wind Onshore,3.0,3.0,1.0,,Operational,"Croda International Plc
+Cowick Hall
+Snaith
+Goole
+East Yorkshire
+DN14 9AA",Humberside,Yorkshire and Humber,England,,465670,421110.0,01/10/2008,"(53.682331785794624, -1.0072078519179988)"
+2298,2935,23/10/2009,,"Eastman Chemicals, Workington",Wind Onshore,4.0,2.0,2.0,,Operational,"Eastman Chemical Workington Ltd, Siddick, Workington, Cumbria, CA14 1LG",Cumbria,North West,England,,300775,531765.0,01/10/2006,"(54.67115052115698, -3.5401292655799357)"
+2301,2938,07/12/2010,Npower Renewables,Lindhurst Wind Farm,Wind Onshore,15.0,3.0,5.0,,Operational,"Lindhurst, South of Mansfield",Nottinghamshire,East Midlands,England,,456880,358150.0,04/11/2010,"(53.11750394907149, -1.1516018770680359)"
+2302,2940,09/06/2010,Scotia Wind Ltd,Craigengelt,Wind Onshore,20.0,2.5,8.0,,Operational,"Craigengelt Hill, Stirling",Stirling,Scotland,Scotland,,272451,686495.0,31/03/2010,"(56.054258984983456, -4.049664544324681)"
+2304,2942,09/06/2010,Yorkshire Water,Saltend Wind Turbine,Wind Onshore,1.3,1.3,1.0,,Operational,"Hull Waste Water Treatment Works, Hull Road, Saltend, Hull, HU12",Humberside,Yorkshire and Humber,England,,516400,429000.0,01/11/2007,"(53.74438961932675, -0.23648631346618368)"
+2305,2943,23/08/2017,Yorkshire Water,Loftsome Bridge,Wind Onshore,1.3,1.0,2.0,,Operational,"Loftsome Bridge Water Treatment Works, Water Treatment Works Acc Rd, Barmby On The Marsh, East Riding Of Yorkshire, DN14 6ET",Humberside,Yorkshire and Humber,England,,470140,429460.0,01/02/2008,"(53.7567894553715, -0.937653739872159)"
+2306,2944,23/10/2009,Nissan Manufacturing UK,Nissan Wind Farm,Wind Onshore,4.0,0.66,6.0,,Operational,"Nissan plant, Sunderland",Tyne and Wear,North East,England,,433385,557810.0,01/11/2005,"(54.913886254360484, -1.480759663563157)"
+2312,2950,02/11/2017,Nuon,Parc Cynog Extension,Wind Onshore,8.4,1.3,6.0,,Operational,"Parc Cynog, Pendine, Carms",Dyfed,Wales,Wales,,225230,209760.0,01/11/2009,"(51.759181334099615, -4.533746209118317)"
+2314,2952,06/05/2009,Fenpower Limited,Ranson Moor (phase 1),Wind Onshore,6.0,2.0,3.0,,Operational,"Land North of ransonmoor Farm 
+Benwick Road
+Doddington
+Cambs, Cambridgeshire, PE15 0TY",Cambridgeshire,Eastern,England,,537950,292470.0,01/05/2007,"(52.51266841490863, 0.031375390366434774)"
+2315,2953,04/06/2018,EcoGen Projects / Fenpower,Ranson Moor Wind Farm (Phase 2),Wind Onshore,4.0,2.0,2.0,,Operational,"Land North East Of Ransonmoor Farm
+Benwick Road
+Doddington
+March
+Cambridgeshire, PE15 0TY",Cambridgeshire,Eastern,England,,538360,292250.0,01/05/2007,"(52.51058807537479, 0.03732149771947049)"
+2317,2955,29/12/2014,ESBI,West Durham Wind Farm,Wind Onshore,24.0,2.0,12.0,,Operational,"Land to the north of Tow Law, Co Durham",County Durham,North East,England,,412000,541000.0,01/05/2009,"(54.7637923770497, -1.8150296284293705)"
+2318,2956,09/06/2010,Renewable Energy Systems (RES),Dyffryn Brodyn Wind Farm,Wind Onshore,5.5,0.5,11.0,,Operational,"Dyffryn Brodyn Wind Farm, near Llanboidy, north of St Clears",Dyfed,Wales,Wales,,221900,226800.0,01/12/1994,"(51.91118129423402, -4.59071869910124)"
+2327,2965,05/10/2009,Green Cat Renewables,North Red Bog,Wind Onshore,1.6,0.8,2.0,,Operational,"North Redbog
+Strichen
+Aberdeenshire
+AB43 6RQ",Grampian,Scotland,Scotland,,399555,855289.0,23/06/2008,"(57.58763911649669, -2.0091011320786665)"
+2329,2968,04/12/2017,Gravis Capital Management,Milton Keynes Wind Farm,Wind Onshore,14.0,2.0,7.0,,Operational,"Petsoe Manor Farm, Near Emberton",Buckinghamshire,South East,England,,490000,249090.0,25/09/2010,"(52.13279375584073, -0.6865442553900047)"
+2338,2983,21/05/2010,,Broom Hill Farm,Wind Onshore,8.0,2.0,4.0,,Operational,"Broom Hill Farm
+Wolsingham Road
+Stanley
+Crook
+Durham",County Durham,North East,England,,415500,539500.0,16/02/2009,"(54.75021770752182, -1.7607157869510484)"
+2341,2986,04/12/2017,Gravis Capital Management,Winscales Moor,Wind Onshore,6.0,0.85,7.0,,Operational,Winscales Moor,Cumbria,North West,England,,303500,528500.0,01/05/2009,"(54.64234879506042, -3.496812017318083)"
+2342,2988,13/09/2011,SLP Energy,Wind Farm Africa Alive,Wind Onshore,4.1,2.05,2.0,,Operational,"Whites Lane
+Kessingland
+Lowestoft
+Suffolk
+NR33 7T",Suffolk,Eastern,England,,651905,286095.0,01/06/2011,"(52.414794414327524, 1.7028337891847316)"
+2345,2991,04/04/2018,Midefearn Renewables,Beinn Tharsuinn Extension (Beinn nan Oighrean),Wind Onshore,4.6,2.3,2.0,,Operational,"Beinn Tharsuinn Wind Farm, Edderton, Highland.",Highland,Scotland,Scotland,,266440,879840.0,01/07/2009,"(57.788225350794974, -4.248151114965529)"
+2350,2999,21/05/2010,Green Cat Renewables,St John's Well,Wind Onshore,2.4,0.8,3.0,,Operational,"St John's Wells
+Fyvie
+Formartine
+Aberdeenshire",Grampian,Scotland,Scotland,,380570,837410.0,15/07/2009,"(57.42662130838494, -2.325199031294778)"
+2352,3002,15/03/2012,Npower Renewables,Hellrigg Wind farm,Wind Onshore,9.2,2.5,4.0,,Operational,"Park Head Farm
+Silloth
+Carlisle",Cumbria,North West,England,,313585,551775.0,14/09/2011,"(54.85328300004429, -3.34751981641078)"
+2360,3015,03/10/2018,Innogy,Bryn titli Windfarm,Wind Onshore,9.9,0.45,22.0,,Operational,"Bryntitli Platuae, North of Rhayader
+Powys",Powys,Wales,Wales,,293500,275500.0,01/06/1994,"(52.36716539194247, -3.5655918862422205)"
+2362,3019,09/02/2011,Good Energy Generation,Delabole (Repowering),Wind Onshore,9.2,2.3,4.0,,Operational,"Delebole
+North Cornwall",Cornwall,South West,England,,208800,85500.0,01/02/2011,"(50.63775081882996, -4.705305755671466)"
+2363,3021,04/07/2012,REG Windpower (previously Cornwall Light and Power),Whittlesey,Wind Onshore,9.0,3.0,3.0,,Operational,"McCain's Food, Funtham's Lane, Whittlesey, Peterborough",Cambridgeshire,Eastern,England,PE7 2PG,524027,297139.0,03/09/2008,"(52.557963260537726, -0.17192981168450813)"
+2369,3028,28/07/2009,,Advanced Manufacturing Research Centre,Wind Onshore,2.6,1.3,2.0,,Operational,"Advanced Manufacturing Park
+Wallis Way
+Catcliffe
+Rotherham
+S60 5TZ",South Yorkshire,Yorkshire and Humber,England,,441475,388039.0,20/01/2009,"(53.38757093000023, -1.3778688501191017)"
+2374,3034,08/10/2013,Solutia / Vestas,Solutia UK Ltd,Wind Onshore,5.0,2.5,2.0,,Operational,"Traston Road, Newport, South Wales",Gwent,Wales,Wales,NP14 4XF,333375,185740.0,17/12/2009,"(51.56658052283794, -2.962615943630029)"
+2385,3050,06/04/2011,Hallam Land Management,High Haswell Wind Farm,Wind Onshore,4.0,2.0,2.0,,Operational,"Colliery Farm, Green Lane, High Haswell",County Durham,North East,England,,436675,543772.0,10/03/2011,"(54.78751176993898, -1.431218530952517)"
+2392,3057,04/12/2009,CELTPOWER LTD,Llandinam Windfarm,Wind Onshore,31.0,0.3,103.0,,Operational,10km south of Newtown,Powys,Wales,Wales,,302840,283645.0,01/01/1993,"(52.44210427343273, -3.430830875703433)"
+2396,3061,04/07/2012,REG Windpower (previously  Cornwall Light & Power),Goonhilly Downs Wind Farm Repower,Wind Onshore,12.0,2.0,6.0,,Operational,"Goonhilly Downs Wind Farm, Bonython Manor, Cury Cross Lanes, Helston, Cornwall, TR12 7BA",Cornwall,South West,England,,171000,21600.0,01/11/2010,"(50.05036214700748, -5.200212607969071)"
+2402,3068,09/02/2011,,MSD Cramlington,Wind Onshore,4.0,2.0,2.0,,Operational,"Shotton Lane, Cramlington, Northumberland, NE23 3JU",Northumberland,North East,England,,424206,578852.0,20/01/2011,"(55.103495580389456, -1.6221658892428976)"
+2408,3075,21/05/2010,Private Developer,Skelmonae Wind Farm,Wind Onshore,3.2,0.9,4.0,,Operational,"Skelmonae
+Methlick
+Ellon
+AB41 7JR",Grampian,Scotland,Scotland,,388702,836734.0,20/12/2009,"(57.42082601570199, -2.1897543231400567)"
+2410,3077,01/06/2009,,Carn Vean,Wind Onshore,10.0,2.0,5.0,,Operational,"Carn Vean, Tretheague Mill, Stithians, Truro, Cornwall",Cornwall,South West,England,TR3 7BY,172528,35961.0,30/10/2008,"(50.1799060805921, -5.187462212879329)"
+2411,3078,06/12/2010,Dewlay Cheese Company,Dewlay Cheese Wind Turbine,Wind Onshore,2.0,2.0,1.0,,Operational,"Dew Lay Products Limited
+Garstang Pass Road, Garstang, Preston PR3 0PR.",Lancashire,North West,England,,348440,443850.0,01/11/2010,"(53.888256096694796, -2.785950368138305)"
+2412,3079,09/06/2010,Renewable Energy Systems (RES),Coal Clough Wind Farm,Wind Onshore,9.6,0.4,24.0,,Operational,Burnley,Lancashire,North West,England,,390207,428154.0,01/02/1993,"(53.74966189910283, -2.149983685162335)"
+2422,3090,27/11/2001,National Energy Laboratories (NEL),Myres Hill,Wind Onshore,1.8,0.9,2.0,,Operational,Galloway,Strathclyde,Scotland,Scotland,,256840,646620.0,01/11/2001,"(55.69185764289906, -4.279044010610625)"
+2423,3092,04/07/2012,REG Windpower (previously Cornwall Light & Power),High Sharpley Wind Farm,Wind Onshore,2.6,1.3,2.0,,Operational,"High Sharpley and South Sharpley Farms
+Near Seaham
+County Durham",County Durham,North East,England,,442644,549702.0,01/12/2006,"(54.840327410613696, -1.337534566011748)"
+2424,3093,05/11/2009,NEL ,National Wind Turbine Test Site,Wind Onshore,4.7,2.3,2.0,,Operational,"National Wind Turbine 
+Test site
+Myres Hill
+Eaglesham",Strathclyde,Scotland,Scotland,,256500,646500.0,15/02/2001,"(55.69067980659526, -4.284385271238472)"
+2427,3096,09/07/2009,RWE npower,Little Cheyne Court Wind Farm,Wind Onshore,59.8,2.3,26.0,,Operational,"Little Cheyne Court, Romney Marsh
+Near Lydd
+Kent",Kent,South East,England,,598310,122060.0,01/06/2009,"(50.96382348228797, 0.8227368165057044)"
+2428,3097,23/02/2010,"Colham Energy Ltd, plus Airtricty extrension",Bessy Bell Wind Farm,Wind Onshore,5.0,0.5,10.0,,Operational,"Bessy Bell Mountain Baronscourt Estate Newtownstewart, County Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,49687,547922.0,01/10/1995,"(54.703950821595676, -7.4404591441319505)"
+2430,3101,22/04/2009,Snow Mountain Investment Ltd,Long Hill Road,Wind Onshore,2.0,2.0,1.0,,Operational,"Foundry Way
+Longhill Road
+March",Cambridgeshire,Eastern,England,,541686,299303.0,01/01/2005,"(52.573098015299436, 0.08930258267478738)"
+2432,3103,29/08/2017,B9 Energy Services Ltd/ ScottishPower Renewables,Corkey Wind Farm,Wind Onshore,5.0,0.5,10.0,,Operational,"Slievenahanaghen Mountain, (Accessed via Corkey Road), Cloughmills",Co. Antrim,Northern Ireland,Northern Ireland,,126222,580523.0,01/12/1994,"(55.043562791591036, -6.28731115028854)"
+2434,3105,03/02/2010,SLP Energy,Ness point Wind Turbine 1,Wind Onshore,2.3,2.3,1.0,,Operational,"Land off North Beach Industrial Estate
+Off Wilde Street
+Nesspoint
+Lowestoft",Suffolk,Eastern,England,,655480,293595.0,01/12/2004,"(52.48041805739723, 1.76101601508212)"
+2435,3106,29/08/2017,B9 Energy Services Ltd/ ScottishPower Renewables,Elliot's Hill Wind Farm,Wind Onshore,5.0,0.5,10.0,,Operational,"Elliot's Hill
+Tildarg
+near Ballyclare
+County Antrim",Co. Antrim,Northern Ireland,Northern Ireland,,134974,546006.0,01/04/1995,"(54.73893281683261, -6.118966593982835)"
+2437,3108,18/05/2017,Innogy (formerly RWE npower),Causeymire,Wind Onshore,48.3,2.0,24.0,,Operational,"Causey Mire, Caithness, Highlands",Highland,Scotland,Scotland,,336736,951086.0,01/06/2004,"(58.44346980051585, -3.085422902255095)"
+2438,3109,06/05/2009,Scottish and Southern Energy (SSE),Hadyard Hill,Wind Onshore,120.0,2.3,52.0,,Operational,"Hadyard Hill, East of Girvan, South Ayrshire",Strathclyde,Scotland,Scotland,,226478,599253.0,08/05/2006,"(55.25682334101137, -4.731906523509733)"
+2439,3110,09/05/2013,Powergen,Hare Hill (B),Wind Onshore,2.7,1.35,2.0,,Operational,"Hare Hill, Durham",County Durham,North East,England,,437735,540895.0,02/07/2004,"(54.76158064449295, -1.4151091161122948)"
+2441,3112,29/08/2017,B9 Energy Services Ltd/ ScottishPower Renewables,Rigged Hill Wind Farm,Wind Onshore,5.0,0.5,10.0,,Operational,"Rigged Hill, 11km east of Limavady, County Londonderry",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,92064,580329.0,01/11/1994,"(55.021853852946535, -6.819826291241417)"
+2442,3113,05/01/2015,Greencoat UK Wind,Bin Mountain,Wind Onshore,9.0,1.5,6.0,,Operational,"Lough Hill
+Castle Craig, Curraghmacall
+Drummahon,",Co. Tyrone,Northern Ireland,Northern Ireland,,38520,541806.0,01/02/2007,"(54.641363537220286, -7.605365752177564)"
+2443,3114,07/04/2010,Fred Olsen Renewables,Crystal Rig Phase 1,Wind Onshore,62.5,2.5,25.0,,Operational,"Crystal Rig, Scottish Borders",Borders,Scotland,Scotland,,368350,665650.0,30/06/2004,"(55.882950328328626, -2.507506015278352)"
+2445,3116,14/12/2011,Scottish Power Renewables,Black Law,Wind Onshore,124.0,2.3,54.0,,Operational,"Black Law, Climpy",Strathclyde,Scotland,Scotland,,289500,653500.0,31/05/2004,"(55.76218897974121, -3.762566605098417)"
+2446,3117,06/08/2004,Airtricity,Ardrossan,Wind Onshore,24.0,2.0,12.0,,Operational,"Near Ardrossan
+North Ayreshire",Strathclyde,Scotland,Scotland,,223500,642500.0,19/12/2003,"(55.64389978582304, -4.806141229676192)"
+2447,3118,23/02/2010,EF Energy,Owenreagh Wind Farm,Wind Onshore,5.0,0.5,10.0,,Operational,"Land near Craignagapple 10km South East of Strabane 
+County Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,57111,559168.0,01/01/1997,"(54.80968426021983, -7.339018544776507)"
+2448,3119,05/01/2015,Greencoat UK Wind,Braes O'Doune,Wind Onshore,72.0,2.0,36.0,,Operational,"Stirling,  2 km to the north of Braes of Doune",Stirling,Scotland,Scotland,,272590,710500.0,01/09/2006,"(56.269828915366006, -4.058937426759886)"
+2449,3120,05/10/2009,Vestas,Thorfinn Wind Farm - NM1500,Wind Onshore,1.5,1.5,1.0,,Operational,"Burgar Hill, Orkney",Orkney Islands,Scotland,Scotland,,334600,1025700.0,01/04/2000,"(59.11310899042899, -3.1438281773113665)"
+2451,3122,08/10/2013,Sean Quinn Group,Slieve Rushen Phase 1 Wind Farm,Wind Onshore,5.0,0.5,10.0,,Operational,"Slieve Rushen
+Derrylin
+20km south of Enniskillen, County Fermanagh",Co. Fermanagh,Northern Ireland,Northern Ireland,,33019,491811.0,01/12/1995,"(54.19028103229391, -7.62840011815144)"
+2454,3126,23/10/2009,Private Developer,Boulfruich,Wind Onshore,13.0,0.85,15.0,,Operational,"Houstry
+Dunbeath
+Caithness",Highland,Scotland,Scotland,,315500,935500.0,01/08/2005,"(58.29993746737623, -3.4433540217195433)"
+2456,3128,15/09/2010,Wind Prospect,Bicker Fen,Wind Onshore,26.7,2.0,13.0,,Operational,"Bicker Fen, Bicker, Boston, Lincolnshire",Lincolnshire,East Midlands,England,,519870,339325.0,28/07/2008,"(52.937944872297955, -0.2178149352088049)"
+2457,3129,06/05/2009,Powergen / Wind Prospects,Stags Holt,Wind Onshore,18.0,2.0,9.0,,Operational,"March
+Cambridgeshire",Cambridgeshire,Eastern,England,,544000,299000.0,01/10/2007,"(52.56976887267601, 0.1232914174246108)"
+2458,3130,05/01/2015,Greencoat UK Wind,Tappaghan,Wind Onshore,19.5,1.5,13.0,,Operational,"Lack, Tappaghan Mountains, Northern Ireland",Co. Fermanagh,Northern Ireland,Northern Ireland,,31856,531807.0,01/02/2005,"(54.54713562172703, -7.695579791861857)"
+2460,3132,06/05/2009,Fenland Windfarms Ltd,Glass Moor,Wind Onshore,16.0,2.0,8.0,,Operational,"Glass Moor
+Near Pondersbridge
+Cambridgeshire",Cambridgeshire,Eastern,England,,528421,292867.0,01/12/2005,"(52.518561438873505, -0.108802791482311)"
+2461,3133,06/05/2009,Wind Prospect,Gedney Marsh,Wind Onshore,12.0,2.0,6.0,,Operational,"Gedney Marsh
+Gedney Drove End
+Lincolnshire",Lincolnshire,East Midlands,England,,542014,328596.0,15/07/2008,"(52.83616828233133, 0.10677781047805049)"
+2462,3135,06/05/2009,RDC Scotland (Renewable Development Co.),Ben Aketil,Wind Onshore,23.0,2.3,10.0,,Operational,"Ben Aketil
+Feorlig
+Dunvegan",Highland,Scotland,Scotland,,132500,846500.0,01/09/2007,"(57.42980814867901, -6.458341100842846)"
+2474,3147,06/05/2009,RWE npower,Knabs Ridge Windfarm,Wind Onshore,16.0,2.0,8.0,,Operational,"Land between Skipton Road and Penny Pot Lane, Selliscliffe, Harrogate",North Yorkshire,Yorkshire and Humber,England,,423069,455946.0,22/04/2008,"(53.999036084364185, -1.6495751803691199)"
+2476,3149,03/05/2012,Renewable Energy Systems (RES),Kelburn,Wind Onshore,28.0,2.0,14.0,,Operational,"Largs
+North Ayrshire",Strathclyde,Scotland,Scotland,,224000,655000.0,02/05/2012,"(55.75626067554038, -4.806239806729525)"
+2482,3155,31/03/2015,REG Windpower,Ramsey 1,Wind Onshore,1.8,1.8,1.0,,Operational,"Rear of Packing Station
+St Mary's Road
+Ramsey
+Cambs",Cambridgeshire,Eastern,England,,528800,284900.0,30/09/2008,"(52.44688833862217, -0.10629744905057557)"
+2484,3157,04/12/2009,Ecotricity,Bambers Farm,Wind Onshore,9.6,0.6,8.0,,Operational,"Mile Lane, Mablethorpe, Lincolnshire",Lincolnshire,East Midlands,England,,549195,382820.0,01/11/2004,"(53.32128365495736, 0.23842542978860756)"
+2485,3158,05/08/2011,Ecotricity,Ford Wind Park - Dagenham,Wind Onshore,5.9,2.96,2.0,,Operational,"Ford Motor Company Estate
+Kent Avenue
+Dagenham",London,London,England,,549327,182167.0,17/06/2004,"(51.518690209334785, 0.1508289571112228)"
+2486,3159,22/09/2004,Ecotricity,Swaffham Plashes II,Wind Onshore,1.8,1.79,1.0,,Operational,"Old Sporle Road
+Swaffham",Norfolk,Eastern,England,,582760,310085.0,15/07/2003,"(52.657681935226165, 0.7007017596125766)"
+2488,3161,06/05/2009,Ecotricity,Shooters Bottom Wind Park,Wind Onshore,2.0,2.0,1.0,,Operational,"Shooters Bottom, Chewton Mendip,",Somerset,South West,England,,359380,150740.0,16/06/2008,"(51.254369366073085, -2.5834399185269503)"
+2493,3168,02/08/2017,Bessy Bell Windfarm,Bessy Bell Extension,Wind Onshore,9.0,1.3,6.0,,Operational,"Bessy Bell Moutain, 5km south of Newtownstewart, 17km south of Strabane and 9km northwest of Omagh",Co. Tyrone,Northern Ireland,Northern Ireland,,50592,547973.0,24/04/2008,"(54.70503565371882, -7.426539338201711)"
+2495,3171,06/05/2009,Hainsford Energy,Caton Moor Windfarm Repowering,Wind Onshore,16.0,2.0,8.0,,Operational,"Littledale,
+Caton
+Lancashire",Lancashire,North West,England,,357298,463963.0,01/06/2006,"(54.069820502642095, -2.654016206597732)"
+2496,3172,03/05/2017,John Laing Environmental Assets Group,Moel Maelogen A Phase 2,Wind Onshore,11.7,1.3,8.0,,Operational,"Moel Maelogen, Nr Llanrwst, Conwy, Gwynedd",Gwynedd,Wales,Wales,,284700,361300.0,01/10/2008,"(53.13634185749763, -3.7249756687259965)"
+2501,3177,27/02/2018,Munich Re (previously Peel),Scout Moor Windfarm,Wind Onshore,65.0,2.5,26.0,,Operational,"Land at Scout Moor, off Edenfield Road, Rochdale",Lancashire,North West,England,,382400,419200.0,01/06/2008,"(53.66897658356124, -2.26785853491505)"
+2503,3179,26/09/2005,Private Developer,The Haven,Wind Onshore,1.2,1.2,1.0,,Operational,"The Haven
+Oxhill Farm
+Blackmor Park
+Malvern
+Worcestershire",Hereford and Worcester,West Midlands,England,,378300,247900.0,05/11/2003,"(52.12897579599758, -2.3184117894637533)"
+2509,3186,06/01/2010,National Wind Power,The Hollies,Wind Onshore,2.6,1.3,2.0,,Operational,"The Hollies
+High Lane 
+Croft
+Skegness
+pe24 4sh",Lincolnshire,East Midlands,England,,549995,362998.0,01/01/2008,"(53.14301854784259, 0.24110552554490125)"
+2513,3190,28/10/2010,West Coast Energy (agents for Tullo Wind Ltd and GE Wind),Tullo Farm,Wind Onshore,17.5,2.5,7.0,,Operational,"Tullo Farm, Laurencekirk, Aberdeenshire
+Garvock
+Laurencekirk",Grampian,Scotland,Scotland,,387283,785873.0,07/09/2010,"(56.96390980526241, -2.2107583566110285)"
+2514,3191,04/12/2017,Gravis Capital Management,Garves Mountain Farm,Wind Onshore,15.0,3.0,5.0,,Operational,"Garves Mountain Farm, Tullaghans Road
+(access adjacent to no. 91), Dunloy.
+Ballymoney",Co. Antrim,Northern Ireland,Northern Ireland,,108200,577000.0,01/01/2009,"(55.00175792025587, -6.5648680376198865)"
+2516,3194,03/09/2007,Bristol Port Authority,Avonmouth Port,Wind Onshore,6.0,2.0,3.0,,Operational,Avonmouth Port,Avon,South West,England,,351335,179980.0,20/08/2007,"(51.5166337407691, -2.702727413674167)"
+2522,3200,04/06/2015,Tetro Energy Ltd (ECO2),Dummuie,Wind Onshore,12.3,1.75,7.0,,Operational,"East Dummuie
+Huntly",Grampian,Scotland,Scotland,,358600,840300.0,01/01/2007,"(57.45110354288081, -2.6915117252250096)"
+2523,3201,27/06/2016,Falck Renewables,Earlsburn,Wind Onshore,37.5,2.5,14.0,,Operational,"Hart Hill, Fintry, Stirling",Stirling,Scotland,Scotland,,269652,688422.0,01/02/2007,"(56.07080629622523, -4.095513956773989)"
+2524,3202,23/10/2009,Renewable Development Company (RDC),Kilbraur Windfarm,Wind Onshore,47.5,2.5,19.0,,Operational,"Rogart, Sutherland
+(former Strath Brora Site)",Highland,Scotland,Scotland,,278550,907550.0,14/06/2008,"(58.04040163757691, -4.058804857595992)"
+2527,3205,08/08/2011,Scottish and Southern Energy (SSE),Achany Wind Farm,Wind Onshore,38.0,2.0,19.0,,Operational,"Albany Estate, Achany, Lairg, Highlands, IV27 4",Highland,Scotland,Scotland,,252350,904150.0,11/10/2010,"(58.00194773414335, -4.500008297556101)"
+2529,3207,23/10/2009,Private Developer,Bilbster Wind Farm,Wind Onshore,3.9,1.3,3.0,,Operational,"Flex Hill, Flex Hill Wind Cluster, Bilbster, Caithness",Highland,Scotland,Scotland,,327150,951850.0,01/02/2008,"(58.44883465993638, -3.249833252599116)"
+2532,3210,06/05/2009,Ecotricity / Prudential,Green Park,Wind Onshore,2.0,2.0,1.0,,Operational,"Plot 12, South Oak Way, Green Park, Reading, Berkshire",Berkshire,South East,England,,470640,169375.0,01/10/2005,"(51.41899750582904, -0.9855264067656769)"
+2536,3214,05/01/2015,Greencoat UK Wind,Carcant Windfarm,Wind Onshore,6.0,2.0,3.0,,Operational,Innerleithen,Borders,Scotland,Scotland,,336250,652850.0,02/11/2010,"(55.76477631785419, -3.017556833756378)"
+2540,3218,08/08/2011,E.ON UK,Butterwick Moor,Wind Onshore,20.5,2.05,10.0,,Operational,"Butterwick Moor, Sedgefield",County Durham,North East,England,,439000,530000.0,01/04/2011,"(54.66358093453823, -1.396905880462342)"
+2542,3220,04/09/2009,Scottish Power Renewables,Hagshaw Hill Wind Farm Extension,Wind Onshore,26.0,1.3,20.0,,Operational,Extension to current Windfarm at Hagshaw Hill,Strathclyde,Scotland,Scotland,,279000,632000.0,01/10/2008,"(55.56660389518239, -3.9203184304538006)"
+2545,3223,27/04/2009,EDF Energy,Southern Law,Wind Onshore,5.2,1.3,4.0,,Operational,"Southern Law Farm
+Trimdon Grange",County Durham,North East,England,,436500,536500.0,10/07/2008,"(54.72217770364319, -1.4348501704697543)"
+2549,3229,03/03/2010,Westbury Windfarms,Llangwyryfon,Wind Onshore,9.4,0.85,11.0,,Operational,"Llangwyryfon,
+Southeast Aberystwyth
+Ceredigion",Dyfed,Wales,Wales,,261752,269577.0,01/02/2004,"(52.306854938698976, -4.029155606454506)"
+2552,3232,06/04/2010,Your Energy,Pates Hill,Wind Onshore,14.0,2.0,7.0,,Operational,"West Calder Lothian, EH55",Lothian,Scotland,Scotland,,299130,659300.0,20/01/2010,"(55.81638608679792, -3.6113177433851686)"
+2553,3233,04/07/2012,REG Windpower (previously Cornwall Light and Power),Roskrow Wind Turbines,Wind Onshore,1.7,0.85,2.0,,Operational,"Roskrow Barton Farm, Roskrow, Penryn, Cornwall, TR10 9AP",Cornwall,South West,England,,176500,35500.0,01/12/2007,"(50.1772786915208, -5.131645886930914)"
+2556,3236,23/10/2009,A7 Energy,Greendykeside,Wind Onshore,4.0,2.0,2.0,,Operational,"Greendykeside Farm, Longriggend, Airdrie, Lanarkshire",Strathclyde,Scotland,Scotland,ML6 7TT,281134,670403.0,01/11/2007,"(55.91199366113569, -3.9032161916312424)"
+2559,3241,05/11/2019,Foresight Group,Gruig Wind Farm,Wind Onshore,25.0,2.5,10.0,,Operational,"Gruig, Corkey, nr Cloughmills, Co. Antrim",Co. Antrim,Northern Ireland,Northern Ireland,,126155,577763.0,27/01/2009,"(55.01879369158351, -6.285711547701667)"
+2560,3242,23/02/2010,B9 Energy / RES,Wolf Bog Wind Farm,Wind Onshore,8.8,1.75,5.0,,Operational,"Wolf Bog, Tildarg, nr Ballyclare, Co. Antrim",Co. Antrim,Northern Ireland,Northern Ireland,,137865,553129.0,01/11/2007,"(54.8042970038054, -6.08061033487768)"
+2561,3243,24/10/2011,ESB,Curryfree Wind Farm,Wind Onshore,15.0,2.5,6.0,,Operational,"Curryfree ,
+South of Newbuildings / Drumahoe and north of Dunamanagh,
+Co. Londonderry",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,59555,572350.0,01/08/2011,"(54.92929802592682, -7.316700376839917)"
+2562,3244,03/01/2019,B9 Energy / RES,Altahullion Phase II,Wind Onshore,11.7,1.3,9.0,,Operational,"Altahullion Wind Farm,
+Dungiven,
+Co. Londonderry",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,80176,575395.0,01/09/2007,"(54.97018949149881, -6.999554571480628)"
+2563,3245,23/08/2017,Greencoat (formerly Infinis/SSE) ,Slieve Divena Phase 1 Wind Farm,Wind Onshore,30.0,2.5,12.0,,Operational,"Slieve Divena
+Sixmilecross
+Beragh
+Ballygawley
+County Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,69602,524593.0,10/03/2009,"(54.508596735302305, -7.106399976818087)"
+2565,3247,04/07/2012,REG Windpower (previously Cornwall Light and Power),Loscar Farm,Wind Onshore,4.5,1.3,3.0,,Operational,"Loscar Farm, Packman Lane, Harthill",South Yorkshire,Yorkshire and Humber,England,,451000,380000.0,01/01/2011,"(53.31448600820348, -1.2359614619371595)"
+2566,3248,27/04/2009,EDF Energy,Langley Moor,Wind Onshore,8.0,2.0,4.0,,Operational,"Burnhope
+Standagainstall 
+Plantation, Long Edge, Burnhope, County Durham",County Durham,North East,England,,420928,547703.0,13/08/2008,"(54.82373706312032, -1.675799692920282)"
+2569,3251,11/04/2011,Private Developer,Land approx 75m South of 141,Wind Onshore,20.0,2.5,8.0,,Operational,"Land approx 75m South of 141 Greencastle Road, Omagh",Co. Tyrone,Northern Ireland,Northern Ireland,,72186,544257.0,01/07/2007,"(54.686294598419536, -7.088607144977593)"
+2571,3253,10/05/2016,Wind Farm Developments  / RES UK & Ireland,Hunter's Hill,Wind Onshore,20.0,2.5,8.0,,Operational,"Hunter's Hill, (In the townlands of Tattymoyle Lower, Edergole, Killygordon and Tattanafinnell), Co Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,53811,517991.0,22/09/2010,"(54.438995278988656, -7.341507635566586)"
+2575,3258,25/10/2011,Scottish Power Renewables,Arecleoch Windfarm,Wind Onshore,120.0,2.0,60.0,,Operational,Arecleoch and Kilgallioch Forest near Barrhill,South Ayrshire,Scotland,Scotland,,221500,578500.0,14/06/2011,"(55.06878497205822, -4.797053507264143)"
+2577,3260,16/08/2011,Force 9 Energy,Mark Hill,Wind Onshore,56.0,2.3,24.0,,Operational,"Mark's Hill, Barrhill",Strathclyde,Scotland,Scotland,,225000,585000.0,01/06/2011,"(55.1283730537946, -4.746310375516401)"
+2579,3263,01/08/2016,Screggagh Windfarm,Screggagh,Wind Onshore,19.5,2.5,8.0,,Operational,"Screggagh, Screggagh & Stranisk townlands, Fintona. Co Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,54566,520549.0,21/03/2011,"(54.46239773002679, -7.332900103311362)"
+2580,3264,09/06/2010,Private Developer,Westmill Wind Farm,Wind Onshore,6.5,1.3,5.0,,Operational,"Westmill Farm, Highworth Road, Watchfield, Swindon, Oxon",Oxfordshire,South East,England,SN6 8TH,423218,190825.0,01/01/2008,"(51.61577720724277, -1.6660633805921579)"
+2586,3272,03/03/2010,Private Developer,Lodge Farm 1,Wind Onshore,1.0,1.0,1.0,,Operational,"Lodge Farm, Hubberston, Milford Haven",Dyfed,Wales,Wales,,188700,207500.0,01/08/2006,"(51.72629770150175, -5.060933113823004)"
+2591,3277,06/01/2010,RWE npower,"Carno 'A'and 'B' Wind Farm, (Extension)",Wind Onshore,15.6,1.3,12.0,,Operational,"Cwm Cledan, Carno, Powys",Powys,Wales,Wales,,293000,295000.0,01/03/2009,"(52.542306419692125, -3.5791910905231066)"
+2598,3285,09/06/2010,Messrs James and Ronald Innes,Achairn,Wind Onshore,6.2,2.05,3.0,,Operational,"West of Wick, Caithness",Highland,Scotland,Scotland,,329950,950650.0,20/05/2009,"(58.438518198974606, -3.201506235112556)"
+2602,3290,06/05/2009,EDF Energy,High Hedley Hope 2 (Extension),Wind Onshore,5.2,1.3,4.0,,Operational,"High Hedley Farm, Tow Law, Bishop Auckland, County Durham",County Durham,North East,England,,415700,541000.0,25/06/2008,"(54.76369119846399, -1.7575281860571033)"
+2603,3292,30/07/2013,CRE Energy/ Scottish Power,Beinn an Tuirc,Wind Onshore,30.0,0.37,46.0,,Operational,Nr. Carradale,Strathclyde,Scotland,Scotland,,173950,636900.0,23/12/2001,"(55.573170618122, -5.587352693566457)"
+2605,3294,03/02/2010,CRE Energy/ Scottish Power,Cnoc Donn Arnicle,Wind Onshore,15.0,0.57,26.0,,Operational,"Situated next to Beinn an Tuirc
+Kintyre",Strathclyde,Scotland,Scotland,,175200,637600.0,01/10/2001,"(55.5800262500568, -5.568137305583777)"
+2606,3295,27/04/2006,RWE npower,Beinn Ghlas Wind Farm,Wind Onshore,7.8,0.55,14.0,,Operational,"Land at Carn Gaibhre, Argyle and Bute",Strathclyde,Scotland,Scotland,,196500,726000.0,25/06/1999,"(56.382347070718794, -5.29771401283522)"
+2607,3296,11/04/2011,RWE npower,"Bendealt Wind Farm, Highland",Wind Onshore,9.0,0.5,18.0,,Operational,Novar Estate,Highland,Scotland,Scotland,,255500,871000.0,01/09/1997,"(57.70549959488195, -4.426656084930237)"
+2608,3297,03/12/2009,RWE npower,Meall an Tuirc Wind Farm,Wind Onshore,17.0,,34.0,,Operational,Novar Estate,Highland,Scotland,Scotland,,255500,871500.0,01/09/1997,"(57.7099866660903, -4.426956444746046)"
+2609,3298,29/07/2020,RWE npower,An Suidhe,Wind Onshore,19.3,0.9,23.0,,Operational,"Dalmally, Strathclyde. PA33   On the eastern shore of Loch Awe",Strathclyde,Scotland,Scotland,,200483,707563.0,04/08/2010,"(56.21866506121187, -5.219366660026288)"
+2610,3299,10/02/2011,PowerGen and Natural Power,Roughside Hill,Wind Onshore,30.0,1.25,24.0,,Operational,"Roughside Moss, Peebles",Borders,Scotland,Scotland,,333000,646200.0,15/09/2002,"(55.70459627671638, -3.06771001757565)"
+2611,3300,08/10/2013,PowerGen and  Natural Power Consultants Ltd,Bowbeat Wind Farm,Wind Onshore,31.2,1.3,24.0,,Operational,"Roughside Hill and Emily Bank, Peebles",Lothian,Scotland,Scotland,,329600,647500.0,05/09/2002,"(55.715792357407224, -3.1221363070114116)"
+2612,3301,11/04/2011,Trigen,Hagshaw Hill Wind Farm,Wind Onshore,7.8,0.6,13.0,,Operational,The site lies 4km west of Douglas,Strathclyde,Scotland,Scotland,,278980,630740.0,01/11/1995,"(55.55528378472635, -3.920083224696075)"
+2615,3306,02/02/2010,Arnish Electric Ltd / Farm Energy,Arnish Moor,Wind Onshore,3.9,1.3,3.0,,Operational,"Nr Stornaway, Isle of Lewis",Western Isles,Scotland,Scotland,,139155,929460.0,01/12/2006,"(58.176637873862504, -6.438323524417271)"
+2616,3307,05/10/2009,Orkney Sustainable Energy,Burgar Hill,Wind Onshore,5.0,2.5,2.0,,Operational,"Evie, Orkney",Orkney Islands,Scotland,Scotland,,334300,1026200.0,01/12/2006,"(59.1175519271275, -3.1492162027828607)"
+2617,3308,05/10/2009,Vestas,Thorfinn Wind Farm - NM2000,Wind Onshore,2.3,1.15,2.0,,Operational,"Burgar Hill and the Wards, Evie, Orkney",Orkney Islands,Scotland,Scotland,KW17 2PJ,334790,1025240.0,01/04/2000,"(59.1090081003774, -3.1403737304912367)"
+2618,3309,09/06/2010,Fivestone Ltd (subsidiary of Abbey Produce),Hill of Lybster,Wind Onshore,4.9,1.3,4.0,,Operational,"Forss Phase 2, Caithness",Highland,Scotland,Scotland,,302000,969500.0,08/02/2003,"(58.60235907124372, -3.6881357460645985)"
+2619,3310,05/10/2009,Shetland Aerogenerators,Burradale Hill,Wind Onshore,3.7,0.75,5.0,,Operational,"Lerwick, Shetland, N Isles",Shetland,Scotland,Scotland,,442500,1142500.0,16/12/2000,"(60.16475439799947, -1.2360532219136173)"
+2620,3311,15/02/2016,Green Investment Bank  (Blackrock),Glens of Foudland,Wind Onshore,26.0,1.3,20.0,,Operational,"Bognie Estate, Upper Milburn, Aberdeenshire",Grampian,Scotland,Scotland,,361900,837400.0,22/07/2005,"(57.425345325402404, -2.6360745631622526)"
+2621,3313,06/11/2013,John Laing Environmental Assets Group,Castle Pill - Repowering,Wind Onshore,3.2,0.8,4.0,,Operational,"Steynton, Pembroke, Dyfed",Dyfed,Wales,Wales,SA7 1,191995,206665.0,01/06/2009,"(51.720032892749515, -5.012795784968717)"
+2627,3321,05/01/2015,Windflow UK,New Holland,Wind Onshore,1.0,0.5,2.0,,Operational,"Land Near New Holland, Stratheast Road, Holm, Orkney, Orkney Isles",Orkney Islands,Scotland,Scotland,KW17 2SA,350053,1003214.0,20/10/2014,"(58.91329753563234, -2.86890650694399)"
+2646,3354,15/04/2016,Bernard Matthews,Weston Airfield Wind Turbines,Wind Onshore,3.6,1.8,2.0,,Operational,"The Old Airfield, Airfield Lane, Weston Longville",Norfolk,Eastern,England,NR9 5JF,609009,315326.0,15/03/2015,"(52.69525642253765, 1.0915444113095565)"
+2651,3359,12/07/2017,Orton Park Wind Energy,Orton Park Farm,Wind Onshore,1.6,0.8,2.0,,Operational,"Orton Park Farm, Orton Park, Carlisle",Cumbria,North West,England,CA5 6JU,335490,553153.0,15/06/2017,"(54.86897122153088, -3.006706238452012)"
+2652,3361,23/02/2017,Private Developer,PROMISED LAND FARM,Wind Onshore,1.0,0.5,2.0,,Operational,"PROMISED LAND FARM, CRANK ROAD, KINGS MOSS, ST HELENS, LANCASHIRE, WA11 8RW",Merseyside,North West,England,,351169,401881.0,22/10/2014,"(53.51133071522702, -2.737804738587779)"
+2657,3368,17/05/2018,Private Developer,Nethercott Farm,Wind Onshore,1.5,0.5,3.0,,Operational,Land At Nethercott Farm Tetcott Holsworthy Devon ,Devon,South West,England,EX22 6RG,235330,96451.0,15/12/2016,"(50.74425301697902, -4.335360933647139)"
+2659,3370,28/04/2015,"Messrs Stevenson, Watson and Brunton",Bonerbo Wind Turbines,Wind Onshore,1.5,0.5,3.0,,Operational,Balmonth And Drumrack Farms Bonerbo Dunino ,Fife,Scotland,Scotland,,353841,707688.0,15/12/2014,"(56.2594371966236, -2.746685758379604)"
+2665,3378,05/01/2015,Princes Gate Spring Water,Princes Gate Spring Water,Wind Onshore,1.6,0.8,2.0,,Operational,"Princes Gate Spring Water, Ludchurch, Narberth, ",Dyfed,Wales,Wales,SA67 8JD,214885,211552.0,03/09/2014,"(51.771950477500084, -4.684423712440712)"
+2666,3380,21/03/2014,North British Windpower Ltd,Phase 1 Bettyhill Wind Farm,Wind Onshore,5.0,2.5,2.0,,Operational,"Skelpick Estate, Thurso KW14 7TA",Highland,Scotland,Scotland,,272326,962920.0,04/06/2013,"(58.53559309186397, -4.1946952348996165)"
+2668,3382,22/06/2017,Sibelco/ Golconda,Sibelco Brassington,Wind Onshore,2.3,2.5,1.0,,Operational,Manystones Lane Brassington Derbyshire,Derbyshire,East Midlands,England,,424985,354923.0,15/09/2016,"(53.09093803235042, -1.6283812493038712)"
+2673,3390,11/04/2011,Lambrigg Windfarm Ltd,Lambrigg Wind Farm,Wind Onshore,6.5,1.3,5.0,,Operational,"Lambrigg Fell, Off A684, Roan Edge
+Cumbria",Cumbria,North West,England,,358800,493600.0,22/09/2001,"(54.336284797593486, -2.6351394090831866)"
+2674,3391,06/12/2019,Cannock Renewables,Askam,Wind Onshore,4.6,0.66,7.0,,Operational,"Land North East of Far Old Park Farm, Ireleth, Askam-in-Furness",Cumbria,North West,England,,323000,477100.0,13/07/1999,"(54.18387229004082, -3.1813783567173135)"
+2675,3392,19/12/2003,Natural Power,Bears Down Wind Farm,Wind Onshore,9.8,0.6,16.0,,Operational,"Bears Down Reservoir
+St Colomb
+Cornwall",Cornwall,South West,England,,190360,67560.0,31/08/2001,"(50.47029054568845, -4.9556272706104725)"
+2679,3396,03/04/2018,Green Cat Renewables ,Welton Of Creuchies,Wind Onshore,9.2,2.3,4.0,,Operational,"Alyth, Blairgowrie",Tayside,Scotland,Scotland,,321622,750192.0,23/01/2018,"(56.63696989514959, -3.279415519484869)"
+2681,3398,28/04/2016,Macphie Of Glenbervie Ltd,Droop Hill Wind Farm x,Wind Onshore,4.6,2.3,2.0,,Operational,Stonehaven AB39 3YA,Grampian,Scotland,Scotland,,375708,781360.0,01/07/2014,"(56.9229033100238, -2.4006709734247536)"
+2685,3403,14/09/2011,Private Developer,Denhill,Wind Onshore,2.3,2.3,1.0,,Operational,"St Katherine's, Inverurie, Aberdeenshire",Grampian,Scotland,Scotland,AB51 8SU,379611,835693.0,01/06/2011,"(57.41115618030958, -2.3410245193766546)"
+2686,3404,13/09/2011,Private Developer,Haddo,Wind Onshore,4.6,2.3,2.0,,Operational,"Methlick, Ellon, Aberdeenshire",Grampian,Scotland,Scotland,AB41 7DX,381628,837639.0,25/05/2011,"(57.428722555879894, -2.3075987362976504)"
+2687,3405,05/09/2011,Private Developer,Gairnieston Farm,Wind Onshore,2.3,2.3,1.0,,Operational,"Turriff, Aberdeenshire",Grampian,Scotland,Scotland,AB53 5RP,374750,856031.0,01/11/2010,"(57.593592135303375, -2.4240481116091215)"
+2690,3408,21/05/2010,,"Burgar Hill (land Near), Evie",Wind Onshore,2.3,2.5,1.0,,Operational,"Evie, Orkney",Orkney Islands,Scotland,Scotland,,334300,1026200.0,01/11/2009,"(59.1175519271275, -3.1492162027828607)"
+2695,3415,07/05/2015,Falkirk Tod Hill Wind Limited,Tod Hill Farm Wind Turbines,Wind Onshore,12.0,3.0,4.0,,Operational,Todhill Farm Larbert ,Falkirk,Scotland,Scotland,FK5 4SH,284064,683742.0,22/01/2015,"(56.032492925442874, -3.862116950283768)"
+2704,3429,19/11/2018,Urban Wind,Moorhouse Farm,Wind Onshore,1.0,0.5,2.0,,Operational,Land North West Of Shepherds House Moorhouse Coldingham Scottish Borders,Borders,Scotland,Scotland,,384415,667894.0,15/05/2018,"(55.90390332992608, -2.2508376025370778)"
+2707,3432,23/10/2009,,Royd Moor,Wind Onshore,5.9,0.45,13.0,,Operational,"Royd Moor, Penistone",South Yorkshire,Yorkshire and Humber,England,,422000,404000.0,01/12/1993,"(53.532199472482574, -1.669565583700058)"
+2708,3433,18/03/2016,Greencoat UK Wind/Bay Wa .r.e/ SunGift,Stroupster Wind Farm - additional turbine,Wind Onshore,2.3,2.3,1.0,,Operational,"Stroupster, Caithness",Highland,Scotland,Scotland,,333969,965435.0,15/10/2015,"(58.57190388389776, -3.1369711375090352)"
+2711,3437,16/01/2017,Constantine Wind Energy,Little Belhus Restoration Site,Wind Onshore,1.0,0.5,2.0,77.0,Operational,"Land Between M25 And West Road, West Road, South Ockendon",Essex,Eastern,England,,558111,182855.0,23/09/2016,"(51.52248318169757, 0.2776349361134486)"
+2712,3440,28/10/2010,Fred Olsen Renewables,Crystal Rig Wind Farm Phase 2a,Wind Onshore,138.0,2.3,60.0,,Operational,"Dundfar Common, Eastern Lammermuirs",Borders,Scotland,Scotland,,367000,667500.0,25/10/2010,"(55.89948068296659, -2.5293113735388078)"
+2720,3448,27/07/2010,AMEC/ Border Winds,Clachan Flats Wind Farm,Wind Onshore,15.0,1.67,9.0,,Operational,"North of the head of Loch Fyne 
+Ardkinlas",Strathclyde,Scotland,Scotland,,217950,714520.0,01/12/2008,"(56.28809278304757, -4.942889825389989)"
+2721,3449,05/12/2008,Ecotricity,Fen Farm,Wind Onshore,16.0,0.8,20.0,,Operational,"Fen Farm, Fen Lane, Conisholme, South Lincolnshire",Lincolnshire,East Midlands,England,,537585,393825.0,17/04/2008,"(53.423280292772674, 0.06903850657896708)"
+2722,3450,04/06/2018,Gresham House,Darracott Moor,Wind Onshore,2.6,0.85,3.0,,Operational,"Torrington, Devon, EX38",Devon,South West,England,,223500,117500.0,06/05/2011,"(50.92987719868173, -4.513013713448156)"
+2724,3453,04/02/2009,A7 Energy / Green Energy,Lochhead Farm,Wind Onshore,6.0,2.0,3.0,,Operational,"Land at Lochhead Farm, Stonehouse",Strathclyde,Scotland,Scotland,,275500,646500.0,01/07/2009,"(55.695929956296425, -3.9823487397043014)"
+2728,3457,28/10/2010,Scottish and Southern Energy (SSE),Toddleburn,Wind Onshore,27.6,2.3,12.0,,Operational,Oxton,Borders,Scotland,Scotland,,345050,653150.0,12/10/2010,"(55.76855269537965, -2.8773910082852336)"
+2729,3458,06/04/2011,Crimp Power Ltd (West Coast Energy),Crimp Wind Farm,Wind Onshore,2.4,0.8,3.0,,Operational,"Morwenstow,  Kilkhampton, ",Cornwall,South West,England,,225180,115445.0,01/04/2011,"(50.91192722684798, -4.488145556663195)"
+2732,3466,14/08/2010,Border Wind,Hedley Hope,Wind Onshore,2.4,0.8,3.0,,Operational,"High Hedley Farm, Tow Law, Bishop Auckland, County Durham",County Durham,North East,England,,415700,541000.0,30/12/2001,"(54.76369119846399, -1.7575281860571033)"
+2733,3467,18/01/2012,Border Wind / Scottish and Southern (SSE),Tangy Wind Farm/Tangy 1,Wind Onshore,12.8,0.85,15.0,,Operational,"Kilkenzie, Cambeltown",Strathclyde,Scotland,Scotland,,168500,628500.0,26/12/2002,"(55.49529060344506, -5.666584618603039)"
+2743,3479,06/05/2009,Co-op,Coldham Hall,Wind Onshore,14.0,1.75,8.0,,Operational,"Coldham Hall
+Nr the Coldham Estate
+Cambridgeshire",Cambridgeshire,Eastern,England,,543324,302675.0,01/08/2005,"(52.602962218830804, 0.11491353619378901)"
+2744,3480,24/08/2012,Co-operative Energy,Whitemill Wind Farm,Wind Onshore,14.0,2.0,7.0,,Operational,"Coldham Estate, Coldham, Wisbech",Cambridgeshire,Eastern,England,PE14 0LX,545100,301570.0,02/05/2012,"(52.59256452871288, 0.14063440762083657)"
+2750,3487,10/05/2016,CRE Energy/ Scottish Power,Green Knowes,Wind Onshore,27.0,1.5,18.0,,Operational,"Land at Green Knowes, by Glendevon",Tayside,Scotland,Scotland,,296850,707550.0,29/09/2008,"(56.24923105301945, -3.6662575829525648)"
+2752,3489,20/05/2010,CRE Energy/ Scottish Power,Whitelee,Wind Onshore,322.0,2.3,140.0,,Operational,"Eaglesham Moor, Whitelee Forest,  Fenwick Moor, East Kilbride, South of Glasgow",Strathclyde,Scotland,Scotland,,256800,645435.0,14/12/2007,"(55.68120687788657, -4.279060578358626)"
+2754,3491,13/07/2006,Cumbria Wind Farms,Great Orton,Wind Onshore,4.0,0.66,6.0,,Operational,"Near Carlisle
+Cumbria",Cumbria,North West,England,,331000,553500.0,21/12/1999,"(54.87148887702734, -3.0767381323852776)"
+2755,3492,07/09/2009,Cumbria Wind Farms,Winscales Phase I and II,Wind Onshore,8.8,0.8,11.0,,Operational,"Winscales, Workington, Cumbria",Cumbria,North West,England,,303000,527000.0,01/12/2004,"(54.62877741224227, -3.504059125414785)"
+2757,3494,10/12/2009,E.ON UK,Holmside Hall,Wind Onshore,2.8,1.37,2.0,,Operational,"Burnhope, Stanley, County Durham",County Durham,North East,England,,420800,550300.0,01/06/2004,"(54.847079672318785, -1.6776060849389032)"
+2758,3495,09/12/2009,E.ON UK,High Volts Wind Farm,Wind Onshore,5.5,1.83,3.0,,Operational,"Potters Farm, Elwick, Hartlepool, Cleveland",Cleveland,North East,England,,445200,533400.0,01/12/2003,"(54.69361687901773, -1.3002704430675824)"
+2759,3496,08/05/2009,E.ON UK,Hare Hill,Wind Onshore,1.3,1.3,1.0,,Operational,"Harehill Farm, Haswell Plough, County Durham",County Durham,North East,England,,437735,540895.0,01/07/2004,"(54.76158064449295, -1.4151091161122948)"
+2765,3504,24/06/2011,E.ON UK,Great Eppleton Farm Repowering,Wind Onshore,8.2,2.0,4.0,,Operational,"Hetton, Houghton-le-Spring, Tyne & Wear, DH5 9NL",Tyne and Wear,North East,England,,436900,548200.0,01/03/2010,"(54.82728530202714, -1.427157596797822)"
+2768,3507,06/06/2011,E.ON UK Renewables Developments Ltd,Haswell Moor,Wind Onshore,10.0,2.0,5.0,,Operational,"Haswell Moor
+Easington
+County Durham",County Durham,North East,England,,438085,541365.0,12/12/2010,"(54.76577774417485, -1.409608886953325)"
+2771,3510,08/05/2009,Ecotricity,Worksop - B&Q,Wind Onshore,2.0,2.0,1.0,,Operational,"Manton Wood, Worksop, Nottinghamshire",Nottinghamshire,East Midlands,England,,461695,378487.0,21/01/2009,"(53.29975227517197, -1.075746162664589)"
+2772,3511,04/07/2018,Otter Power,Cold Northcott,Wind Onshore,6.6,0.3,22.0,,Operational,"Launceston
+Cornwall",Cornwall,South West,England,,220040,85965.0,01/06/2002,"(50.64550915882092, -4.546748582460881)"
+2783,3524,06/10/2011,Green Cat Renewables,Upper Ardgrain Wind Farm,Wind Onshore,2.4,0.8,3.0,,Operational,"Ellon, Aberdeenshire",Grampian,Scotland,Scotland,,396508,835110.0,01/10/2010,"(57.40636717538202, -2.0597655180413676)"
+2787,3529,03/02/2010,Longearth Ltd / Farm Energy,Rothiesholm,Wind Onshore,2.7,0.9,3.0,,Operational,"Rothiesholm, Stronsay, Orkney",Orkney Islands,Scotland,Scotland,,362283,1023560.0,10/04/2002,"(59.097252646145435, -2.660078974138682)"
+2788,3532,01/10/2009,Mackies,Hill of Easterton,Wind Onshore,2.5,2.5,1.0,,Operational,"Hill of Easterton, 1km North Of Mackies Ice Cream Dairy, Westertown, Rothienorman, Inverurie, AB51 8US",Grampian,Scotland,Scotland,,376449,831808.0,01/01/2005,"(57.37610585497129, -2.3932806181883666)"
+2789,3533,09/06/2010,Mersey Docks and Harbour Company,Port of Liverpool - wind,Wind Onshore,10.0,2.5,4.0,,Operational,"Alexandra Dock, Port of Liverpool, Regent Road, Bootle",Merseyside,North West,England,,333356,395230.0,01/02/2009,"(53.449598067055334, -3.00495823591484)"
+2790,3534,31/05/2017,Natural Power Consultants,Rothes Wind (Cairn Uish),Wind Onshore,50.6,2.3,22.0,,Operational,"Cairn Uish, 10km south of Elgin,  Moray",Grampian,Scotland,Scotland,,318500,850500.0,01/11/2004,"(57.53726375019279, -3.362957508939726)"
+2792,3536,08/10/2013,Natural Power Consultants,Crystal Rig Extension II,Wind Onshore,20.7,2.3,9.0,,Operational,Lammermuir Hills on the East Lothian Council/Scottish Borders Council border approximately 11km from Dunbar and 16.5km from Duns.,Borders,Scotland,Scotland,,366000,669000.0,25/10/2010,"(55.91288749112602, -2.5454918200065446)"
+2794,3538,06/03/2012,Novera Energy,Glenkerie Wind Farm,Wind Onshore,22.0,2.0,11.0,,Operational,"Kingledores Farm, Broughton, Biggar, Strathclyde. ML12 6QL",Borders,Scotland,Scotland,,310453,628117.0,01/02/2012,"(55.538523293313105, -3.420495060455995)"
+2795,3539,09/06/2010,Novera Energy,Lissett Airfield Wind Farm,Wind Onshore,30.0,2.5,12.0,,Operational,"1.5km west of Lisset, East Yorkshire",Humberside,Yorkshire and Humber,England,,512263,458139.0,20/02/2009,"(54.0070762449378, -0.2885281977124712)"
+2804,3548,07/08/2012,Orkney Sustainable Energy,Methlick Farmers Wind Energy Project,Wind Onshore,12.0,2.0,6.0,,Operational,"Methlick, Aberdeenshire",Grampian,Scotland,Scotland,,385500,837500.0,01/12/2011,"(57.42761498094317, -2.243110818042024)"
+2808,3552,08/12/2003,Powergen,Rheidol Wind Farm,Wind Onshore,2.4,0.3,8.0,,Operational,"Rheidol Wind Farm, Banc Bwa Drain, Goginan, Aberystwyth",Dyfed,Wales,Wales,SW23 3PQ,272400,280500.0,06/02/1997,"(52.407581025054455, -3.8772282090321126)"
+2810,3554,05/08/2019,Powergen Renewables,Deucheran Hill,Wind Onshore,15.8,1.75,9.0,,Operational,"Deucheran Hill
+Nr. Muasdale",Strathclyde,Scotland,Scotland,,177000,643000.0,30/11/2001,"(55.62928097720908, -5.544010040741151)"
+2811,3556,01/04/2005,Renewable Development Company Ltd,Bryn Du,Wind Onshore,16.4,0.42,39.0,,Operational,"Bryn Du Hills, South Of A44 At Pont Rydgaled, Powys, (LLangurig area)",Powys,Wales,Wales,,284000,281000.0,01/04/2005,"(52.41465849014156, -3.7069605350451353)"
+2817,3566,06/01/2004,Renewable Energy Systems (RES),Lendrum's Bridge Wind Farm ( Extension 2),Wind Onshore,7.3,0.66,11.0,,Operational,"Lendrum's Bridge
+Murley RoadFivemiletown
+County Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,65919,512041.0,20/12/2002,"(54.39383709570099, -7.148895825518737)"
+2818,3568,23/02/2010,Renewable Energy Systems (RES),Lendrum's Bridge Wind Farm,Wind Onshore,5.9,0.66,9.0,,Operational,"Lendrum's Bridge
+Murley Road, Fivemiletown
+County Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,63672,512074.0,01/02/2000,"(54.39265401471365, -7.18339769850416)"
+2820,3570,12/09/2013,Renewable Energy Systems (RES),Dun Law,Wind Onshore,17.2,0.66,26.0,,Operational,"Dun Law, 5km north west of Oxton, Lammermuir Hills",Borders,Scotland,Scotland,,347069,657344.0,21/08/2000,"(55.8064571532497, -2.8460315652527375)"
+2822,3574,06/05/2009,Renewable Energy Systems (RES),Black Hill (Borders),Wind Onshore,28.6,1.3,22.0,,Operational,"Longformacus
+Duns
+Berwickshire",Borders,Scotland,Scotland,,373000,656300.0,14/02/2007,"(55.799227912476894, -2.4322436910170286)"
+2823,3575,23/02/2010,Renewable Energy Systems (RES) / BP Energy,Altahullion,Wind Onshore,26.0,1.3,20.0,,Operational,"Alta Hullion Drum
+Dun Given
+Co. Londonderry",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,77906,574708.0,01/05/2003,"(54.962578933747814, -7.034105755486409)"
+2824,3578,21/09/2009,Renewable Energy Systems (RES),Four Burrows Wind Farm,Wind Onshore,4.5,0.3,15.0,,Operational,"Blackwater, Truro, Cornwall",Cornwall,South West,England,,176615,47930.0,01/03/1998,"(50.28894301738888, -5.1373614562746885)"
+2825,3579,12/09/2013,Renewable Energy Systems (RES),Dun Law Extension,Wind Onshore,29.8,0.85,35.0,,Operational,Dun Law (between Fala and Carfraemill 20 miles S-E of Edinburgh,Borders,Scotland,Scotland,,347276,655153.0,20/09/2009,"(55.78679587978672, -2.842304376517719)"
+2826,3581,06/06/2011,RWE npower,Lochelbank Wind Farm II,Wind Onshore,9.6,0.8,12.0,,Operational,"North of Glenfarg, Perth, Tayside",Tayside,Scotland,Scotland,PH2 9QQ,311440,713477.0,25/05/2011,"(56.30541008555068, -3.432879138325294)"
+2830,3585,27/07/2004,Scottish Power Renewables,Cruach Mhor,Wind Onshore,33.3,0.95,35.0,,Operational,"Cruach Mhor, Cowal, Glen Dareul, Agyll, Bute",Strathclyde,Scotland,Scotland,,203500,687400.0,31/01/2004,"(56.03904290768617, -5.155930389142329)"
+2834,3592,26/04/2010,Tegni,Wern Ddu Wind Farm,Wind Onshore,9.2,2.3,4.0,,Operational,"NW Corwen, Gwyddelwern, Corwen, Denbighshire",Clwyd,Wales,Wales,,305800,348500.0,01/03/2010,"(53.02546825185769, -3.4059316995505142)"
+2835,3593,11/04/2011,Trigen,"Hagshaw Hill (S15) Wind Farm, Lanarkshire",Wind Onshore,7.8,0.6,13.0,,Operational,The site lies 4km west of Douglas,Strathclyde,Scotland,Scotland,,278965,630750.0,01/11/1995,"(55.555369862682696, -3.92032525058706)"
+2836,3594,15/03/2012,Vento Ludens,Muirake,Wind Onshore,4.6,2.3,2.0,,Operational,"Cornhill, Banff, Grampian. AB45 2BQ",Grampian,Scotland,Scotland,,356817,858161.0,13/12/2011,"(57.611359933502335, -2.724395438555094)"
+2838,3598,10/05/2016,West Coast Energy /Falck Renewables,Millennium Extension,Wind Onshore,10.0,2.5,4.0,125.0,Operational,"Millennium Windfarm
+on The Achlain and Invergarry amd Aberchalder Estates
+Glengarry Invergarry
+Inverness-Shire",Highland,Scotland,Scotland,,225200,810300.0,01/12/2008,"(57.15020001193859, -4.891170685923514)"
+2842,3602,18/12/2014,EDF/China General Nuclear Power Corporation,Rusholme Wind Farm,Wind Onshore,24.0,2.0,12.0,,Operational,"Newland Wind Farm, Land at Pease Farm, Rushmere Grange, Newland",North Yorkshire,Yorkshire and Humber,England,,469500,426500.0,04/10/2010,"(53.730274955005605, -0.9480233954943676)"
+2845,3605,21/05/2010,Wind Prospect,Longpark,Wind Onshore,38.0,2.0,19.0,,Operational,Stow,Borders,Scotland,Scotland,,348050,642050.0,01/09/2009,"(55.66916069526463, -2.8274693854793154)"
+2846,3606,06/05/2009,Wind Prospect,Walkway,Wind Onshore,14.0,2.0,7.0,,Operational,Sedgefield,County Durham,North East,England,,439000,530000.0,15/05/2008,"(54.66358093453823, -1.396905880462342)"
+2847,3607,11/04/2011,Wind Prospect / TXU,Coldham,Wind Onshore,16.0,2.0,8.0,,Operational,"Cws Coldham Estate, March, Cambridgeshire",Cambridgeshire,Eastern,England,,542000,302000.0,01/11/2005,"(52.59724548314142, 0.0950879931374957)"
+2848,3608,04/12/2017,Wind Prospect Developments,Red Tile,Wind Onshore,24.0,2.0,12.0,,Operational,"Land Adjacent to Broadpool Farm
+High Fen Straight Drove
+Warboys
+Huntingdon",Cambridgeshire,Eastern,England,,534086,283221.0,01/12/2006,"(52.43053272180982, -0.029242926238853346)"
+2849,3609,04/12/2017,Wind Prospect Developments,Deeping St Nicholas Wind Farm,Wind Onshore,16.4,2.0,8.0,,Operational,"Vine House Farm Worths Farm and Porters Farm, Deeping St Nicholas",Lincolnshire,East Midlands,England,,519905,316471.0,01/08/2006,"(52.73259200110068, -0.2256835081108528)"
+2851,3611,23/06/2009,Windprospect,Lowca Wind Farm,Wind Onshore,4.7,0.67,7.0,,Operational,"Lowca
+Near Workington
+Cumbria",Cumbria,North West,England,,298600,523600.0,01/04/2000,"(54.59736842322585, -3.5710105424923126)"
+2853,3613,06/06/2011,Windprospect,Fairfield Farm,Wind Onshore,6.5,1.3,5.0,,Operational,"Fairfield Farm, Pica, Distington",Cumbria,North West,England,,301826,521459.0,02/03/2011,"(54.57877221695263, -3.520380833409292)"
+2854,3614,11/04/2011,Windprospect,Haverigg Repowering (Haverigg II),Wind Onshore,1.2,0.22,5.0,,Operational,Kirksanton Airfield Part of Hemplands Farm Haverigg Millom Cumbria,Cumbria,North West,England,,313700,479500.0,01/05/2004,"(54.20395425770603, -3.3245331577353623)"
+2858,3619,03/04/2018,Octopus Investments/Blue Energy,Beinneun Windfarm Extension,Wind Onshore,23.8,3.4,7.0,136.0,Operational,8km west of Invergarry,Highland,Scotland,Scotland,,220442,804419.0,16/02/2017,"(57.095605803530056, -4.965481047078889)"
+2866,3627,19/07/2017,Scottish Power Renewables,Ewe Hill (extension),Wind Onshore,36.8,2.3,16.0,,Operational,Near Langham and Lockerbie,Dumfries and Galloway,Scotland,Scotland,,315000,580000.0,15/01/2017,"(55.10709221706526, -3.3338689795196914)"
+2885,3647,26/05/2016,Eneco,Moy Wind Farm (2nd Application),Wind Onshore,66.0,3.3,20.0,,Operational,"Tomatin, Invernessshire",Highland,Scotland,Scotland,IV13 7YD,276947,835012.0,12/05/2016,"(57.38883375254894, -4.048801273033511)"
+2888,3651,16/02/2016,Green Cat Renewables,Rosehill Wind Turbines,Wind Onshore,2.4,0.8,3.0,,Operational,Land Some 550 Metres East Of Rosehill Rosehill Road Tower Plean,Stirling,Scotland,Scotland,,286252,686188.0,15/12/2015,"(56.05498296460021, -3.828063050280963)"
+2892,3657,26/04/2017,NTR,Twin Rivers,Wind Onshore,28.7,2.05,14.0,,Operational,"Moor Lane, Whitgift, East Riding of Yorkshire",Humberside,Yorkshire and Humber,England,,472545,412960.0,03/08/2016,"(53.60818380959787, -0.9050362429897694)"
+2893,3659,08/10/2013,Border Wind Farms Ltd,Blyth Harbour Wind Farm,Wind Onshore,2.7,0.3,9.0,,Operational,"Blyth Harbour
+North Blyth
+Cambois
+Bedlington
+Northumberland",Northumberland,North East,England,,432290,581345.0,01/12/1992,"(55.12543827448606, -1.4951909213048766)"
+2894,3660,06/11/2013,John Laing Environmental Assets Group,Penrhys Wind Farm/Ferndale Power Factory,Wind Onshore,6.4,0.8,8.0,,Operational,"Penrhys
+Rhondda
+Mid Glamorgan",Mid Glamorgan,Wales,Wales,,299700,195700.0,08/06/2011,"(51.65111448815072, -3.451169837172873)"
+2895,3662,04/07/2012,Scottish and Southern Energy (SSE),Gordonbush,Wind Onshore,70.0,2.0,35.0,,Operational,"Gordonbush Estate, Brora, Sutherland, Highlands",Highland,Scotland,Scotland,,284500,909500.0,12/06/2012,"(58.059495017871654, -3.9590510483295027)"
+2897,3664,27/02/2014,Wessex Water Engineering Services,Avonmouth Wind Power,Wind Onshore,8.2,2.05,4.0,,Operational,"Bristol Sewage Treatment Work, Bristol, BS11 0YS",Avon,South West,England,,353358,179393.0,06/02/2014,"(51.51152720408623, -2.6734973354054814)"
+2898,3666,04/06/2013,Ventient (formerly Infinis),Gordonstown Hill Wind Farm,Wind Onshore,12.5,2.5,5.0,,Operational,"Gordonstown Hill Kirkton Of Auchterless, Turiff, Grampian, AB53 8BG",Grampian,Scotland,Scotland,,371136,841396.0,31/03/2013,"(57.46192107232462, -2.4827606935747837)"
+2899,3667,19/04/2013,Branna Industrial & Technical Services Ltd,The Rosti Factory,Wind Onshore,2.2,2.2,1.0,,Operational,"Middleton Avenue, Strutherhil Industrial Estate, Larkhill, Strathclyde. ML9 2TL",Strathclyde,Scotland,Scotland,,276956,649658.0,18/02/2013,"(55.72465998741403, -3.9606195023686688)"
+2900,3668,24/02/2012,Ben Aketil Wind Energy Ltd,Ben Aketil Extension,Wind Onshore,2.6,1.3,2.0,,Operational,"Near Dunvegan, Isle of Skye. IV55 8",Highland,Scotland,Scotland,,132500,846500.0,01/01/2011,"(57.42980814867901, -6.458341100842846)"
+2902,3670,16/07/2020,Storas Uibhist,Lochcarnan Community Windfarm,Wind Onshore,6.9,2.3,3.0,,Operational,"Lochcarnan, Isle of South Uist. HS8 5",Western Isles,Scotland,Scotland,,77451,828569.0,18/02/2013,"(57.233744833108716, -7.347880863991489)"
+2903,3671,19/04/2013,Renewable Energy Systems (RES),The Grange Wind Farm,Wind Onshore,14.0,2.0,7.0,,Operational,"Middle Road, Tydd St. Mary, Wisbech, Cambridge",Lincolnshire,East Midlands,England,PE13 5QZ,546300,319200.0,01/03/2013,"(52.75061804335078, 0.16615695022570334)"
+2904,3672,04/03/2013,Roy Humphrey Group,Humphrey Group,Wind Onshore,5.0,2.5,2.0,,Operational,"Eye Airfield Industrial Estate, Ipswich Road, Brome, Eye, Suffolk, IP23 8AW",Suffolk,Eastern,England,,613107,275558.0,25/02/2013,"(52.33668720644272, 1.1266249036616265)"
+2905,3673,18/04/2017,REG Windpower,Rodbaston,Wind Onshore,4.0,2.0,2.0,,Operational,"Rodbaston, Farm Drive, Rodbaston Campus, Stafford",Staffordshire,West Midlands,England,ST19 5PH,392176,311645.0,15/01/2017,"(52.70241926608864, -2.117223301962662)"
+2906,3674,25/03/2015,EDF,Boundary Lane,Wind Onshore,6.0,2.0,3.0,,Operational,"Shotley Quarter, Whittonstall, Nr Consett, Co Durham. DH8 9",County Durham,North East,England,,404708,550336.0,31/03/2013,"(54.847809361345725, -1.9282068805579053)"
+2908,3676,25/03/2015,,Nutberry Wind Farm,Wind Onshore,15.0,2.5,6.0,,Operational,"Cumberhead, Lesmahagow, Lanark, Strathclyde. ML11 0HN",Strathclyde,Scotland,Scotland,,279021,635662.0,30/09/2013,"(55.59949473864573, -3.9215920772238277)"
+2909,3677,23/08/2013,Banks Renewables,Penny Hill Lane,Wind Onshore,19.8,3.3,6.0,,Operational,"Ulley, Sheffield, South Yorks. S26 3YA",South Yorkshire,Yorkshire and Humber,England,,446825,387627.0,31/03/2013,"(53.383421877920966, -1.2974963508145787)"
+2910,3678,28/07/2016,Tobermore Concrete Products,Magherafelt,Wind Onshore,1.0,1.0,1.0,,Operational,"2 Lisnamuck Road, Tobermore, Magherafelt, Co Londonderry. BT45 5QF",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,101186,551482.0,12/06/2015,"(54.7690453550701, -6.647715770484374)"
+2912,3680,19/04/2013,Ecotricity,The Michelin Tyre Factory - Ballymena,Wind Onshore,4.6,2.3,2.0,,Operational,"Raceview Road, Broughshane, Woodside Road, Ballymena, Co Antrim. BT42 4J",Co. Antrim,Northern Ireland,Northern Ireland,,130743,561194.0,25/02/2013,"(54.87280576006698, -6.198619719617808)"
+2913,3681,08/10/2013,West Knock Farm,West Knock Wind Cluster,Wind Onshore,2.4,0.8,3.0,,Operational,"Mintlaw, Stuartfield, Peterhead, Grampian. AB42 5DJ",Grampian,Scotland,Scotland,,398494,844840.0,04/10/2011,"(57.49377901498621, -2.026777303232861)"
+2914,3682,09/05/2012,"Infinis, previously Broadview Energy Developments",Low Spinney Wind Farm,Wind Onshore,8.0,2.0,4.0,,Operational,"Gilmorton Lane, Ashby Magnor, Lutterworth, Leicestershire. LE17 5NB",Leicestershire,East Midlands,England,,455816,289705.0,29/09/2011,"(52.502397006145536, -1.1791643191165495)"
+2916,3684,04/06/2013,Ventient (formerly Infinis),Westfield,Wind Onshore,12.5,2.5,5.0,,Operational,"Near Kingassie, Lochgelly, Fife. KY5 0J",Fife,Scotland,Scotland,,319640,695487.0,31/03/2013,"(56.14528536063644, -3.2949303664494956)"
+2917,3685,07/12/2012,Nuon UK,Swinford Wind Farm,Wind Onshore,27.5,0.4,11.0,,Operational,"Lutterworth Road, Swinford, Lutterworth, Leicestershire. LE17 6BA",Leicestershire,East Midlands,England,,456804,279647.0,21/11/2012,"(52.4118834397971, -1.1663198827453645)"
+2918,3686,25/06/2013,Fivestone Ltd,Burnt House Farm,Wind Onshore,6.0,2.0,3.0,,Operational,"Burnt House Road, Whittlesey, Burnthouse Sidings, Peterborough, Cambs",Cambridgeshire,Eastern,England,PE7 2HP,533458,295082.0,19/06/2013,"(52.5372533692463, -0.03372694113186714)"
+2920,3688,25/03/2015,Community Windpower (Community Wind Power),Calder Water Community Wind Farm,Wind Onshore,28.0,2.0,14.0,,Operational,"Harshaw Hill, Drumclog, Strathaven, Strathclyde. ML10 6QN",Strathclyde,Scotland,Scotland,,260869,640428.0,01/09/2013,"(55.63743559161936, -4.211863127976678)"
+2922,3690,25/03/2015,Community Windpower,Millour Hill Community Windfarm,Wind Onshore,18.0,3.0,6.0,,Operational,"Baidland Hill,",Strathclyde,Scotland,Scotland,,225843,652080.0,01/05/2012,"(55.730721885858806, -4.775047387006576)"
+2923,3691,19/03/2015,Strathdee Energy,Netherton of Windyhills,Wind Onshore,4.6,2.3,2.0,,Operational,"Grange Crossroads, Keith, Grampian",Grampian,Scotland,Scotland,AB55 6NL,348948,857294.0,01/11/2014,"(57.60274965619779, -2.855897026739985)"
+2925,3693,19/04/2013,Private Developer,Gallowhill,Wind Onshore,1.8,0.9,2.0,,Operational,"West Manse, Westray, KW17 2DR",Orkney Islands,Scotland,Scotland,,344124,1043753.0,18/02/2013,"(59.27656218833373, -2.9821831490756225)"
+2926,3694,01/05/2018,Foresight/Belltown,Frodsham Marsh,Wind Onshore,50.4,2.65,19.0,,Operational,Land between Manchester Ship Canal and M56,Cheshire,North West,England,,348857,378461.0,15/11/2016,"(53.30061770023507, -2.7688585873174527)"
+2927,3695,04/09/2018,RWE Npower Renewables,Brechfa Forest West,Wind Onshore,57.4,2.05,28.0,,Operational,"centred around the Afon Pib Valley, east of Alltwalis and the second area around Banc Llywelau, south of Rhydcymerau.",Dyfed,Wales,Wales,,254202,231259.0,18/01/2018,"(51.96064219183833, -4.123373226909781)"
+2929,3698,07/01/2015,Green Cat Renewables,Greenhill Croft,Wind Onshore,4.6,2.3,2.0,,Operational,"Bonnykelly, New Pitsligo, Fraserburgh, Grampian",Grampian,Scotland,Scotland,AB43 6NP,388080,856083.0,01/03/2012,"(57.59461112199873, -2.2010649323274483)"
+2930,3699,27/02/2014,Severn Trent Water,Severn Trent STW,Wind Onshore,2.5,2.5,1.0,,Operational,"Fillingate, Wanlip, Leicester",Leicestershire,East Midlands,England,LE7 4PF,459710,311517.0,26/02/2014,"(52.69804717071994, -1.1178774584742)"
+2931,3700,31/05/2016,Falck Renewables,Spaldington Airfield,Wind Onshore,12.5,2.5,5.0,,Operational,"Holme Road, Spaldington, East Riding, Yorkshire. DN14 7NB",Humberside,Yorkshire and Humber,England,,479158,433880.0,11/05/2016,"(53.79521796736141, -0.7997747359130761)"
+2932,3701,25/03/2015,Octopus Investements/Blue Energy (previously Auquhirie Land Company Ltd),Hillhead of Auquhirie,Wind Onshore,6.9,2.3,3.0,,Operational,"Hillhead of Auquhirie, Stonehaven",Grampian,Scotland,Scotland,,328500,785500.0,16/01/2013,"(56.95519547641126, -3.177207776319353)"
+2933,3702,25/03/2015,Scottish Power Renewables,Middleton Wind Farm,Wind Onshore,12.0,2.0,6.0,,Operational,"East Refrewshire, G77 6",Strathclyde,Scotland,Scotland,,253158,656019.0,04/09/2013,"(55.77513705150824, -4.342616461661332)"
+2934,3703,25/03/2015,Renewable Energy Generation,Orchard End,Wind Onshore,4.0,2.0,2.0,,Operational,"land at Orchard End, near Pilling, Eagland Hill, Preston",Lancashire,North West,England,,343216,445233.0,17/06/2013,"(53.900138040160066, -2.865678880889899)"
+2936,3705,24/08/2015,Pennant Walters,Mynydd Bwllfa Wind Farm - Resubmission,Wind Onshore,22.5,2.5,9.0,,Operational,South of Hirwaun,Mid Glamorgan,Wales,Wales,,295787,202855.0,08/05/2015,"(51.714711569935865, -3.509847324117712)"
+2938,3707,01/05/2018,Foresight,Tirgwynt,Wind Onshore,24.6,2.05,12.0,,Operational,"Mynydd yr Hendre & Mynydd Pistyll Du Near Carno, Powys",Powys,Wales,Wales,,299943,302442.0,15/02/2017,"(52.61050772691963, -3.4791018004511316)"
+2941,3711,04/10/2017,Renewables Infrastructure Group (TRIG),Garreg Lwyd,Wind Onshore,34.0,2.0,23.0,137.0,Operational,"Garreg Lwyd Hill Between Felindre & Llanbadarn Fynydd, Llandrindod Wells, Powys",Powys,Wales,Wales,LD1 6YF,312758,280228.0,22/02/2017,"(52.413068393102726, -3.2840677829471585)"
+2943,3713,11/08/2017,Gaelectric Developments/ CGN Europe Energy,Crockbrack,Wind Onshore,2.0,2.0,1.0,,Operational,"(north of Loughmarve Road and west of Gortscraheen Road, with access via Loughmallon Road), Limehill, Pomeroy, County Tyrone.",Co. Tyrone,Northern Ireland,Northern Ireland,,80213,535661.0,20/03/2017,"(54.614492548184096, -6.955172482437015)"
+2946,3716,05/01/2015,Lowlands Health & Energy Ltd ,Connaught Road,Wind Onshore,1.7,0.85,2.0,,Operational,"Approx 130m NW of 44 Connaught Road, Randalstown",Co. Antrim,Northern Ireland,Northern Ireland,BT41 2NX,123057,549749.0,11/10/2012,"(54.76605283890944, -6.307106327678817)"
+2947,3717,03/12/2012,Northern Wind Power ,Crockagarron Ext,Wind Onshore,2.5,2.5,1.0,,Operational,"Lands to the East of Whitebridge Road and South of Gleneeny Road, on lands at Crockagarron in the Townland of Gleneeny, Co Tyrone.",Co. Tyrone,Northern Ireland,Northern Ireland,,76240,528915.0,01/06/2012,"(54.55156991065426, -7.009023535896296)"
+2948,3718,07/01/2015,Green Cat Renewables,Castle of Auchry Farm,Wind Onshore,2.4,0.8,3.0,,Operational,"Cuminestown, Turriff, Aberdeenshire",Grampian,Scotland,Scotland,AB53 5UR,373109,821437.0,01/11/2013,"(57.28276283991576, -2.4476852147227706)"
+2952,3722,06/01/2014,Lovie Ltd,Little Byth,Wind Onshore,4.5,1.5,3.0,,Operational,"New Byth, Turriff. AB53 5XR",Grampian,Scotland,Scotland,,382764,857480.0,31/12/2012,"(57.60698637320974, -2.290093669825149)"
+2953,3723,07/01/2015,Green Cat Renewables,Yonderton Farm,Wind Onshore,1.0,0.5,2.0,,Operational,"Hatton, Peterhead, Aberdeenshire",Grampian,Scotland,Scotland,AB42 0QS,403588,837834.0,01/12/2014,"(57.43083685274389, -1.9418958169446268)"
+2955,3726,31/03/2014,Resonance ,Oakdale Business Park,Wind Onshore,4.0,2.0,2.0,,Operational,"Blackwood, Gwent",Gwent,Wales,Wales,,319119,199334.0,24/12/2013,"(51.68691489121153, -3.1713939230777983)"
+2960,3732,06/06/2014,,Boddington Reservoir,Wind Onshore,1.5,1.5,1.0,,Operational,"Upper Boddington, Northamptonshire. NN1",Northamptonshire,East Midlands,England,,449381,253123.0,24/04/2014,"(52.17416400368305, -1.279318144881002)"
+2961,3733,06/03/2013,Resonance ,HMP Standford Hill,Wind Onshore,4.6,2.3,2.0,,Operational,"Standford Hill, Church Road, Eastchurch, Sheerness ",Kent,South East,England,ME12 4AA,598426,170070.0,08/02/2013,"(51.39495773408245, 0.8508755272963309)"
+2962,3734,23/05/2018,Partnerships for Renewables/AGR,Sharpness Docks,Wind Onshore,2.0,2.0,1.0,,Operational,"Dock Lane, Sharpness, Berkley, Gloucestershire",Gloucestershire,South West,England,,366743,202889.0,15/01/2017,"(51.72372806851119, -2.482868029036603)"
+2963,3735,18/12/2013,REG Windpower (previously Cornwall Light and Power),Sancton Hill,Wind Onshore,10.0,2.0,5.0,,Operational,"nr Market Weighton, Sancton, York, ",Humberside,Yorkshire and Humber,England,,491554,439660.0,12/06/2012,"(53.84512265440913, -0.6099286851880023)"
+2966,3738,24/10/2016,Peel Energy,Port of Sheerness Wind Farm (was Lappel Bank),Wind Onshore,8.2,2.05,4.0,125.0,Operational,"Sheerness Docks, Sheerness, Kent ",Kent,South East,England,ME12 1RS,591061,175143.0,20/09/2016,"(51.443045639161845, 0.7478733027214267)"
+2967,3739,01/08/2017,REG Power Management (John Laing/Peel Energy),Stonish Hill (Bilsthorpe),Wind Onshore,10.3,2.0,5.0,,Operational,Former Bilsthorpe Colliery Eakring Road Bilsthorpe,Nottinghamshire,East Midlands,England,,466000,362000.0,31/03/2013,"(53.15105776825986, -1.0145679854061675)"
+2969,3741,08/07/2013,E.ON UK,Stags Holt Extension,Wind Onshore,2.0,2.0,1.0,,Operational,"Franks Farm, Stags Holt, Coldham Bank Road, March, Cambridgeshire, PE15 0BS",Cambridgeshire,Eastern,England,,544000,299000.0,31/12/2010,"(52.56976887267601, 0.1232914174246108)"
+2972,3745,20/09/2018,Garth Wind (North Yell Development Council),North Yell Wind Farm (Garth Community Wind Farm),Wind Onshore,4.5,0.9,5.0,,Operational,"Garth, near Gurcher, Yell, Shetland Islands. ZE2 9DF",Shetland,Scotland,Scotland,,454471,1198506.0,03/04/2017,"(60.66610768315664, -1.0051646238743204)"
+2973,3746,10/05/2013,Corrimony Energy Ltd & Soirbheas,Glenurquhart and Strathglass Wind Farm project,Wind Onshore,10.0,2.0,5.0,,Operational,"Hill Ground At Corrimony Farm, Glenurquhart, Inverness",Highland,Scotland,Scotland,,234250,824290.0,19/04/2013,"(57.27908271090726, -4.751101720895592)"
+2974,3747,31/10/2014,Private Developer,Damhead Farm,Wind Onshore,2.5,2.5,1.0,,Operational,"Land At Damhead Farm Bowhouse Road Airdrie North Lanarkshire, ML6 8PW",Strathclyde,Scotland,Scotland,,279061,663992.0,17/05/2013,"(55.85390784698297, -3.933494291047609)"
+2975,3748,03/05/2013,Energiekontor UK,Hyndburn Wind Farm,Wind Onshore,24.0,2.0,12.0,,Operational,Hyndburn Wind Farm on Oswaldtwistle Moor,Lancashire,North West,England,,374424,424281.0,19/10/2012,"(53.71431304557691, -2.3889967624072215)"
+2976,3749,06/03/2014,Ventient (formerly Infinis),Tedder Hill Wind cluster,Wind Onshore,7.5,2.5,3.0,,Operational,"near Roos, East Riding of Yorkshire",Humberside,Yorkshire and Humber,England,,530221,430242.0,30/08/2013,"(53.75228094227311, -0.02652278193165847)"
+2978,3752,24/04/2012,Scottish Power Renewables,Lynemouth Windfarm (Resubmission),Wind Onshore,26.0,2.0,13.0,,Operational,"Land adjacent to Rio Tinto Alcan Smelter, Lynemouth (2km north of Ashington)",Northumberland,North East,England,,429400,589799.0,12/04/2012,"(55.20158190999713, -1.5396342529850073)"
+2980,3754,04/06/2013,Ventient (formerly Infinis),Wingates Wind Farm,Wind Onshore,15.0,2.5,6.0,,Operational,"Wingates, Longhorsley, Morpeth, Northampronshire. NE65 8",Northumberland,North East,England,,413034,597920.0,31/03/2013,"(55.27525392207928, -1.796387901933919)"
+2983,3757,04/06/2013,Private Developer,Wathegar wind farm,Wind Onshore,10.0,2.0,5.0,,Operational,"Land At Wathegar Bilbster, Wick, Caithness",Highland,Scotland,Scotland,,328540,950761.0,31/03/2013,"(58.439286300593785, -3.2256847803928967)"
+2984,3758,26/02/2013,Ormsary and Stronachullin Estates (Allt Dearg Wind Farmers LLP),Allt Dearg Wind Farmers LLP,Wind Onshore,10.8,0.9,12.0,,Operational,"Cruach a'Phubuill, 9km south of Ardishaig, South Knapdale, Argyll",Strathclyde,Scotland,Scotland,,182893,676616.0,25/09/2012,"(55.93343464395872, -5.477371164938089)"
+2985,3761,16/08/2013,RWE NPower Renewables,Hameldon Hill extension,Wind Onshore,7.5,2.5,3.0,,Operational,"Hameldon Hill, Accrington Road, Burnley, Lancashire",Lancashire,North West,England,BB11 5QQ,379914,430561.0,25/04/2013,"(53.77099847374024, -2.3062260253570415)"
+2988,3764,20/05/2016,Ecotricity,Dalby,Wind Onshore,7.2,0.8,9.0,77.0,Operational,"Paddys Lane, Old Dalby, Melton Mowbray, Leicestershire",Leicestershire,East Midlands,England,LE14 3LY,465199,323653.0,15/03/2016,"(52.806496883670015, -1.0342572100069007)"
+2989,3765,18/12/2014,EDF/China General Nuclear Power Corporation,Glass moor Extension,Wind Onshore,12.0,2.0,6.0,,Operational,"S/E Of Yewtree Farm, Glassmoor Bank, Whittlesey, Cambridge, Cambridgeshire",Cambridgeshire,Eastern,England,CB23,528421,292867.0,31/03/2013,"(52.518561438873505, -0.108802791482311)"
+2995,3772,03/04/2018,Octopus Investments/Blue Energy,Cour Wind Farm,Wind Onshore,20.5,2.1,10.0,,Operational,"Carradale
+Argyll And Bute",Strathclyde,Scotland,Scotland,,181005,648528.0,01/12/2016,"(55.68067907193874, -5.484928577654593)"
+2999,3776,19/11/2018,J & A Wilson Ltd,Upper Wheedlemont Farm,Wind Onshore,1.7,0.85,2.0,,Operational,"Rhynie
+Huntly
+",Grampian,Scotland,Scotland,AB54 4LL,347391,826203.0,11/11/2017,"(57.32332677841944, -2.87524504115367)"
+3006,3784,22/05/2013,Green Cat Renewables,Shielburn Farm,Wind Onshore,6.9,2.3,3.0,,Operational,"Newton Of Fortrie, Fortrie
+Turriff
+AB53 4HL",Grampian,Scotland,Scotland,,367618,845637.0,30/03/2013,"(57.499776059679725, -2.5419604271824747)"
+3009,3787,31/07/2017,Octopus Investments/Blue Energy,Beinneun,Wind Onshore,85.0,3.4,25.0,,Operational,8km west of Invergarry,Highland,Scotland,Scotland,,220442,804419.0,16/02/2017,"(57.095605803530056, -4.965481047078889)"
+3013,3791,29/11/2012,"Infinis, previously Broadview Energy",Seamer Wind Farm - Hambleton,Wind Onshore,4.0,2.0,2.0,,Operational,"Land Adjacent Hilton Road, Seamer, Middlesbrough",Cleveland,North East,England,,447872,511421.0,01/11/2012,"(54.49586705438186, -1.2623963838979242)"
+3014,3792,16/02/2016,Blue Energy,Fanny House Farm/Heysham Moss,Wind Onshore,1.5,1.5,1.0,110.0,Operational,"Oxcliffe Road, Heaton With Oxcliffe, Morecambe, Lancashire",Lancashire,North West,England,LA3 3EF,342996,460568.0,01/02/2015,"(54.037924257758156, -2.8718994359920735)"
+3015,3793,10/04/2014,Severn Trent Water,Newthorpe Wind Turbine,Wind Onshore,2.5,2.5,1.0,,Operational,"Sewage Treatment Works, Halls Lane, Giltbrook, Nottinghamshire",Nottinghamshire,East Midlands,England,NG16 2DE,447216,344836.0,08/04/2014,"(52.99877339799129, -1.2979272884885504)"
+3017,3795,06/05/2014,Chelveston Renewable Energy Ltd,Chelveston Renewable Energy Park Wind Farm (Bedford),Wind Onshore,10.0,2.5,4.0,,Operational,"Chelveston Airfield, East Northamptonshore",Northamptonshire,East Midlands,England,,499823,268732.0,15/02/2014,"(52.307640006453276, -0.5372930559349136)"
+3020,3799,18/03/2014,Future Spectrum Ltd,Torrance Farm,Wind Onshore,9.0,3.0,3.0,,Operational,"Blairmuckhill Road, Harthill, North Lanarkshire",Strathclyde,Scotland,Scotland,EH48 3AW,290842,665671.0,30/12/2013,"(55.87179886342245, -3.7460804270363797)"
+3023,3802,09/12/2013,Greenside Wind Energy Ltd,Land at Overside and Greenwellheads Farms,Wind Onshore,9.2,2.3,4.0,,Operational,"Crimond, Fraserburgh, AB42 3HJ",Grampian,Scotland,Scotland,,406123,854692.0,01/11/2013,"(57.58223703419502, -1.8992629175211153)"
+3024,3803,19/04/2013,Lancaster University,Lancaster University (wind),Wind Onshore,2.0,2.0,1.0,,Operational,"Bailrigg Lane, Lancaster, Lancashire",Lancashire,North West,England,,349007,457081.0,18/02/2013,"(54.007217932722604, -2.7795395264028104)"
+3025,3804,19/09/2013,Seren Energy,Myreton Crossroads,Wind Onshore,1.6,0.8,2.0,,Operational,Keith Moray AB55 6NJ,Grampian,Scotland,Scotland,,349741,856864.0,05/07/2013,"(57.598976831962496, -2.842540289425755)"
+3027,3806,07/01/2015,Green Cat Renewables,Auchinderran Wind Farm,Wind Onshore,2.4,0.8,3.0,80.0,Operational,"Auchinderran Farm, Aberchirder, Aberdeenshire",Grampian,Scotland,Scotland,,361419,854774.0,01/12/2014,"(57.581356622206506, -2.6468391119125076)"
+3028,3807,03/07/2018,Broadview Energy,The Limes Wind Turbines,Wind Onshore,1.7,0.85,2.0,,Operational,"to the west of Staithes Road at Salt End, Hull.",Humberside,Yorkshire and Humber,England,,516489,429822.0,15/01/2015,"(53.75175441718453, -0.23482794316159264)"
+3030,3809,28/04/2016,LocoGen,Milton of Fisherie Wind Cluster,Wind Onshore,4.6,2.3,2.0,,Operational,"King Edward, Banff AB45 3PX",Grampian,Scotland,Scotland,,375067,859014.0,01/02/2016,"(57.620403455095676, -2.4190537661317655)"
+3031,3810,25/02/2014,Blantyre Muir Wind Energy Ltd ,Blantyre Muir Wind Farm,Wind Onshore,9.0,3.0,3.0,,Operational,Near Laigh Muirhouses Farm Muttonhole Road Hamilton ,Strathclyde,Scotland,Scotland,,268888,651781.0,30/12/2013,"(55.74160586076006, -4.0900005525205865)"
+3035,3814,22/04/2015,Cetis,Lilbourne Wind Farm,Wind Onshore,10.0,2.0,5.0,,Operational,"Lilbourne Fields Farm & Lilbourne Lodge Farm, Yelvertoft Road, Lilbourne, Northamptonshire",Northamptonshire,East Midlands,England,CV23 0SZ,456786,277685.0,15/12/2014,"(52.39424864237209, -1.1669166573491752)"
+3039,3818,20/03/2014,Eneco,Tullo Wind Farm North Extension (Shiels Wind Farm),Wind Onshore,7.5,2.5,3.0,,Operational,Laurencekirk,Grampian,Scotland,Scotland,AB30 1NB,375080,772580.0,01/04/2014,"(56.84399767109919, -2.4101216596856303)"
+3040,3819,16/08/2016,Melrose Farms,Easter Melrose Wind Energy Project,Wind Onshore,1.5,0.5,3.0,,Operational,"Gamrie, Banff",Grampian,Scotland,Scotland,,375187,863494.0,01/12/2015,"(57.66064973865067, -2.4175068670879725)"
+3048,3827,30/04/2014,TCI Renewables,Newton Marsh Wind Project,Wind Onshore,4.6,2.3,2.0,,Operational,"Newton Marsh Sewage Treatment Works, Tetney, North-East Lincolnshire",Lincolnshire,East Midlands,England,,533327,403278.0,30/04/2014,"(53.50928837345263, 0.009010446733467469)"
+3049,3828,02/03/2015,Bernard Matthews Green Energy,North Pickenham Airfield,Wind Onshore,4.0,2.0,2.0,,Operational,"North Pickenham Road, Breckland",Norfolk,Eastern,England,,585114,306597.0,01/04/2014,"(52.625563810994024, 0.7335086877392809)"
+3052,3832,16/06/2015,Airvolution Energy,Wythegill Wind Turbine,Wind Onshore,2.3,2.3,1.0,,Operational,"Land at Wythegill Syke, Seaton, Workington, Cumbria",Cumbria,North West,England,CA15 8RX,301881,532072.0,15/06/2015,"(54.674125211924256, -3.5230893342213325)"
+3055,3835,04/06/2013,Renewable Energy Systems (RES),Roos Wind Farm (Resubmission),Wind Onshore,17.1,1.9,9.0,,Operational,Land To The West Of Ivy House Rectory Road Roos East Riding Of Yorkshire,Humberside,Yorkshire and Humber,England,,527376,430105.0,02/04/2013,"(53.751752594899266, -0.0696997788955655)"
+3056,3836,22/05/2015,Private Developer,Backhill of Yonderton Wind Cluster,Wind Onshore,4.6,2.3,2.0,,Operational,"Backhill Of Yonderton
+Craigston
+ Turriff
+ AB53 5PT",Grampian,Scotland,Scotland,,375188,855296.0,15/10/2014,"(57.58701465207521, -2.4166458120482313)"
+3057,3837,25/02/2013,Scottish and Southern Energy (SSE),Spurness Wind Farm Repowering,Wind Onshore,10.0,2.0,5.0,,Operational,"Spurness, Sanday",Orkney Islands,Scotland,Scotland,,360531,1033828.0,01/12/2012,"(59.18929522515641, -2.6925172392806958)"
+3060,3840,05/03/2015,Green Cat Renewables,St Johns Wells Wind Cluster Extension,Wind Onshore,3.2,0.8,4.0,,Operational,"St Johns Wells, Fyvie, Turriff AB53 8PX",Grampian,Scotland,Scotland,,379960,836480.0,01/03/2015,"(57.41824098359546, -2.3352801582876674)"
+3061,3841,03/10/2013,Glaxosmithkline,GlaxoSmithKline Wind Project,Wind Onshore,7.5,2.5,3.0,,Operational,Shewalton Road Riverside Business Park Irvine Ayrshire KA11 5AP,Strathclyde,Scotland,Scotland,,234144,636959.0,30/06/2013,"(55.597914851846795, -4.633876291976412)"
+3062,3842,26/02/2014,KL Technology Limited,K L Technologies Wind Turbine,Wind Onshore,1.5,1.5,1.0,,Operational,K L Technology Ltd Estuary Road King's Lynn Norfolk PE30 2HS,Norfolk,Eastern,England,,561043,321955.0,30/10/2013,"(52.771175040243875, 0.38574647834654396)"
+3065,3846,23/03/2020,RockbySea,Coire Na Cloiche Wind Farm,Wind Onshore,29.9,2.3,13.0,,Operational,"Land At Sidhean A'Choin Bhain, Strathrusdale, Alness",Highland,Scotland,Scotland,IV17 0YQ,258937,878023.0,01/03/2020,"(57.76961921131164, -4.373160505979298)"
+3069,3850,01/12/2017,NTR PLC,Altaveedan Wind Farm,Wind Onshore,17.9,2.35,6.0,,Operational,"in the townlands of Shelton South, Aldorough, Altaveedan North, Altaveedan South and Turnavedog near Loughguile, Co Antrim",Co. Antrim,Northern Ireland,Northern Ireland,,128388,584976.0,24/04/2017,"(55.08465524010353, -6.2577505007965195)"
+3071,3852,14/07/2017,Northern Ireland Renewables,Corkey Wind Farm Extension,Wind Onshore,2.5,2.5,1.0,,Operational,"583m north of 42 Reservoir Road, Knockagallen, Corkey.",Co. Antrim,Northern Ireland,Northern Ireland,,126713,580597.0,13/07/2017,"(55.04449601879006, -6.279719691845964)"
+3073,3855,25/10/2016,2020 Renewables/ NTR,Ardoch and Over Enoch Wind Farm (Over Enoch),Wind Onshore,4.3,2.3,2.0,110.0,Operational,"Over Enoch Road, Eaglesham, East Renfrewshire",Strathclyde,Scotland,Scotland,G76 0PN,258600,648600.0,12/11/2014,"(55.71015074804972, -4.252091812959898)"
+3074,3856,10/05/2013,Airvolution Energy,Ystgellog Farm Wind Farm,Wind Onshore,4.6,2.3,2.0,,Operational,"Ysgellog Farm, Rhosgoch, Builth Wells, Powys, LD2",Gwynedd,Wales,Wales,,240490,391238.0,30/04/2013,"(53.39381008384975, -4.400309700524137)"
+3075,3857,17/05/2017,Renewables Infrastructure Group,NEILSTON WIND FARM,Wind Onshore,9.2,2.3,4.0,,Operational,"N/w Of Nether Carswell Farm, Drumgrain Tip, Kingston Road, Neilston, Glasgow, Strathclyde, G44",Strathclyde,Scotland,Scotland,,245292,653952.0,13/05/2013,"(55.754129540248066, -4.466721428113095)"
+3076,3859,03/07/2013,Lanchester Properties,Greencroft Estate Turbines,Wind Onshore,4.0,2.0,2.0,,Operational,"Land to east of Greencroft Estates, Tower Road, Annfield Plain, Stanley",County Durham,North East,England,,416236,550574.0,01/03/2013,"(54.84970965221859, -1.748665456279816)"
+3077,3862,05/01/2015,Thames Water Utilities,Crossness Sewage Works Turbine,Wind Onshore,2.5,2.5,1.0,,Operational,"Belvedere Road, London",London,London,England,SE2 9AR,548777,180312.0,16/02/2014,"(51.50216774564786, 0.14212581996591278)"
+3086,3873,27/06/2016,Muirhall Energy,Muirhall Extension,Wind Onshore,6.8,3.4,2.0,,Operational,"Stellashaw Moss, South Lanarkshire",Strathclyde,Scotland,Scotland,,299342,652838.0,30/04/2014,"(55.758392204620215, -3.6055463372514467)"
+3090,3877,03/08/2015,Energia Renewables,Clondermot Turbines,Wind Onshore,4.6,2.3,2.0,,Operational,"Trench Road, Derry",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,60124,576620.0,14/04/2015,"(54.96789186794051, -7.312910543376059)"
+3096,3886,31/05/2017,The Renewables Infrastructure Group (TRIG),Freasdail Wind Farm,Wind Onshore,22.5,2.0,11.0,,Operational,Land East Of Loch Freasdail And North Of Loch Cruinn Whitehouse By Tarbert Argyll And Bute,Strathclyde,Scotland,Scotland,,182440,659197.0,08/02/2017,"(55.777010553933046, -5.470638736814854)"
+3097,3887,18/07/2017,Welsh Water,Nash Waste Water Treatment Works Turbine,Wind Onshore,2.5,2.5,1.0,,Operational,"West Nash Road, Nash NP18 2YH",Gwent,Wales,Wales,,333598,184016.0,15/03/2017,"(51.551107921257675, -2.9590729638980013)"
+3100,3890,20/01/2015,Blue Energy,Marston Vale Country Park Wind Turbine,Wind Onshore,1.5,1.5,1.0,,Operational,"The Marston Vale Millennium Country Park, Station Road, Marston Moretaine, Bedford, MK43 0PR",Bedfordshire,Eastern,England,,500498,241710.0,01/05/2014,"(52.06465808448634, -0.5353973411421683)"
+3103,3893,15/03/2018,Spencer Group,Energy Works Hull - Wind Turbine,Wind Onshore,3.0,3.0,1.0,,Operational,"Cleveland Street (former Adm Cocoa Plant), Dalton Street, Kingston Upon Hull, Humberside",Humberside,Yorkshire and Humber,England,HU8 8BB,510170,430424.0,01/03/2018,"(53.75853532311629, -0.3304002258151529)"
+3105,3896,04/01/2016,Awel Aman Tawe Community Energy,Mynydd Y Gwrhyd Windfarm,Wind Onshore,4.7,2.35,2.0,,Operational,Mynydd Y Gwrhyd,West Glamorgan,Wales,Wales,,272659,210474.0,01/12/2017,"(51.77840129655246, -3.847238645963587)"
+3106,3897,17/12/2015,Severn Trent Water,Severn Trent Water - Stoke Bardolph Wind Turbine,Wind Onshore,1.5,2.5,1.0,,Operational,"Stoke Lane, Stoke, Bardolph, Nottinghamshire",Nottinghamshire,East Midlands,England,NG14 5HL,464294,342475.0,15/12/2015,"(52.97577902203545, -1.0439660635494907)"
+3111,3902,20/05/2014,Ayre Energy/Aquatera Ltd,Barns of Ayre Wind Turbines (2),Wind Onshore,1.8,0.9,2.0,,Operational,"Deerness, Orkney",Orkney Islands,Scotland,Scotland,,358890,1004047.0,01/07/2013,"(58.92171768462033, -2.7156493936194726)"
+3113,3904,03/10/2016,Renewable Energy Partnerships Ltd,Newton Down,Wind Onshore,5.0,2.0,2.0,,Operational,Bridgend,Mid Glamorgan,Wales,Wales,,284252,179465.0,29/09/2016,"(51.502231015657294, -3.669010004433503)"
+3114,3905,31/10/2016,Ventient (formerly Infinis),North Steads Wind Farm,Wind Onshore,18.5,3.0,9.0,,Operational,Situated between Widdrington and Red Row to the west of the A1068,Northumberland,North East,England,,423943,596828.0,04/07/2016,"(55.26503502541755, -1.6247740014827947)"
+3120,3911,04/04/2017,LocoGen/ Green Cat Renewables ,Hill of Tillymorgan (Kirkton Farm) Wind turbines,Wind Onshore,9.6,3.2,3.0,,Operational,"Hill of Tillymorgan, Culsalmond, Insch",Grampian,Scotland,Scotland,AB52 6TT,363363,828345.0,01/12/2016,"(57.34413254301258, -2.6103614479566195)"
+3124,3915,23/05/2018,PI Renewables 2 Ltd,LADEHEAD FARM - WIND TURBINES,Wind Onshore,2.4,1.3,3.0,,Operational,Ladehead Farm Lesmahagow ,Strathclyde,Scotland,Scotland,ML11 0HZ,279142,641223.0,15/09/2016,"(55.649463563725284, -3.9221163364590503)"
+3126,3917,11/08/2015,Airvolution Energy,Garlenick Estate 2 - Wind Turbines,Wind Onshore,4.0,2.0,2.0,,Operational,Garlenick Estate Grampound Cornwall,Cornwall,South West,England,,194662,49203.0,18/06/2015,"(50.30693591557819, -4.885054987982519)"
+3127,3918,22/04/2016,George Richards Farms Partnership,Goonabarn Farm Wind Turbines,Wind Onshore,1.0,0.5,2.0,,Operational,Goonabarn Farm Summercourt Newquay Cornwall TR8 5BL,Cornwall,South West,England,,189473,54165.0,01/04/2016,"(50.349670724847144, -4.960596057281792)"
+3133,3924,25/11/2015,The Farm Energy Partnership LLP,Bloodhills - repowering,Wind Onshore,1.0,0.5,2.0,,Operational,"Bloodhills Farm, Bloodhills East Somerton Great Yarmouth NR29 4DU",Norfolk,Eastern,England,,647642,318446.0,15/06/2015,"(52.70697801112527, 1.6644214073685406)"
+3134,3925,25/10/2016,2020 Renewables/ NTR,Ardoch and Over Enoch Wind Farm (Ardoch),Wind Onshore,7.2,2.5,3.0,110.0,Operational,"Ardoch Farm, Over Enoch Road, Eaglesham, East Renfrewshire ",Strathclyde,Scotland,Scotland,G76 0PL,258534,649697.0,12/11/2014,"(55.71998050917197, -4.253708672965079)"
+3136,3927,04/03/2014,Bristol City Council - Energy Management Unit,Avonmouth Port II,Wind Onshore,5.0,2.5,2.0,,Operational,"Former Shell Tanker Site
+Severn Road
+Avonmouth
+Bristol",Avon,South West,England,,353360,182375.0,30/09/2013,"(51.53833794330007, -2.6738643100251194)"
+3137,3928,23/08/2012,E.ON Renewables,Tween Bridge Windfarm,Wind Onshore,44.0,2.0,22.0,,Operational,"Tween Bridge, Thorne, Doncaster, South Yorks",South Yorkshire,Yorkshire and Humber,England,DN8 5,470500,414500.0,27/02/2012,"(53.62230198878349, -0.9355902145925464)"
+3140,3931,04/06/2018,Gresham House,Mynydd Portref,Wind Onshore,9.4,0.85,11.0,,Operational,"N of Brynna, E of existing Taff Ely Wind Farm",Mid Glamorgan,Wales,Wales,,298897,185178.0,26/03/2012,"(51.55639480319496, -3.4597357047926947)"
+3141,3932,05/06/2013,Pennant Walters,Fforch Nest Wind Farm pt2,Wind Onshore,17.5,2.5,7.0,,Operational,"Mynydd Maesteg and Mynydd Pwllyrhebog, Ogmore and Rhondda Valleys",Mid Glamorgan,Wales,Wales,,296500,190800.0,24/05/2013,"(51.60649169741984, -3.4959571970808394)"
+3142,3933,04/01/2017,Energia Renewables,Gortfinbar,Wind Onshore,15.0,2.5,6.0,,Operational,"Sixmilecross/Carrickmore, Omagh",Co. Tyrone,Northern Ireland,Northern Ireland,,75490,528123.0,22/12/2016,"(54.543999681991714, -7.0197014765237995)"
+3143,3934,03/01/2017,Gaelectric Developments/ CGN Europe Energy,Carn Hill,Wind Onshore,13.8,2.3,6.0,,Operational,"Lands north of Slievetrue Road, Carn Hill/Rea Hill, Newtownabbey, Co Antrim",Co. Antrim,Northern Ireland,Northern Ireland,,148254,544393.0,08/05/2013,"(54.731296825553976, -5.911801499820508)"
+3144,3935,30/09/2016,DIF,Wadlow Wind Farm,Wind Onshore,26.0,2.0,13.0,,Operational,"Nr West Wratting, South Cambridgeshire",Cambridgeshire,Eastern,England,,558500,254500.0,01/09/2012,"(52.1660105186889, 0.3160471817664649)"
+3145,3936,22/01/2014,Npower Renewables,Bradwell Wind Farm (Repower),Wind Onshore,20.0,2.0,10.0,,Operational,"Bradwell on Sea, Maldon",Essex,Eastern,England,,595000,205000.0,30/09/2013,"(51.7098352730216, 0.8210429846401599)"
+3146,3937,17/05/2012,Banks Renewables,Hazlehead,Wind Onshore,6.0,2.0,3.0,,Operational,"to the rear of Hepworth's factory, Crow Edge",South Yorkshire,Yorkshire and Humber,England,,417915,403915.0,16/12/2011,"(53.531589745683334, -1.7311982470799803)"
+3147,3938,25/02/2013,Npower Renewables,Kiln Pit Hill Windfarm,Wind Onshore,12.0,2.0,6.0,,Operational,"land to the east of A68, approx 1km SE of Kiln Pit Hill",Northumberland,North East,England,,405590,554583.0,01/08/2012,"(54.88596549003633, -1.9143906439896101)"
+3150,3941,19/11/2014,Otter Power,Otterham Down Wind Farm,Wind Onshore,3.2,0.8,4.0,,Operational,"Otterham, Camelford",Cornwall,South West,England,,215700,90500.0,17/08/2011,"(50.68489176536688, -4.610326803472088)"
+3151,3942,05/01/2015,Greencoat UK Wind,Sixpenny Wood Windfarm,Wind Onshore,33.0,3.3,10.0,,Operational,"Between Eastrington, Gilberdyke, Kilpin and Laxton",Humberside,Yorkshire and Humber,England,,478500,427500.0,15/07/2013,"(53.73798639496661, -0.8113817436072052)"
+3152,3943,05/01/2015,Greencoat UK Wind,Earl's Hall,Wind Onshore,10.3,2.05,5.0,,Operational,"Earls Hall Farm, Clacton on Sea, Essex",Essex,Eastern,England,,614550,216860.0,13/01/2013,"(51.809183592124704, 1.1108980015070415)"
+3153,3944,02/11/2012,Private Developer,Mawdesley Moss,Wind Onshore,2.3,0.75,3.0,,Operational,"Cliff Farm
+Mawdesley Moss
+Chorley
+Lancashire",Lancashire,North West,England,,348500,415500.0,01/08/2012,"(53.6334757645609, -2.780298292067513)"
+3155,3946,06/05/2014,Chelveston Renewable Energy,Chelveston Renewable Energy Park Wind Farm (East Northamptonshire),Wind Onshore,12.5,2.5,5.0,,Operational,"Chelveston Airfield
+East Northamptonshore",Northamptonshire,East Midlands,England,,499885,268015.0,15/02/2014,"(52.301184857811506, -0.5365964763338839)"
+3156,3947,08/05/2013,Harworth Power,Bewick Drift,Wind Onshore,2.3,2.3,1.0,,Operational,Land at former Lynemouth coal handling store north of existing Lynemouth Power Station,Northumberland,North East,England,,428275,591310.0,31/03/2013,"(55.21522449666322, -1.5571580997486651)"
+3157,3948,07/11/2013,John Laing Environmental Assets Group/REG Power Management,Hall Farm Routh,Wind Onshore,24.6,2.05,12.0,,Operational,"Land North Of, Hall Farm Acc Rd To Crowshore Plantation, Routh, East Riding Of Yorkshire, HU17 9SL",Humberside,Yorkshire and Humber,England,,507865,443185.0,28/05/2013,"(53.873665102145026, -0.36087915047332714)"
+3160,3951,30/08/2013,Fred Olsen Renewables,Rothes Wind Farm (Extension) (II),Wind Onshore,41.4,2.3,18.0,,Operational,"Rothes Windfarm, at Cairn Uish near Elgin",Grampian,Scotland,Scotland,,318500,850500.0,15/04/2013,"(57.53726375019279, -3.362957508939726)"
+3162,3953,12/12/2013,Airtricity,Glenconway,Wind Onshore,18.4,2.3,8.0,,Operational,"Land at Glenconway Hill off Baranailt Road, (Adjacent to Loughermore Forest and north of Altahullion windfarm), Limavady.",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,78301,576178.0,07/11/2013,"(54.975992638734155, -7.029608757454995)"
+3164,3955,12/12/2013,Scottish and Southern Energy (SSE),Glenconway 2 (formerly Altahullion Phase III),Wind Onshore,27.6,2.3,12.0,,Operational,"Altahullion Phase III Wind Farm in the townlands of Drum, Glenconway and Ballymoney, near Dungiven",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,77926,575589.0,07/11/2013,"(54.97047812574787, -7.034783392035551)"
+3165,3956,05/06/2013,Pennant Walters,Fforch Nest Wind Farm pt1,Wind Onshore,10.0,2.5,4.0,,Operational,Land North of Glynogwr,Mid Glamorgan,Wales,Wales,,296600,191300.0,24/05/2013,"(51.611004205487774, -3.494661336401579)"
+3166,3957,24/10/2018,Good Energy (previously nPower Renewables),Hampole Wind Farm,Wind Onshore,8.0,2.0,4.0,,Operational,"Land Near Hampole Wood
+Hampole
+Doncaster",South Yorkshire,Yorkshire and Humber,England,,449430,409145.0,31/03/2014,"(53.57658199560625, -1.254956924145632)"
+3167,3958,04/04/2013,Ventient (formerly Infinis),Blackstone Edge,Wind Onshore,7.5,2.5,3.0,,Operational,"Blackstone Edge, Penistone",South Yorkshire,Yorkshire and Humber,England,,419565,405226.0,01/03/2013,"(53.54331482680485, -1.7062246284686742)"
+3170,3961,04/12/2016,Energia Renewables,Glenbuck,Wind Onshore,9.2,2.3,4.0,,Operational,"Glenbuck, Dunloy",Co. Antrim,Northern Ireland,Northern Ireland,,118000,577300.0,22/12/2016,"(55.01009186087857, -6.41242074840638)"
+3171,3962,15/12/2017,Energia ,Glenbuck II,Wind Onshore,6.9,3.0,5.0,,Operational,Glenbuck,Co. Antrim,Northern Ireland,Northern Ireland,,118000,577300.0,01/03/2017,"(55.01009186087857, -6.41242074840638)"
+3172,3963,29/03/2012,Banks Renewables,Marr Windfarm,Wind Onshore,8.0,2.0,4.0,,Operational,"Marr, South Yorkshire",South Yorkshire,Yorkshire and Humber,England,,450491,404311.0,18/01/2012,"(53.533035456804136, -1.2397137170055372)"
+3173,3964,26/11/2013,TNEI Services Ltd,Nissan Motors Plant Extn,Wind Onshore,2.0,0.6,3.0,,Operational,"Nissan Motors Plant, Sunderland, Tyne and Wear",Tyne and Wear,North East,England,,433385,557810.0,01/04/2008,"(54.913886254360484, -1.480759663563157)"
+3177,3968,09/05/2012,"Infinis, previously Broadview Energy",Hill of Fiddes,Wind Onshore,6.9,2.3,3.0,,Operational,"Hill of Fiddes
+Udny Station
+Cultercullen",Grampian,Scotland,Scotland,,393495,824485.0,20/02/2010,"(57.31089224802981, -2.1096246702815873)"
+3178,3969,16/08/2013,TCI Renewables,Dunmore,Wind Onshore,21.0,3.0,7.0,,Operational,"Town land of Dunmore approximately eight kilometres north east of Limavady, County Londonderry",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,88015,585846.0,25/04/2013,"(55.06872840587333, -6.8889537930096845)"
+3179,3971,05/01/2015,Greencoat UK Wind,Cotton Farm,Wind Onshore,20.0,2.5,8.0,,Operational,"Land between Graveley, Offord Darcy and Great Paxton",Cambridgeshire,Eastern,England,,523270,264130.0,31/03/2013,"(52.26153031085006, -0.19523882601778045)"
+3180,3972,25/06/2013,Flimby Wind Energy Ltd,Land at Flimby Hall Farm,Wind Onshore,6.2,2.05,3.0,,Operational,"Flimby, Maryport,",Cumbria,North West,England,,302500,533500.0,14/06/2013,"(54.687073909433124, -3.5139714380034555)"
+3184,3976,01/11/2013,Scottish Power Renewables,Carland Cross Wind Farm Repowering,Wind Onshore,20.0,2.0,10.0,,Operational,"Carland Cross, Mitchell, Truro",Cornwall,South West,England,,184500,54500.0,30/10/2013,"(50.350879640406355, -5.0305873325454336)"
+3186,3978,05/01/2015,Greencoat UK Wind,Yelvertoft Wind Farm,Wind Onshore,16.0,2.0,8.0,,Operational,"Land Adjacent Glebe Farm, Hillmorton Lane, Yelvertoft (Access Off Rugby Road, Crick), Northamptonshire",Northamptonshire,East Midlands,England,,457887,275532.0,11/07/2013,"(52.37477999206554, -1.1511098190341478)"
+3188,3980,25/02/2013,Eco2 /GreenCAT,Mains of Hatton,Wind Onshore,2.4,0.8,3.0,,Operational,"Kirktown of Auchterless
+Aberdeenshire",Grampian,Scotland,Scotland,,396115,858370.0,20/03/2012,"(57.61529637910062, -2.066687665476805)"
+3189,3981,22/04/2013,Scottish Power Renewables,Whitelee Windfarm Extension Phase 1,Wind Onshore,108.0,3.0,36.0,,Operational,"Eaglesham Moor, to the south of Glasgow",Strathclyde,Scotland,Scotland,,256300,645000.0,31/10/2012,"(55.6771536270315, -4.286777643353905)"
+3190,3982,04/07/2017,Scottish Equity Partners,Tilbury Docks,Wind Onshore,12.0,3.0,4.0,,Operational,"Installed from the Dock entrance along to the GradeII listed Cruise Terminal, Tilbury Docks, Tilbury",Essex,Eastern,England,,562450,175735.0,25/03/2013,"(51.45728692503873, 0.3368486134530492)"
+3192,3984,29/11/2012,Broadview Energy,Seamer Windfarm - Stockton on Tees,Wind Onshore,6.0,2.0,3.0,,Operational,Between the villages of Hilton and Seamer on the Stockton-on-Tees and North Yorkshire boundaries.,County Durham,North East,England,,448125,511235.0,01/11/2012,"(54.49417174727331, -1.2585208221826603)"
+3193,3985,24/01/2013,REG Windpower (previously  Cornwall Light & Power),South Sharpley Wind Farm (Revised),Wind Onshore,7.5,2.5,3.0,,Operational,"South Sharpley Farm, near Seaham, County Durham",County Durham,North East,England,,438490,549675.0,23/01/2013,"(54.84042028404191, -1.4022141584693324)"
+3194,3986,20/05/2013,Banks Renewables,Armistead Wind Farm,Wind Onshore,12.0,2.0,6.0,,Operational,"Land to the east of Crosslands Farm, near Old Hutton, Kendal South Lakeland, LA6 2QJ",Cumbria,North West,England,,358500,486900.0,11/02/2013,"(54.276049995173835, -2.638819534092031)"
+3195,3987,03/06/2013,Energiekontor UK,Withernwick,Wind Onshore,18.0,2.0,9.0,,Operational,"Land North And North East
+Homer House
+Aldbrough Road
+Withernwick
+East Riding Of Yorkshire",Humberside,Yorkshire and Humber,England,,520325,440375.0,19/03/2013,"(53.84568568369656, -0.17256622316615075)"
+3196,3988,16/06/2016,Urras Oighreachd Ghabhsainn,Loch Sminig Wind Project,Wind Onshore,2.7,0.9,3.0,,Operational,"Either side of the road between Baile an Truiseil and Upper Barvas, Stornoway, Isle of Lewis, HS2 0QX",Western Isles,Scotland,Scotland,,137480,952680.0,15/09/2015,"(58.38355582884693, -6.493020518964537)"
+3200,3992,20/01/2014,Aeolian Holderness Ltd,Burton Pidsea (Wadworth Hill) Wind Farm,Wind Onshore,10.2,3.4,3.0,,Operational,"Land North East Of
+Wadworth Hill House
+Greens Lane
+Burton Pidsea
+East Riding Of Yorkshire",Humberside,Yorkshire and Humber,England,,524497,429743.0,10/01/2014,"(53.74919558419588, -0.11348195930101564)"
+3214,4006,04/07/2013,E.ON UK,Camster,Wind Onshore,50.0,2.0,25.0,,Operational,"Lower Camster
+Lybster
+Caithness",Highland,Scotland,Scotland,,325800,947400.0,09/02/2013,"(58.4086507665401, -3.271514446984195)"
+3216,4008,25/11/2013,Longearth Ltd/ Farm Energy,Bu Farm,Wind Onshore,2.7,0.9,3.0,,Operational,"Rothiesholm, Bu Farm, Stronsay, Orkney",Orkney Islands,Scotland,Scotland,,362283,1023560.0,10/05/2002,"(59.097252646145435, -2.660078974138682)"
+3217,4009,08/10/2013,Scottish and Southern Energy (SSE),Drumderg,Wind Onshore,36.8,2.3,16.0,,Operational,"Drumderg Hill
+Near Alyth
+Perth",Tayside,Scotland,Scotland,,324500,748500.0,09/11/2008,"(56.62224632055707, -3.232012263899362)"
+3219,4011,01/06/2018,Scottish and Southern Energy (SSE)/ Greencoat UK Wind ,Clyde Wind Farm,Wind Onshore,350.0,2.3,152.0,,Operational,"Clyde Wind farm, Lowther Hills, between Crawford and Nether Howecleuch,
+NW of Lockerbie",Strathclyde,Scotland,Scotland,,302500,617500.0,01/10/2012,"(55.44163408233998, -3.542734237680517)"
+3221,4013,04/12/2012,RWE npower,Novar Wind Farm (Extension),Wind Onshore,36.8,2.3,16.0,,Operational,"Novar Estate
+Evanton
+Ross-shire",Highland,Scotland,Scotland,,255500,871500.0,17/09/2012,"(57.7099866660903, -4.426956444746046)"
+3222,4014,04/06/2020,Renewable Energy Systems (RES),Hill of Towie (Drummuir),Wind Onshore,48.0,2.3,21.0,,Operational,"Hill of Towie, Knockan and McHattie's Cairn, Drummuir, Keith, Banffshire, Moray",Grampian,Scotland,Scotland,,320000,860000.0,01/06/2012,"(57.62284105863536, -3.341046113585473)"
+3223,4015,26/10/2016,Scottish Power Renewables,Ewe Hill,Wind Onshore,13.8,2.3,6.0,,Operational,"Near Langham and Lockerbie
+Dumfries",Dumfries and Galloway,Scotland,Scotland,,315000,580000.0,30/05/2016,"(55.10709221706526, -3.3338689795196914)"
+3227,4019,04/03/2014,Npower Renewables,Middlemoor,Wind Onshore,54.0,3.0,18.0,,Operational,"North Charlton
+Alnwick
+Northumberland",Northumberland,North East,England,,414765,622786.0,30/09/2013,"(55.4986391308472, -1.7678381454563226)"
+3229,4021,02/05/2013,Baillie Windfarm Ltd,Baillie Wind Farm,Wind Onshore,52.5,2.5,21.0,,Operational,"Bardnaheigh, Westfield, Thurso",Highland,Scotland,Scotland,,302550,965650.0,29/03/2013,"(58.56792108721409, -3.6770209864280043)"
+3230,4022,08/10/2013,REG Windpower (previously Cornwall Light and Power),Braich Ddu,Wind Onshore,3.9,1.3,3.0,,Operational,"Braich Ddu, Glanrafon Y Bala, Gwynedd",Gwynedd,Wales,Wales,,267500,301500.0,31/08/2007,"(52.59509415607109, -3.9575838374674865)"
+3231,4023,04/12/2017,Greencoat UK Wind,Drone Hill,Wind Onshore,28.6,1.3,22.0,,Operational,"Coldingham
+East Berwickshire",Borders,Scotland,Scotland,,383719,667227.0,01/09/2012,"(55.89788731848601, -2.2619287288976966)"
+3232,4024,25/01/2012,Scottish and Southern Energy (SSE),Tangy Wind Farm Extension/Tangy 2,Wind Onshore,6.0,0.85,7.0,,Operational,"Kilkenzie, Campbelltown",Strathclyde,Scotland,Scotland,,177000,626200.0,17/06/2011,"(55.478615198358185, -5.530459773169252)"
+3234,4026,30/10/2017,Vattenfall,Ray Wind Farm,Wind Onshore,54.4,3.5,16.0,,Operational,"Kirkwhelpington, Newcastle-upon-Tyne, Tyne and Wear",Northumberland,North East,England,NE19 2,395550,587550.0,05/02/2017,"(55.18221927830672, -2.0714215103852496)"
+3235,4027,24/12/2013,Scottish and Southern Energy (SSE),Calliachar,Wind Onshore,32.2,2.3,14.0,,Operational,"Nr Aberfeldy, Amulree",Tayside,Scotland,Scotland,,285000,750000.0,30/09/2013,"(56.62767898602949, -3.876077856797993)"
+3236,4028,29/02/2012,Greenpower (Griffin) Ltd,Griffin Wind farm,Wind Onshore,156.0,3.0,52.0,,Operational,Griffin Forest,Tayside,Scotland,Scotland,,293600,744600.0,28/02/2012,"(56.58122252243299, -3.7337523701724784)"
+3237,4029,04/07/2012,REG Windpower (previously Cornwall Light and Power),High Pow Farm,Wind Onshore,3.9,1.3,3.0,,Operational,"High Pow Farm, Boltons Low Houses, Nr. Wigton, ",Cumbria,North West,England,,323500,544500.0,15/03/2007,"(54.78953648033848, -3.1911983334653393)"
+3239,4031,06/03/2014,K E Projects AF,St. Johns Hill,Wind Onshore,15.8,2.8,9.0,,Operational,"Chapel of Barras
+nr Kinneff, 
+South of Stonehaven",Grampian,Scotland,Scotland,,383500,777500.0,01/04/2013,"(56.88857286190645, -2.272420296668396)"
+3240,4032,22/05/2018,Blue Energy,Blackcraig,Wind Onshore,53.0,3.0,23.0,,Operational,"Blackcraig Hill, 6km NE of Balmaclellan",Dumfries and Galloway,Scotland,Scotland,,270500,582500.0,02/03/2018,"(55.11991239799601, -4.0321180807000685)"
+3241,4033,19/04/2013,Devon Wind Power Ltd,Fullabrook Down Wind Farm,Wind Onshore,66.0,3.0,22.0,,Operational,"Fullabrook Down, Crackaway, Barton",Devon,South West,England,,253055,141846.0,24/01/2012,"(51.15694596555403, -4.102655774514964)"
+3242,4034,17/09/2020,Renewables Infrastructure Group,Little Raith Farm,Wind Onshore,25.0,2.8,9.0,,Operational,"South of A92
+Nr Loch Gelly",Fife,Scotland,Scotland,,322245,692552.0,27/11/2012,"(56.119354432658426, -3.252158728826452)"
+3247,4039,03/06/2013,Pennant Wind Energy Ventures (PWEV),Pant y wal,Wind Onshore,25.0,2.5,10.0,115.0,Operational,"Mynydd Maesteg, Mynydd Pwlle yr Helog, Ogmore Vale, Rhondda Valley",Mid Glamorgan,Wales,Wales,,295886,191521.0,01/06/2013,"(51.61285886848837, -3.505034560759575)"
+3249,4041,02/01/2019,Greencoat (formerly Energia Renewables),Crighshane,Wind Onshore,32.2,2.0,14.0,,Operational,"Crighshane, South of Ballymongan Road, Killeter, Castlederg",Co. Tyrone,Northern Ireland,Northern Ireland,,29021,542409.0,30/06/2012,"(54.63986653966474, -7.752574712969343)"
+3250,4042,06/11/2013,Northern Wind Power,Townlands of Carrickatane,Wind Onshore,20.7,2.3,9.0,,Operational,"Townlands of Carrickatane, Castlemellan, Cullion, Gortmellan & Taboe Glebe (Co. Tyrone) and Tirkeeveny & Killymallaght (Co. Derry), accessing onto Gortmellon Road, Cullion, BT47 3TA",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,66757,567963.0,21/03/2013,"(54.89489475586352, -7.199703966211002)"
+3252,4044,18/12/2014,EDF/China General Nuclear Power Corporation,Green Rigg,Wind Onshore,36.0,2.0,18.0,,Operational,Near the A68 and Sweethope Lough,Northumberland,North East,England,,392000,582000.0,28/11/2012,"(55.13230203639853, -2.127009822343565)"
+3255,4047,02/01/2019,Greencoat (formerly Energia Renewables),Church Hill,Wind Onshore,18.4,2.0,8.0,,Operational,"Church Hill, Meenamullan Road, Killeter, Castlederg, and Magherakeel, Killeter, Castlederg, Co Tyrone.",Co. Tyrone,Northern Ireland,Northern Ireland,,31711,543769.0,01/06/2012,"(54.65399677274787, -7.712814979189822)"
+3256,4048,29/11/2011,ESB,Crockagarran,Wind Onshore,15.0,2.5,6.0,,Operational,"Lands to the East of Whitebridge Road and South of Gleneeny Road, on lands at Crockagarron in the Townland of Gleneeny, Co Tyrone.",Co. Tyrone,Northern Ireland,Northern Ireland,,75726,528798.0,29/09/2010,"(54.55019365117639, -7.016810799167739)"
+3259,4051,06/03/2013,E.ON UK,Rosehall Hill Forest Windfarm,Wind Onshore,24.7,1.3,19.0,,Operational,"Lairg, Highlands. IV27 4EU",Highland,Scotland,Scotland,,249550,903550.0,28/02/2013,"(57.99562477643569, -4.546950243728645)"
+3260,4053,17/06/2015,Energia Renewables,Thornog Windfarm,Wind Onshore,9.2,2.3,4.0,,Operational,"Thornog, 
+Meenadoan townland, 
+Drumquin. 
+Co Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,41160,537686.0,22/09/2014,"(54.60639593458442, -7.559610888480186)"
+3261,4054,27/11/2017,Scottish and Southern Energy (SSE),Slieve Divena Phase 2 Wind Farm,Wind Onshore,18.8,2.5,8.0,,Operational,"Slieve Divena Wind Farm Phase II in the townlands of Altcloghfin, Altamuskin and Shantavny Irish, Co Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,BT79,69602,524593.0,16/02/2017,"(54.508596735302305, -7.106399976818087)"
+3262,4055,02/05/2013,I & H Brown Ltd,Bankend Rig,Wind Onshore,14.3,1.3,11.0,,Operational,Near Dungavel Reservoir,Strathclyde,Scotland,Scotland,,265553,633692.0,27/03/2013,"(55.57827150940525, -4.134221209656178)"
+3263,4056,08/10/2013,Mackies,Hill of Easterton Extension,Wind Onshore,2.0,1.0,2.0,,Operational,"Hill of Easterton, 1km North Of Mackies Ice Cream Dairy, Westertown, Rothienorman, Inverurie, AB51 8US",Grampian,Scotland,Scotland,,376449,831808.0,31/07/2007,"(57.37610585497129, -2.3932806181883666)"
+3264,4057,30/11/2016,Blackrock Real Assets,Batsworthy Cross,Wind Onshore,18.0,2.0,9.0,103.0,Operational,"Batsworthy Cross, Creacombe, North Devon",Devon,South West,England,,281500,120500.0,07/04/2016,"(50.971687898652085, -3.6891128127042343)"
+3265,4058,25/01/2012,Airtricity,Slieve Kirk,Wind Onshore,27.6,2.3,12.0,,Operational,"Lands bounded by Bigwood Road, Kildoag Road & Castlewarren Road, within the townlands of Lisdillon, Kildoag in Co Derry, Knockbrack, Gosheden, Lackagh, Ardground, Legagh in Co Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,61258,571215.0,01/10/2011,"(54.920299862156625, -7.288902661015142)"
+3266,4059,02/07/2020,EDF Energy Renewables,Fallago Rig,Wind Onshore,144.0,3.0,48.0,,Operational,Lammermuir Hills,Borders,Scotland,Scotland,,357000,660000.0,31/03/2013,"(55.83130753143636, -2.688027687587587)"
+3267,4060,02/09/2013,Scottish and Southern Energy (SSE),Cathkin Braes Wind Farm (Castlemilk),Wind Onshore,3.0,3.0,1.0,,Operational,Site At Cathkin Braes/ Cathkin Road Carmunnock Glasgow,Strathclyde,Scotland,Scotland,,261220,658203.0,29/05/2013,"(55.797126989695386, -4.215310966407748)"
+3268,4061,31/08/2017,ESB (Cambrian Renewable Energy Ltd / Betws Common Holdings Ltd),Mynydd y Betws,Wind Onshore,34.5,2.3,15.0,,Operational,"Mynydd y Betws, Betws, Ammanford",Dyfed,Wales,Wales,,267000,210000.0,01/04/2013,"(51.772824702381065, -3.9290363114263873)"
+3269,4062,18/12/2014,Green Cat Renewables,Ark Hill,Wind Onshore,6.4,0.8,8.0,,Operational,"Chamberwells, Glamis, Tayside",Tayside,Scotland,Scotland,,335700,742600.0,29/03/2013,"(56.57092395236859, -3.0480579919844684)"
+3270,4063,03/06/2013,Arnish Electric Ltd / Farm Energy Ltd,Pentland Road Wind Farm,Wind Onshore,13.8,2.3,6.0,,Operational,"Pentland Road, Isle of Lewis",Western Isles,Scotland,Scotland,,135500,938700.0,28/03/2013,"(58.25719649171651, -6.510773625246344)"
+3272,4065,27/11/2018,Slieveglass wind farm (Energia),Slieveglass,Wind Onshore,6.9,2.3,3.0,,Operational,"Bullock Park, Drumquin, Co. Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,40796,540968.0,10/08/2018,"(54.63549261307304, -7.569239949735478)"
+3273,4066,19/03/2015,Erne Concrete Pumping,Molly Mountain,Wind Onshore,15.0,3.0,5.0,,Operational,Land at Molly Mountain near Derrylin,Co. Fermanagh,Northern Ireland,Northern Ireland,,32559,492702.0,03/12/2014,"(54.19792098703525, -7.636503300136311)"
+3274,4067,22/12/2016,RES/ Aviva,Turncole Wind Farm,Wind Onshore,17.5,2.0,7.0,,Operational,"Turncole Farm, The Marshes, Southminster, Essex",Essex,Eastern,England,CM0 7JJ,598482,198640.0,22/12/2016,"(51.65150307491184, 0.8677614889550065)"
+3275,4068,01/08/2017,Severn Trent Water,Derby Sewage Treatment Works,Wind Onshore,5.0,3.4,2.0,,Operational,"Megaloughton Lane, Spondon, Derby",Derbyshire,East Midlands,England,,439567,334685.0,15/05/2014,"(52.908146457585445, -1.4131266561399742)"
+3276,4069,31/07/2017,Octopus Investements/Blue Energy,Grange,Wind Onshore,12.3,2.05,6.0,,Operational,"Grange Farmhouse, Land adjacent to, Flixborough",Humberside,Yorkshire and Humber,England,,486042,416496.0,15/12/2015,"(53.63791854594352, -0.700121316372762)"
+3277,4070,31/03/2017,RWE Npower Renewables,Goole Fields ll Wind Farm,Wind Onshore,34.9,2.05,17.0,,Operational,"approximately 2km south of Old Goole, immediately to the west of the consented Goole Fields Wind Farm.",Humberside,Yorkshire and Humber,England,,473632,420610.0,14/11/2016,"(53.67677911724425, -0.8868023015766807)"
+3279,4072,31/10/2016,Vento Ludens,Edintore Wind Farm,Wind Onshore,18.0,3.0,6.0,,Operational,"Edintore, Keith, Moray",Grampian,Scotland,Scotland,AB55 5PJ,342422,846573.0,31/10/2016,"(57.505676005746906, -2.96253424650793)"
+3280,4073,14/09/2021,RPMI Railpen (formerly BayWa),Tralorg Wind Farm,Wind Onshore,20.0,2.5,8.0,,Operational,2km to the east of Girvan,Strathclyde,Scotland,Scotland,,221728,598656.0,01/06/2020,"(55.2497706457218, -4.8061708857371155)"
+3282,4075,22/03/2016,Shetland Aerogenerators ,Gremista Wind Farm,Wind Onshore,3.0,3.0,1.0,,Operational,"Luggies Knowe, Gremista, Lerwick",Shetland,Scotland,Scotland,,446287,1145628.0,15/11/2015,"(60.19242627855018, -1.1671176568388182)"
+3283,4076,11/12/2019,TCI Renewables,Common Barn Wind Farm,Wind Onshore,6.2,3.0,3.0,,Operational,"Church Farm, Southoe, Huntingdonshire",Cambridgeshire,Eastern,England,,516918,265736.0,09/05/2019,"(52.277347677190775, -0.2877075861019222)"
+3285,4078,04/07/2017,Rev Ltd,Clentrie Wind Farm (Gevens),Wind Onshore,6.9,2.3,3.0,,Operational,"Clentrie Farm, Fife",Fife,Scotland,Scotland,,322212,692370.0,24/10/2016,"(56.11771426306917, -3.2526362075832758)"
+3288,4081,23/05/2016,Energia Renewables,Thornog Windfarm Extension,Wind Onshore,9.2,2.3,4.0,,Operational,"Thornog, 
+Meenadoan townland, 
+Drumquin. 
+Co Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,41160,537686.0,22/12/2014,"(54.60639593458442, -7.559610888480186)"
+3291,4084,28/07/2016,Blue Energy,Kelmarsh Wind Farm (Resubmission),Wind Onshore,12.5,2.5,5.0,,Operational,"Land To The South Of The A14 And North Of Haselbech, Kelmarsh, Northamptonshire",Northamptonshire,East Midlands,England,,470868,278823.0,01/07/2016,"(52.40283884315519, -0.9597649959622729)"
+3292,4085,29/06/2015,Capital Dynamics,Torrance Farm Wind Park Extension,Wind Onshore,5.7,3.0,2.0,,Operational,NETHERTON FARM Westcraigs Road Harthill Shotts North Lanarkshire ,Strathclyde,Scotland,Scotland,ML7 5TT,290908,666200.0,18/06/2015,"(55.87656460351284, -3.7452393597722353)"
+3295,4088,19/04/2016,Collier Quarrying Group,Goathill Quarry Turbine,Wind Onshore,2.0,2.0,1.0,,Operational,Goathill Quarry Easter Bucklyvie Cowdenbeath Fife,Fife,Scotland,Scotland,KY4 8ES,317941,688959.0,27/12/2015,"(56.08636054892276, -3.320256650062225)"
+3298,4093,27/07/2015,Clenergy,Skeddoway Farm Wind Turbine,Wind Onshore,1.5,1.5,1.0,,Operational,Skeddoway Farm Strathore Road Strathore Thornton ,Fife,Scotland,Scotland,,328104,697699.0,01/12/2014,"(56.16650730098417, -3.159339173079226)"
+3299,4094,04/05/2017,Capital Dynamics,Middle Balbeggie Wind Turbines,Wind Onshore,6.4,3.2,2.0,,Operational,Land Surrounding Middle Balbeggie Balbeggie Avenue Balbeggie Thornton Fife,Fife,Scotland,Scotland,,327760,696279.0,20/11/2016,"(56.15369995191153, -3.164491306525496)"
+3302,4097,04/03/2016,Temporis Capital,Upper Holton Wind Farm,Wind Onshore,11.5,2.3,5.0,,Operational,"Wind Farm, Upper Holton, Holton, Suffolk",Suffolk,Eastern,England,,640495,280140.0,26/02/2016,"(52.36649114835456, 1.5311326698679388)"
+3309,4104,24/06/2014,The Renewables Infrastructure Group (TRIG),Tallentire Hill,Wind Onshore,12.0,2.0,6.0,,Operational,"Hill Farm, Cockermouth, Cumbria. CA13 0PY",Cumbria,North West,England,,312500,535500.0,09/07/2013,"(54.706880674519624, -3.359500225253109)"
+3312,4107,27/11/2018,Energia ,Pollnalaght (Cornavarrow),Wind Onshore,38.4,3.2,12.0,,Operational,"Pollnalaght, Drumquin, Co Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,48480,532854.0,15/06/2018,"(54.568311121626266, -7.441023274627118)"
+3313,4108,24/08/2017,Seegronan Windfarm,Seegronan,Wind Onshore,13.8,2.3,6.0,,Operational,"Killeter, Strabane, Co Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,122608,534966.0,15/08/2016,"(54.63333168156997, -6.300004703044524)"
+3314,4109,24/06/2014,The Renewables Infrastructure Group (TRIG),Meikle Carewe,Wind Onshore,10.0,0.85,12.0,,Operational,"Rickarton Farms, Stonehaven, ",Grampian,Scotland,Scotland,,383200,792000.0,30/07/2013,"(57.01881816610309, -2.2783136864447826)"
+3315,4110,03/04/2018,Statkraft UK,Andershaw,Wind Onshore,36.0,2.5,14.0,,Operational,Andershaw Forest South of Douglas,Strathclyde,Scotland,Scotland,ML11 0SQ,283500,625500.0,02/11/2016,"(55.50932640838777, -3.8462637410043143)"
+3316,4111,04/01/2017,Energia Renewables,Eshmore,Wind Onshore,6.9,2.3,3.0,,Operational,"Crockanavark, Eshmore and Altaglushan Townlands , Galbally, Dungannon. Co Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,80500,528499.0,22/12/2016,"(54.55055077013539, -6.94295754601642)"
+3317,4112,18/04/2019,Renewable Energy Systems (RES),Castlecraig,Wind Onshore,25.0,2.5,10.0,,Operational,"Castlecraig (Slieve Glass) in Castlecraig, Sloughan, Killoan and Curraghmacall townlands. The proposed site is approximately 5 km south of Killen and 5 km west of Drumquin beside Lough Hill.",Co. Tyrone,Northern Ireland,Northern Ireland,,39597,540549.0,15/08/2018,"(54.630890886919, -7.587211356476059)"
+3318,4113,02/12/2014,Wind Direct,East Midlands Airport,Wind Onshore,1.0,0.25,4.0,,Operational,"Castle Donington, Leicestershire",Leicestershire,East Midlands,England,,444390,325610.0,10/05/2011,"(52.82619762854882, -1.342652393974707)"
+3319,4114,26/06/2014,Greencoat UK Wind/Bay Wa .r.e/ SunGift,Kildrummy Windfarm,Wind Onshore,18.4,2.3,8.0,,Operational,"Clashnarae Hill, Kildrummy, Alford",Grampian,Scotland,Scotland,,357655,815170.0,14/02/2013,"(57.22529717860071, -2.7029307288333957)"
+3321,4116,19/04/2017,Airvolution Energy,Airfield Farm (Podington),Wind Onshore,8.6,2.0,3.0,,Operational,"Airfield Farm, adjacent to Santa Pod raceway, Podington, Wellingborough",Bedfordshire,Eastern,England,NN29 7XA,495095,260698.0,15/02/2017,"(52.2362715479296, -0.6088792166936285)"
+3323,4118,27/11/2017,Scottish and Southern Energy (SSE),Dunmaglass Wind Farm,Wind Onshore,94.0,3.0,33.0,,Operational,"Dunmaglass, Highlands, SW of Inverness",Highland,Scotland,Scotland,,264000,820120.0,13/09/2016,"(57.25148006944491, -4.255802337851775)"
+3324,4119,02/07/2014,Scottish Power Renewables,Harestanes,Wind Onshore,136.0,2.0,68.0,,Operational,Mofatt Village Dumfries and Galloway,Dumfries and Galloway,Scotland,Scotland,,300000,595000.0,01/07/2014,"(55.239029213040105, -3.574197586877193)"
+3325,4120,02/01/2020,EDF Energy Renewables,Corriemoillie,Wind Onshore,54.4,3.2,17.0,125.0,Operational,Garve,Highland,Scotland,Scotland,,234700,867700.0,26/04/2017,"(57.66872565617344, -4.773018029760208)"
+3326,4121,18/01/2016,Greencoat UK Wind,Hill of Stroupster Windfarm,Wind Onshore,29.9,2.5,12.0,,Operational,"Stroupster, Caithness",Highland,Scotland,Scotland,,334250,966250.0,03/12/2015,"(58.579264596042165, -3.1323773904582604)"
+3327,4122,03/11/2015,RWE npower,Burn of Whilk,Wind Onshore,22.5,2.5,9.0,,Operational,"Burn of Whilk
+Hill of Yarrows
+Caithness",Highland,Scotland,Scotland,,329650,941550.0,07/08/2015,"(58.35675889549074, -3.2038537369304145)"
+3328,4123,05/01/2015,Eneco,Lochluichart,Wind Onshore,51.0,3.0,17.0,,Operational,"Loch Luichart, Garve",Highland,Scotland,Scotland,,232030,866235.0,14/05/2014,"(57.654594170394944, -4.816701149722273)"
+3329,4124,27/02/2017,Scottish and Southern Energy (SSE),Tievenameenta,Wind Onshore,34.5,2.3,15.0,,Operational,"Tievenameenta, Co Tyrone (townlands of Crigshane, Ballymongan, Shanaghy, Tievenameenta, Crighdenis)",Co. Tyrone,Northern Ireland,Northern Ireland,,40010,548802.0,15/02/2017,"(54.70499971086097, -7.59100591699807)"
+3330,4125,29/02/2016,Wind Prospect Developments/ EDF,Burnhead,Wind Onshore,26.0,2.0,13.0,,Operational,"S/Of Stoneridge, Falkirk, ",Stirling,Scotland,Scotland,,289158,670199.0,29/02/2016,"(55.91207805852042, -3.7748347335883965)"
+3337,4133,03/09/2020,Frank A Smart & Son Ltd,Easter Tolmauds,Wind Onshore,1.6,0.8,2.0,,Operational,"Easter Tolmauds, Torphins, Banchory, Grampian",Grampian,Scotland,Scotland,AB31 4PP,362478,807524.0,15/10/2016,"(57.15703931498146, -2.6219052865518906)"
+3342,4138,26/06/2014,Greencoat UK Wind,Maerdy,Wind Onshore,24.0,3.0,8.0,,Operational,"land NW of Maerdy and NE of Treherbert, Rhigos",Mid Glamorgan,Wales,Wales,CF44 9UF,295189,200983.0,31/08/2013,"(51.69777452303902, -3.5179364735327394)"
+3343,4139,04/05/2017,Altamuskin Windfarm (Energia),Altamuskin,Wind Onshore,7.1,2.35,3.0,110.0,Operational,"Altamooskan (Altamuskin) TD, Sixmilecross, Omagh, Co. Tyrone.",Co. Tyrone,Northern Ireland,Northern Ireland,,70474,526049.0,15/03/2017,"(54.522197097155704, -7.094612095482738)"
+3344,4140,23/07/2015,Private Developer,Woodlands Barton Wind Project,Wind Onshore,4.6,2.3,2.0,,Operational,Nr Roche St Austell Cornwall,Cornwall,South West,England,,200211,62170.0,01/09/2014,"(50.42531742894459, -4.814113130058647)"
+3345,4141,21/07/2014,,Westnewton,Wind Onshore,6.2,2.05,3.0,,Operational,"Warwick Hall Farm, Westnewton, Cumbria. CA7 3PF",Cumbria,North West,England,,313505,543564.0,01/05/2014,"(54.77950203958305, -3.346309165295614)"
+3346,4142,03/01/2017,Gaelectric Developments/ CGN Europe Energy,Windyhill Road (Dunbeg) Wind Farm,Wind Onshore,42.0,3.0,14.0,,Operational,"Picnic Area, Dunbeg Townland, Limavady, Co Londonderry. BT45",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,88128,587145.0,14/11/2014,"(55.08042972875792, -6.888612090463271)"
+3347,4143,03/01/2017,Gaelectric Developments/ CGN Europe Energy,Cloonty Wind Farm,Wind Onshore,12.0,3.0,4.0,,Operational,"122 Castlecat Road Derry Keighan, Cloonty Townland, Ballymoney, Co Antrim. BT53 8AP",Co. Antrim,Northern Ireland,Northern Ireland,,119820,589284.0,15/08/2016,"(55.11849216075446, -6.395821666168315)"
+3355,4151,30/10/2018,DW Consultancy,Curraghamulkin (Dooish Wind Farm),Wind Onshore,30.0,3.0,10.0,130.0,Operational,"Coolavannagh TD, Curraghmulkin TD, Dooish TD, Drumquin",Co. Tyrone,Northern Ireland,Northern Ireland,,43843,534280.0,15/07/2018,"(54.57782620156766, -7.514138305203558)"
+3356,4152,27/11/2018,Energia ,Teiges,Wind Onshore,11.0,2.2,5.0,,Operational,"Eshnanumera and Eshnasillog More townlands (adjacent to Lisnaskea Forest), Brookeborough TD, Co. Fermanagh",Co. Fermanagh,Northern Ireland,Northern Ireland,,48958,503174.0,19/07/2018,"(54.3031006419415, -7.398529096453004)"
+3359,4155,03/01/2017,Gaelectric Developments/ CGN Europe Energy,Monnaboy Wind Farm,Wind Onshore,12.0,2.5,4.0,,Operational,"on land located east of 62 Monnaboy Road, Greysteel",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,BT47 3HP,71649,577014.0,15/11/2015,"(54.97913918075924, -7.134074959976912)"
+3360,4156,28/07/2017,Brookfield Renewable Energy Group,Crockandun,Wind Onshore,15.0,2.5,6.0,,Operational,"approximately 450m west south-west of junction of Cullion Road and Drumard Road, Draperstown, Magherafelt.",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,BT45 5NR,92983,548733.0,09/03/2017,"(54.739481411722906, -6.771874068948223)"
+3361,4157,02/10/2018,Scottish Power Renewables,Hare Hill Extension,Wind Onshore,29.8,0.85,35.0,,Operational,"New Cumnock, East Ayreshire",Strathclyde,Scotland,Scotland,,265320,609703.0,15/09/2016,"(55.36280437392024, -4.12628273504079)"
+3363,4159,05/01/2015,Bristol Port Company,Avonmouth Port - extension,Wind Onshore,9.0,3.0,3.0,,Operational,"St Andrews House, St Andrew's Rd, Avonmouth, Bristol, Avon",Avon,South West,England,BS11 9DQ,351593,178451.0,01/04/2014,"(51.50290906100263, -2.698799124828583)"
+3367,4163,20/01/2015,EDF,Barmoor South Wind Farm,Wind Onshore,13.8,2.3,6.0,,Operational,Between Ford And Lowick Bowsden Berwick-upon-Tweed ,Northumberland,North East,England,,398519,638193.0,19/01/2015,"(55.63729276907627, -2.0250875614880552)"
+3368,4164,16/08/2016,Blue Energy,Winwick,Wind Onshore,12.3,2.3,6.0,,Operational,"Land To North and West Of Winwick Warren, Cold Ashby Road, Winwick, Northampton, Northamptonshire, NN6",Northamptonshire,East Midlands,England,,463950,274602.0,30/06/2016,"(52.36574736568593, -1.062238436201658)"
+3371,4167,03/10/2016,Infinis (formerly Novera Energy),Sisters,Wind Onshore,8.2,2.05,4.0,,Operational,"west of Widdrington, approximately 8km north of Ashington, Northumberland",Northumberland,North East,England,,424367,595143.0,30/07/2016,"(55.24987366287595, -1.6182471056349053)"
+3372,4168,16/02/2015,Airvolution Energy,East Youlstone Wind Farm,Wind Onshore,4.0,2.0,2.0,,Operational,"East Youlstone, Devon",Devon,South West,England,,228127,115941.0,15/02/2015,"(50.91726891560846, -4.446500144892994)"
+3373,4170,07/05/2015,SAC Environment And Design,Hill of Skilmafilly Cloffrickford (Denmore) Wind Farm,Wind Onshore,6.9,2.3,3.0,,Operational,"Auchnagatt, Ellon, AB41 8YD",Grampian,Scotland,Scotland,,390213,840362.0,16/02/2015,"(57.453450142452915, -2.164743837362445)"
+3377,4174,05/05/2015,Banks Renewables,Heysham South Wind Farm,Wind Onshore,7.5,2.5,3.0,,Operational,"Lancaster Morecambe Bypass, Heaton With Oxcliffe, Lancashire",Lancashire,North West,England,,343444,460153.0,24/04/2015,"(54.03424424362481, -2.8649822284610518)"
+3378,4175,30/11/2016,Aviva,Woolley Hill Wind Farm,Wind Onshore,10.0,2.3,4.0,,Operational,"North of the A14, between the villages of Ellington & Woolley",Cambridgeshire,Eastern,England,,515374,272655.0,30/04/2014,"(52.339849765553254, -0.3079587151978191)"
+3380,4177,04/06/2020,Baywind Co-op & Energy4All & Belltown Power,Furness Wind Farm/High Winds (Harlock Repowering),Wind Onshore,11.5,2.3,5.0,,Operational,"Standish Cote & Mean Moor, Pennington, Marton & Harlock Hill, Ulverston, Cumbria",Cumbria,North West,England,LA12 0,325251,479875.0,17/11/2016,"(54.20914056216832, -3.147584582084416)"
+3381,4178,01/06/2018,Scottish and Southern Energy (SSE)/ GIB,Clyde Wind Farm Extension (Clyde 2),Wind Onshore,172.8,3.2,54.0,,Operational,"Upper Clyde Valley, surrounding Camps Reservoir",Strathclyde,Scotland,Scotland,,302328,624463.0,15/08/2017,"(55.50414267238305, -3.547901670328315)"
+3382,4179,04/04/2017,NTR PLC,Quixwood Moor,Wind Onshore,29.9,2.3,13.0,,Operational,Scottish Borders,Borders,Scotland,Scotland,,378028,663859.0,09/03/2017,"(55.86739954617285, -2.352658973506925)"
+3387,4184,26/11/2018,Fyne Futures,Auchadaduie Wind Farm,Wind Onshore,6.9,2.3,3.0,,Operational,Land South Of Auchadaduie Barr Glen Glenbarr Kintyre,Strathclyde,Scotland,Scotland,,169193,633969.0,21/11/2018,"(55.54465916045218, -5.6601939400568675)"
+3396,4193,18/04/2017,REG Windpower,Mynydd Brombil Wind Farm,Wind Onshore,8.0,2.0,4.0,,Operational,"Brombil, Port Talbot",Neath Port Talbot,Wales,Wales,,279141,188569.0,15/01/2017,"(51.5829799586117, -3.7457391778348397)"
+3397,4194,18/04/2017,REG Windpower,Mynydd Portref Wind Farm extension,Wind Onshore,12.0,2.0,6.0,,Operational,,Mid Glamorgan,Wales,Wales,,299608,185606.0,01/03/2017,"(51.56036900360753, -3.4496059062788276)"
+3399,4196,29/05/2015,Renewable Energy Systems (RES),Longlands Lane,Wind Onshore,1.5,1.5,1.0,,Operational,"Longlands Lane, Margam, 
+nr junction 38 of the M4.",Gwent,Wales,Wales,,278940,186385.0,01/12/2014,"(51.56330882145468, -3.747885446992546)"
+3403,4200,12/04/2021,BayWa r.e. (formerly Forsa),Inverclyde Wind Farm (Corlic Hill),Wind Onshore,24.0,3.0,8.0,,Operational,"Corlic Hill, near Greenock & Port Glasgow",Strathclyde,Scotland,Scotland,,229563,672854.0,20/02/2021,"(55.9184872623853, -4.728912284524894)"
+3407,4206,23/01/2017,Longcliffe Quarries,Ryder Point Quarry Wind Turbines,Wind Onshore,5.0,2.5,2.0,,Operational,Ryder Point Quarry North Of Manystones Lane Brassington Derbyshire,Derbyshire,East Midlands,England,,425455,355000.0,15/12/2015,"(53.09160807060043, -1.6213573945777573)"
+3409,4210,21/12/2015,John Laing Environmental Assets Group,Burton Wold Wind Farm - Northern Extension,Wind Onshore,14.4,1.6,9.0,,Operational,"Burton Wold Wind Farm, Wold Road, Burton Latimer",Northamptonshire,East Midlands,England,NN15 5PU,491902,274577.0,01/08/2014,"(52.361554124437596, -0.651839695223258)"
+3410,4211,02/05/2017,EDF Energy Renewables,Pearie Law Wind Farm,Wind Onshore,19.2,3.2,6.0,,Operational,"Pearie Law, West Calder, West Lothian, EH55",Lothian,Scotland,Scotland,,302205,659690.0,01/12/2016,"(55.82052191617558, -3.5624061680158707)"
+3414,4215,01/06/2018,Fred Olsen Renewables,Crystal Rig Wind Farm Phase III,Wind Onshore,13.8,2.3,6.0,,Operational,"Crystal Rigg Wind Farm, Cranshaws Duns, Scottish Borders",Borders,Scotland,Scotland,TD11 3SR,366700,670500.0,22/12/2016,"(55.92641320134754, -2.534479571986365)"
+3417,4218,01/02/2018,Green Breeze Energy Ltd,Drumduff,Wind Onshore,8.5,2.83,3.0,,Operational,"DRUMDUFF, BLACKRIDGE",Lothian,Scotland,Scotland,,288877,669339.0,11/07/2017,"(55.90428999762997, -3.778974020728073)"
+3422,4223,29/02/2016,EDF/Wind Prospect,Rhodders Wind Farm,Wind Onshore,12.0,2.0,6.0,,Operational,Site West Of Burnfoot Hill Tillicoultry Clackmannanshire,Clackmannanshire,Scotland,Scotland,FK13 6A,289525,702720.0,29/02/2016,"(56.204209987218455, -3.7823927590780966)"
+3424,4225,04/06/2018,Gresham House,Harburnhead Wind Farm,Wind Onshore,51.7,3.0,22.0,126.0,Operational,"West Calder, West Lothian",Lothian,Scotland,Scotland,,304070,658330.0,01/12/2016,"(55.808681202179464, -3.5321721583194177)"
+3426,4227,03/10/2017,Temporis Capital,Dunsland Cross Wind Farm,Wind Onshore,7.5,3.0,3.0,,Operational,Land At Dunsland Cross South Of Brandis Corner Holsworthy Devon EX22 7YH,Devon,South West,England,,240884,103359.0,08/03/2017,"(50.807875037167804, -4.259697100241611)"
+3432,4233,04/01/2017,Capital Dynamics,Potato Pot Wind Farm,Wind Onshore,6.0,2.0,3.0,,Operational,"Land at
+Potato Pot
+Branthwaite
+Workington
+Cumbria",Cumbria,North West,England,,303000,524100.0,15/09/2016,"(54.60272488709748, -3.503098317014008)"
+3434,4235,04/04/2017,Community Windpower,Millour Hill Community Windfarm (Extension),Wind Onshore,6.4,3.2,2.0,,Operational,Site To North Of Baidland Hill Dalry Ayrshire,Strathclyde,Scotland,Scotland,,225498,652662.0,31/03/2016,"(55.7358208742753, -4.780905922737425)"
+3439,4240,05/01/2015,West Coast Energy,Blantyre Muir Wind Farm extension,Wind Onshore,7.5,2.5,3.0,,Operational,Near Laigh Muirhouses Farm Muttonhole Road Hamilton ,Strathclyde,Scotland,Scotland,,268888,651781.0,15/01/2014,"(55.74160586076006, -4.0900005525205865)"
+3442,4244,23/07/2019,EDF Energy Renewables/ Infinergy,Dorenell Wind Farm (Previously Site A and B Scaut Hill),Wind Onshore,177.0,3.0,59.0,126.0,Operational,"Glenlivet Estate, Dufftown, Speyside,  Moray",Grampian,Scotland,Scotland,,332000,829500.0,15/09/2018,"(57.350899489260705, -3.1316809157238916)"
+3443,4245,03/07/2017,Gaelectric Developments/ CGN Europe Energy,Inishative,Wind Onshore,13.8,2.3,6.0,,Operational,"Inishative Road, Sixmilecross, Omagh (Slievebeg. Land between Ballygawley and Pomeroy, approximately 1.5km north of Altmore Forest, Townland of Inishative)",Co. Tyrone,Northern Ireland,Northern Ireland,,76324,530621.0,13/03/2017,"(54.56689650562894, -7.009606355014689)"
+3444,4246,31/05/2017,Gaelectric Developments/ CGN Europe Energy,Corby Knowe,Wind Onshore,5.0,1.6,3.0,,Operational,"Tardee Mountain, 7km North East of Antrim and 4km South East of Kells",Co. Antrim,Northern Ireland,Northern Ireland,,131529,551929.0,31/05/2017,"(54.790190973261474, -6.1778054788330765)"
+3445,4247,31/05/2016,Falck Renewables,Earlsburn North (Kingsburn) Wind Farm,Wind Onshore,22.5,2.5,9.0,,Operational,"Earlsburn, Gargunnock Hills",Stirling,Scotland,Scotland,,268000,690500.0,30/05/2016,"(56.089010175956446, -4.123057793448921)"
+3446,4248,15/02/2016,Renewable Energy Systems (RES),Wryde Croft,Wind Onshore,26.0,2.0,13.0,100.0,Operational,"Nutsgrove, South of Thorney.",Cambridgeshire,Eastern,England,,533235,306756.0,20/02/2016,"(52.64219294465185, -0.03231935680442001)"
+3447,4249,03/04/2018,Greencoat,Brockaghboy Wind Farm,Wind Onshore,37.5,2.5,15.0,,Operational,"Land approximately 750m South East of Dowlin's Bridge, Drumbane Road, Garvagh, Coleraine, BT 51 5DR",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,95250,575500.0,01/09/2017,"(54.980571041637376, -6.7650281118787)"
+3448,4250,24/04/2015,Blue Energy,Wandylaw,Wind Onshore,20.5,1.95,10.0,,Operational,"The Ellingham Estate, 3.5km West of the Village of Ellingham",Northumberland,North East,England,,414989,625121.0,30/07/2013,"(55.51961309695525, -1.764167198062185)"
+3451,4253,22/04/2016,Scottish Power Renewables,Black Law Extension - 1a,Wind Onshore,48.4,1.67,29.0,,Operational,"Black Law, Climpy",Strathclyde,Scotland,Scotland,,289500,653500.0,18/02/2016,"(55.76218897974121, -3.762566605098417)"
+3453,4255,26/04/2017,Golden Square Energy,Crockbaravally Wind Farm,Wind Onshore,7.5,2.5,3.0,,Operational,"Whitebridge Road
+Sixmilecross, Co. Tyrone
+BT79 9EH",Co. Tyrone,Northern Ireland,Northern Ireland,,73750,529250.0,24/02/2017,"(54.55297101719694, -7.047741832329309)"
+3454,4256,20/04/2017,Greencoat UK (formerly BayWa r.e.),Bishopthorpe,Wind Onshore,16.4,2.0,8.0,115.0,Operational,"Bishopthorpe Farm, Bishopthorpe, Tetney, Grimsby, Humberside",Lincolnshire,East Midlands,England,,532679,403330.0,30/01/2017,"(53.50991922100107, -0.0007324148340233854)"
+3458,4260,27/02/2015,Scottish and Southern Energy (SSE),Keadby Wind Farm,Wind Onshore,68.0,2.0,34.0,,Operational,"Near Teadby
+Near Scunthorpe
+Lincolnshire",Humberside,Yorkshire and Humber,England,,481890,413515.0,26/02/2015,"(53.61179606734911, -0.7636853474568743)"
+3459,4261,21/07/2014,Statkraft,Berry Burn,Wind Onshore,66.7,2.3,29.0,,Operational,"Adjacent to Paul's Hill Site
+Altyre Estate
+BallindalF",Grampian,Scotland,Scotland,,311550,840550.0,30/05/2014,"(57.44661103297983, -3.4753925365795815)"
+3460,4262,02/10/2018,InfraRed Capital Partners/ E.on,Afton Wind Farm,Wind Onshore,50.0,2.75,25.0,120.0,Operational,To the south west of New Cumnock adjacent to Afton reservoir,Strathclyde,Scotland,Scotland,,262100,604100.0,15/02/2018,"(55.31160019688639, -4.17428302347659)"
+3461,4263,31/10/2017,BlackRock (formerly Muirhall Energy),Tormywheel,Wind Onshore,30.8,2.6,15.0,,Operational,Fauldhouse,Lothian,Scotland,Scotland,,295290,658102.0,17/03/2017,"(55.80480875786297, -3.6721085976421475)"
+3462,4264,30/06/2017,ESB (Northern Wind Power),Eglish Mountain,Wind Onshore,13.8,2.3,6.0,,Operational,"Eglish Mountain in the townlands of Ballyartan and Glenlough (Co. Derry) and Ballyneaner (Co. Tyrone), accessing onto Ballyartan Road, Killaloo, Londonderry BT47 3TA",Co. Tyrone,Northern Ireland,Northern Ireland,,65774,566796.0,13/01/2017,"(54.88379522876778, -7.2136143830224)"
+3464,4266,30/11/2016,Aviva,Den Brook,Wind Onshore,18.0,2.0,9.0,,Operational,"Den Brook,
+West Devon",Devon,South West,England,,268500,99500.0,17/11/2016,"(50.78012386067095, -3.866606897335218)"
+3467,4269,12/12/2016,Scottish Power Renewables,Dersalloch,Wind Onshore,69.0,3.0,23.0,,Operational,Dersalloch Hill,Strathclyde,Scotland,Scotland,,242150,603950.0,15/08/2016,"(55.3042571997225, -4.488218013953557)"
+3470,4272,27/01/2017,Point Power & Energy Ltd / SgurrEnergy,Point Wind / Beinn Ghrideag Farm,Wind Onshore,9.0,3.0,3.0,,Operational,Point Wind Farm Pentland Road To Achmore Achmore Isle Of Lewis,Western Isles,Scotland,Scotland,,136899,933106.0,17/07/2015,"(58.20794631323562, -6.480676648214493)"
+3477,4281,17/03/2016,Muirhall Energy,Muirhall South,Wind Onshore,8.3,3.2,3.0,147.0,Operational,"Stellashaw Moss, South Lanarkshire",Strathclyde,Scotland,Scotland,,299342,652838.0,17/03/2016,"(55.758392204620215, -3.6055463372514467)"
+3489,4295,02/02/2017,Arnold White Estates (AWE Renewables),Double Arches Quarry Wind Turbine,Wind Onshore,1.5,1.5,1.0,,Operational,Double Arches Quarry Eastern Way Heath And Reach Leighton Buzzard LU7 9LF,Bedfordshire,Eastern,England,LU7 9LF,493952,229038.0,18/12/2014,"(51.9519081774417, -0.63432807444721)"
+3493,4299,19/05/2017,Wind Harvest,Lochend Wind Farm,Wind Onshore,9.2,2.3,4.0,,Operational,Land 978M SE Of 2 Lochend Holding Barrock,Highland,Scotland,Scotland,,326691,968145.0,15/05/2017,"(58.59506855147137, -3.262943749565381)"
+3510,4316,29/05/2018,REG Windpower/ BlackRock,Hallburn Farm,Wind Onshore,13.2,2.2,6.0,,Operational,"Land at Hallburn Farm, Hallburn, Longtown, Carlisle, ",Cumbria,North West,England,,341558,568718.0,15/02/2018,"(55.00957124756891, -2.915342482237576)"
+3514,4320,30/08/2017,ESB (Northern Wind Power),Crockdun,Wind Onshore,12.5,2.5,5.0,,Operational,"214 Loughmacrory Road, Crockdun, Sixmilecross, Omagh, Co. Tyrone.",Co. Tyrone,Northern Ireland,Northern Ireland,,73770,531027.0,14/07/2017,"(54.5688914540825, -7.049404027384488)"
+3515,4321,18/05/2015,Coal Clough Wind Farm,Coal Clough Wind Farm Repowering,Wind Onshore,16.0,2.0,8.0,,Operational,"Coal Clough Wind Farm,The Long Causeway, Burnley ",Lancashire,North West,England,,390207,428154.0,01/05/2015,"(53.74966189910283, -2.149983685162335)"
+3519,4325,19/12/2017,Tyrone Wind Energy Ltd,Shantavny Scotch,Wind Onshore,16.1,2.0,7.0,,Operational,"Omagh Road, Ballygawley Co. Tyrone ",Co. Tyrone,Northern Ireland,Northern Ireland,BT70 2DL,70407,520962.0,16/03/2017,"(54.47661782268901, -7.089966436946493)"
+3520,4326,01/05/2018,Foresight,Shepham Lane,Wind Onshore,7.5,2.5,3.0,,Operational,"Land off Shepham Lane, North of A27, Polegate",East Sussex,South East,England,BN24 5BT,560023,105784.0,12/01/2017,"(50.82947835272456, 0.2708840045218384)"
+3521,4327,20/08/2014,West Coast Energy,Sober Hill Wind Farm,Wind Onshore,15.0,2.5,6.0,,Operational,Land North Of Sober Hill Farm Stoneknowle Hill North Newbald ,Humberside,Yorkshire and Humber,England,,492444,438545.0,01/09/2013,"(53.8349467482966, -0.5967407798380306)"
+3522,4328,04/04/2016,Srondoire Wind Farmers LLP,Srondoire Community Wind Farm,Wind Onshore,6.0,2.0,3.0,,Operational,"Cruach A Phubuill, Adj Allt Dearg Windfarm, Ardrishaig, Lochgilphead, Argyll, PA31 8PE",Strathclyde,Scotland,Scotland,,182700,676700.0,20/12/2015,"(55.93410079826433, -5.4805222304164305)"
+3523,4330,24/06/2019,Whirlwind Renewables,Achlachan Wind Farm,Wind Onshore,10.0,2.0,5.0,115.0,Operational,Achlachan Windfarm Watten,Highland,Scotland,Scotland,,315200,952100.0,08/04/2019,"(58.44892061058484, -3.4545928788583224)"
+3524,4331,04/04/2017,Infinis (formerly Novera Energy),A'Chruach (Phase 1),Wind Onshore,48.3,2.3,21.0,,Operational,"Land At A'Cruach
+Kilmichael Forest
+West Of Minard
+Argyll",Strathclyde,Scotland,Scotland,,194500,700500.0,29/06/2016,"(56.15276760132365, -5.310216220516906)"
+3525,4332,04/10/2021,Community Windpower,"Aikengall II, Wester Dod Community Wind Farm",Wind Onshore,60.8,3.2,19.0,145.0,Operational,East Lothian.,Lothian,Scotland,Scotland,,369468,669455.0,15/11/2017,"(55.91720873381596, -2.4900662877040944)"
+3528,4335,13/12/2017,Ecotricity,Alveston Wind Park,Wind Onshore,6.9,2.3,3.0,100.0,Operational,"Land off Old Gloucester Road, Nr Alveston, South Gloucestershire",Avon,South West,England,BS35 3TD,365450,186055.0,07/12/2017,"(51.57229695558629, -2.499917869932461)"
+3530,4337,25/10/2017,Falck Renewables,Auchrobert Wind Farm,Wind Onshore,36.0,2.5,12.0,,Operational,South Lanarkshire ML11 0HP,Strathclyde,Scotland,Scotland,,275154,638500.0,20/03/2017,"(55.624002788892255, -3.9842108334803967)"
+3538,4345,01/12/2015,Ecogen,Boardinghouse Wind Farm,Wind Onshore,10.3,2.05,5.0,,Operational,Knights End Road March Cambridgeshire,Cambridgeshire,Eastern,England,,539862,295018.0,01/10/2015,"(52.535073100527896, 0.060601815198549895)"
+3539,4346,05/09/2014,Eco2,Bogenlea Farm,Wind Onshore,2.3,2.3,1.0,,Operational,"New Byth, Turriff. AB53 5UY",Grampian,Scotland,Scotland,,382155,852949.0,18/08/2014,"(57.56626396103208, -2.2999493815351397)"
+3541,4348,28/02/2017,Brownieleys Renewables/Muirden Energy,BROWNIELEYS - 3 WIND TURBINES,Wind Onshore,7.5,2.35,3.0,,Operational,"Nw/O Brownieleys, Fordoun, Alford, Grampian, AB33 1JN",Grampian,Scotland,Scotland,,376967,772114.0,28/02/2017,"(56.83990929236932, -2.379147431997539)"
+3543,4350,03/04/2018,Engie (GDF Suez),Cairnborrow,Wind Onshore,10.0,2.5,5.0,100.0,Operational,Land at Cairnborrow Huntly,Grampian,Scotland,Scotland,,346153,841867.0,09/02/2017,"(57.46386908932942, -2.8992395662801425)"
+3547,4354,04/01/2016,Infrared Capital Partners,Crook Hill (Calderdale MBC) 1 of 2,Wind Onshore,13.6,3.4,4.0,,Operational,"Crook Hill/Shore Moor, North Of Watergrove Reservoir, Rochdale",Greater Manchester,North West,England,,392720,419080.0,01/12/2015,"(53.66814583859763, -2.1116591078268985)"
+3551,4360,02/10/2018,Force 9 Energy / Catamount Energy/ Green Cat,Deuchries,Wind Onshore,6.9,2.3,3.0,,Operational,"Deuchries Farm, Banff, Aberdeenshire",Grampian,Scotland,Scotland,,363290,855792.0,15/12/2017,"(57.590656505342814, -2.615707426680757)"
+3552,4361,18/04/2017,Renewable Energy Generation (REG),Draperstown (Brackagh) Wind Farm,Wind Onshore,6.0,2.0,3.0,,Operational,"Creagh Concrete Products Ltd, Brackagh Quarry, 29 Disert Road, Draperstown, Magherafelt",Co. Derry / Londonderry,Northern Ireland,Northern Ireland,,97617,556429.0,15/03/2017,"(54.81121593834395, -6.7081593492541485)"
+3553,4362,04/01/2016,John Laing Environmental Assets Group,Dungavel Hill,Wind Onshore,29.9,2.3,13.0,,Operational,"Dungavel, Strathaven, Strathclyde",Strathclyde,Scotland,Scotland,ML10 6,267954,636995.0,28/08/2015,"(55.60858689388289, -4.097746651693686)"
+3554,4363,20/08/2014,The Renewables Infrastructure Group (TRIG),Earlseat,Wind Onshore,18.4,2.3,8.0,,Operational,Earlseat Farm Standing Stane Road Kirkcaldy Fife KY1 4TH,Fife,Scotland,Scotland,,332961,698416.0,30/07/2014,"(56.17365682275863, -3.081323473121169)"
+3556,4365,03/09/2014,N R Gammie Partnership,Easter Tulloch Wind Farm (Tullo Extension),Wind Onshore,25.0,2.5,10.0,,Operational,"Land to North of
+Tullo Farm
+Laurencekirk",Grampian,Scotland,Scotland,,375955,771728.0,30/06/2014,"(56.836390262822945, -2.395697802469385)"
+3559,4368,24/03/2017,Ventient (formerly Infinis),Galawhistle,Wind Onshore,66.0,3.0,22.0,,Operational,7km east of Muirkirk in East Ayrshire and 4km west of Douglas in South Lanarkshire,Strathclyde,Scotland,Scotland,,275440,629090.0,15/02/2017,"(55.53957495446018, -3.9754222827482066)"
+3560,4369,04/03/2016,Energiekontor UK,Gayton Le Marsh Wind Farm,Wind Onshore,16.4,2.05,8.0,,Operational,"Carlton Grange, Thacker Bank, Great Carlton, Gayton Le Marsh, Louth, Lincolnshire (3.3km to the northeast of Great Carlton and 2.4km south of Saltfleetby)",Lincolnshire,East Midlands,England,LN11 7TXL,544232,387271.0,26/02/2016,"(53.36263755190499, 0.16600012538885225)"
+3561,4370,21/05/2015,GlaxoSmithKline,GlaxoSmithKline Wind Project (Turbine 4),Wind Onshore,2.5,2.5,1.0,,Operational,Shewalton Road Riverside Business Park Irvine Ayrshire KA11 5AP,Strathclyde,Scotland,Scotland,,235111,636360.0,01/06/2014,"(55.592866816116505, -4.6181886684990845)"
+3564,4373,18/08/2014,RWE npower,Goole Fields,Wind Onshore,32.8,2.05,16.0,,Operational,"Goole Fields Parish , East Riding of Yorkshire",Humberside,Yorkshire and Humber,England,,473487,419400.0,11/08/2014,"(53.665925880120746, -0.889282907791799)"
+3565,4374,25/04/2016,Greenvale AP,Greenvale AP Wind Turbine,Wind Onshore,1.5,1.5,1.0,,Operational,"Land North West Of Greenvale Produce Ltd, Floods Ferry Road, Doddington",Cambridgeshire,Eastern,England,,535485,293292.0,01/08/2014,"(52.520671270377846, -0.004589616354396406)"
+3571,4381,04/04/2017,Muirden Energy,Hill of Glaschyle Wind Farm,Wind Onshore,27.6,2.3,12.0,99.0,Operational,Hill Of Glaschyle Logie Forres Moray,Grampian,Scotland,Scotland,,303306,847855.0,01/12/2016,"(57.51052023330883, -3.6155871218559428)"
+3575,4386,22/02/2018,Scottish Power Renewables,Kilgallioch wind farm,Wind Onshore,239.0,2.5,96.0,,Operational,"(Arecloch Phase 2) land five kilometres to the south of Barrhill, five kilometres to the northeast of New Luce and 11km to the northwest of Kirkcowan",Dumfries and Galloway,Scotland,Scotland,,220844,569576.0,15/12/2017,"(54.98845275791273, -4.801715850373398)"
+3579,4390,02/02/2017,Banks Renewables,Lambs Hill,Wind Onshore,8.0,2.0,4.0,,Operational,"Stillington Industrial Estate, Stockton, village of Stillington, to the north west of Stockton and around three miles east of the A1(M",County Durham,North East,England,,443682,516981.0,19/01/2017,"(54.54620776657187, -1.3262605707411417)"
+3584,4395,02/02/2017,Infinergy,Lochluichart (Extension),Wind Onshore,18.0,3.0,6.0,,Operational,"Btwn Loch Luichart and Loch Glascarnoch, Lochluichart, Garve, Highlands, IV23.",Highland,Scotland,Scotland,,230678,869136.0,14/05/2014,"(57.68011343522537, -4.841364086551645)"
+3588,4399,19/08/2014,Wind Prospect Developments,M1 Wind Farm,Wind Onshore,7.2,0.8,9.0,,Operational,Land between Roade Courteenhall Hartwell and the M1,Northamptonshire,East Midlands,England,,477964,252105.0,30/06/2014,"(52.16172136739278, -0.8616551279535762)"
+3591,4403,29/05/2019,Airvolution Energy,New Rides Wind Farm,Wind Onshore,8.8,2.0,4.0,,Operational,"New Rides Farm, Leysdown Road, Sheerness",Kent,South East,England,ME12 4DD,599282,170224.0,01/12/2018,"(51.396040944072936, 0.8632499827968694)"
+3592,4404,19/10/2016,Wind Direct,Noble Foods,Wind Onshore,1.5,1.5,1.0,127.0,Operational,"Poultry Buildings, Strathore Farm, Strathore Road, Thornton, Fife",Fife,Scotland,Scotland,,328104,697428.0,01/12/2014,"(56.16407301800833, -3.1592658207566062)"
+3596,4408,02/02/2017,Yorkshire Windpower,Ovenden Moor (Repower),Wind Onshore,18.0,2.5,9.0,115.0,Operational,"Withens Road, Wainstalls, Halifax, ",West Yorkshire,Yorkshire and Humber,England,,404000,430500.0,24/01/2017,"(53.77082744568435, -1.9407921396980157)"
+3597,4409,21/08/2017,Pennant Walters (PYWX),Pant y wal extension,Wind Onshore,20.0,2.5,8.0,125.0,Operational,"Mynydd Maesteg, Mynydd Pwlle yr Helog, Ogmore Vale, Rhondda Valley",Mid Glamorgan,Wales,Wales,,294649,188695.0,01/05/2017,"(51.58722803760176, -3.522043144165748)"
+3598,4410,26/11/2015,EDF Energy Renewables,Park Spring Wind Farm,Wind Onshore,8.6,2.85,3.0,,Operational,"Ferry Moor Lane, Cudworth, Barnsley",South Yorkshire,Yorkshire and Humber,England,,439689,408763.0,20/11/2015,"(53.573973984201636, -1.4021086339786475)"
+3599,4411,24/07/2017,Renewable Energy Ventures,Brotherton (formerly Paul Matthew Hill wind turbines),Wind Onshore,4.6,2.3,2.0,,Operational,"Paul Matthew Hill, Johnshaven, Montrose, Grampian, DD10 0HW",Grampian,Scotland,Scotland,,377397,769309.0,01/05/2017,"(56.814732402873645, -2.371849664136358)"
+3600,4412,29/05/2018,REG Windpower/ BlackRock,Pen Bryn Oer Wind Farm,Wind Onshore,4.0,1.33,3.0,,Operational,"Pen Bryn Oer, Merthyr Road, Rhymney",Mid Glamorgan,Wales,Wales,,312065,209235.0,15/01/2018,"(51.77485194209945, -3.2759126746971017)"
+3602,4414,24/04/2015,REG Windpower,Ramsey Wind Farm Extension,Wind Onshore,8.0,2.0,4.0,,Operational,"St Marys Road, Ramsey",Cambridgeshire,Eastern,England,,527645,287235.0,23/04/2015,"(52.46813946388153, -0.1223894867530626)"
+3603,4415,31/08/2017,Capital Dynamics ,Red Gap Moor Wind Farm,Wind Onshore,12.5,2.5,5.0,,Operational,"Sunderland Road,Wolviston, Billingham, Cleveland",Cleveland,North East,England,TS22 5PA,443942,528174.0,15/02/2017,"(54.64676703025659, -1.320570012242704)"
+3606,4419,22/06/2015,Todmorden Moor Wind Farm Ltd,Todmorden Moor,Wind Onshore,12.3,3.0,5.0,,Operational,"Todmorden,",West Yorkshire,Yorkshire and Humber,England,,389600,422700.0,10/09/2014,"(53.700629291635586, -2.159003068312627)"
+3607,4420,17/09/2020,Infinergy,Tom Nan Clach,Wind Onshore,39.0,3.0,13.0,125.0,Operational,"Approximately 8km North East Of Tomatin, Drynachan
+Nairnshire",Highland,Scotland,Scotland,,286401,835189.0,01/03/2019,"(57.39288250754723, -3.8917048816227533)"
+3609,4422,27/11/2014,Eneco,Tullo Wind Farm South (Ext.),Wind Onshore,10.0,2.5,4.0,,Operational,"Tullo Farm, Laurencekirk
+ AB30 1HS",Grampian,Scotland,Scotland,,375388,770733.0,01/07/2014,"(56.82742212676146, -2.404893688985702)"
+3611,4424,17/12/2015,Broadview Energy,Watford Lodge,Wind Onshore,12.5,2.0,5.0,,Operational,runs from Watford to West Hadon Road along norhtern side of railway,Northamptonshire,East Midlands,England,,460960,270200.0,23/11/2015,"(52.32651762428485, -1.106941902968092)"
+3612,4425,02/01/2020,BayWa r.e.,Wathegar 2 Wind Farm,Wind Onshore,18.5,2.05,9.0,,Operational,"Wathegar, Bilbster, Wick",Highland,Scotland,Scotland,KW1 5SG,329103,950291.0,15/09/2017,"(58.43515792094466, -3.215898539995248)"
+3613,4427,19/08/2014,Falck Renewables,West Browncastle,Wind Onshore,30.0,2.5,12.0,,Operational,"Strathaven, Strathclyde, ML10 6QW",Strathclyde,Scotland,Scotland,,261117,642821.0,30/06/2014,"(55.65899211368623, -4.209136437479134)"
+3617,4431,27/02/2018,Fred Olsen Renewables,Brochloch Rig (formerly Windy Standard II),Wind Onshore,90.0,3.0,30.0,120.0,Operational,Near New Cummock,Dumfries and Galloway,Scotland,Scotland,,260200,602000.0,15/06/2017,"(55.29220785566121, -4.203148815861893)"
+3618,4432,19/11/2019,Energiekontor UK,Withernwick extension,Wind Onshore,8.2,2.05,4.0,,Operational,"Land North And North East
+Homer House
+Aldbrough Road
+Withernwick
+East Riding Of Yorkshire",Humberside,Yorkshire and Humber,England,,520743,441870.0,01/08/2019,"(53.859018777218445, -0.1656290286238437)"
+3620,4434,02/04/2019,Mongoose (formerly Energy Law Unlimited),Pogbie Wind Farm 1,Wind Onshore,5.1,8.5,6.0,,Operational,"Humbie, East Lammermuirs, East Lothian.EH36 5PN",Lothian,Scotland,Scotland,,347905,659047.0,29/03/2019,"(55.821847948471, -2.8330224628551726)"
+3621,4435,25/09/2014,West Coast Energy,Barlockhart Moor,Wind Onshore,8.1,2.03,4.0,,Operational,"Barlockhart Farm, Glenluce, Newton Stewart, Wigtownshire DG8 0JG",Dumfries and Galloway,Scotland,Scotland,,221183,555886.0,27/08/2013,"(54.86569886273004, -4.787907055758589)"
+3622,4437,31/05/2017,Minnygap (formerly RES),Minnygap,Wind Onshore,25.0,2.5,10.0,,Operational,Nr Annandale,Dumfries and Galloway,Scotland,Scotland,,303800,596000.0,15/03/2017,"(55.24876801079651, -3.5148021405721197)"
+3625,4440,16/05/2019,Banks Renewables,Middle Muir Wind Farm,Wind Onshore,51.0,3.4,15.0,,Operational,"Middle Muir, Hamilton, Strathclyde (north of Crawfordjohn)",Strathclyde,Scotland,Scotland,ML3,286178,625826.0,16/05/2019,"(55.512885933756024, -3.8040169924869027)"
+3626,4441,04/04/2018,Community Windpower,Sanquhar Community Windfarm,Wind Onshore,32.4,3.4,9.0,,Operational,"located approximately 7km Southwest of Sanquhar, 5km to the Southwest of Kirkconnel and 4km Southwest of the small steading of Drumbuie",Dumfries and Galloway,Scotland,Scotland,,270311,607479.0,01/02/2018,"(55.34417698550054, -4.0465703479660275)"
+3629,4445,04/06/2020,Scottish Southern Energy,Balmurrie Fell Wind Farm,Wind Onshore,9.1,1.3,7.0,,Operational,"Balmurrie Fell, Newton Stewart, Dunfries & Galloway. DG8",Dumfries and Galloway,Scotland,Scotland,,238626,555982.0,01/09/2012,"(54.87249318780103, -4.516466281321381)"
+3633,4449,25/05/2022,The Renewables Infrastructure Group (TRIG),Solwaybank Wind Farm,Wind Onshore,30.0,2.0,15.0,,Operational,"Allfornought Hill, Langholm, Dumfries & Galloway (8 km south-west of Langholm and 12 km north of Gretna)",Dumfries and Galloway,Scotland,Scotland,DG13 0A,329413,578978.0,01/11/2020,"(55.10017431027133, -3.10775050033184)"
+3634,4450,11/09/2014,Private Developer,Burnfoot Hill Extension,Wind Onshore,4.0,2.0,2.0,,Operational,Site South Of The Upper And Lower Glendevon Resevoirs Glendevon,Tayside,Scotland,Scotland,,290393,703943.0,09/09/2014,"(56.21539344420843, -3.768914358565436)"
+3644,4462,06/08/2020,NTR,Airies Farm,Wind Onshore,35.0,2.9,14.0,137.0,Operational,"Airies Farm, Glenluce ",Dumfries and Galloway,Scotland,Scotland,DG8 8AL,229266,548481.0,15/03/2017,"(54.802050805497586, -4.657736096679616)"
+3646,4465,23/05/2017,Temporis Capital,Craig Wind Farm (Extension),Wind Onshore,2.5,2.5,1.0,,Operational,Westerkirk,Dumfries and Galloway,Scotland,Scotland,,202000,557000.0,15/05/2017,"(54.86847106642369, -5.0871272839086155)"
+3657,4483,19/05/2017,Wind Energy Direct,Lawrence Landfill,Wind Onshore,1.6,0.8,2.0,,Operational,"Lawrence Landfill, Pope Hill, Johnston, Haverfordwest, Dyfed, SA62 3NX",Dyfed,Wales,Wales,,193075,212682.0,15/03/2017,"(51.77445768982977, -5.00076422007082)"
+3658,4484,14/03/2016,Private Developer,Plascow wind cluster,Wind Onshore,2.4,0.8,3.0,,Operational,"Plascow Farm, Dalbeattie,",Dumfries and Galloway,Scotland,Scotland,,287380,563820.0,15/07/2015,"(54.95625774117507, -3.7602133056581097)"
+3659,4485,21/06/2017,Pennant Walters (MAESX) Limited,Maesgwyn Wind Farm - extension,Wind Onshore,2.5,2.5,1.0,,Operational,Maesgwyn Wind Farm Between Onllwyn & Glynneath,West Glamorgan,Wales,Wales,,286568,205930.0,29/03/2016,"(51.74055755942916, -3.6442351263179544)"
+3666,4493,20/10/2016,Wentworth and Harper,Halifax Farm,Wind Onshore,1.6,1.6,1.0,,Operational,"Halifax Farm, Merrylees Road, Newbold Heath, Newbold Verdon, Leicester, Leicestershire",Leicestershire,East Midlands,England,LE9 9NR,445759,304887.0,01/09/2015,"(52.639805526591, -1.3252179398817345)"
+3670,4497,13/06/2016,REsense c/o CO2Sense,Norton Fields Farm,Wind Onshore,1.3,1.3,1.0,,Operational,"Norton Fields Farm, Mucknell Farm Lane, Stoulton, Worcester",Hereford and Worcester,West Midlands,England,WR7 4RB,390334,251792.0,15/09/2015,"(52.164310590922, -2.142730479575483)"
+3674,4501,27/06/2016,John Laing Environmental Assets Group/ REG Power Management,Carscreugh Renewable Energy Park,Wind Onshore,15.3,0.85,18.0,,Operational,"Gelnluce, nr Luce Bay Dumfries and Galloway",Dumfries and Galloway,Scotland,Scotland,,225000,555000.0,15/01/2014,"(54.85909599027178, -4.727967962264626)"
+3675,4502,22/05/2018,Whiteside Hill Farm (Scotland),Whiteside Hill,Wind Onshore,25.3,2.3,11.0,,Operational,Whiteside Hill near Sanquhar,Dumfries and Galloway,Scotland,Scotland,,271440,608920.0,30/04/2018,"(55.3574139126262, -4.029442075056163)"
+3676,4504,25/09/2014,,Slieve Rushen Extension,Wind Onshore,54.0,3.0,18.0,,Operational,"Slieve Rushen
+Derrylin
+Fermanagh",Co. Fermanagh,Northern Ireland,Northern Ireland,,33019,491811.0,15/04/2008,"(54.19028103229391, -7.62840011815144)"
+3680,4508,05/01/2015,Greencoat UK Wind,North Rhins,Wind Onshore,22.0,2.0,11.0,,Operational,"North Rhins
+Stranraer
+Dumfries and Galloway",Dumfries and Galloway,Scotland,Scotland,,201980,557960.0,20/01/2010,"(54.877077503121626, -5.088097565351753)"
+3683,4511,02/10/2014,East Coast Viners,Jacksbank Wind Farm (Glenbervie),Wind Onshore,6.8,2.26,3.0,,Operational,"Drumlithie, Stonehaven",Grampian,Scotland,Scotland,AB39 3YL,376574,783246.0,12/07/2014,"(56.93989027209686, -2.3866207967051194)"
+3684,4513,25/08/2016,John Laing Environmental Assets Group,New Albion Wind Farm,Wind Onshore,14.4,2.05,7.0,,Operational,"Agricultural land at Towns Close Farm, between Pipewell and Rushton and close to the A6003 Road to Corby",Northamptonshire,East Midlands,England,NN14 1QT,484680,284310.0,18/01/2016,"(52.45019572823949, -0.7554074991878122)"
+3685,4514,26/10/2016,Sunnyside Wind Farm,Sunnyside wind cluster,Wind Onshore,1.0,0.5,2.0,,Operational,"Land at Sunnyside, Sanquhar",Dumfries and Galloway,Scotland,Scotland,DG4 6JP,276612,611178.0,15/11/2015,"(55.37901866980569, -3.948910068984826)"
+3687,4516,01/09/2018,Sky Wind Energy,Keith Hill,Wind Onshore,4.5,0.9,5.0,,Operational,"Humbie, ",Lothian,Scotland,Scotland,EH36 5PN,348373,658532.0,19/12/2017,"(55.81727154871253, -2.825455926353661)"
+3688,4517,25/09/2014,Airtricity,Minsca,Wind Onshore,36.8,2.3,16.0,,Operational,"8km NE of Lockerbie
+Dumfries and Galloway",Dumfries and Galloway,Scotland,Scotland,,313821,581690.0,01/03/2008,"(55.12207056967945, -3.3528565978291582)"
+3689,4518,04/06/2020,Scottish and Southern Energy (SSE),Artfield Fell,Wind Onshore,19.5,1.3,15.0,,Operational,"Artfield Fell
+Near New Luce
+NX230670",Dumfries and Galloway,Scotland,Scotland,,222500,567500.0,23/06/2005,"(54.97041240374808, -4.774580540550114)"
+3690,4519,25/09/2014,Scottish Power/CRE Energy,Wether Hill,Wind Onshore,18.2,1.3,14.0,,Operational,"Moniaive
+Dumfries",Dumfries and Galloway,Scotland,Scotland,,270000,594000.0,01/05/2007,"(55.223053552556046, -4.045235493306987)"
+3691,4520,25/09/2014,Airtricity Scotland,Dalswinton,Wind Onshore,30.0,2.0,15.0,,Operational,"Nr village of Dalswinton
+Dumfries",Dumfries and Galloway,Scotland,Scotland,,295000,589000.0,15/03/2008,"(55.18409712774817, -3.650562297931761)"
+3695,4524,07/01/2015,Craig Wind Farm Co,Craig Wind Farm,Wind Onshore,10.0,2.5,4.0,,Operational,Westerkirk,Dumfries and Galloway,Scotland,Scotland,,331995,586055.0,01/10/2007,"(55.164118122467734, -3.0689924136718707)"
+3696,4525,01/10/2014,Scottish Power Renewables,Beinn an Tuirc Phase 2,Wind Onshore,43.7,2.3,16.0,,Operational,"South of original Beinn and Tuirc
+Nr. Carradale",Strathclyde,Scotland,Scotland,,173950,636900.0,01/09/2014,"(55.573170618122, -5.587352693566457)"
+3697,4526,25/09/2014,Community Wind Power,Aikengall,Wind Onshore,48.0,3.0,16.0,,Operational,"Aikengall
+Nr Innerwick
+Dunbar
+East Lothian
+EH42 1SG",Lothian,Scotland,Scotland,,369468,669455.0,01/11/2008,"(55.91720873381596, -2.4900662877040944)"
+3698,4527,04/09/2018,Fred Olsen Renewables,Brochloch Rig 1 (formerly Windy Standard),Wind Onshore,21.6,0.6,36.0,,Operational,"Windy Standard
+",Dumfries and Galloway,Scotland,Scotland,,261500,602500.0,01/10/1996,"(55.29706494445241, -4.182939377786245)"
+3703,4532,31/10/2017,Temporis Capital,Hawton Wind Farm,Wind Onshore,9.0,2.5,3.0,,Operational,"Cotham Road, Hawton, Nottinghamshire",Nottinghamshire,East Midlands,England,NG24 3SD,479589,350765.0,16/03/2017,"(53.04823402505062, -0.8141970400821196)"
+3715,4544,02/05/2017,EDF Energy Renewables,Beck Burn,Wind Onshore,31.0,3.45,9.0,,Operational,"Beck Burn Peat Works, Springfield, Longtown",Cumbria,North West,England,CA6 5NH,334466,568940.0,26/04/2017,"(55.01068104394024, -3.0262663932628113)"
+3720,4549,29/10/2018,Seneca Global Energy,Melton Common Wind Cluster,Wind Onshore,4.6,2.3,2.0,,Operational,"Land West, South And South East Of Melton Waste Park Gibson Lane South Melton East Riding Of Yorkshire",Humberside,Yorkshire and Humber,England,HU14 3LJ,496427,425524.0,15/03/2017,"(53.71722937572353, -0.5403031215271035)"
+3723,4552,17/02/2022,RWE Innogy UK,Clocaenog Forest Wind Farm,Wind Onshore,96.0,3.0,32.0,145.0,Operational,"Clocaenog forest, Ruthin, ",Clwyd,Wales,Wales,LL15,300324,353682.0,01/10/2019,"(53.07104094105692, -3.489152007622376)"
+3728,4557,04/05/2017,Altamuskin Windfarm (Energia),Altamuskin Extension,Wind Onshore,7.1,2.35,3.0,110.0,Operational,"Sixmilecross, Clogher, Co. Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,69316,525078.0,15/03/2017,"(54.51275167645243, -7.111342782362394)"
+3729,4558,23/02/2018,Energia (formerly Brookfield Renewable Energy Group),Rathsherry,Wind Onshore,21.0,2.3,9.0,,Operational,"lands in the townland of Rathsherry, east of Tullymore Road and south and north of Longmore Road, Broughshane, Ballymena",Co. Antrim,Northern Ireland,Northern Ireland,,132735,569854.0,15/02/2018,"(54.951488647144224, -6.175702167216491)"
+3734,4563,26/10/2018,Brookfields (Antrim Wind Energy),Elginny Hill,Wind Onshore,22.0,2.0,11.0,,Operational,"Carncoagh Hill, Elginny Hill, Clontrace Hill, Broughshane, ",Co. Antrim,Northern Ireland,Northern Ireland,,131511,567821.0,15/03/2018,"(54.93261137374845, -6.192861985758464)"
+3746,4575,14/07/2017,Private Developer,Hoprigshiels Community Wind Farm,Wind Onshore,6.9,2.3,3.0,,Operational,"Land North And South Of 1 Whinhouse, Hoprigshiels, Cockburnspath, Scottish Borders",Borders,Scotland,Scotland,,375631,669803.0,31/03/2017,"(55.92068838144868, -2.3914969193911033)"
+3751,4580,16/05/2016,Scottish Power Renewables,Black Law Extension - 1b,Wind Onshore,15.0,3.0,5.0,,Operational,"Black Law, Climpy",Strathclyde,Scotland,Scotland,,289500,653500.0,18/02/2016,"(55.76218897974121, -3.762566605098417)"
+3761,4591,27/09/2021,Community Windpower,Aikengall 3 Community Wind Farm,Wind Onshore,75.5,3.6,18.0,145.0,Operational,Land North Of Nether Monynut Cottage Cockburnspath Scottish Borders,Borders,Scotland,Scotland,,371793,666791.0,01/11/2021,"(55.89341637689038, -2.4525902607503536)"
+3763,4593,19/07/2017,Scottish Power Renewables,Glen App,Wind Onshore,22.0,2.0,11.0,,Operational,"NE/o Cairnryan, Stranraer, Dumfries and Galloway",Strathclyde,Scotland,Scotland,,208880,571432.0,15/01/2017,"(55.000660679638294, -4.989675973919237)"
+3765,4595,04/06/2018,Vattenfall (previously Nuon Renewables),Pen Y Cymoedd,Wind Onshore,228.0,3.0,76.0,,Operational,Land stretches from the Upper Afan Valley to end of Cynon Valley.,Neath Port Talbot,Wales,Wales,,282793,196557.0,19/05/2017,"(51.65554291633171, -3.695730196024751)"
+3767,4597,02/01/2019,Scottish and Southern Energy (SSE),Stronelairg Wind Farm,Wind Onshore,228.0,3.6,66.0,135.0,Operational,located approximately 11 kilometres to the south-east of Fort Augustus,Highland,Scotland,Scotland,,247166,806833.0,11/12/2018,"(57.126924519130995, -4.5263699907224115)"
+3768,4598,16/06/2015,Airvolution Energy,M1 J18 Wind Turbines,Wind Onshore,4.0,2.0,2.0,,Operational,"Land Between Watling Street And M1, Celtic Way, Kilsby, Northamptonshire",Northamptonshire,East Midlands,England,,457472,272715.0,15/12/2014,"(52.34950111983735, -1.1576866764484717)"
+3769,4599,03/04/2018,Temporis Capital,Tullymurdoch Wind Farm,Wind Onshore,14.4,2.05,7.0,,Operational,"Alyth, Blairgowrie, Tayside",Tayside,Scotland,Scotland,PH10,319575,752228.0,23/01/2018,"(56.65490848904884, -3.3134138177532892)"
+3770,4600,31/05/2016,Renewable Energy Systems (RES),Penmanshiel Wind Farm,Wind Onshore,28.7,2.0,14.0,,Operational,Land East Of Penmanshiel Farmhouse Grantshouse Scottish Borders,Borders,Scotland,Scotland,,380006,667129.0,01/07/2016,"(55.896866097840814, -2.321296252346168)"
+3771,4601,19/04/2017,Airvolution Energy,Kinegar Quarry,Wind Onshore,5.0,2.5,2.0,,Operational,Land South West Of Neuk Farm Cockburnspath ,Borders,Scotland,Scotland,,377377,671362.0,15/03/2017,"(55.93478104884399, -2.363691558427343)"
+3774,4604,24/04/2015,REG & Blackrock,St. Breock Re-Power,Wind Onshore,10.0,2.5,5.0,,Operational,St. Breock,Cornwall,South West,England,,200000,70000.0,23/02/2015,"(50.49557601786335, -4.821264283965933)"
+3787,4619,04/10/2017,Green Power,Carraig Gheal,Wind Onshore,46.0,2.3,20.0,,Operational,"Carraig Gheal, Argyll and Bute",Strathclyde,Scotland,Scotland,,196465,721170.0,31/08/2013,"(56.33901041894965, -5.294537321952413)"
+3788,4620,24/08/2015,Greencoat UK Wind,Langhope Rig,Wind Onshore,16.0,1.6,10.0,,Operational,"Langhope Rig, Ettrick Forest, Scottish Borders",Borders,Scotland,Scotland,,340680,620050.0,26/03/2015,"(55.47066474710523, -2.9398882945092843)"
+3791,4623,29/06/2015,Vattenfall,Clashindarroch 2,Wind Onshore,37.0,2.05,18.0,,Operational,"Clashindarroch Forest, Huntly, ",Grampian,Scotland,Scotland,,348000,831000.0,26/06/2015,"(57.366481936075076, -2.86614768634714)"
+3792,4624,01/12/2014,Ecotricity,Galsworthy Wind Park,Wind Onshore,9.2,2.3,4.0,,Operational,"Land At Galsworthy, Buckland Brewer And Bulkworthy",Devon,South West,England,,240435,115705.0,28/11/2014,"(50.91868510024303, -4.271451484566959)"
+3793,4625,04/01/2016,Scottish and Southern Energy (SSE),Strathy North,Wind Onshore,67.7,2.05,33.0,,Operational,"Near Strathy Village, Sutherland",Highland,Scotland,Scotland,,281550,957550.0,01/12/2015,"(58.490004008494246, -4.033588056654732)"
+3795,4627,22/02/2016,Fred Olsen Renewables,Mid Hill - Phase II,Wind Onshore,18.4,2.3,8.0,,Operational,"Mid Hill, Fetteresso
+Stonehaven",Grampian,Scotland,Scotland,,370540,786500.0,02/12/2014,"(56.96877477323675, -2.486163818498314)"
+3797,4629,17/03/2015,North Harris Trust,Monan Hill Wind Turbines,Wind Onshore,1.5,0.5,3.0,,Operational,500m North Of Ceann An Ora Quarry Ardhasaig Isle Of Harris,Western Isles,Scotland,Scotland,HS3 3AJ,114171,904933.0,19/03/2015,"(57.94167513686407, -6.8317979615534234)"
+3803,4636,12/04/2021,Scottish Power Renewables,Halsary Wind Farm,Wind Onshore,34.0,2.3,15.0,120.0,Operational,"Spittal, Caithness",Highland,Scotland,Scotland,,315749,950081.0,31/03/2021,"(58.43089974308122, -3.44444715023542)"
+3804,4637,16/12/2016,REG Windpower (previously Cornwall Light and Power),French Farm,Wind Onshore,4.0,2.5,2.0,,Operational,"French Farm, French Drove, Thorney, Peterborough, ",Cambridgeshire,Eastern,England,,528300,309000.0,24/11/2016,"(52.66354299140061, -0.10433880071390145)"
+3805,4638,04/04/2017,Renewable Energy Systems (RES),Glenchamber Wind Farm,Wind Onshore,27.5,2.5,11.0,,Operational,"between New Luce, Kirkcowan and Glenluce",Dumfries and Galloway,Scotland,Scotland,,223765,566671.0,01/06/2016,"(54.96342048614851, -4.754333642927352)"
+3807,4640,03/04/2018,Scottish and Southern Energy (SSE),Bhlaraidh (previously Balmacaan),Wind Onshore,110.0,3.43,32.0,135.0,Operational,Near Invermoriston,Highland,Scotland,Scotland,,244194,817221.0,15/09/2017,"(57.21914701357764, -4.581905437398852)"
+3809,4642,01/05/2018,Banks Renewables,Moor House Wind Farm,Wind Onshore,12.0,2.5,6.0,,Operational,"Bishopton Lane, Great Burdon, Darlington",County Durham,North East,England,,432599,520053.0,15/12/2017,"(54.574646548860514, -1.4972377766537892)"
+3810,4643,01/10/2019,Banks Renewables,Kype Muir Wind Farm,Wind Onshore,88.4,3.4,26.0,,Operational,approximately 5 km south of the town of Strathaven,Strathclyde,Scotland,Scotland,,271915,639557.0,15/09/2019,"(55.632651616712636, -4.036104942819622)"
+3811,4644,20/12/2017,John Laing Environmental Assets Group,Llynfi Afan Renewable Energy Park,Wind Onshore,6.0,2.0,3.0,,Operational,"Mynydd Y Gelli, Port Talbot, Bridgend",Neath Port Talbot,Wales,Wales,,288368,195006.0,14/09/2017,"(51.64273897780618, -3.614678403016432)"
+3812,4645,04/04/2017,Falck Renewables,Assel Valley Wind Farm,Wind Onshore,25.0,2.3,11.0,,Operational,"Pinmore, Girvan, Strathclyde",Strathclyde,Scotland,Scotland,,223370,595995.0,28/10/2016,"(55.22647843305392, -4.778705371098767)"
+3813,4646,31/05/2019,Innogy,Bad a Cheo Wind Farm,Wind Onshore,26.7,2.05,13.0,112.0,Operational,Bad A Cheo Achkeepster Spittal,Highland,Scotland,Scotland,,316615,948900.0,01/05/2019,"(58.420462483226444, -3.429193008105916)"
+3814,4647,25/10/2016,Octopus Investments,Fraisthorpe Wind Farm,Wind Onshore,29.7,3.3,9.0,,Operational,"Land North East Of Manor Farm, Main Street, Fraisthorpe, East Riding Of Yorkshire",Humberside,Yorkshire and Humber,England,YO15 3QP,515938,462771.0,15/06/2016,"(54.047875933465576, -0.23071666254817597)"
+3815,4648,30/04/2019,RWE Npower Renewables/ Innogy,Mynydd Y Gwair Wind Farm,Wind Onshore,32.8,3.0,16.0,,Operational,"Swansea, ",West Glamorgan,Wales,Wales,,266303,207394.0,24/04/2019,"(51.74924125488976, -3.938128656328255)"
+3816,4649,30/11/2016,Aviva,Jack's Lane Wind Farm,Wind Onshore,13.8,2.3,6.0,,Operational,Barwick Hall Farm Barwick Road Stanhoe King's Lynn Norfolk ,Norfolk,Eastern,England,PE31 8PZ,580919,335229.0,01/04/2015,"(52.88408355231861, 0.6873906944351783)"
+3818,4651,04/01/2016,REG Windpower / BlackRock,Denzell Downs Wind Farm,Wind Onshore,10.0,2.0,5.0,,Operational,"Higher Denzell Farm, St Mawgan, Newquay, ",Cornwall,South West,England,TR8 4HG,189923,67094.0,24/11/2015,"(50.465948913588505, -4.9615151040420145)"
+3819,4652,04/01/2017,Energia Renewables,Long Mountain,Wind Onshore,27.6,2.0,12.0,,Operational,"Dunloy, Co. Antrim",Co. Antrim,Northern Ireland,Northern Ireland,,115926,574530.0,15/12/2016,"(54.98409602794562, -6.442004906712942)"
+3820,4653,04/07/2017,Gaelectric Developments/ CGN Europe Energy,Cregganconroe,Wind Onshore,13.8,2.3,6.0,,Operational,"Loughmallon Road, Cregganconroe, Pomeroy ",Co. Tyrone,Northern Ireland,Northern Ireland,,78733,536671.0,04/01/2017,"(54.622596051790346, -6.979109285602401)"
+3821,4654,03/05/2017,Natural Power,Ora More,Wind Onshore,15.0,2.3,6.0,,Operational,"Ora More Hill, in the Townlands of Killycreen East, Ora Beg and Mullylusty, near Boho and Belcoo, CoFermanagh",Co. Fermanagh,Northern Ireland,Northern Ireland,,16972,509701.0,30/03/2017,"(54.33849624229562, -7.895902831517564)"
+3822,4655,24/02/2016,Infrared Capital Partners,Reaps Moss Wind Farm,Wind Onshore,10.2,3.4,3.0,125.0,Operational,"Reaps Moss, Bacup",Lancashire,North West,England,,389065,422650.0,31/03/2015,"(53.70016884181222, -2.1671047453693055)"
+3823,4656,05/10/2017,John Laing Environmental Assets Group,"Llynfi Renewable Energy Park, Land at Mynydd Caerau",Wind Onshore,18.0,2.0,12.0,,Operational,"Glyncorrwg and Gelli Mountain, Croeserw, Neath and Port Talbot",Neath Port Talbot,Wales,Wales,SA13 3NN,287930,195255.0,14/09/2017,"(51.64488969913664, -3.6210853961589766)"
+3824,4657,16/08/2016,Blue Energy,Chiplow,Wind Onshore,8.2,2.0,5.0,,Operational,"Bewteen the villages of Bagthorpe, Barmer and Syderstone in North West Norfolk",Norfolk,Eastern,England,,581259,332212.0,30/04/2016,"(52.856878223648096, 0.6907598261060655)"
+3825,4658,26/02/2016,Banks Renewables,Hook Moor,Wind Onshore,10.3,2.05,3.0,125.0,Operational,"Land at Hook Moor, Micklefield, Leeds",West Yorkshire,Yorkshire and Humber,England,,443851,435273.0,15/01/2016,"(53.811902483047106, -1.3355207121209323)"
+3826,4659,04/01/2016,Infrared Capital Partners,Crook Hill (Rochdale MBC) 2 of 2,Wind Onshore,23.8,3.4,7.0,,Operational,"Crook Hill/Shore Moor, North Of Watergrove Reservoir, Rochdale",Greater Manchester,North West,England,,392515,419340.0,01/12/2015,"(53.67047981294887, -2.1147681548386483)"
+3827,4660,27/03/2017,Private Developer,Far Marsh Farm,Wind Onshore,7.5,2.5,3.0,,Operational,"Marsh Road, Ottringham, Hull, ",Humberside,Yorkshire and Humber,England,HU12 0AN,524667,421763.0,15/01/2017,"(53.67746903658124, -0.11411499967262068)"
+3828,4661,29/05/2015,John Laing Environmental Assets Group,Wear Point,Wind Onshore,8.2,2.05,4.0,,Operational,"Land at Wear Point, Waterston Industrial, Llanstadwell",Dyfed,Wales,Wales,,193041,204629.0,07/07/2014,"(51.70213908807233, -4.996465314715065)"
+3829,4662,05/01/2015,Blue Energy (formerly Ridgewind Ltd),Middlewick wind farm,Wind Onshore,20.7,2.3,9.0,,Operational,"Land Between Middlewick Farm And Wraywick Farm, The Marshes, Southminster, Essex",Essex,Eastern,England,,600140,200001.0,31/07/2014,"(51.663137226954305, 0.8924744802586716)"
+3830,4663,02/12/2014,Hainsford Energy,Blyth Harbour Wind Farm (re-power),Wind Onshore,3.4,3.4,1.0,,Operational,"Blyth Harbour, North Blyth, Cambois, Bedlington, Northumberland",Northumberland,North East,England,,432585,580800.0,01/09/2012,"(55.12052187484485, -1.4906274532246266)"
+3831,4664,29/08/2017,Greencoat Capital,Corriegarth,Wind Onshore,69.5,3.0,23.0,120.0,Operational,"Near Gorthleck, Inverness-shire",Highland,Scotland,Scotland,,257500,813500.0,30/09/2016,"(57.190084558112524, -4.359638023950259)"
+3832,4665,16/09/2014,Carsington Wind Energy Limited,Carsington Pasture,Wind Onshore,8.0,2.0,4.0,,Operational,"Carsington Pasture, Derbyshire Dales",Derbyshire,East Midlands,England,,424640,354200.0,05/02/2014,"(53.08445505604621, -1.6335877674823787)"
+3833,4666,16/09/2014,Co-operative Group,Langford Wind Farm,Wind Onshore,20.0,2.0,10.0,,Operational,"Edworth Road, Langford, Biggleswade, Bedfordshire, SG18 9PJ",Bedfordshire,Eastern,England,,520400,241520.0,30/01/2014,"(52.058987169673436, -0.2452787397604577)"
+3834,4667,16/09/2014,Fred Olsen Renewables,Mid Hill I,Wind Onshore,57.5,2.3,25.0,,Operational,"Mid Hill, Fetteresso
+Stonehaven",Grampian,Scotland,Scotland,,370540,786500.0,01/12/2013,"(56.96877477323675, -2.486163818498314)"
+3835,4668,26/01/2012,Airtricity,Ardrossan Extension,Wind Onshore,6.0,2.0,3.0,,Operational,"Near Ardrossan
+North Ayreshire",Strathclyde,Scotland,Scotland,,223500,642500.0,01/11/2008,"(55.64389978582304, -4.806141229676192)"
+3836,4669,11/04/2011,CRE Energy/ Scottish Power,Beinn Tharsuinn Windfarm Project,Wind Onshore,29.8,1.75,17.0,,Operational,"Beinn Tharsuinn,Nr Easter Andross, Easter Ross, Northern Highlands",Highland,Scotland,Scotland,,261700,881900.0,01/12/2005,"(57.80527491009226, -4.328995396362208)"
+3837,4670,06/04/2010,Statkraft and Catamount Energy Corporation,Blaengwen,Wind Onshore,23.0,2.3,10.0,,Operational,Pencader Carms.,Dyfed,Wales,Wales,SA39 94P,246387,233404.0,30/11/2009,"(51.97780720441368, -4.237982733162495)"
+3838,4671,28/06/2016,RDC Scotland Ltd/ Falck Renewables,Boyndie Airfield,Wind Onshore,16.7,2.0,8.0,,Operational,"Boyndie Airfield, 
+Banff",Grampian,Scotland,Scotland,,361978,864118.0,01/02/2006,"(57.66532977882181, -2.638964003784477)"
+3839,4672,04/12/2017,Gravis Capital Management,Burton Wold Windfarm,Wind Onshore,20.0,2.0,10.0,,Operational,"Felaw Maltings, Felaw Street, Ipswich",Northamptonshire,East Midlands,England,IP2 8SJ,492500,274500.0,01/04/2006,"(52.36076160947809, -0.6430819045208926)"
+3840,4673,08/10/2013,B9 / Renewable Energy Systems (RES),Callagheen,Wind Onshore,22.8,1.75,13.0,,Operational,"Garrison, near borders",Co. Fermanagh,Northern Ireland,Northern Ireland,,4942,519598.0,01/12/2005,"(54.417776298345416, -8.093026643535708)"
+3841,4674,02/12/2014,Vattenfall,Edinbane Wind Farm,Wind Onshore,41.4,2.3,18.0,,Operational,"Cruachan Brinn Mhicaskill, Edinbane, Portree, Highlands",Highland,Scotland,Scotland,IV51 9PW,134353,850769.0,21/06/2010,"(57.46912682028169, -6.432206098199517)"
+3842,4675,08/08/2011,Scottish and Southern Energy (SSE),Fairburn,Wind Onshore,43.0,2.15,20.0,,Operational,"Fairburn
+Marybank",Highland,Scotland,Scotland,,242550,852250.0,07/06/2010,"(57.53290975816524, -4.631530153790545)"
+3843,4676,17/09/2020,Innogy (formerly RWE npower),Farr Wind Farm,Wind Onshore,92.0,2.3,40.0,,Operational,"Tomatin
+Inverness",Highland,Scotland,Scotland,,273500,829000.0,01/10/2005,"(57.33392061775464, -4.103012495227077)"
+3844,4677,06/05/2009,RWE npower,Ffynnon Oer Wind Farm,Wind Onshore,32.0,2.0,16.0,,Operational,Near Glyncorrwg,West Glamorgan,Wales,Wales,,287500,199500.0,01/12/2005,"(51.68295601715897, -3.6286651585443943)"
+3845,4678,27/02/2012,Scotwind (Scottish Renewables),Flotta,Wind Onshore,1.8,1.75,1.0,,Operational,"Flotta,Westhill, Orkney",Orkney Islands,Scotland,Scotland,,336770,995385.0,01/06/2010,"(58.84124656731271, -3.097252177491517)"
+3846,4679,10/05/2016,Renewable Energy Systems (RES),Forss Wind Farm (Extension),Wind Onshore,5.2,1.3,4.0,,Operational,"Ex Navy Base Forss, Dounreay Thurso Caithness",Highland,Scotland,Scotland,KW14 7YB,302000,969500.0,01/07/2007,"(58.60235907124372, -3.6881357460645985)"
+3847,4680,10/05/2016,B9 / Renewable Energy Systems (RES),Lough Hill,Wind Onshore,10.5,1.75,6.0,,Operational,"Lough Hill
+East of Drumquin
+County Tyrone",Co. Tyrone,Northern Ireland,Northern Ireland,,38467,541020.0,01/08/2006,"(54.63429585940413, -7.60521290939184)"
+3848,4681,23/10/2009,Ecotricity,Michelin Tyre Co Ltd - Dundee,Wind Onshore,4.0,2.0,2.0,,Operational,"Baldovie Road, Dundee
+Dundee",Tayside,Scotland,Scotland,,345050,732750.0,20/05/2006,"(56.48363280485251, -2.89382753092997)"
+3849,4682,26/04/2010,Renewable Development Company (RDC) Scotland (Ltd) for FALCK RENEWABLES,Millennium Windfarm,Wind Onshore,40.0,2.5,16.0,125.0,Operational,"Millennium Windfarm
+on The Achlain and Invergarry amd Aberchalder Estates
+Glengarry Invergarry
+Inverness-Shire
+(nr Glen Moriston
+Fort Augustus)",Highland,Scotland,Scotland,,225679,810840.0,15/07/2008,"(57.15522678150692, -4.883641231931057)"
+3850,4683,16/08/2011,Lomond Energy,Muirhall,Wind Onshore,12.3,3.0,6.0,,Operational,"Stellashaw Moss, South Lanarkshire",Strathclyde,Scotland,Scotland,,300605,653760.0,01/01/2011,"(55.766934464828076, -3.5857653858798217)"
+3851,4684,06/05/2009,Renewable Energy Systems (RES),Mynydd Clogau Wind Farm,Wind Onshore,14.5,0.85,17.0,,Operational,"Mynydd Clogau, Mynydd Bwrch-y-gors and Mynydd Cerrigllwydion, near Adfa, Newtown, Powys",Powys,Wales,Wales,,303300,298800.0,01/12/2005,"(52.57838579830629, -3.42847654952579)"
+3852,4685,08/10/2013,Private Developer,New Barn Farm,Wind Onshore,4.5,1.5,3.0,,Operational,"Billington Road, Burnley, BB11 5QQ",Lancashire,North West,England,,380100,430800.0,01/02/2007,"(53.77315375458533, -2.303419569856716)"
+3853,4686,06/05/2009,Foresight Group,North Pickenham,Wind Onshore,14.4,1.8,8.0,,Operational,"near Hempnall
+South Norfolk",Norfolk,Eastern,England,,585000,307000.0,01/10/2006,"(52.62922137665769, 0.7320519868648447)"
+3854,4687,04/10/2017,Fred Olsen Renewables,Paul's Hill and Extension,Wind Onshore,65.0,2.3,28.0,,Operational,"Paul's Hill, Bowlingalloch, Moray, (area is also known as Ballindalloch)
+(14km west of Charlestown, 13km north of Granthon on Spey)",Grampian,Scotland,Scotland,,311500,840500.0,01/04/2006,"(57.44615230158722, -3.4762072217469564)"
+3855,4688,05/01/2015,Greencoat UK Wind,Tappaghan Extension,Wind Onshore,9.0,1.5,6.0,,Operational,"Lack, Tappaghan Mountains, Northern Ireland",Co. Fermanagh,Northern Ireland,Northern Ireland,,31856,531807.0,01/07/2009,"(54.54713562172703, -7.695579791861857)"
+3856,4689,16/08/2012,Munich Re (previously Windjen Power Ltd),Tir Mostyn And Foel Goch Wind Farm,Wind Onshore,21.3,0.85,25.0,,Operational,"Nantglyn, Denbighshire",Clwyd,Wales,Wales,,300300,358800.0,01/06/2005,"(53.11702668808237, -3.4910997506076176)"
+3857,4690,04/07/2017,Cumbria Wind Farms,Trimdon Grange,Wind Onshore,5.2,1.3,4.0,,Operational,"Trimdon Grange, County Durham",County Durham,North East,England,,436000,536300.0,10/07/2008,"(54.720416390490854, -1.4426370144822516)"
+3858,4691,23/10/2009,Wind Prospect / Community Windpower,Wardlaw Wood,Wind Onshore,18.0,3.0,6.0,,Operational,"Dalry
+Ayrshire",Strathclyde,Scotland,Scotland,,224900,651200.0,01/03/2006,"(55.72248444708525, -4.789481338375854)"
+3907,4747,24/04/2017,Southrigg WT,Southrigg,Wind Onshore,1.5,1.5,1.0,125.0,Operational,"Southrigg Farm, Bathgate",North Lanarkshire,Scotland,Scotland,EH48 3AW,291875,665563.0,01/10/2016,"(55.871061970944425, -3.7295369182125553)"
+3936,4790,22/01/2019,Kingspan,Kingspan,Wind Onshore,1.8,0.9,2.0,78.0,Operational,"Kingspan Ltd, 2-4 Bagillt Road, Greenfield, Holywell",Flintshire,Wales,Wales,CH8 7GJ,320053,377640.0,11/01/2019,"(53.28967040416918, -3.2007685725421253)"
+4002,4892,27/03/2017,Farm Energy Consulting,Gawnsmoss Cluster,Wind Onshore,2.4,0.8,3.0,79.0,Operational,Site at Cairnhill Banff,Aberdeen,Scotland,Scotland,AB45 3BS,363483,859316.0,27/03/2017,"(57.62232418447423, -2.61301206347591)"
+4017,4908,05/01/2015,AWE Renewables,Quarrendon Fields,Wind Onshore,1.5,1.5,1.0,144.0,Operational,"Quarrendon Fields, Aylesbury",Buckinghamshire,South East,England,HP18 0PT,480288,216618.0,18/12/2014,"(51.84240244251684, -0.8359907802791673)"
+4022,4917,18/04/2017,Redpath Energy,Newstead and Annesley Wind Turbine,Wind Onshore,1.5,1.5,1.0,126.0,Operational,"Newstead and Annesley Country Park, Tilford Road, Newstead",Nottinghamshire,East Midlands,England,NG15 0BT,452500,353400.0,01/12/2016,"(53.07525827260797, -1.2178115497267141)"
+4065,4976,10/02/2015,Thames Water Utilities,Beckton Sewage Treatment Works,Wind Onshore,2.2,1.0,2.0,64.0,Operational,"Beckton Sewage Works, Jenkins Lane, Barking",London,London,England,IG11 0AD,544385,182797.0,12/11/2014,"(51.52563480479312, 0.07991012209364433)"
+4079,4995,21/06/2017,Seneca Global Energy,Melton Waste Park,Wind Onshore,5.0,2.5,2.0,117.0,Operational,"Land South West Of Melton Waste, Gibson Lane, Melton, North Ferriby, ",Humberside,Yorkshire and Humber,England,HU14 3HH,496867,425532.0,01/03/2017,"(53.71721987723426, -0.5336356229008943)"
+4197,5187,02/10/2018,The Energy Workshop,Hill of Lybster (Wind Turbine - Extension),Wind Onshore,1.5,1.5,1.0,100.0,Operational,"Land 200M N Of, 3 Lybster Road, Forss, Thurso, Highlands",Highland,Scotland,Scotland,KW14 7YA,302481,969366.0,12/04/2021,"(58.60126451892747, -3.679804919996895)"
+4261,5277,24/04/2017,Infinergy/ Muirhall Energy,Burton Wold Wind Farm South,Wind Onshore,7.5,2.75,3.0,137.0,Operational,"Land at Glendon Farm, Burton Latimer, Kettering",Northamptonshire,East Midlands,England,NN15 5,491602,273681.0,24/04/2017,"(52.35355132719564, -0.6564881210594107)"
+4480,5555,24/10/2016,Associated British Ports,ANP Newport Wind Turbine,Wind Onshore,2.3,2.3,2.0,126.0,Operational,"Land To South Of South Dock, Alexandra Docks, And Adjacent to River Usk, East Way Road",Gwent,Wales,Wales,NP20 2UW,332583,184564.0,15/08/2016,"(51.555913906968335, -2.973814711711214)"
+4520,5598,21/11/2018,CGNEE,Brenig Wind Farm,Wind Onshore,37.6,3.0,16.0,110.0,Operational,"Land east of Llyn Brenig, Nantglyn, Denbigh,",Denbighshire,Wales,Wales,,299481,357920.0,15/10/2018,"(53.1089652150274, -3.5030561912252485)"
+4545,5637,02/12/2019,Mongoose (formerly Energy Law Unlimited/ Pogbie Windfarm),Pogbie Wind Farm 2,Wind Onshore,4.8,0.8,6.0,74.0,Operational,"Humbie, Lothian",East Lothian,Scotland,Scotland,EH36 5PN,347360,661013.0,01/03/2019,"(55.839451181039394, -2.8421014442512877)"
+4838,6033,15/01/2018,Clean Earth Energy,Bodtegir,Wind Onshore,1.5,1.5,1.0,100.0,Operational,"Land at Bodtegir, part of the, Mwdwl Eithin, Nant Bach Wind Farm On Land At, Corwen",Clwyd,Wales,Wales,LL21 9AB,299554,347741.0,01/11/2017,"(53.017510662671526, -3.498786657644282)"
+4862,6079,20/09/2018,Infinite Renewables,West of Rhiwfelin Fach Farm,Wind Onshore,1.5,1.5,1.0,116.0,Operational,"Land to the West of, Rhiwfelin Fach Farm, Llantrisant, Heol Sticil-Y-Beddau, Pontyclun",Mid Glamorgan,Wales,Wales,CF72 8LQ,303640,185362.0,31/08/2018,"(51.55887983145654, -3.391393912645986)"
+4878,6106,18/08/2016,Green Cat Renewables ,Marshill Farm,Wind Onshore,1.5,1.5,1.0,119.0,Operational,"Farmland to the West of, Draffan Road, Draffanmarshill Farm, Lanark, Strathclyde",South Lanarkshire,Scotland,Scotland,ML11 9PW,278551,645431.0,01/08/2015,"(55.68710418760376, -3.9333650160309537)"
+4921,6173,28/07/2016,WhiteRock Energy,Woodlands Wind Farm,Wind Onshore,2.6,0.85,3.0,70.0,Operational,"Woodlands Farm, Lesmahagow, Lanark",South Lanarkshire,Scotland,Scotland,ML11 0HQ,279826,639404.0,28/07/2016,"(55.63329830487039, -3.910458129664787)"
+4995,6293,23/05/2019,Clean Earth Energy,Accolade Wines,Wind Onshore,2.5,1.5,1.0,130.0,Operational,"Accolade Wines, Kings Weston Lane, Avonmouth, Bristol, Avon",Avon,South West,England,BS11 9FG,352283,180011.0,15/06/2019,"(51.516993524383885, -2.6890706101627475)"
+5003,6318,16/06/2017,Clean Earth Energy,Craigannet Farm Wind Turbine,Wind Onshore,1.5,1.5,1.0,,Operational,Land Some 1600 Metres North West Of Craigannet Farm Fintry,Stirling,Scotland,Scotland,,271250,685550.0,31/03/2017,"(56.045452372884675, -4.068480838632537)"
+5038,6388,04/05/2017,CBK Galbraith,Ferneylea Farm,Wind Onshore,1.5,0.75,2.0,71.0,Operational,"Ferneylea Farm, Cockburnspath",East Lothian,Scotland,Scotland,TD13 5YN,373982,669162.0,01/01/2015,"(55.91484254901166, -2.417819370758437)"
+5152,6636,04/06/2018,Renewable Energy Systems (RES),Forss Wind Farm,Wind Onshore,2.6,1.3,2.0,99.0,Operational,Wind Turbine Ex Navy Base Forss Dounreay Thurso Caithness,Highland,Scotland,Scotland,KW14 7YB,302000,969500.0,01/07/2003,"(58.60235907124372, -3.6881357460645985)"
+5615,7312,11/01/2022,Keele University,The Low Carbon Energy Generation Project at Keele University,Wind Onshore,1.9,1.0,2.0,77.0,Operational,"Land Adj To Springpool Wood, Keele, Newcastle-Under-Lyme",Staffordshire,West Midlands,England,ST5 5BW,381909,344989.0,01/09/2021,"(53.00191023661259, -2.2710239763446123)"
+5757,7562,23/09/2020,Statkraft UK,Windy Rig Wind Farm,Wind Onshore,43.0,3.0,12.0,125.0,Operational,"Carsphairn, Castle Douglas,",Dumfries and Galloway,Scotland,Scotland,DG7 3,261700,600000.0,10/01/2022,"(55.274673124322334, -4.178561474848133)"
+5774,7588,19/12/2019,Cornwall Council,Land near Ventonteague,Wind Onshore,2.3,2.3,1.0,99.0,Operational,"Land Off Ventonteague, St. Allen, Truro, ",Cornwall,South West,England,TR4 9QX,182586,51229.0,22/07/2020,"(50.32080070523191, -5.055564811795879)"
+6055,8046,07/02/2021,Ventus Renewables,Lower Rumster wind turbine,Wind Onshore,0.2,0.05,3.0,35.0,Operational,"Land At Lower Rumster, Lybster, ",Highland,Scotland,Scotland,KW3 6BX,321714,936327.0,26/06/2021,"(58.308515398518495, -3.3376515927398103)"
+7437,11259,16/05/2022,Resilient Energy Mounteneys Renewables,Mounteneys and Cherry Rock Wind Turbines,Wind Onshore,1.0,0.5,2.0,77.0,Operational,"Wickwar Road, Kingswood, Wotton Under Edge",Gloucestershire,South West,England,GL12 8JX,373296,189365.0,01/03/2017,"(51.60248542745884, -2.386963750917667)"
