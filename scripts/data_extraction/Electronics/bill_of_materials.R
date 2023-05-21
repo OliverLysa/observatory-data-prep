@@ -1,3 +1,8 @@
+# Gives the ability to retrieve bill of material or compositional data from multiple sources
+# and reformat and restructure to the required format for inputting to the NICER dashbord 
+# Most BoM data is structured in the following format: 
+# Sankey data is structured as 
+
 # *******************************************************************************
 # Packages
 # *******************************************************************************
@@ -36,26 +41,26 @@ source("./data_extraction_scripts/functions.R",
 # Stop scientific notation of numeric values
 options(scipen = 999)
 
-#### Extract BoM data ####
+#### Babbitt et al ####
 # Use weighted averages to go from BoM to UNU based on inflow share data
 
 # Download data file from the url
 download.file(
   "https://figshare.com/ndownloader/files/22858376",
-  "./1. Extract/4. Raw_data_files/Product_BOM.xlsx"
+  "./raw_data/BoM/disassembly_detail.xlsx"
 )
 
 # Read all sheets for bill of materials
 BoM_sheet_names <- readxl::excel_sheets(
-  "./1. Extract/4. Raw_data_files/Product_BOM.xlsx")
+  "./raw_data/BoM/disassembly_detail.xlsx")
 
 BoM_data <- purrr::map_df(BoM_sheet_names, 
                           ~dplyr::mutate(readxl::read_excel(
-                            "./1. Extract/4. Raw_data_files/Product_BOM.xlsx", 
+                            "./raw_data/BoM/disassembly_detail.xlsx", 
                             sheet = .x), 
                             sheetname = .x))
 
-# Convert the list of dataframes to a single dataframe, rename columns and filter
+# Convert the list of dataframes to a single dataframe, rename columns and filter (tidy format)
 BoM_data_bound <- BoM_data %>%
   drop_na(2) %>%
   tidyr::fill(1) %>%
@@ -88,4 +93,43 @@ BoM_data_bound <- BoM_data %>%
 
 # Write summary file
 #write.csv(BoM_data_bound, 
-# "./1. Extract/5. Cleaned_datafiles/bill_of_materials.csv")
+# "./cleaned_data/bill_of_materials.csv")
+
+Sankey_input <- BoM_data_bound %>% 
+  mutate(source = material) %>%
+  rename(target = component)
+
+Sankey_input <- Sankey_input[, c("year", 
+                                 "product", 
+                                 "model",
+                                 "source",
+                                 "target",
+                                 "material",
+                                 "value")]
+
+Sankey_input2 <- Sankey_input %>% 
+  mutate(source = target,
+         target = product)
+
+Sankey_input2 <- Sankey_input2[, c("year", 
+                                   "product", 
+                                   "model",
+                                   "source",
+                                   "target",
+                                   "material",
+                                   "value")]
+
+Electronics_BoM_sankey_Babbitt <- rbindlist(
+  list(
+    Sankey_input,
+    Sankey_input2),
+  use.names = TRUE)
+
+# Write summary file
+write_xlsx(Electronics_BoM_sankey_Babbitt, 
+           "./cleaned_data/Electronics_BoM_sankey_Babbitt.xlsx")
+
+#### Extract REE-relevant BoM data ####
+
+# We need tidy data to input into required sankey format 
+# mutate year and 
