@@ -46,15 +46,28 @@ Scripts for matching classifications.
 
 ### Data extraction
 
-Scripts for extracting data from sources via API where available, web scraping and manual downloading. Steps:
+Scripts for extracting data from sources via API where available, web scraping and manual downloading, cleaning and validation, outlier replacement and unknown values estimated.
 
--   Data retrieved
--   Data **validated** and **cleaned**
--   Outlier replacement and unknown values estimated
+Protocols for:
+
+Trade
+
+Prodcom
+
+Bill of materials
+
+Lifespan
+
+Outflow
+
+GVA
+
+Emissions
 
 ### Variable calculation
 
 -   Scripts for calculating/deriving data presented in components where not taken directly from sources
+-   KPI definitions and methodologies
 
 ### Visualise
 
