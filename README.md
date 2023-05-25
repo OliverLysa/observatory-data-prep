@@ -8,7 +8,9 @@
 
 # Purpose
 
-Downloads raw and pre-processed data to populate the ce-observatory - a UK national CE-Observatory dashboard for detailed description of current baseline and comparison of alternative target future circular economy configurations for specific resource-product-industry categories.
+A collection of R and Python scripts for extracting raw data files and processing these data to populate the ce-observatory - a UK national CE-Observatory dashboard for detailed description of current baseline and comparison of alternative target future circular economy configurations for specific resource-product-industry categories.
+
+The ce-observatory can be viewed at the following URL:
 
 ## Mapping sources to end-points
 
@@ -66,7 +68,7 @@ Emissions
 
 ### Variable calculation
 
--   Scripts for calculating/deriving data presented in components where not taken directly from sources
+-   Scripts for calculating/deriving data presented on the dashboard where not taken directly from sources
 -   KPI definitions and methodologies
 
 ### Visualise

@@ -40,7 +40,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 
 # Isolate list of CN8 codes from classification table
 trade_terms <- 
-  UNU_2_CN8_2_PRODCOM$CN8 # delete the following for whole dataframe [283:344] %>%
+  UNU_2_CN8_2_PRODCOM$CN8 %>%
 unlist()
 
 # Create a for loop that goes through the trade terms, extracts the data using the extractor function based on the uktrade wrapper
