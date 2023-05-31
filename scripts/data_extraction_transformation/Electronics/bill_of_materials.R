@@ -91,9 +91,42 @@ BoM_data_bound <- BoM_data %>%
   separate(model, c("model", "year"), "\\(") %>%
   mutate(year = gsub("\\)","", year))
 
+# Convert the list of dataframes to a single dataframe, rename columns and filter (tidy format)
+BoM_data_bound_all <- BoM_data %>%
+  drop_na(2) %>%
+  tidyr::fill(1) %>%
+  select(-c(`Data From literature`,
+            `Data from literature`,
+            18)) %>%
+  row_to_names(row_number = 1, 
+               remove_rows_above = TRUE) %>%
+  filter(`Product name` != "Product name") %>%
+  rename(model = `Product name`,
+         component = Component,
+         product = 15) %>%
+  pivot_longer(-c(
+    model,
+    component,
+    product),
+    names_to = "material", 
+    values_to = "value") %>%
+  drop_na(value) %>%
+  filter(component != "-",
+         component != "Mass %",
+         model != "Product") %>%
+  mutate_at(c('value'), as.numeric) %>%
+  mutate(across(c('value'), round, 2)) %>%
+  drop_na(value) %>%
+  separate(model, c("model", "year"), "\\(") %>%
+  mutate(year = gsub("\\)","", year))
+
 # Write summary file
-#write.csv(BoM_data_bound, 
-# "./cleaned_data/bill_of_materials.csv")
+write.csv(BoM_data_bound, 
+ "./cleaned_data/bill_of_materials.csv")
+
+# Write summary file
+write.csv(BoM_data_bound_all, 
+ "./cleaned_data/bill_of_materials_all.csv")
 
 Sankey_input <- BoM_data_bound %>% 
   mutate(source = material) %>%

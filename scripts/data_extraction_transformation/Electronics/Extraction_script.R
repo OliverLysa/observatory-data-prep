@@ -422,9 +422,100 @@ BoM_data_bound <- BoM_data %>%
   separate(model, c("model", "year"), "\\(") %>%
   mutate(year = gsub("\\)","", year))
 
-# Write summary file
-#write.csv(BoM_data_bound, 
-# "./1. Extract/5. Cleaned_datafiles/bill_of_materials.csv")
+# Create filter of products for which we have data
+BoM_filter_list <- c("CRT Monitors",
+                     "CRT TVs",
+                     "Video & DVD",
+                     "Desktop PCs",
+                     "Small Household Items",
+                     "Laptops",
+                     "Flat Screen Monitors",
+                     "Flat Screen TVs",
+                     "Portable Audio",
+                     "Printers",
+                     "Mobile Phones",
+                     "Household Monitoring")
+
+# Rename products to match the UNU colloquial classification, group by product, component and material to average across models and years, then filter to products for which data is held
+BoM_data_average <- BoM_data_bound %>%
+  mutate(product = gsub("Blu-ray player", 'Video & DVD', product),
+         product = gsub("CRT monitor", 'CRT Monitors', product),
+         product = gsub("CRT TV", 'CRT TVs', product),
+         product = gsub("DVD player", 'Video & DVD', product),
+         product = gsub("Traditional desktop", 'Desktop PCs', product),
+         product = gsub("Fitness tracker", 'Small Household Items', product),
+         product = gsub("Laptop", 'Laptops', product),
+         product = gsub("LCD monitor", 'Flat Screen Monitors', product),
+         product = gsub("LCD TV", 'Flat Screen TVs', product),
+         product = gsub("LED monitor", 'Flat Screen Monitors', product),
+         product = gsub("MP3 player", 'Portable Audio', product),
+         product = gsub("Netbook", 'Laptops', product),
+         product = gsub("Plasma TV", 'Flat Screen TVs', product),
+         product = gsub("Printer", 'Printers', product),
+         product = gsub("Smartphone", 'Mobile Phones', product),
+         product = gsub("Tablet", 'Laptops', product),
+         product = gsub("Smart & non-smart thermostat", 'Household Monitoring', product)) %>%
+  group_by(product, component, material) %>%
+  summarise(value = mean(value)) %>%
+  filter(product %in% BoM_filter_list)
+
+BoM_data_average$product <- gsub("Laptops", "Laptops & Tablets", BoM_data_average$product)
+
+#  
+Babbit_sankey_input <- BoM_data_average %>%
+  mutate(source = material) %>%
+  rename(target = component)
+
+Babbit_sankey_input <- Babbit_sankey_input[, c("product", 
+                                 "source",
+                                 "target",
+                                 "material",
+                                 "value")]
+
+write_xlsx(Babbit_sankey_input, 
+           "./raw_data/Babbit_sankey_input.xlsx")
+
+Babbit_sankey_input2 <- Babbit_sankey_input %>% 
+  mutate(source = target,
+         target = product)
+
+Babbit_sankey_input2 <- Babbit_sankey_input2[, c("product", 
+                                   "source",
+                                   "target",
+                                   "material",
+                                   "value")]
+
+write_xlsx(Babbit_sankey_input2, 
+           "./raw_data/Babbit_sankey_input2.xlsx")
+
+Electronics_BoM_sankey_Babbitt2 <- rbindlist(
+  list(
+    Babbit_sankey_input,
+    Babbit_sankey_input2),
+  use.names = TRUE)
+
+stacked_units <- electronics_stacked_area_chart %>%
+  filter(variable == "inflow") %>%
+  rename(product = unu_description)
+
+Babbitt_joined <- right_join(Electronics_BoM_sankey_Babbitt2, stacked_units,
+                                 by = c("product")) %>%
+  mutate(value = (value.x * value.y)/1000000) %>%
+  select(-c(value.x,
+            variable,
+            value.y)) %>%
+  filter(value >0) %>%
+  mutate(across(c('value'), round, 2))
+
+Babbitt_joined <- Babbitt_joined[, c("year",
+                                     "product",
+                                     "source",
+                                     "target",
+                                     "material",
+                                     "value")]
+
+write_xlsx(Babbitt_joined, 
+           "./cleaned_data/electronics_sankey_links.xlsx")
 
 # https://www.sciencedirect.com/science/article/pii/S0959652623004109?via%3Dihub#fig5
 
@@ -451,8 +542,8 @@ lifespan_data <- lifespan_data[c(1:73), c(1,4,7:50)] %>%
   clean_names()
 
 # Specify x-axis (time periods for which distribution is printed
-x_axis <- seq(0, 50, 
-              by = 1)
+# x_axis <- seq(0, 50, 
+#              by = 1)
 
 # for (i in seq_along(lifespan_data)) {
 #  cdweibull(x_axis, lifespan_data$shape, lifespan_data$scale)
@@ -500,7 +591,7 @@ Outflow_routing <- read_excel(
 # Multiply percentages by ordinal score
 
 Outflow_routing_weights <- read_excel(
-  "./data_extraction_scripts/Electronics/weights.xlsx")
+  "./scripts/data_extraction_transformation/Electronics/weights.xlsx")
 
 electronics_bubble_outflow <- merge(Outflow_routing,
                                   Outflow_routing_weights,
@@ -521,6 +612,10 @@ electronics_bubble_outflow <- merge(Outflow_routing,
 
 # *******************************************************************************
 # Bubble chart data
+
+# Read all flows data
+flows_all <- read_excel(
+  "./cleaned_data/electronics_flows.xlsx")
 
 # Map flows data to electronics bubble chart
 electronics_bubble_flows <- flows_all %>%
@@ -548,29 +643,83 @@ electronics_bubble_chart2 <- merge(electronics_bubble_chart,
                                    electronics_bubble_outflow,
                                   by.x=c("unu_key"),
                                   by.y=c("UNU KEY")) %>%
-  rename(ce_score = scaled) 
+  rename(ce_score = scaled)
 
 write_xlsx(electronics_bubble_chart2, 
           "./cleaned_data/electronics_bubble_chart.xlsx")
 
-electronics_stacked_area_chart <- flows_all %>%
-  # filter to 2017, variable = Units, indicator = apparent_consumption
-  filter(variable == 'Units',
-         indicator == "apparent_consumption") %>%
-  select(-c(variable, 
-            indicator)) %>%
-  rename(apparent_consumption = value)
+# UNU <- electronics_bubble_chart2 %>%
+#  select(c(unu_key, `UNU DESCRIPTION`))
 
-UNU <- electronics_bubble_chart2 %>%
-  select(c(unu_key, `UNU DESCRIPTION`))
-  
-electronics_stacked_area_chart <- merge(electronics_stacked_area_chart,
-                                      UNU,
+UNU_colloquial <- electronics_bubble_chart2 %>%
+  select(-c(apparent_consumption, 
+            mean_lifespan, 
+            Year,
+            ce_score)) %>%
+  clean_names()
+
+write_xlsx(UNU_colloquial, 
+           "./classifications/classifications/UNU_colloquial.xlsx")
+
+electronics_bubble_chart2 <- read_excel(
+  "./cleaned_data/electronics_bubble_chart.xlsx")
+
+# *******************************************************************************
+# Stacked area chart
+
+electronics_stacked_area_wide <- read_excel(
+  "./raw_data/electronics_stacked_area_wide.xlsx")
+
+electronics_stacked_area_long <- electronics_stacked_area_wide %>%
+  pivot_longer(-c(
+    `UNU`,
+    `Shape`,
+    `Scale`,
+    `variable`
+  ),
+  names_to = "year", 
+  values_to = "value") %>%
+  as.data.frame() %>%
+  select(-c(`Shape`,
+            `Scale`)) %>%
+  clean_names() %>%
+  rename('unu_key' = 'unu')
+
+electronics_stacked_area_chart <- merge(electronics_stacked_area_long,
+                                        UNU_colloquial,
                                       by=c("unu_key" = "unu_key")) %>%
-  na.omit() 
+  na.omit() %>%
+  select(-unu_key)
 
 write_xlsx(electronics_stacked_area_chart, 
           "./cleaned_data/electronics_stacked_area_chart.xlsx")
+
+# *******************************************************************************
+# SANKEY
+
+# Import units data
+REE_units <- 
+  read_excel("./cleaned_data/REE_units.xlsx", col_names = T) %>%
+  select(1,3,5) %>%
+  rename(year = 1,
+         'Offshore wind turbine' = 2,
+         'Onshore wind turbine' = 3) %>%
+  pivot_longer(-year,
+               names_to = "product",
+               values_to = "value")
+
+# Import sankey data for single product by year
+REE_sankey_links <-
+  read_excel("./cleaned_data/REE_sankey_links.xlsx", col_names = T)
+
+# Left join and convert units to mass
+REE_sankey_links <- 
+  left_join(REE_sankey_links, REE_units, by = c('year','product')) %>%
+  mutate(value = Value*value) %>%
+  select(-Value)
+
+write_xlsx(REE_sankey_links, 
+           "./cleaned_data/REE_sankey_links_units.xlsx")  
 
 # *******************************************************************************
 # MONETARY FLOWS
