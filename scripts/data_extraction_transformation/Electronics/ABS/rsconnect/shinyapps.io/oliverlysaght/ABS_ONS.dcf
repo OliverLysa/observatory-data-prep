@@ -1,0 +1,14 @@
+name: ABS_ONS
+title: ABS_ONS
+username:
+account: oliverlysaght
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8398310
+bundleId: 6949523
+url: https://oliverlysaght.shinyapps.io/ABS_ONS/
+when: 1678661564.60875
+lastSyncTime: 1678661564.60877
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: Output.xlsx

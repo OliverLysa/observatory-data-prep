@@ -1,0 +1,13 @@
+name: iFixit_app
+title: iFixit_app
+username:
+account: oliverlysaght
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8274789
+bundleId: 6848130
+url: https://oliverlysaght.shinyapps.io/iFixit_app/
+when: 1676437821.05961
+lastSyncTime: 1676437821.05964
+asMultiple: FALSE
+asStatic: FALSE
