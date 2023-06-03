@@ -16,7 +16,9 @@ packages <- c("magrittr",
               "httr",
               "jsonlite",
               "mixdist",
-              "janitor")
+              "janitor",
+              "devtools",
+              "roxygen2")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())

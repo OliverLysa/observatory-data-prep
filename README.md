@@ -8,13 +8,19 @@
 
 # Purpose
 
-A collection of scripts for:
+A collection of scripts combined into a package to:
 
-1.  extracting raw data from public official and emerging sources (incl. via API, web scraping and programmatic download requests); and
+1.  extract raw data from public official and emerging sources (incl. via API, web scraping and programmatic download requests); and
 
-2.  processing these incl. cleaning, validation, outlier replacement and unknown value estimation to populate the ce-observatory - a UK national CE-observatory dashboard for description of current baseline and comparison of alternative target future circular economy configurations for specific resource-product-industry categories.
+2.  process these including:
 
-The ce-observatory can be viewed at the following URL:
+    1.  cleaning and reformatting
+
+    2.  validation (e.g. outlier replacement) and unknown value estimation
+
+    3.  deriving key metrics
+
+to populate the ce-observatory - a UK national CE-observatory dashboard for description of current baseline and comparison of alternative target future circular economy configurations for specific resource-product-industry categories. The ce-observatory can be viewed at the following URL:
 
 # How to use
 
@@ -22,9 +28,9 @@ The ce-observatory can be viewed at the following URL:
 
 Scripts are written in the programming languages R and Python.
 
-# Folders
+# Folders and files
 
-## Raw data
+## Raw data (inputs)
 
 Raw data files downloaded from sources
 
@@ -34,7 +40,7 @@ Raw data files downloaded from sources
 
 </center>
 
-## Cleaned data
+## Cleaned data (outputs)
 
 Cleaned data files, derived from raw data files following cleaning and tidying. Enclosed intermediate files may undergo additional processing through variable calculation scripts to input to the observatory dashboard.
 
@@ -65,8 +71,19 @@ Script extracts trade data from the UKTradeInfo website using the 'uktrade' R pa
 1.  Selects SIC codes from the classification table to define which sheets are imported
 2.  Extracts relevant sheets in the ONS prodcom dataset, cleans data and put into tidy format
 3.  Validation and unknown values estimated
+    1.  In some cases, values are suppressed
 
 ### Apparent consumption
+
+There are a range of methodologies available for analysing material flows, the choice of which will affect final estimates (ONS, ). The most widely established methodological framework for measuring material resource flows at a national level is the Economy-Wide Material Flow Accounting (EW-MFA) system ([Eurostat, 2018](https://seea.un.org/sites/seea.un.org/files/ks-gq-18-006-en-n.pdf)) which underpins the SNA SEEA Material Flow Accounts (SNA-SEEA-MFA). In a closed economy or at the global level, the sum of domestic resource extraction (DE) is equivalent to consumption-based material flow indicators such as domestic material consumption (DMC) or raw material consumption (RMC) as well as their equivalent input-based indicators e.g., direct material input (DMI) and Raw Material Input (RMI) as all trade flows net out.
+
+Domestic Material Consumption (DMC) is a headline indicator derived from the EW-MFA and SEEA-CF-MFA systems. It is currently the most widely used material flow-based indicator at the core of national statistical reporting on material flows. DMC is calculated by summing the used fraction of domestically extracted and harvested materials and the weight of imported raw materials, semi-finished and manufactured products, while excluding the weight of exported raw materials, semi-finished and manufactured products. 
+
+DMC can therefore be written as:
+
+Where *DE* is domestic extraction and *PtB* defines the physical trade balance of *Im* i.e. imports and *Ex* i.e. exports. DMC excludes hidden flows throughout. A closely linked indicator, Direct Material Input (DMI) is based on the same methodology but incorporates the materials mobilised or used in the production of exported goods and services ([OECD, 2008](https://www.oecd.org/environment/indicators-modelling-outlooks/MFA-Guide.pdf)).
+
+This methodology can be applied at a sub-national level too, and is often referred to as an 'apparent consumption' method.
 
 1.  Left join summary trade and UNU classification to get flows by UNU
 2.  Filter prodcom variable column and mutate values
@@ -100,7 +117,7 @@ Some historical lifespan data is available in, or can be derived from, existing 
 
 2.  Data reformatted and restructured to calculate derived aggregates using end-of use mix % multiplied by an ordinal score, combined within a simple linear combination to produce CE-score metric
 
-### GVA
+### Monetary flows
 
 -   [Methodological options](https://docs.google.com/document/d/1jb01KOxCMkPIIc_za8DF5-2LLjh03HJv/edit?usp=sharing&ouid=100007595496292131489&rtpof=true&sd=true)
 
@@ -126,12 +143,44 @@ Extracts GVA data and maps to UNU codes
 95.22	Repair of household appliances and home and garden equipment
 77.3	 Renting and leasing of other machinery, equipment and tangible goods
 
+"Intensity indicators compare trends in economic activity such as value-added, income or consumption with trends in specific environmental flows such as emissions, energy and water use, and flows of waste. These indicators are expressed as either intensity or productivity ratios, where intensity indicators are calculated as the ratio of the environmental flow to the measure of economic activity, and productivity indicators are the inverse of this ratio." (SEEA-Environment Extensions, 2012, pg. 13).
+
+At its most basic, a measure of efficiency or productivity tells us about a relationship in terms of scale between an output and an input. Singular measures of resource efficiency/productivity (as opposite to combined measures e.g. total factor productivity) generally seek to track the effectiveness with which an economy or sub-national process uses resource inputs to generate material or service outputs or anthropocentric value of some description.
+
+Economic-physical productivity i.e. the money value of outputs per mass unit of material resource inputs.
+
 ### Emissions
 
 -   Production emissions
 
 -   Consumption emissions
 
+### More information 
+
+-   EA EPR data - EEE/WEEE and batteries
+
+-   Fly-tipping data (white goods) (Defra) and Illegal dumping (EA)
+
+-   EA WDI data
+
+-   Material/carbon footprint
+
+-   Business-level data e.g. employment
+
+### Leading indicators
+
+-   Durability - designed lifespan
+
+-   Repairability - iFixit
+
+-   Open repair data (activities and repair success rate)
+
+-   Price differentials (Ebay)
+
+    Policy layer e.g.fFly-tipping actions
+
 # Contact
 
 # Accessibility statement
+
+# Reference
