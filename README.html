@@ -418,26 +418,48 @@ weight and life-time distribution’. This can help simplify quantitative
 assessment, for instance, an average mass can be applied to each UNU
 category in a robust way.</p>
 <p>The <a href="https://github.com/OliverLysa/observatory/blob/main/scripts/classification_matching/UNU_classification_matching.R">script</a>
-imports classifications and makes correlation tables where required for
-moving between these:</p>
+imports classifications and makes correlation tables for moving between
+these. It takes the following steps:</p>
 <ol style="list-style-type: decimal">
 <li>Imports the UNU-HS6 correspondence table from Balde <em>et
 al.</em></li>
-<li>Imports the CN8 classification for 8-digit trade data</li>
 <li>Joins CN8 to UNU_2_HS6 to create a <a href="https://github.com/OliverLysa/observatory/blob/main/classifications/concordance_tables/UNU_2_CN8_2_PRODCOM_SIC.csv">correspondence
 table</a> for extracting trade data</li>
-<li>Joins to the UK prodcom classification for extraction domestic
-production data</li>
-<li>Joins to the SIC 2 and 4-digit level to create sector-level
-aggregates and link to GVA and emissions data to create productivity and
-intensity ratios</li>
-<li>Links to the UK-14 classification used for EEE/WEEE Directive
-reporting based on concordance tables supplied by <a href="https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html">Stowell,
-Yumashev et al. (2019)</a></li>
 </ol>
 <details>
 <summary>
-SIC Classification more info
+More info: CN/HS classification
+</summary>
+<p>The 6 digit Harmonised Commodity Description and Coding System (HS)
+advised by the World Customs Organisation which, in turn, forms the
+basis of the 8 digit Combined Nomenclature (CN), is consistent with
+nomenclature systems for describing domestic production drawn on in the
+UK.</p>
+</details>
+<ol start="3" style="list-style-type: decimal">
+<li>Joins to the UK prodcom classification for extracting domestic
+production data</li>
+</ol>
+<details>
+<summary>
+More info: Prodcom classification
+</summary>
+<p>The Classification of Products by Activity (CPA) coding frame for
+describing products (goods and services) at the level of the EU maps
+onto and extends the SIC classification by two further digits in
+alignment with the UN Central Product Classification (CPC). Prodcom
+headings used in statistics on UK manufacturing production draw on up to
+eight-digit numerical codes, the first six of which align with the CPA
+and with two additional digits for further detail.</p>
+</details>
+<ol start="4" style="list-style-type: decimal">
+<li>Joins to the SIC 2 and 4-digit level to create sector-level
+aggregates and link to GVA and emissions data to create productivity and
+intensity ratios</li>
+</ol>
+<details>
+<summary>
+More info: SIC classification
 </summary>
 <p>The UK National Accounts (UKNA) describe national production, income,
 consumption, accumulation and wealth, and are the basis from which key
@@ -470,6 +492,11 @@ of 21 sections, 88 divisions, 272 groups, 615 classes and 191
 subclasses, with a revision to the current structure planned in
 2023.</p>
 </details>
+<ol start="5" style="list-style-type: decimal">
+<li>Links to the UK-14 classification used for EEE/WEEE Directive
+reporting based on concordance tables supplied by <a href="https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html">Stowell,
+Yumashev et al. (2019)</a></li>
+</ol>
 </div>
 <div id="trade-data" class="section level3">
 <h3>Trade data</h3>

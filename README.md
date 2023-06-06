@@ -48,24 +48,42 @@ Cleaned data files, derived from raw data files following cleaning and tidying. 
 
 Data is presented in the observatory dashboard categorised by the [UNU-54](https://github.com/OliverLysa/observatory/blob/main/classifications/classifications/UNU.xlsx) classification developed by UNU (Wang et al., 2012; [Forti, Baldé and Kuehr, 2018](https://collections.unu.edu/eserv/UNU:6477/RZ_EWaste_Guidelines_LoRes.pdf)). The objective of this classification system is to group products by 'similar function, comparable material composition (in terms of hazardous substances and valuable materials) and related end-of-life attributes...in addition to...a homogeneous average weight and life-time distribution'. This can help simplify quantitative assessment, for instance, an average mass can be applied to each UNU category in a robust way.
 
-The [script](https://github.com/OliverLysa/observatory/blob/main/scripts/classification_matching/UNU_classification_matching.R) imports classifications and makes correlation tables where required for moving between these:
+The [script](https://github.com/OliverLysa/observatory/blob/main/scripts/classification_matching/UNU_classification_matching.R) imports classifications and makes correlation tables for moving between these. It takes the following steps:
 
 1.  Imports the UNU-HS6 correspondence table from Balde *et al.*
-2.  Imports the CN8 classification for 8-digit trade data
-3.  Joins CN8 to UNU_2\_HS6 to create a [correspondence table](https://github.com/OliverLysa/observatory/blob/main/classifications/concordance_tables/UNU_2_CN8_2_PRODCOM_SIC.csv) for extracting trade data
-4.  Joins to the UK prodcom classification for extraction domestic production data
-5.  Joins to the SIC 2 and 4-digit level to create sector-level aggregates and link to GVA and emissions data to create productivity and intensity ratios
-6.  Links to the UK-14 classification used for EEE/WEEE Directive reporting based on concordance tables supplied by [Stowell, Yumashev et al. (2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
+2.  Joins CN8 to UNU_2\_HS6 to create a [correspondence table](https://github.com/OliverLysa/observatory/blob/main/classifications/concordance_tables/UNU_2_CN8_2_PRODCOM_SIC.csv) for extracting trade data
 
 <details>
 
-<summary>SIC Classification more info</summary>
+<summary>More info: CN/HS classification</summary>
+
+The 6 digit Harmonised Commodity Description and Coding System (HS) advised by the World Customs Organisation which, in turn, forms the basis of the 8 digit Combined Nomenclature (CN), is consistent with nomenclature systems for describing domestic production drawn on in the UK.
+
+</details>
+
+3.  Joins to the UK prodcom classification for extracting domestic production data
+
+<details>
+
+<summary>More info: Prodcom classification</summary>
+
+The Classification of Products by Activity (CPA) coding frame for describing products (goods and services) at the level of the EU maps onto and extends the SIC classification by two further digits in alignment with the UN Central Product Classification (CPC). Prodcom headings used in statistics on UK manufacturing production draw on up to eight-digit numerical codes, the first six of which align with the CPA and with two additional digits for further detail.
+
+</details>
+
+4.  Joins to the SIC 2 and 4-digit level to create sector-level aggregates and link to GVA and emissions data to create productivity and intensity ratios
+
+<details>
+
+<summary>More info: SIC classification</summary>
 
 The UK National Accounts (UKNA) describe national production, income, consumption, accumulation and wealth, and are the basis from which key national-level aggregates and indicators such as gross domestic product (GDP) are derived. The UK accounts are compiled by the UK ONS largely in accordance with the System of National Accounts (SNA), an internationally agreed standard set of recommendations introduced in the 1950s on how to compile national accounts covering agreed concepts, definitions, classifications and accounting rules. The SNA broadly separates economic actors into producing units (mainly corporations, nonprofit institutions and government units) and consuming units (mainly households). On the production side and as part of the UKNA, industries are classified into branches of homogeneous institutional units producing goods and services described under a given heading of a product classification (Lequiller and Blades, 2014). The Standard Industrial Classification (SIC) 2007, the first version of which was introduced in 1948 and which has since been revised several times, is a hierarchical 5 digit framework used in the UKNA to classify businesses by the type of economic activity they engage in.
 
 Companies are self-assigned to at least one (and up to four) of a condensed list of SIC codes (\~730) when registering with the UK Companies House and again, but to a single code associated with their highest valueadded activity (principal activity), for most statistical returns (Jacobs and O'Neill, 2003). The UK SIC (2007) is based on the 4 digit International Standard Industrial Classification of All Economic Activities (ISIC) developed by the UN (ONS, 2009) while mirroring the NACE Rev. 2 classification developed by Eurostat and adding a further digit of detail where deemed useful. Overall, the UK SIC (2007) consists of 21 sections, 88 divisions, 272 groups, 615 classes and 191 subclasses, with a revision to the current structure planned in 2023.
 
 </details>
+
+5.  Links to the UK-14 classification used for EEE/WEEE Directive reporting based on concordance tables supplied by [Stowell, Yumashev et al. (2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
 
 ### Trade data
 
