@@ -26,27 +26,12 @@ if (any(installed_packages == FALSE)) {
 # Packages loading
 invisible(lapply(packages, library, character.only = TRUE))
 
-# Match trade and production data
+# *******************************************************************************
+# Apparent consumption method
+# *******************************************************************************
+#
 
-# Import trade summary
-Summary_trade <- read.csv(
-  "./cleaned_data/electronics_Summary_trade.csv")
-
-# Convert trade code to character
-Summary_trade$Cn8Code <- as.character(Summary_trade$Cn8Code)
-
-# Left join summary trade and UNU classification to get flows by UNU
-Summary_trade_UNU <- left_join(Summary_trade,
-                               UNU_2_CN8_2_PRODCOM,
-                               by = c('Cn8Code' = 'CN8')) %>%
-  group_by(`UNU KEY`, Year, Variable, FlowTypeDescription) %>%
-  summarise(Value = sum(Value)) %>%
-  # Rename contents in variable column
-  mutate(Variable = gsub("sum\\(NetMass)", 'Mass', Variable),
-         Variable = gsub("sum\\(Value)", 'Value', Variable),
-         Variable = gsub("sum\\(SuppUnit)", 'Units', Variable))
-
-# Filter prodcom variable column and mutate values 
+# Filter prodcom variable column and mutate variable names to reflect the trade output
 Prodcom_data_26_32_UNU <- Prodcom_data_26_32_UNU %>%
   filter(Variable != "£ per Number of items",
          Variable != "£ per Kilogram") %>%
@@ -55,7 +40,7 @@ Prodcom_data_26_32_UNU <- Prodcom_data_26_32_UNU %>%
          Variable = gsub("Volume \\(Number of items)", "Units", Variable),
          Variable = gsub("Volume \\(Kilogram)", "Mass", Variable))
 
-# Bind/append datasets 
+# Bind/append prodcom and trade datasets to create a total inflow dataset
 flows <- rbindlist(
   list(
     Summary_trade_UNU,
@@ -69,8 +54,10 @@ flows_all <- pivot_wider(flows,
                          values_from = Value) %>%
   clean_names()
 
+# Turn domestic production NA values into a 0
 flows_all["domestic_production"][is.na(flows_all["domestic_production"])] <- 0
 
+# Calculate key aggregates in wide format and then pivot longer
 flows_all <- flows_all %>% 
   mutate(total_imports = eu_imports + non_eu_imports,
          total_exports = eu_exports + non_eu_exports,
@@ -86,4 +73,53 @@ flows_all <- flows_all %>%
                values_to = 'value')
 
 # write_xlsx(flows_all, 
-#          "./1. Extract/5. Cleaned_datafiles/electronics_flows.xlsx")
+#          "./cleaned_data/electronics_flows.xlsx")
+
+# *******************************************************************************
+# POM method
+# *******************************************************************************
+#
+
+# Download file from URL at government website
+download.file(
+  "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160182/Electrical_and_electronic_equipment_placed_on_the_UK_market.ods",
+  "./raw_data/EEE_on_the_market.ods"
+)
+
+# Extract and list all sheet names 
+POM_sheet_names <- list_ods_sheets(
+  "./raw_data/EEE_on_the_market.ods")
+
+# Map sheet names to the imported file by adding a column "sheetname" with its name
+POM_data <- purrr::map_df(POM_sheet_names, 
+                          ~dplyr::mutate(read_ods(
+                            "./raw_data/EEE_on_the_market.ods", 
+                            sheet = .x), 
+                            sheetname = .x)) %>%
+  # filter out NAs in column 1
+  filter(Var.1 != "NA") %>%
+  # make numeric and filter out anything but 1-14 in column 1
+  mutate_at(c('Var.1'), as.numeric) %>%
+  filter(between(Var.1, 1, 14)) %>%
+  select(-c(`Var.1`,
+            Var.5)) %>% 
+  rename(product = 1,
+         household = 2,
+         non_household = 3,
+         year = 4)
+
+# substringing the year column to remove the quarterly reference while keeping partial years in
+POM_data$year <- 
+  substr(POM_data$year, 1, 4)
+
+# Pivot long to input to charts
+POM_data <- POM_data %>%
+  pivot_longer(-c(
+  product,
+  year),
+  names_to = "end_use", 
+  values_to = "value")
+
+# Write output to xlsx form
+write_xlsx(POM_data, 
+          "./cleaned_data/electronics_POM.xlsx")

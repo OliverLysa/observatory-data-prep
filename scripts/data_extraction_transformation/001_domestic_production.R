@@ -26,6 +26,10 @@ if (any(installed_packages == FALSE)) {
 # Packages loading
 invisible(lapply(packages, library, character.only = TRUE))
 
+# *******************************************************************************
+# Data extraction and tidying
+# *******************************************************************************
+#
 #### Extract prodcom data ####
 
 # Download dataset
@@ -33,15 +37,13 @@ download.file(
   "https://www.ons.gov.uk/file?uri=/businessindustryandtrade/manufacturingandproductionindustry/datasets/ukmanufacturerssalesbyproductprodcom/current/prodcomdata2020final10082021145108.xlsx",
   "UK manufacturers' sales by product.xlsx")
 
-# Retrieve SIC codes from the classification table to define which sheets are imported
+# Retrieve SIC codes from the filtered classification table to define which sheets are imported
 SIC_sheets <- unique(UNU_2_CN8_2_PRODCOM$SIC2) %>%
   as.data.frame() %>%
   na.omit() %>%
-  # 39 filtered due to Prodcom only covering up to Division 33
+  # 39 removed due to Prodcom only covering up to Division 33
   filter(. != "39") %>%
   rename("Code" = 1)
-
-# These are being set manually at the moment 
 
 # Read excel sheet, clean, filter out blank rows and those not directly linked to output data (Division 26)
 Prodcom_data_26 <- read_excel(
@@ -83,7 +85,7 @@ Prodcom_data_32 <- read_excel(
   mutate(Code = case_when(str_detect(Variable, "32") ~ Variable), .before = 1) %>%
   tidyr::fill(Code)
 
-# Bind the extracted division-level data
+# Bind the extracted division-level data to create a complete dataset
 Prodcom_data_26_32 <-
   rbindlist(
     list(
@@ -117,7 +119,7 @@ Prodcom_data_26_32 <- Prodcom_data_26_32 %>%
 Prodcom_data_26_32 <-
   Prodcom_data_26_32[Prodcom_data_26_32$Code != Prodcom_data_26_32$Variable, ]
 
-# Use g sub to remove unwanted characters
+# Use g sub to remove unwanted characters in the code column
 Prodcom_data_26_32 <- Prodcom_data_26_32 %>%
   # Remove everything in the code column following a hyphen
   mutate(Code = gsub("\\-.*", "", Code),
@@ -127,7 +129,7 @@ Prodcom_data_26_32 <- Prodcom_data_26_32 %>%
          Code = gsub("\\(.*", "", Code)
   )
 
-# Convert dataset to long-form and filter non-numeric values in the value column
+# Convert dataset to long-form, filter non-numeric values in the value column and mutate values
 Prodcom_data_26_32 <- Prodcom_data_26_32 %>%
   pivot_longer(-c(
     `Code`,

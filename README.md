@@ -32,7 +32,7 @@ Scripts are written in the programming languages R and Python.
 
 ## Raw data (inputs)
 
-Raw data files downloaded from sources
+Raw data files downloaded from sources identified as useful inputs to the dashboard
 
 ![](images/Screenshot%202023-06-02%20at%206.33.16%20PM.png){width="500"}
 
@@ -44,6 +44,8 @@ Cleaned data files, derived from raw data files following cleaning and tidying. 
 
 ### Functions
 
+A collection of regularly used functions
+
 ### Classification matching
 
 Data is presented in the observatory dashboard categorised by the [UNU-54](https://github.com/OliverLysa/observatory/blob/main/classifications/classifications/UNU.xlsx) classification developed by UNU (Wang et al., 2012; [Forti, Baldé and Kuehr, 2018](https://collections.unu.edu/eserv/UNU:6477/RZ_EWaste_Guidelines_LoRes.pdf)). The objective of this classification system is to group products by 'similar function, comparable material composition (in terms of hazardous substances and valuable materials) and related end-of-life attributes...in addition to...a homogeneous average weight and life-time distribution'. This can help simplify quantitative assessment, for instance, an average mass can be applied to each UNU category in a robust way.
@@ -51,11 +53,11 @@ Data is presented in the observatory dashboard categorised by the [UNU-54](https
 The [script](https://github.com/OliverLysa/observatory/blob/main/scripts/classification_matching/UNU_classification_matching.R) imports classifications and makes correlation tables for moving between these. It takes the following steps:
 
 1.  Imports the UNU-HS6 correspondence table from Balde *et al.*
-2.  Joins CN8 to UNU_2\_HS6 to create a [correspondence table](https://github.com/OliverLysa/observatory/blob/main/classifications/concordance_tables/UNU_2_CN8_2_PRODCOM_SIC.csv) for extracting trade data
+2.  Joins CN8 to UNU_2\_HS6 to create a [correspondence table](https://github.com/OliverLysa/observatory/blob/main/classifications/concordance_tables/UNU_2_CN8_2_PRODCOM_SIC.csv) for extracting UK trade data
 
 <details>
 
-<summary>More info: CN/HS classification</summary>
+<summary>**More info**: HS/CN classification</summary>
 
 The 6 digit Harmonised Commodity Description and Coding System (HS) advised by the World Customs Organisation which, in turn, forms the basis of the 8 digit Combined Nomenclature (CN), is consistent with nomenclature systems for describing domestic production drawn on in the UK.
 
@@ -65,7 +67,7 @@ The 6 digit Harmonised Commodity Description and Coding System (HS) advised by t
 
 <details>
 
-<summary>More info: Prodcom classification</summary>
+<summary>**More info**: Prodcom classification</summary>
 
 The Classification of Products by Activity (CPA) coding frame for describing products (goods and services) at the level of the EU maps onto and extends the SIC classification by two further digits in alignment with the UN Central Product Classification (CPC). Prodcom headings used in statistics on UK manufacturing production draw on up to eight-digit numerical codes, the first six of which align with the CPA and with two additional digits for further detail.
 
@@ -75,7 +77,7 @@ The Classification of Products by Activity (CPA) coding frame for describing pro
 
 <details>
 
-<summary>More info: SIC classification</summary>
+<summary>**More info**: SIC classification</summary>
 
 The UK National Accounts (UKNA) describe national production, income, consumption, accumulation and wealth, and are the basis from which key national-level aggregates and indicators such as gross domestic product (GDP) are derived. The UK accounts are compiled by the UK ONS largely in accordance with the System of National Accounts (SNA), an internationally agreed standard set of recommendations introduced in the 1950s on how to compile national accounts covering agreed concepts, definitions, classifications and accounting rules. The SNA broadly separates economic actors into producing units (mainly corporations, nonprofit institutions and government units) and consuming units (mainly households). On the production side and as part of the UKNA, industries are classified into branches of homogeneous institutional units producing goods and services described under a given heading of a product classification (Lequiller and Blades, 2014). The Standard Industrial Classification (SIC) 2007, the first version of which was introduced in 1948 and which has since been revised several times, is a hierarchical 5 digit framework used in the UKNA to classify businesses by the type of economic activity they engage in.
 

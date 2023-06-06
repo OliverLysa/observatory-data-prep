@@ -788,13 +788,9 @@ values_to = "value")
 Joined <- join_by(
   electronics_bubble_chart2,
   UNU_mass,
-  by = c("unu_key", "UNU-KEY"),
-  type = "full"
+  by = c("unu_key", "UNU-KEY",
+         closest("Year" <= "year")),
 )
-
-by=c('x1'='x2', 'y1'='y2')
-
-join_by(closest(a <= b))
 
 # UNU <- electronics_bubble_chart2 %>%
 #  select(c(unu_key, `UNU DESCRIPTION`))

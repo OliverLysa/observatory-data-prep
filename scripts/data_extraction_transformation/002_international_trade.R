@@ -4,6 +4,9 @@
 # *******************************************************************************
 
 # Package names
+
+# devtools::install_github("pvdmeulen/uktrade")
+
 packages <- c("magrittr", 
               "writexl", 
               "readxl", 
@@ -28,22 +31,17 @@ if (any(installed_packages == FALSE)) {
 # Packages loading
 invisible(lapply(packages, library, character.only = TRUE))
 
-
-# devtools::install_github("pvdmeulen/uktrade")
-
 # *******************************************************************************
 # Data extraction and tidying
 # *******************************************************************************
 #
-
-#### Extract trade data ####
 
 # Isolate list of CN8 codes from classification table
 trade_terms <- 
   UNU_2_CN8_2_PRODCOM$CN8 %>%
 unlist()
 
-# Create a for loop that goes through the trade terms, extracts the data using the extractor function based on the uktrade wrapper
+# Create a for loop that goes through the trade terms, extracts the data using the extractor function (in function script) based on the uktrade wrapper
 # and prints the results to a list of dataframes
 res <- list()
 for (i in seq_along(trade_terms)) {
@@ -53,7 +51,7 @@ for (i in seq_along(trade_terms)) {
   
 }
 
-# Convert the list of dataframes to a single dataframe
+# Bind the list of dataframes to a single dataframe
 bind <- 
   dplyr::bind_rows(res)
 
@@ -61,9 +59,7 @@ bind <-
 bind$MonthId <- 
   substr(bind$MonthId, 1, 4)
 
-# Outlier detection and replacement
-
-# Summarise results grouped by year, flow type and code
+# Summarise results in value, mass and unit terms grouped by year, flow type and trade code
 Summary_trade <- bind %>%
   # Group by month
   group_by(MonthId, 
@@ -80,6 +76,20 @@ Summary_trade <- bind %>%
                names_to = "Variable",
                values_to = 'Value')
 
-# Write csv file
-# write.csv(Summary_trade_UNU, 
+# Convert trade code to character 
+Summary_trade$Cn8Code <- as.character(Summary_trade$Cn8Code)
+
+# Left join summary trade and UNU classification to summary by UNU
+Summary_trade_UNU <- left_join(Summary_trade,
+                               UNU_2_CN8_2_PRODCOM,
+                               by = c('Cn8Code' = 'CN8')) %>%
+  group_by(`UNU KEY`, Year, Variable, FlowTypeDescription) %>%
+  summarise(Value = sum(Value)) %>%
+  # Rename contents in variable column
+  mutate(Variable = gsub("sum\\(NetMass)", 'Mass', Variable),
+         Variable = gsub("sum\\(Value)", 'Value', Variable),
+         Variable = gsub("sum\\(SuppUnit)", 'Units', Variable))
+
+# Write xlsx file of output
+# write_xlsx(Summary_trade_UNU, 
 #          "./1. Extract/5. Cleaned_datafiles/Summary_trade_UNU.csv")
