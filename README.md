@@ -46,14 +46,26 @@ Cleaned data files, derived from raw data files following cleaning and tidying. 
 
 ### Classification matching
 
-Data is presented in the observatory dashboard categorised by the UNU-54 classification developed by UNU (Wang et al., 2012; [Forti, Baldé and Kuehr, 2018](https://collections.unu.edu/eserv/UNU:6477/RZ_EWaste_Guidelines_LoRes.pdf)). The objective of this classification system is to group products by 'similar function, comparable material composition (in terms of hazardous substances and valuable materials) and related end-of-life attributes...in addition to...a homogeneous average weight and life-time distribution' in order to simplify quantitative assessment. For instance, an average mass can be applied to each UNU category without skewing aggregates.
+Data is presented in the observatory dashboard categorised by the [UNU-54](https://github.com/OliverLysa/observatory/blob/main/classifications/classifications/UNU.xlsx) classification developed by UNU (Wang et al., 2012; [Forti, Baldé and Kuehr, 2018](https://collections.unu.edu/eserv/UNU:6477/RZ_EWaste_Guidelines_LoRes.pdf)). The objective of this classification system is to group products by 'similar function, comparable material composition (in terms of hazardous substances and valuable materials) and related end-of-life attributes...in addition to...a homogeneous average weight and life-time distribution'. This can help simplify quantitative assessment, for instance, an average mass can be applied to each UNU category in a robust way.
 
-The [script](https://github.com/OliverLysa/observatory/blob/main/scripts/classification_matching/UNU_classification_matching.R) imports classifications and makes correlation tables where required for moving between these in order to aggregate across different sources.
+The [script](https://github.com/OliverLysa/observatory/blob/main/scripts/classification_matching/UNU_classification_matching.R) imports classifications and makes correlation tables where required for moving between these:
 
 1.  Imports the UNU-HS6 correspondence table from Balde *et al.*
 2.  Imports the CN8 classification for 8-digit trade data
-3.  Joins CN8 to UNU_2\_HS6 to create a [correspondence table](https://github.com/OliverLysa/observatory/blob/main/classifications/concordance_tables/UNU_2_CN8_2_PRODCOM_SIC.csv)
-4.  Links to prodcom and the SIC 2 and 4-digit level
+3.  Joins CN8 to UNU_2\_HS6 to create a [correspondence table](https://github.com/OliverLysa/observatory/blob/main/classifications/concordance_tables/UNU_2_CN8_2_PRODCOM_SIC.csv) for extracting trade data
+4.  Joins to the UK prodcom classification for extraction domestic production data
+5.  Joins to the SIC 2 and 4-digit level to create sector-level aggregates and link to GVA and emissions data to create productivity and intensity ratios
+6.  Links to the UK-14 classification used for EEE/WEEE Directive reporting based on concordance tables supplied by [Stowell, Yumashev et al. (2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
+
+<details>
+
+<summary>SIC Classification more info</summary>
+
+The UK National Accounts (UKNA) describe national production, income, consumption, accumulation and wealth, and are the basis from which key national-level aggregates and indicators such as gross domestic product (GDP) are derived. The UK accounts are compiled by the UK ONS largely in accordance with the System of National Accounts (SNA), an internationally agreed standard set of recommendations introduced in the 1950s on how to compile national accounts covering agreed concepts, definitions, classifications and accounting rules. The SNA broadly separates economic actors into producing units (mainly corporations, nonprofit institutions and government units) and consuming units (mainly households). On the production side and as part of the UKNA, industries are classified into branches of homogeneous institutional units producing goods and services described under a given heading of a product classification (Lequiller and Blades, 2014). The Standard Industrial Classification (SIC) 2007, the first version of which was introduced in 1948 and which has since been revised several times, is a hierarchical 5 digit framework used in the UKNA to classify businesses by the type of economic activity they engage in.
+
+Companies are self-assigned to at least one (and up to four) of a condensed list of SIC codes (\~730) when registering with the UK Companies House and again, but to a single code associated with their highest valueadded activity (principal activity), for most statistical returns (Jacobs and O'Neill, 2003). The UK SIC (2007) is based on the 4 digit International Standard Industrial Classification of All Economic Activities (ISIC) developed by the UN (ONS, 2009) while mirroring the NACE Rev. 2 classification developed by Eurostat and adding a further digit of detail where deemed useful. Overall, the UK SIC (2007) consists of 21 sections, 88 divisions, 272 groups, 615 classes and 191 subclasses, with a revision to the current structure planned in 2023.
+
+</details>
 
 ### Trade data
 
@@ -92,7 +104,7 @@ This methodology can be applied at a sub-national level too, and is often referr
 
 1.  [Extracts](https://github.com/OliverLysa/observatory/blob/main/scripts/data_extraction_transformation/Electronics/environment_agency/On_the_market.R) placed on market data from Environment Agency EPR datasets
 
-### Mass conversion & bill of materials 
+### Mass conversion & bill of materials
 
 1.  Extracts BoM data from Babbitt *et al* 2019 and mass trend data from Balde *et al.*
 2.  Apply to unit-level flow data incl. using weightings
@@ -131,15 +143,7 @@ Scripts for sources capturing monetary data additional to prodcom/trade across p
 
 Extracts GVA data and maps to UNU codes
 
-33.12	Repair of machinery
-33.13	Repair of electronic and optical equipment
-33.14	Repair of electrical equipment
-95.1 Repair of computers and communication equipment
-95.11	Repair of computers and peripheral equipment
-95.12	Repair of communication equipment
-95.21	Repair of consumer electronics
-95.22	Repair of household appliances and home and garden equipment
-77.3	 Renting and leasing of other machinery, equipment and tangible goods
+33.12 Repair of machinery 33.13 Repair of electronic and optical equipment 33.14 Repair of electrical equipment 95.1 Repair of computers and communication equipment 95.11 Repair of computers and peripheral equipment 95.12 Repair of communication equipment 95.21 Repair of consumer electronics 95.22 Repair of household appliances and home and garden equipment 77.3 Renting and leasing of other machinery, equipment and tangible goods
 
 "Intensity indicators compare trends in economic activity such as value-added, income or consumption with trends in specific environmental flows such as emissions, energy and water use, and flows of waste. These indicators are expressed as either intensity or productivity ratios, where intensity indicators are calculated as the ratio of the environmental flow to the measure of economic activity, and productivity indicators are the inverse of this ratio." (SEEA-Environment Extensions, 2012, pg. 13).
 
@@ -153,7 +157,7 @@ Economic-physical productivity i.e. the money value of outputs per mass unit of
 
 -   Consumption emissions
 
-### More information 
+### More information
 
 -   EA EPR data - EEE/WEEE and batteries
 
