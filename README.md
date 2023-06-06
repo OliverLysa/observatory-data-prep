@@ -8,7 +8,7 @@
 
 # Purpose
 
-A collection of scripts combined into a package to:
+A collection of scripts to:
 
 1.  extract raw data from public official and emerging sources (incl. via API, web scraping and programmatic download requests); and
 
@@ -34,15 +34,11 @@ Scripts are written in the programming languages R and Python.
 
 Raw data files downloaded from sources
 
-<center>
-
-![](images/Screenshot%202023-06-02%20at%206.33.16%20PM.png){width="603"}
-
-</center>
+![](images/Screenshot%202023-06-02%20at%206.33.16%20PM.png){width="500"}
 
 ## Cleaned data (outputs)
 
-Cleaned data files, derived from raw data files following cleaning and tidying. Enclosed intermediate files may undergo additional processing through variable calculation scripts to input to the observatory dashboard.
+Cleaned data files, derived from raw data files following cleaning and tidying. Files may undergo additional processing through variable calculation within the JS/TS dashboard.
 
 ## Scripts
 
@@ -50,7 +46,9 @@ Cleaned data files, derived from raw data files following cleaning and tidying. 
 
 ### Classification matching
 
-Script imports classifications and makes correlation tables for moving between these.
+Data is presented in the observatory dashboard categorised by the UNU-54 classification developed by UNU (Wang et al., 2012; [Forti, Baldé and Kuehr, 2018](https://collections.unu.edu/eserv/UNU:6477/RZ_EWaste_Guidelines_LoRes.pdf)). The objective of this classification system is to group products by 'similar function, comparable material composition (in terms of hazardous substances and valuable materials) and related end-of-life attributes...in addition to...a homogeneous average weight and life-time distribution' in order to simplify quantitative assessment. For instance, an average mass can be applied to each UNU category without skewing aggregates.
+
+The [script](https://github.com/OliverLysa/observatory/blob/main/scripts/classification_matching/UNU_classification_matching.R) imports classifications and makes correlation tables where required for moving between these in order to aggregate across different sources.
 
 1.  Imports the UNU-HS6 correspondence table from Balde *et al.*
 2.  Imports the CN8 classification for 8-digit trade data

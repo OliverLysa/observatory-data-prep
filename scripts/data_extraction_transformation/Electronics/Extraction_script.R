@@ -18,7 +18,9 @@ packages <- c("magrittr",
               "mixdist",
               "janitor",
               "devtools",
-              "roxygen2")
+              "roxygen2",
+              "testthat",
+              "knitr")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())
@@ -727,6 +729,8 @@ Joined <- inner_join(
   type = "full"
 )
 
+join_by(closest(a <= b))
+
 # Consumption emissions 
 
 # *******************************************************************************
@@ -771,6 +775,26 @@ electronics_bubble_chart2 <- merge(electronics_bubble_chart,
 
 write_xlsx(electronics_bubble_chart2, 
            "./cleaned_data/electronics_bubble_chart.xlsx")
+
+# Join with mass data
+UNU_mass <- read_excel(
+  "./cleaned_data/electronics_mass_trend.xlsx") %>%
+  pivot_longer(-c(
+  `UNU-KEY`
+),
+names_to = "year", 
+values_to = "value")
+  
+Joined <- join_by(
+  electronics_bubble_chart2,
+  UNU_mass,
+  by = c("unu_key", "UNU-KEY"),
+  type = "full"
+)
+
+by=c('x1'='x2', 'y1'='y2')
+
+join_by(closest(a <= b))
 
 # UNU <- electronics_bubble_chart2 %>%
 #  select(c(unu_key, `UNU DESCRIPTION`))
