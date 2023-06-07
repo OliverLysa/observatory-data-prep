@@ -374,8 +374,6 @@ flows_all <- flows_all %>%
 # write_xlsx(flows_all, 
 #          "./1. Extract/5. Cleaned_datafiles/electronics_flows.xlsx")
 
-# POM data - see separate script
-
 #### Extract BoM data ####
 # Use weighted averages to go from BoM to UNU based on inflow share data
 
@@ -775,22 +773,6 @@ electronics_bubble_chart2 <- merge(electronics_bubble_chart,
 
 write_xlsx(electronics_bubble_chart2, 
            "./cleaned_data/electronics_bubble_chart.xlsx")
-
-# Join with mass data
-UNU_mass <- read_excel(
-  "./cleaned_data/electronics_mass_trend.xlsx") %>%
-  pivot_longer(-c(
-  `UNU-KEY`
-),
-names_to = "year", 
-values_to = "value")
-  
-Joined <- join_by(
-  electronics_bubble_chart2,
-  UNU_mass,
-  by = c("unu_key", "UNU-KEY",
-         closest("Year" <= "year")),
-)
 
 # UNU <- electronics_bubble_chart2 %>%
 #  select(c(unu_key, `UNU DESCRIPTION`))

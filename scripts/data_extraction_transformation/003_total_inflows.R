@@ -123,3 +123,21 @@ POM_data <- POM_data %>%
 # Write output to xlsx form
 write_xlsx(POM_data, 
           "./cleaned_data/electronics_POM.xlsx")
+
+# Convert units to mass
+
+# Join with mass data
+UNU_mass <- read_excel(
+  "./cleaned_data/electronics_mass_trend.xlsx") %>%
+  pivot_longer(-c(
+    `UNU-KEY`
+  ),
+  names_to = "year", 
+  values_to = "value")
+
+Joined <- join_by(
+  electronics_bubble_chart2,
+  UNU_mass,
+  by = c("unu_key", "UNU-KEY",
+         closest("Year" <= "year")),
+)

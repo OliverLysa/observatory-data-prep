@@ -29,6 +29,10 @@ invisible(lapply(packages, library, character.only = TRUE))
 # *******************************************************************************
 # Bubble chart data
 
+# Read all flows data
+flows_all <- read_excel(
+  "./cleaned_data/electronics_flows.xlsx")
+
 # Map flows data to electronics bubble chart
 electronics_bubble_flows <- flows_all %>%
   # filter to 2017, variable = Units, indicator = apparent_consumption
@@ -39,6 +43,11 @@ electronics_bubble_flows <- flows_all %>%
             variable, 
             indicator)) %>%
   rename(apparent_consumption = value)
+
+# Convert unit flow data to mass using the Bill of Materials
+Babbit_product_total_mass <- BoM_data_average %>%
+  group_by(product) %>%
+  summarise(value = sum(value))
 
 # Map lifespan data to electronics bubble chart
 mean_lifespan <- lifespan_data %>%
@@ -55,26 +64,23 @@ electronics_bubble_chart2 <- merge(electronics_bubble_chart,
                                    electronics_bubble_outflow,
                                    by.x=c("unu_key"),
                                    by.y=c("UNU KEY")) %>%
-  rename(ce_score = scaled) 
+  rename(ce_score = scaled)
 
 write_xlsx(electronics_bubble_chart2, 
            "./cleaned_data/electronics_bubble_chart.xlsx")
 
-electronics_stacked_area_chart <- flows_all %>%
-  # filter to 2017, variable = Units, indicator = apparent_consumption
-  filter(variable == 'Units',
-         indicator == "apparent_consumption") %>%
-  select(-c(variable, 
-            indicator)) %>%
-  rename(apparent_consumption = value)
+# UNU <- electronics_bubble_chart2 %>%
+#  select(c(unu_key, `UNU DESCRIPTION`))
 
-UNU <- electronics_bubble_chart2 %>%
-  select(c(unu_key, `UNU DESCRIPTION`))
+UNU_colloquial <- electronics_bubble_chart2 %>%
+  select(-c(apparent_consumption, 
+            mean_lifespan, 
+            Year,
+            ce_score)) %>%
+  clean_names()
 
-electronics_stacked_area_chart <- merge(electronics_stacked_area_chart,
-                                        UNU,
-                                        by=c("unu_key" = "unu_key")) %>%
-  na.omit() 
+write_xlsx(UNU_colloquial, 
+           "./classifications/classifications/UNU_colloquial.xlsx")
 
-write_xlsx(electronics_stacked_area_chart, 
-           "./cleaned_data/electronics_stacked_area_chart.xlsx")
+electronics_bubble_chart2 <- read_excel(
+  "./cleaned_data/electronics_bubble_chart.xlsx")
