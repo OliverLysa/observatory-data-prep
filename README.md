@@ -1,6 +1,6 @@
 # CE observatory
 
-*Author*: Oliver Lysaght
+*Author*: Oliver Lysaght (oliverlysaght\@icloud.com)
 
 *Date of last update*: 2023-06-07
 
@@ -28,25 +28,25 @@ to populate the ce-observatory - a UK national CE-observatory dashboard for desc
 
 Scripts are written in the programming languages R and Python.
 
-# Folders and files
+# Folder and file descriptions
 
-## Raw data (inputs)
+## raw_data
 
-Raw data files downloaded from sources identified as useful inputs to the dashboard
+Raw data inputs downloaded from sources
 
-![](images/Screenshot%202023-06-02%20at%206.33.16%20PM.png){width="500"}
+## cleaned_data
 
-## Cleaned data (outputs)
+Cleaned data outputs, derived from raw data files following processing. Files may undergo additional processing through variable calculation within the dashboard environment.
 
-Cleaned data files, derived from raw data files following cleaning and tidying. Files may undergo additional processing through variable calculation within the JS/TS dashboard.
+## scripts
 
-## Scripts
+### functions.R
 
-### Functions
+A collection of regularly used functions across all product groups
 
-A collection of regularly used functions
+### electronics
 
-### Classification matching
+#### 000_classification_matching.R
 
 Data is presented in the observatory dashboard categorised by the [UNU-54](https://github.com/OliverLysa/observatory/blob/main/classifications/classifications/UNU.xlsx) classification developed by UNU (Wang et al., 2012; [Forti, Baldé and Kuehr, 2018](https://collections.unu.edu/eserv/UNU:6477/RZ_EWaste_Guidelines_LoRes.pdf)). The objective of this classification system is to group products by 'similar function, comparable material composition (in terms of hazardous substances and valuable materials) and related end-of-life attributes...in addition to...a homogeneous average weight and life-time distribution'. This can help simplify quantitative assessment, for instance, an average mass can be applied to each UNU category in a robust way.
 
@@ -87,7 +87,14 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 
 5.  Links to the UK-14 classification used for EEE/WEEE Directive reporting based on concordance tables supplied by [Stowell, Yumashev et al. (2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
 
-### Trade data
+#### 001_domestic_production.R
+
+1.  Selects SIC codes from the classification table to define which sheets are imported
+2.  Extracts relevant sheets in the ONS prodcom dataset, cleans data and put into tidy format
+3.  Validation and unknown values estimated
+    1.  In some cases, values are suppressed
+
+#### 002_international_trade.R
 
 Script extracts trade data from the UKTradeInfo website using the 'uktrade' R package.
 
@@ -95,16 +102,9 @@ Script extracts trade data from the UKTradeInfo website using the 'uktrade' R pa
 2.  Uses a for loop to iterate through the trade terms, extract data using the 'uktrade' extractor function/wrapper to the UKTradeInfo API and print results to a single dataframe (this can take some time to run)
 3.  Sums results grouped by year, flow type, country of source/destination, trade code
 
-### Prodcom
+#### 003_total_inflows.R
 
-1.  Selects SIC codes from the classification table to define which sheets are imported
-2.  Extracts relevant sheets in the ONS prodcom dataset, cleans data and put into tidy format
-3.  Validation and unknown values estimated
-    1.  In some cases, values are suppressed
-
-### Total inflows
-
-#### Apparent consumption
+##### Apparent consumption
 
 <details>
 
@@ -127,11 +127,11 @@ This methodology can be applied at a sub-national level too, and is often referr
 3.  Pivot wide to create aggregate values then re-pivot long to estimate key aggregates
 4.  Indicators based on <https://www.resourcepanel.org/global-material-flows-database>
 
-#### Placed on the market
+##### Placed on the market
 
 1.  [Extracts](https://github.com/OliverLysa/observatory/blob/main/scripts/data_extraction_transformation/Electronics/environment_agency/On_the_market.R) placed on market data from Environment Agency EPR datasets
 
-#### Mass conversion
+##### Mass conversion
 
 -   Material imports: Direct imports of materials as the weight of products crossing the border
 
@@ -155,13 +155,15 @@ This methodology can be applied at a sub-national level too, and is often referr
 
 -   Material losses in production processes - Material efficiency of production activities.
 
-### Bill of materials
+#### 004_bill_of_materials.R
 
 1.  Extracts BoM data from Babbitt *et al* 2019 and mass trend data from Balde *et al.*
 2.  Apply to unit-level flow data incl. using weightings
 3.  Convert BoM to Sankey format
 
-### Lifespan
+#### stock_outflow_calculation
+
+Python script for calculating stocks and total outflow from inflow and lifespan data
 
 A measurement of how long materials and products are kept in circulation. The industry average for the lifetime of a product or durable products for example.
 
@@ -176,7 +178,7 @@ Some historical lifespan data is available in, or can be derived from, existing 
 
 Look at market transformation programme
 
-### Outflow routing
+#### 005_outflow_routing.R
 
 The NICER programme was ran in advance of the introduction of the Waste Tracking system across the UK.
 
@@ -200,7 +202,7 @@ The NICER programme was ran in advance of the introduction of the Waste Tracking
 
 10. Compares recycling flows in relation to waste arisings of the same material/source.
 
-### Monetary flows
+#### 006_GVA.R
 
 Material productivity - Economic output per unit resource input.
 
@@ -230,7 +232,7 @@ At national level, can be measured from production perspective (GDP/DMC or DMI),
 
 The amount of waste generated in relation to economic output, or alternatively in relation to resource inputs/stocks.
 
-### Emissions
+#### 007_emissions.R
 
 -   Production emissions
 
@@ -240,20 +242,18 @@ The amount of waste generated in relation to economic output, or alternatively i
 
 -   Business-level data e.g. employment
 
-### iFixit
+#### 008_stacked_chart.R
+
+#### 009_sankey_chart.R
+
+#### 010_bubble_chart.R
+
+#### 011_ifixit.R
 
 -   Product characteristics - Product reparability (time required for disassembly, products meeting certain score of reparability), product failures.
 
-### Open repair
+#### 012_open_repair.R
 
-### Infrastructure and facilities
+#### 013_ebay.R
 
-### Ebay
-
-### Policy inputs
-
-# Contact
-
-Oliver Lysaght - oliverlysaght\@icloud.com
-
-# Accessibility statement
+#### 014_policy_inputs.R
