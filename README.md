@@ -133,9 +133,27 @@ This methodology can be applied at a sub-national level too, and is often referr
 
 #### Mass conversion
 
-Raw material consumption
+-   Material imports: Direct imports of materials as the weight of products crossing the border
 
-Material import dependency
+-   domestic material input: Material requirement of production and consumption i.e. DE plus imports. Mass of raw materials extracted from the domestic territory, plus the physical weight of imports.
+
+-   Physical trade balance (imports minus exports) (PTB) - Direct trade dependency in terms of material flows
+
+-   Domestic Material Consumption - DE + PTB. Mass of raw materials extracted from the domestic territory, plus the physical weight of imports, minus the physical weight of exports. Differs from RMC by not taking the raw material equivalents of imports.
+
+-   Raw Material Consumption (RMC) i.e. DE plus RTB - Mass of global raw material extraction associated with producing the goods and services consumed in England (not including hidden flows)
+
+-   Material processed - Mass of domestic extraction, net imports and secondary materials.
+
+-   Net addition to stocks - Mass of materials added to the economy's stock each year (gross additions) in buildings and other infrastructure, and materials incorporated into new durable goods such as cars, industrial machinery and household appliances, while old materials are removed from stock as buildings are demolished and durable goods disposed of.
+
+-   Current capital stocks - Materials in manufactured capital stocks (and their raw material equivalents).
+
+-   Material import dependency - The proportion of materials used which derive from domestic extraction and material domestically reprocessed.
+
+-   Exports -
+
+-   Material losses in production processes - Material efficiency of production activities.
 
 ### Bill of materials
 
@@ -144,6 +162,8 @@ Material import dependency
 3.  Convert BoM to Sankey format
 
 ### Lifespan
+
+A measurement of how long materials and products are kept in circulation. The industry average for the lifetime of a product or durable products for example.
 
 Some historical lifespan data is available in, or can be derived from, existing literature and which varies in its presentation, definitions and methods employed (Oguchi et al. 2010). In some cases, lifespan point estimates such as a mean or median are provided, in other cases a range is given, and in others lifespan distribution parameters are made available. Care needs to be taken in transferring results, including accounting for difference in time and the place in which studies have been undertaken.
 
@@ -164,9 +184,23 @@ Look at market transformation programme
 
 3.  EA WDI data
 
-4.  Data reformatted and restructured to calculate derived aggregates using end-of use mix % multiplied by an ordinal score, combined within a simple linear combination to produce CE-score metric
+4.  Material recycled - Mass of waste produced that is recycled and re-enters the economic system.
+
+5.  Material remanufactured - Mass of waste produced that is remanufactured and re-enters the economy system.
+
+6.  Material reused -
+
+7.  Material repaired - Fixing something that is broken or unusable so it can be used for its original purpose.
+
+8.  Domestic Processed Output - The mass of materials used in the national economy before flowing into the environment, covering emissions to air, emissions to land (solid waste disposal), emissions to water, dissipative use of products (e.g. fertiliser) and dissipative losses (e.g. rubber losses from vehicles tyres).
+
+9.  Data reformatted and restructured to calculate derived aggregates using end-of use mix % multiplied by an ordinal score, combined within a simple linear combination to produce CE-score metric
+
+10. Compares recycling flows in relation to waste arisings of the same material/source.
 
 ### Monetary flows
+
+Material productivity - Economic output per unit resource input.
 
 -   [Methodological options](https://docs.google.com/document/d/1jb01KOxCMkPIIc_za8DF5-2LLjh03HJv/edit?usp=sharing&ouid=100007595496292131489&rtpof=true&sd=true)
 
@@ -190,17 +224,27 @@ At its most basic, a measure of efficiency or productivity tells us about a rela
 
 Economic-physical productivity i.e. the money value of outputs per mass unit of material resource inputs.
 
+At national level, can be measured from production perspective (GDP/DMC or DMI), or can be measured from consumption perspective (GDP/RMC or RMI).
+
+The amount of waste generated in relation to economic output, or alternatively in relation to resource inputs/stocks.
+
 ### Emissions
 
 -   Production emissions
 
 -   Consumption emissions
 
+-   Emissions intensity
+
 -   Business-level data e.g. employment
 
 ### iFixit
 
+-   Product characteristics - Product reparability (time required for disassembly, products meeting certain score of reparability), product failures.
+
 ### Open repair
+
+### Infrastructure and facilities
 
 ### Ebay
 
