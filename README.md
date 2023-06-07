@@ -178,6 +178,8 @@ Look at market transformation programme
 
 ### Outflow routing
 
+The NICER programme was ran in advance of the introduction of the Waste Tracking system across the UK.
+
 1.  Import outflow routing estimates and map to wire diagram categories
 
 2.  Fly-tipping data (white goods) (Defra) and Illegal dumping (EA)
