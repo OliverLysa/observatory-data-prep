@@ -92,3 +92,29 @@ download.file("https://www.ons.gov.uk/file?uri=/businessindustryandtrade/busines
 # 77.3	Renting and leasing of other machinery, equipment and tangible goods
 
 # Oakdene Hollins study
+
+RSectors <- read_excel("ABS_input.xlsx") %>%
+  pivot_longer(-c(Year, Description, 1), names_to = c("Indicator")) %>%
+  filter(value != "[c]") %>%
+  filter(value != "[low]") %>%
+  na.omit()
+
+RSectors$Indicator <- trimws(RSectors$Indicator)
+
+extract <- c("Retail sale of second-hand goods in stores",
+             "Repair of computers and communication equipment",
+             "Repair of consumer electronics",
+             "Renting and leasing of personal and household goods",
+             "Renting and leasing of office machinery and equipment (including computers)",
+             "Repair of electronic and optical equipment",
+             "Repair of electrical equipment",
+             "Wholesale of waste and scrap")
+
+RSectors <- RSectors %>%
+  filter(Description %in% extract)
+
+RSectors$value <-
+  as.numeric(RSectors$value)
+
+RSectors$value <- 
+  round(RSectors$value, digits=0)
