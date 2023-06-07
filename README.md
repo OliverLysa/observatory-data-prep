@@ -57,7 +57,7 @@ The [script](https://github.com/OliverLysa/observatory/blob/main/scripts/classif
 
 <details>
 
-<summary>**More info**: HS/CN classification</summary>
+<summary>More info: HS/CN classification</summary>
 
 The 6 digit Harmonised Commodity Description and Coding System (HS) advised by the World Customs Organisation which, in turn, forms the basis of the 8 digit Combined Nomenclature (CN), is consistent with nomenclature systems for describing domestic production drawn on in the UK.
 
@@ -67,7 +67,7 @@ The 6 digit Harmonised Commodity Description and Coding System (HS) advised by t
 
 <details>
 
-<summary>**More info**: Prodcom classification</summary>
+<summary>More info: Prodcom classification</summary>
 
 The Classification of Products by Activity (CPA) coding frame for describing products (goods and services) at the level of the EU maps onto and extends the SIC classification by two further digits in alignment with the UN Central Product Classification (CPC). Prodcom headings used in statistics on UK manufacturing production draw on up to eight-digit numerical codes, the first six of which align with the CPA and with two additional digits for further detail.
 
@@ -77,7 +77,7 @@ The Classification of Products by Activity (CPA) coding frame for describing pro
 
 <details>
 
-<summary>**More info**: SIC classification</summary>
+<summary>More info: SIC classification</summary>
 
 The UK National Accounts (UKNA) describe national production, income, consumption, accumulation and wealth, and are the basis from which key national-level aggregates and indicators such as gross domestic product (GDP) are derived. The UK accounts are compiled by the UK ONS largely in accordance with the System of National Accounts (SNA), an internationally agreed standard set of recommendations introduced in the 1950s on how to compile national accounts covering agreed concepts, definitions, classifications and accounting rules. The SNA broadly separates economic actors into producing units (mainly corporations, nonprofit institutions and government units) and consuming units (mainly households). On the production side and as part of the UKNA, industries are classified into branches of homogeneous institutional units producing goods and services described under a given heading of a product classification (Lequiller and Blades, 2014). The Standard Industrial Classification (SIC) 2007, the first version of which was introduced in 1948 and which has since been revised several times, is a hierarchical 5 digit framework used in the UKNA to classify businesses by the type of economic activity they engage in.
 
@@ -92,9 +92,8 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 Script extracts trade data from the UKTradeInfo website using the 'uktrade' R package.
 
 1.  Isolates list of CN8 codes from classification database for objects of interest
-2.  Uses a for loop to iterate through the trade terms, extract data using the 'uktrade' extractor function/wrapper to the UKTradeInfo API and print results to a single dataframe
-3.  Sums results grouped by year, flow type and trade code
-4.  Validation
+2.  Uses a for loop to iterate through the trade terms, extract data using the 'uktrade' extractor function/wrapper to the UKTradeInfo API and print results to a single dataframe (this can take some time to run)
+3.  Sums results grouped by year, flow type, country of source/destination, trade code
 
 ### Prodcom
 
@@ -202,6 +201,8 @@ Economic-physical productivity i.e. the money value of outputs per mass unit of
     Policy layer e.g.fFly-tipping actions
 
 # Contact
+
+Oliver Lysaght - oliverlysaght\@icloud.com
 
 # Accessibility statement
 

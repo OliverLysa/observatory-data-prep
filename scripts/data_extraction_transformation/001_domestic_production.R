@@ -30,6 +30,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 # Data extraction and tidying
 # *******************************************************************************
 #
+
 #### Extract prodcom data ####
 
 # Download dataset
@@ -44,6 +45,10 @@ SIC_sheets <- unique(UNU_2_CN8_2_PRODCOM$SIC2) %>%
   # 39 removed due to Prodcom only covering up to Division 33
   filter(. != "39") %>%
   rename("Code" = 1)
+
+# Read all sheets for bill of materials
+prodcom_sheet_names <- readxl::excel_sheets(
+  "./raw_data/UK manufacturers' sales by product.xlsx")
 
 # Read excel sheet, clean, filter out blank rows and those not directly linked to output data (Division 26)
 Prodcom_data_26 <- read_excel(
