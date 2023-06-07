@@ -2,7 +2,7 @@
 
 *Author*: Oliver Lysaght
 
-*Date of last update*: 2023-05-31
+*Date of last update*: 2023-06-07
 
 # Table of contents
 
@@ -102,7 +102,13 @@ Script extracts trade data from the UKTradeInfo website using the 'uktrade' R pa
 3.  Validation and unknown values estimated
     1.  In some cases, values are suppressed
 
-### Apparent consumption
+### Total inflows
+
+#### Apparent consumption
+
+<details>
+
+<summary>More info: Apparent consumption</summary>
 
 There are a range of methodologies available for analysing material flows, the choice of which will affect final estimates (ONS, ). The most widely established methodological framework for measuring material resource flows at a national level is the Economy-Wide Material Flow Accounting (EW-MFA) system ([Eurostat, 2018](https://seea.un.org/sites/seea.un.org/files/ks-gq-18-006-en-n.pdf)) which underpins the SNA SEEA Material Flow Accounts (SNA-SEEA-MFA). In a closed economy or at the global level, the sum of domestic resource extraction (DE) is equivalent to consumption-based material flow indicators such as domestic material consumption (DMC) or raw material consumption (RMC) as well as their equivalent input-based indicators e.g., direct material input (DMI) and Raw Material Input (RMI) as all trade flows net out.
 
@@ -114,16 +120,24 @@ Where *DE* is domestic extraction and *PtB* defines the physical trade balance o
 
 This methodology can be applied at a sub-national level too, and is often referred to as an 'apparent consumption' method.
 
+</details>
+
 1.  Left join summary trade and UNU classification to get flows by UNU
 2.  Filter prodcom variable column and mutate values
 3.  Pivot wide to create aggregate values then re-pivot long to estimate key aggregates
 4.  Indicators based on <https://www.resourcepanel.org/global-material-flows-database>
 
-### Placed on the market
+#### Placed on the market
 
 1.  [Extracts](https://github.com/OliverLysa/observatory/blob/main/scripts/data_extraction_transformation/Electronics/environment_agency/On_the_market.R) placed on market data from Environment Agency EPR datasets
 
-### Mass conversion & bill of materials
+#### Mass conversion
+
+Raw material consumption
+
+Material import dependency
+
+### Bill of materials
 
 1.  Extracts BoM data from Babbitt *et al* 2019 and mass trend data from Balde *et al.*
 2.  Apply to unit-level flow data incl. using weightings
@@ -140,11 +154,17 @@ Some historical lifespan data is available in, or can be derived from, existing 
 5.  Imports stock data
 6.  Iterate over products' parameters to calculate stock and outflows
 
+Look at market transformation programme
+
 ### Outflow routing
 
 1.  Import outflow routing estimates and map to wire diagram categories
 
-2.  Data reformatted and restructured to calculate derived aggregates using end-of use mix % multiplied by an ordinal score, combined within a simple linear combination to produce CE-score metric
+2.  Fly-tipping data (white goods) (Defra) and Illegal dumping (EA)
+
+3.  EA WDI data
+
+4.  Data reformatted and restructured to calculate derived aggregates using end-of use mix % multiplied by an ordinal score, combined within a simple linear combination to produce CE-score metric
 
 ### Monetary flows
 
@@ -176,34 +196,18 @@ Economic-physical productivity i.e. the money value of outputs per mass unit of
 
 -   Consumption emissions
 
-### More information
-
--   EA EPR data - EEE/WEEE and batteries
-
--   Fly-tipping data (white goods) (Defra) and Illegal dumping (EA)
-
--   EA WDI data
-
--   Material/carbon footprint
-
 -   Business-level data e.g. employment
 
-### Leading indicators
+### iFixit
 
--   Durability - designed lifespan
+### Open repair
 
--   Repairability - iFixit
+### Ebay
 
--   Open repair data (activities and repair success rate)
-
--   Price differentials (Ebay)
-
-    Policy layer e.g.fFly-tipping actions
+### Policy inputs
 
 # Contact
 
 Oliver Lysaght - oliverlysaght\@icloud.com
 
 # Accessibility statement
-
-# Reference
