@@ -12,13 +12,15 @@ A collection of scripts to:
 
 1.  extract raw data from public official and emerging sources (incl. via API, web scraping and programmatic download requests); and
 
-2.  process these including:
+2.  process/transform these including:
 
-    1.  cleaning and reformatting;
+    1.  grouping and summarising;
 
-    2.  validation (e.g. outlier replacement) and unknown value estimation; and
+    2.  validation (e.g. outlier replacement) and unknown value estimation;
 
-    3.  calculating key variables/metrics
+    3.  cleaning and reformatting; and
+
+    4.  calculating key variables/metrics
 
 to populate the ce-observatory - a UK national CE-observatory dashboard for description of current baseline and comparison of alternative target future circular economy configurations for specific resource-product-industry categories. The ce-observatory can be viewed at the following URL:
 

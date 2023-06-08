@@ -27,7 +27,7 @@ if (any(installed_packages == FALSE)) {
 invisible(lapply(packages, library, character.only = TRUE))
 
 # *******************************************************************************
-# Data extraction and tidying
+# Data extraction
 # *******************************************************************************
 #
 
@@ -38,6 +38,11 @@ download.file(
   "https://www.ons.gov.uk/file?uri=/businessindustryandtrade/manufacturingandproductionindustry/datasets/ukmanufacturerssalesbyproductprodcom/current/prodcomdata2020final10082021145108.xlsx",
   "UK manufacturers' sales by product.xlsx")
 
+# *******************************************************************************
+# Data cleaning
+# *******************************************************************************
+#
+
 # Retrieve SIC codes from the filtered classification table to define which sheets are imported
 SIC_sheets <- unique(UNU_2_CN8_2_PRODCOM$SIC2) %>%
   as.data.frame() %>%
@@ -45,6 +50,16 @@ SIC_sheets <- unique(UNU_2_CN8_2_PRODCOM$SIC2) %>%
   # 39 removed due to Prodcom only covering up to Division 33
   filter(. != "39") %>%
   rename("Code" = 1)
+
+# Read all sheets for bill of materials
+SIC_sheets_names <- readxl::excel_sheets(
+  "./raw_data/Product_BOM.xlsx")
+
+BoM_data <- purrr::map_df(BoM_sheet_names, 
+                          ~dplyr::mutate(readxl::read_excel(
+                            "./raw_data/Product_BOM.xlsx", 
+                            sheet = .x), 
+                            sheetname = .x))
 
 # Read all sheets for bill of materials
 prodcom_sheet_names <- readxl::excel_sheets(
