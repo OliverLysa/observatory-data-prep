@@ -14,11 +14,11 @@ A collection of scripts to:
 
 2.  process these including:
 
-    1.  cleaning and reformatting
+    1.  cleaning and reformatting;
 
-    2.  validation (e.g. outlier replacement) and unknown value estimation
+    2.  validation (e.g. outlier replacement) and unknown value estimation; and
 
-    3.  deriving key metrics
+    3.  calculating key variables/metrics
 
 to populate the ce-observatory - a UK national CE-observatory dashboard for description of current baseline and comparison of alternative target future circular economy configurations for specific resource-product-industry categories. The ce-observatory can be viewed at the following URL:
 
@@ -131,6 +131,12 @@ This methodology can be applied at a sub-national level too, and is often referr
 
 1.  [Extracts](https://github.com/OliverLysa/observatory/blob/main/scripts/data_extraction_transformation/Electronics/environment_agency/On_the_market.R) placed on market data from Environment Agency EPR datasets
 
+#### 004_mass_conversion.R
+
+1.  Extracts BoM data from Babbitt *et al* 2019 and mass trend data from Balde *et al.*
+2.  Apply to unit-level flow data incl. using weightings
+3.  Convert BoM to Sankey format
+
 ##### Mass conversion
 
 -   Material imports: Direct imports of materials as the weight of products crossing the border
@@ -154,12 +160,6 @@ This methodology can be applied at a sub-national level too, and is often referr
 -   Exports -
 
 -   Material losses in production processes - Material efficiency of production activities.
-
-#### 004_bill_of_materials.R
-
-1.  Extracts BoM data from Babbitt *et al* 2019 and mass trend data from Balde *et al.*
-2.  Apply to unit-level flow data incl. using weightings
-3.  Convert BoM to Sankey format
 
 #### stock_outflow_calculation
 
