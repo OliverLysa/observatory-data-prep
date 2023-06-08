@@ -1,7 +1,7 @@
 # *******************************************************************************
 # Packages
 # *******************************************************************************
-# Package names
+# Package names to install
 packages <- c("magrittr", 
               "writexl", 
               "readxl", 
@@ -23,15 +23,23 @@ if (any(installed_packages == FALSE)) {
   install.packages(packages[!installed_packages])
 }
 
-# Packages loading
+# Packages loading 
 invisible(lapply(packages, library, character.only = TRUE))
+
+# *******************************************************************************
+# Functions and options
+# *******************************************************************************
+# Import functions
+source("./scripts/Functions.R", 
+       local = knitr::knit_global())
+
+# Stop scientific notation of numeric values
+options(scipen = 999)
 
 # *******************************************************************************
 # Data extraction
 # *******************************************************************************
 #
-
-#### Extract prodcom data ####
 
 # Download dataset
 download.file(
@@ -43,84 +51,54 @@ download.file(
 # *******************************************************************************
 #
 
-# Retrieve SIC codes from the filtered classification table to define which sheets are imported
-SIC_sheets <- unique(UNU_2_CN8_2_PRODCOM$SIC2) %>%
-  as.data.frame() %>%
-  na.omit() %>%
-  # 39 removed due to Prodcom only covering up to Division 33
-  filter(. != "39") %>%
-  rename("Code" = 1)
-
-# Read all sheets for bill of materials
-SIC_sheets_names <- readxl::excel_sheets(
-  "./raw_data/Product_BOM.xlsx")
-
-BoM_data <- purrr::map_df(BoM_sheet_names, 
-                          ~dplyr::mutate(readxl::read_excel(
-                            "./raw_data/Product_BOM.xlsx", 
-                            sheet = .x), 
-                            sheetname = .x))
-
-# Read all sheets for bill of materials
-prodcom_sheet_names <- readxl::excel_sheets(
+# Read all prodcom sheets into a list of sheets
+prodcom_all <- read_excel_allsheets(
   "./raw_data/UK manufacturers' sales by product.xlsx")
 
-# Read excel sheet, clean, filter out blank rows and those not directly linked to output data (Division 26)
-Prodcom_data_26 <- read_excel(
-  "./raw_data/UK manufacturers' sales by product.xlsx",
-  sheet = "Division 26") %>%
-  clean_prodcom() %>%
-  mutate(Code = case_when(str_detect(Variable, "26") ~ Variable), .before = 1) %>%
-  tidyr::fill(Code)
+# Remove sheets containing division totals (these create problems with bind)
+prodcom_all = prodcom_all[-c(1:4)]
 
-# Read excel sheet, clean, filter out blank rows and those not directly linked to output data (Division 27)
-Prodcom_data_27 <- read_excel(
-  "./raw_data/UK manufacturers' sales by product.xlsx",
-  sheet = "Division 27") %>%
+# Bind remaining sheets, create a code column and fill, filter to value-relevant rows
+prodcom_filtered1 <- 
+  dplyr::bind_rows(prodcom_all) %>%
+  # Use the clean prodcom function
   clean_prodcom() %>%
-  mutate(Code = case_when(str_detect(Variable, "27") ~ Variable), .before = 1) %>%
-  tidyr::fill(Code)
+  mutate(Code = case_when(str_detect(Variable, "CN") ~ Variable), .before = 1) %>%
+  tidyr::fill(1) %>%
+  filter(str_like(Variable, "Value%"))
 
-# Read excel sheet, clean, filter out blank rows and those not directly linked to output data (Divsion 28)
-Prodcom_data_28 <- read_excel(
-  "./raw_data/UK manufacturers' sales by product.xlsx",
-  sheet = "Division 28") %>%
+# Bind remaining sheets, create a code column and fill, filter to volume relevant rows
+prodcom_filtered2 <- 
+  dplyr::bind_rows(prodcom_all) %>%
+  # Use the clean prodcom function
   clean_prodcom() %>%
-  mutate(Code = case_when(str_detect(Variable, "28") ~ Variable), .before = 1) %>%
-  tidyr::fill(Code)
+  mutate(Code = case_when(str_detect(Variable, "CN") ~ Variable), .before = 1) %>%
+  tidyr::fill(1) %>%
+  filter(str_like(Variable, "Volume%"))
 
-# Read excel sheet, clean, filter out blank rows and those not directly linked to output data (Divsion 29)
-Prodcom_data_29 <- read_excel(
-  "./raw_data/UK manufacturers' sales by product.xlsx",
-  sheet = "Division 29") %>%
-  clean_prodcom() %>%
-  mutate(Code = case_when(str_detect(Variable, "29") ~ Variable), .before = 1) %>%
-  tidyr::fill(Code)
-
-# Read excel sheet, clean, filter out blank rows and those not directly linked to output data (Division 32)
-Prodcom_data_32 <- read_excel(
-  "./raw_data/UK manufacturers' sales by product.xlsx",
-  sheet = "Division 32") %>%
-  clean_prodcom() %>%
-  mutate(Code = case_when(str_detect(Variable, "32") ~ Variable), .before = 1) %>%
-  tidyr::fill(Code)
-
-# Bind the extracted division-level data to create a complete dataset
-Prodcom_data_26_32 <-
+# Bind the extracted data to create a complete dataset
+prodcom_filtered_all <-
   rbindlist(
     list(
-      Prodcom_data_26,
-      Prodcom_data_27,
-      Prodcom_data_28,
-      Prodcom_data_29,
-      Prodcom_data_32
+      prodcom_filtered1,
+      prodcom_filtered2
     ),
     use.names = FALSE
   ) %>%
   na.omit()
 
+# Use g sub to remove unwanted characters in the code column
+prodcom_filtered_all <- prodcom_filtered_all %>%
+  # Remove everything in the code column following a hyphen
+  mutate(Code = gsub("\\-.*", "", Code),
+         # Remove SIC07 in the code column to stop the SIC-level codes from being deleted with the subsequent line
+         Code = gsub('SIC\\(07)', '', Code),
+         # Remove everything after the brackets/parentheses in the code column
+         Code = gsub("\\(.*", "", Code)
+  )
+
 # Rename columns so that they reflect the year for which data is available
-Prodcom_data_26_32 <- Prodcom_data_26_32 %>%
+prodcom_filtered_all <- prodcom_filtered_all %>%
   rename("2008" = 3,
          "2009" = 4,
          "2010" = 5,
@@ -135,22 +113,8 @@ Prodcom_data_26_32 <- Prodcom_data_26_32 %>%
          "2019" = 14,
          "2020" = 15) 
 
-# Delete rows where the two columns match to remove prodcom code from variable list
-Prodcom_data_26_32 <-
-  Prodcom_data_26_32[Prodcom_data_26_32$Code != Prodcom_data_26_32$Variable, ]
-
-# Use g sub to remove unwanted characters in the code column
-Prodcom_data_26_32 <- Prodcom_data_26_32 %>%
-  # Remove everything in the code column following a hyphen
-  mutate(Code = gsub("\\-.*", "", Code),
-         # Remove SIC07 in the code column to stop the SIC-level codes from being deleted with the subsequent line
-         Code = gsub('SIC\\(07)', '', Code),
-         # Remove everything after the brackets/parentheses in the code column
-         Code = gsub("\\(.*", "", Code)
-  )
-
 # Convert dataset to long-form, filter non-numeric values in the value column and mutate values
-Prodcom_data_26_32 <- Prodcom_data_26_32 %>%
+prodcom_filtered_all <- prodcom_filtered_all %>%
   pivot_longer(-c(
     `Code`,
     `Variable`
@@ -172,14 +136,19 @@ Prodcom_data_26_32 <- Prodcom_data_26_32 %>%
   mutate_at(c('Value'), as.numeric) %>%
   mutate_at(c('Code'), trimws)
 
-# Merge prodcom data with UNU classification, summarise by UNU Key
-Prodcom_data_26_32_UNU <- merge(Prodcom_data_26_32,
-                                UNU_2_CN8_2_PRODCOM,
+# Write prodcom all (for other areas of research outside of electronics)
+write_xlsx(prodcom_filtered_all, 
+           "./cleaned_data/prodcom_filtered_all.xlsx")
+
+# Merge prodcom data with UNU classification, summarise by UNU Key and filter volume rows not expressed in number of units
+Prodcom_data_UNU <- merge(prodcom_filtered_all,
+                                UNU_CN_PRODCOM,
                                 by.x=c("Code"),
                                 by.y=c("PRCCODE")) %>%
   group_by(`UNU KEY`, Year, Variable) %>%
-  summarise(Value = sum(Value))
+  summarise(Value = sum(Value)) %>%
+  filter(Variable != "Volume (Kilogram)")
 
 # Write summary file
-# write.csv(Prodcom_data_26_32_UNU, 
-# "./1. Extract/5. Cleaned_datafiles/Prodcom_data_26_32_UNU.csv")
+write_xlsx(Prodcom_data_UNU, 
+ "./cleaned_data/Prodcom_data_UNU.xlsx")
