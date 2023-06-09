@@ -69,7 +69,44 @@ bind <-
 bind$MonthId <- 
   substr(bind$MonthId, 1, 4)
 
-# Summarise results in value, mass and unit terms grouped by year, flow type and trade code
+# Summarise results in value, mass and unit terms grouped by year, flow type, trade code and country
+Summary_trade_country_split <- bind %>%
+  group_by(MonthId, 
+           FlowTypeDescription, 
+           Cn8Code,
+           CountryName) %>%
+  summarise(sum(Value), 
+            sum(NetMass), 
+            sum(SuppUnit)) %>%
+  rename(Year = MonthId) %>%
+  # Pivot results longer
+  pivot_longer(-c(Year, 
+                  FlowTypeDescription, 
+                  Cn8Code,
+                  CountryName),
+               names_to = "Variable",
+               values_to = 'Value')
+
+# Left join summary trade country split and UNU classification to summarise by UNU
+Summary_trade_country_UNU <- left_join(Summary_trade_country_split,
+                               UNU_CN_PRODCOM,
+                               by = c('Cn8Code' = 'CN8')) %>%
+  group_by(`UNU KEY`, 
+           Year, 
+           Variable, 
+           FlowTypeDescription, 
+           CountryName) %>%
+  summarise(Value = sum(Value)) %>%
+  # Rename contents in variable column
+  mutate(Variable = gsub("sum\\(NetMass)", 'Mass', Variable),
+         Variable = gsub("sum\\(Value)", 'Value', Variable),
+         Variable = gsub("sum\\(SuppUnit)", 'Units', Variable))
+
+# Write CSV of raw trade data for codes
+write_xlsx(Summary_trade_country_UNU, 
+           "./cleaned_data/Summary_trade_country_split.xlsx")
+
+# Summarise results in value, mass and unit terms grouped by year, flow type and trade code (this then obscures trade country source/destination)
 Summary_trade <- bind %>%
   group_by(MonthId, 
            FlowTypeDescription, 
@@ -83,15 +120,13 @@ Summary_trade <- bind %>%
                   FlowTypeDescription, 
                   Cn8Code),
                names_to = "Variable",
-               values_to = 'Value')
+               values_to = 'Value') %>%
+  # Convert trade code to character
+  mutate_at(c(3), as.character)
 
-# Convert trade code to character 
-Summary_trade$Cn8Code <- 
-  as.character(Summary_trade$Cn8Code)
-
-# Left join summary trade and UNU classification to summary by UNU
+# Left join summary trade and UNU classification to summarise by UNU
 Summary_trade_UNU <- left_join(Summary_trade,
-                               UNU_2_CN8_2_PRODCOM,
+                               UNU_CN_PRODCOM,
                                by = c('Cn8Code' = 'CN8')) %>%
   group_by(`UNU KEY`, Year, Variable, FlowTypeDescription) %>%
   summarise(Value = sum(Value)) %>%
@@ -102,4 +137,4 @@ Summary_trade_UNU <- left_join(Summary_trade,
 
 # Write xlsx file of output
 write_xlsx(Summary_trade_UNU, 
-          "./1. Extract/5. Cleaned_datafiles/trade_data_UNU.xlsx")
+          "./cleaned_data/summary_trade_UNU.xlsx")

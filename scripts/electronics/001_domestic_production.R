@@ -139,7 +139,7 @@ prodcom_filtered_all <- prodcom_filtered_all %>%
 
 # Write prodcom all (for other areas of research outside of electronics)
 write_xlsx(prodcom_filtered_all, 
-           "./cleaned_data/prodcom_filtered_all.xlsx")
+           "./cleaned_data/prodcom_all.xlsx")
 
 # Merge prodcom data with UNU classification, summarise by UNU Key and filter volume rows not expressed in number of units
 Prodcom_data_UNU <- merge(prodcom_filtered_all,

@@ -43,6 +43,26 @@ options(scipen = 999)
 #### Extract BoM data ####
 # Use weighted averages to go from BoM to UNU based on inflow share data
 
+
+# Convert units to mass
+
+# Join with mass data
+UNU_mass <- read_excel(
+  "./cleaned_data/electronics_mass_trend.xlsx") %>%
+  pivot_longer(-c(
+    `UNU-KEY`
+  ),
+  names_to = "year", 
+  values_to = "value")
+
+
+Joined <- join_by(
+  electronics_bubble_chart2,
+  UNU_mass,
+  by = c("unu_key", "UNU-KEY",
+         closest("Year" <= "year")),
+)
+
 # Download data file from the url
 download.file(
   "https://figshare.com/ndownloader/files/22858376",
@@ -188,21 +208,3 @@ Babbitt_joined <- Babbitt_joined[, c("year",
 
 write_xlsx(Babbitt_joined, 
            "./cleaned_data/electronics_sankey_links.xlsx")
-
-# Convert units to mass
-
-# Join with mass data
-UNU_mass <- read_excel(
-  "./cleaned_data/electronics_mass_trend.xlsx") %>%
-  pivot_longer(-c(
-    `UNU-KEY`
-  ),
-  names_to = "year", 
-  values_to = "value")
-
-Joined <- join_by(
-  electronics_bubble_chart2,
-  UNU_mass,
-  by = c("unu_key", "UNU-KEY",
-         closest("Year" <= "year")),
-)
