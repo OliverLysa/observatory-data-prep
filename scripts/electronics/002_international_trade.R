@@ -1,4 +1,3 @@
-
 # *******************************************************************************
 # Packages
 # *******************************************************************************
@@ -32,13 +31,23 @@ if (any(installed_packages == FALSE)) {
 invisible(lapply(packages, library, character.only = TRUE))
 
 # *******************************************************************************
+# Functions and options
+# *******************************************************************************
+# Import functions
+source("./scripts/Functions.R", 
+       local = knitr::knit_global())
+
+# Stop scientific notation of numeric values
+options(scipen = 999)
+
+# *******************************************************************************
 # Data extraction and tidying
 # *******************************************************************************
 #
 
-# Isolate list of CN8 codes from classification table
+# Isolate list of CN8 codes from classification table, column 'CN8'
 trade_terms <- 
-  UNU_2_CN8_2_PRODCOM$CN8 %>%
+  UNU_CN_PRODCOM$CN8 %>%
 unlist()
 
 # Create a for loop that goes through the trade terms, extracts the data using the extractor function (in function script) based on the uktrade wrapper
@@ -56,12 +65,12 @@ bind <-
   dplyr::bind_rows(res)
 
 # Remove the month identifier in the month ID column to be able to group by year
+# This feature can be removed for more time-granular data e.g. by month or quarter
 bind$MonthId <- 
   substr(bind$MonthId, 1, 4)
 
 # Summarise results in value, mass and unit terms grouped by year, flow type and trade code
 Summary_trade <- bind %>%
-  # Group by month
   group_by(MonthId, 
            FlowTypeDescription, 
            Cn8Code) %>%
@@ -77,7 +86,8 @@ Summary_trade <- bind %>%
                values_to = 'Value')
 
 # Convert trade code to character 
-Summary_trade$Cn8Code <- as.character(Summary_trade$Cn8Code)
+Summary_trade$Cn8Code <- 
+  as.character(Summary_trade$Cn8Code)
 
 # Left join summary trade and UNU classification to summary by UNU
 Summary_trade_UNU <- left_join(Summary_trade,
@@ -91,5 +101,5 @@ Summary_trade_UNU <- left_join(Summary_trade,
          Variable = gsub("sum\\(SuppUnit)", 'Units', Variable))
 
 # Write xlsx file of output
-# write_xlsx(Summary_trade_UNU, 
-#          "./1. Extract/5. Cleaned_datafiles/Summary_trade_UNU.csv")
+write_xlsx(Summary_trade_UNU, 
+          "./1. Extract/5. Cleaned_datafiles/trade_data_UNU.xlsx")

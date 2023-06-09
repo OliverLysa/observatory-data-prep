@@ -31,7 +31,12 @@ invisible(lapply(packages, library, character.only = TRUE))
 # *******************************************************************************
 #
 
-# Filter prodcom variable column and mutate variable names to reflect the trade output
+# Import prodcom UNU data if not in global environment
+Prodcom_data_UNU <-
+  read_excel("./cleaned_data/Prodcom_data_UNU.xlsx")  %>%
+  as.data.frame()
+
+# Filter prodcom variable column and mutate variable names to reflect the trade data
 Prodcom_data_26_32_UNU <- Prodcom_data_26_32_UNU %>%
   filter(Variable != "£ per Number of items",
          Variable != "£ per Kilogram") %>%
@@ -72,15 +77,15 @@ flows_all <- flows_all %>%
                names_to = "indicator",
                values_to = 'value')
 
-# write_xlsx(flows_all, 
-#          "./cleaned_data/electronics_flows.xlsx")
+write_xlsx(flows_all, 
+          "./cleaned_data/electronics_flows.xlsx")
 
 # *******************************************************************************
 # POM method
 # *******************************************************************************
 #
 
-# Download file from URL at government website
+# Download EEE data file from URL at government website
 download.file(
   "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160182/Electrical_and_electronic_equipment_placed_on_the_UK_market.ods",
   "./raw_data/EEE_on_the_market.ods"
@@ -90,7 +95,7 @@ download.file(
 POM_sheet_names <- list_ods_sheets(
   "./raw_data/EEE_on_the_market.ods")
 
-# Map sheet names to the imported file by adding a column "sheetname" with its name
+# Map sheet names to imported file by adding a column "sheetname" with its name
 POM_data <- purrr::map_df(POM_sheet_names, 
                           ~dplyr::mutate(read_ods(
                             "./raw_data/EEE_on_the_market.ods", 
@@ -108,7 +113,7 @@ POM_data <- purrr::map_df(POM_sheet_names,
          non_household = 3,
          year = 4)
 
-# substringing the year column to remove the quarterly reference while keeping partial years in
+# substring the year column to remove the quarterly reference while keeping partial years in
 POM_data$year <- 
   substr(POM_data$year, 1, 4)
 
