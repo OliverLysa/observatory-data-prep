@@ -136,12 +136,16 @@ This methodology can be applied at a sub-national level too, and is often referr
 #### 004_mass_conversion.R
 
 1.  Extracts BoM data from Babbitt *et al* 2019 and mass trend data from Balde *et al.*
+    1.  We assume homogeneity of the composition of products within each UNU after selecting a product archetype. We apply the trend in Balde *et al.* for years between X and X to simulate changes in trend into the future.
+    2.  Can make the archetypal product profile more up to date
 2.  Apply to unit-level flow data incl. using weightings
 3.  Convert BoM to Sankey format
 
 ##### Mass conversion
 
 -   Material imports: Direct imports of materials as the weight of products crossing the border
+
+-   Material exports:
 
 -   domestic material input: Material requirement of production and consumption i.e. DE plus imports. Mass of raw materials extracted from the domestic territory, plus the physical weight of imports.
 
@@ -159,9 +163,7 @@ This methodology can be applied at a sub-national level too, and is often referr
 
 -   Material import dependency - The proportion of materials used which derive from domestic extraction and material domestically reprocessed.
 
--   Exports -
-
--   Material losses in production processes - Material efficiency of production activities.
+-   Material losses in production processes (leakage) - Material efficiency of production activities.
 
 #### stock_outflow_calculation
 
