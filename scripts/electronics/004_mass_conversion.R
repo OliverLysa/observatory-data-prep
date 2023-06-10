@@ -53,7 +53,7 @@ UNU_mass <- read_excel(
   ),
   names_to = "year", 
   values_to = "value") %>%
-  clean_names()
+  clean_names() 
 
 # Read inflow data and filter to consumption of units to multiply by mass
 inflows_indicators <-
