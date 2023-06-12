@@ -45,7 +45,7 @@ options(scipen = 999)
 # Download dataset
 download.file(
   "https://www.ons.gov.uk/file?uri=/businessindustryandtrade/manufacturingandproductionindustry/datasets/ukmanufacturerssalesbyproductprodcom/current/prodcomdata2020final10082021145108.xlsx",
-  "UK manufacturers' sales by product.xlsx")
+  "raw_data/UK manufacturers' sales by product.xlsx")
 
 # *******************************************************************************
 # Data cleaning

@@ -26,6 +26,21 @@ if (any(installed_packages == FALSE)) {
 # Packages loading
 invisible(lapply(packages, library, character.only = TRUE))
 
+# *******************************************************************************
+# Functions and options
+# *******************************************************************************
+# Import functions
+source("./scripts/Functions.R", 
+       local = knitr::knit_global())
+
+# Stop scientific notation of numeric values
+options(scipen = 999)
+
+# *******************************************************************************
+# Data extraction
+# *******************************************************************************
+#
+
 ##### **********************
 # GVA Data Download
 
@@ -90,8 +105,6 @@ download.file("https://www.ons.gov.uk/file?uri=/businessindustryandtrade/busines
 # 95.21	Repair of consumer electronics
 # 95.22	Repair of household appliances and home and garden equipment
 # 77.3	Renting and leasing of other machinery, equipment and tangible goods
-
-# Oakdene Hollins study
 
 RSectors <- read_excel("ABS_input.xlsx") %>%
   pivot_longer(-c(Year, Description, 1), names_to = c("Indicator")) %>%
