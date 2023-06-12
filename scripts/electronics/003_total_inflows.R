@@ -102,9 +102,6 @@ download.file(
 POM_sheet_names <- list_ods_sheets(
   "./raw_data/EEE_on_the_market.ods")
 
-a <- read_ods("./raw_data/EEE_on_the_market.ods", 
-              sheet = 3)
-
 # Map sheet names to imported file by adding a column "sheetname" with its name
 POM_data <- purrr::map_df(POM_sheet_names, 
                           ~dplyr::mutate(read_ods(

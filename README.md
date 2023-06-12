@@ -182,9 +182,15 @@ Some historical lifespan data is available in, or can be derived from, existing 
 
 Look at market transformation programme
 
+Lifespan data:
+
+<https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf>
+
 #### 005_outflow_routing.R
 
 The NICER programme was ran in advance of the introduction of the Waste Tracking system across the UK.
+
+We know some outflow routes at a 14-category level from EA data
 
 1.  Import outflow routing estimates and map to wire diagram categories
 

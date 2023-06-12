@@ -38,7 +38,7 @@ download.file(
 
 Emissions_2_digit <-
   read_excel(
-    "UK greenhouse gas emissions by Standard Industrial Classification.xlsx",
+    "./raw_data/UK greenhouse gas emissions by Standard Industrial Classification.xlsx",
     sheet = "8.1",
     range = "A31:AH164"
   )  %>%
@@ -58,18 +58,20 @@ Emissions_2_digit$SIC_group <- Emissions_2_digit$SIC_group %>%
   str_remove("\\..*") %>%
   str_remove("\\(.*")
 
+filter <- c("26", "27", "28", "29", "32")
+
 Emissions_2_digit <- Emissions_2_digit %>%
   pivot_longer(-c(SIC_group, group_name),
                names_to = 'Year',
                values_to = 'Emissions') %>%
   group_by(SIC_group, Year) %>%
-  summarise(Emissions = sum(Emissions))
+  summarise(Emissions = sum(Emissions)) %>%
+  filter(SIC_group %in% filter)
 
-Joined <- inner_join(
-  GVA_2dig_current_long,
-  Emissions_2_digit,
-  by = c("Year", "SIC_group"),
-  type = "full"
-)
+# Write output to xlsx form
+write_xlsx(Emissions_2_digit, 
+           "./cleaned_data/electronics_emissions_production.xlsx")
 
-# Consumption emissions 
+# Consumption emissions
+
+# Carbon footprint 
