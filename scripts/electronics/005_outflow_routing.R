@@ -83,6 +83,9 @@ electronics_bubble_outflow <- merge(Outflow_routing,
   mutate(across(c('scaled'), round, 1)) %>%
   select(-c(score))
 
+# e IT asset management sector (ITAM), mobile phone buyback schemes, online auction sites and classified listings
+# Commericla & domestic reuse
+
 # *******************************************************************************
 # WEEE collected in the UK
 # *******************************************************************************
@@ -207,9 +210,63 @@ write_xlsx(collected_all,
 download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160180/WEEE_received_at_an_approved_authorised_treatment_facility.ods",
               "./raw_data/WEEE_received_AATF.ods")
 
+# Extract and list all sheet names 
+received_AATF_sheet_names <- list_ods_sheets(
+  "./raw_data/WEEE_received_AATF.ods")
+
+a <- read_ods("./raw_data/WEEE_received_AATF.ods")
+
+# Map sheet names to imported file by adding a column "sheetname" with its name
+received_AATF_data <- purrr::map_df(received_AATF_sheet_names, 
+                                ~dplyr::mutate(read_ods(
+                                  "./raw_data/WEEE_received_AATF.ods", 
+                                  sheet = .x), 
+                                  sheetname = .x)) %>%
+  mutate(quarters = case_when(str_detect(Var.1, "Period covered") ~ Var.1), .before = Var.1) %>%
+  tidyr::fill(1) %>%
+  filter(grepl('January to December', quarters)) %>%
+  mutate(source = case_when(str_detect(Var.1, "ousehold WEEE") ~ Var.1), .before = Var.1) %>%
+  tidyr::fill(2) %>%
+  # make numeric and filter out anything but 1-14 in column 1
+  mutate_at(c('Var.1'), as.numeric) %>%
+  filter(between(Var.1, 1, 14)) %>%
+  select(-c(
+    `Var.1`,
+    sheetname,
+    Var.6,
+    Var.7,
+    Var.8,
+    Var.9,
+    Var.10)) %>% 
+  rename(year = 1,
+         source = 2,
+         product = 3,
+         received_treatment = 4,
+         received_reuse = 5,
+         sent_AATF_ATF = 6)
+
+# Substring year column to last 4 characters
+received_AATF_data$year = str_sub(received_AATF_data$year,-4)
+
+# Make long-format and filter to household only
+received_AATF_data <- received_AATF_data %>%
+  # Remove everything in the code column following a hyphen
+  # Pivot long to input to charts
+  pivot_longer(-c(
+    year,
+    source,
+    product),
+    names_to = "route", 
+    values_to = "value")
+
+# Write output to xlsx form
+write_xlsx(received_AATF_data, 
+           "./cleaned_data/received_AATF_data.xlsx")
+
 # *******************************************************************************
 # WEEE received by approved exporters
 # *******************************************************************************
+
 
 # *******************************************************************************
 # Non-obligated WEEE received at approved authorised treatment facilities and approved exporters
