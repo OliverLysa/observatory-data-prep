@@ -365,7 +365,8 @@ WEEE_received_non_obligated <- WEEE_received_non_obligated %>%
     year,
     product),
     names_to = "route", 
-    values_to = "value")
+    values_to = "value") %>%
+  mutate(source = "unspecified")
 
 # Write output to xlsx form
 write_xlsx(WEEE_received_non_obligated, 
