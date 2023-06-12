@@ -1,3 +1,6 @@
+
+# URLs will need to be updated each year (check end June) - https://www.gov.uk/government/statistical-data-sets/waste-electrical-and-electronic-equipment-weee-in-the-uk
+
 # *******************************************************************************
 # Packages
 # *******************************************************************************
@@ -268,12 +271,102 @@ write_xlsx(received_AATF_data,
 # *******************************************************************************
 
 
+# Apply download.file function in R
+download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160181/WEEE_received_by_approved_exporters.ods",
+              "./raw_data/WEEE_received_export.ods")
+
+# Extract and list all sheet names 
+WEEE_received_export <- list_ods_sheets(
+  "./raw_data/WEEE_received_export.ods")
+
+# Map sheet names to imported file by adding a column "sheetname" with its name
+WEEE_received_export_data <- purrr::map_df(WEEE_received_export, 
+                                    ~dplyr::mutate(read_ods(
+                                      "./raw_data/WEEE_received_export.ods", 
+                                      sheet = .x), 
+                                      sheetname = .x)) %>%
+  mutate(quarters = case_when(str_detect(Var.1, "Period Covered") ~ Var.1), .before = Var.1) %>%
+  tidyr::fill(1) %>%
+  filter(grepl('January to December', quarters)) %>%
+  mutate(source = case_when(str_detect(Var.1, "Household WEEE") ~ Var.1), .before = Var.1) %>%
+  tidyr::fill(2) %>%
+  # make numeric and filter out anything but 1-14 in column 1
+  mutate_at(c('Var.1'), as.numeric) %>%
+  filter(between(Var.1, 1, 14)) %>%
+  select(-c(
+    `Var.1`,
+    sheetname,
+    Var.5)) %>% 
+  rename(year = 1,
+         source = 2,
+         product = 3,
+         received_export = 4,
+         received_export_reuse = 5)
+
+# Substring year column to last 4 characters
+WEEE_received_export_data$year = str_sub(WEEE_received_export_data$year,-4)
+
+# Make long-format
+WEEE_received_export_data <- WEEE_received_export_data %>%
+  # Remove everything in the code column following a hyphen
+  # Pivot long to input to charts
+  pivot_longer(-c(
+    year,
+    source,
+    product),
+    names_to = "route", 
+    values_to = "value")
+
+# Write output to xlsx form
+write_xlsx(WEEE_received_export_data, 
+           "./cleaned_data/WEEE_received_export_data.xlsx")
+
 # *******************************************************************************
 # Non-obligated WEEE received at approved authorised treatment facilities and approved exporters
 # *******************************************************************************
 
 # Apply download.file function in R
-download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/913182/Non-obligated_WEEE_received_at_approved_authorised_treatment_facilities_and_approved_exporters.ods",
-              "./Publication/Input/WPP_Sectors/WEEE/EA/raw/non_obligated_received.ods")
+download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160183/Non-obligated_WEEE_received_at_approved_authorised_treatment_facilities_and_approved_exporters.ods",
+              "./raw_data/WEEE_received_non_obligated.ods")
 
+# Extract and list all sheet names 
+WEEE_received_non_obligated <- list_ods_sheets(
+  "./raw_data/WEEE_received_non_obligated.ods")
 
+# Map sheet names to imported file by adding a column "sheetname" with its name
+WEEE_received_non_obligated <- purrr::map_df(WEEE_received_non_obligated, 
+                                           ~dplyr::mutate(read_ods(
+                                             "./raw_data/WEEE_received_non_obligated.ods", 
+                                             sheet = .x), 
+                                             sheetname = .x)) %>%
+  mutate(quarters = case_when(str_detect(Var.1, "Period covered") ~ Var.1), .before = Var.1) %>%
+  tidyr::fill(1) %>%
+  filter(grepl('January to December', quarters)) %>%
+  # make numeric and filter out anything but 1-14 in column 1
+  mutate_at(c('Var.1'), as.numeric) %>%
+  filter(between(Var.1, 1, 14)) %>%
+  select(-c(
+    `Var.1`,
+    sheetname,
+    Var.5)) %>% 
+  rename(year = 1,
+         product = 2,
+         received_AATF_AE = 3,
+         received_AATF_DCF = 4)
+
+# Substring year column to last 4 characters
+WEEE_received_non_obligated$year = str_sub(WEEE_received_non_obligated$year,-4)
+
+# Make long-format
+WEEE_received_non_obligated <- WEEE_received_non_obligated %>%
+  # Remove everything in the code column following a hyphen
+  # Pivot long to input to charts
+  pivot_longer(-c(
+    year,
+    product),
+    names_to = "route", 
+    values_to = "value")
+
+# Write output to xlsx form
+write_xlsx(WEEE_received_non_obligated, 
+           "./cleaned_data/WEEE_received_non_obligated.xlsx")
