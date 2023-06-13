@@ -42,9 +42,7 @@ options(scipen = 999)
 #
 
 ##### **********************
-# GVA Data Download
-
-# Capturing any sources additional to prodcom/trade across production and consumption perspectives
+# 2-digit GVA Data Download
 
 # We are looking at products which fall largely within the SIC codes 26-29
 # We start by looking at 2-digit GVA data for these codes
@@ -52,7 +50,7 @@ options(scipen = 999)
 # and maintenance activities associated with those products as captured below. This allows us to capture structural shifts
 # at the meso-level
 
-#### Gross value added Division-level ####
+# Import 2 digit GVA data published by ONS
 GVA_2dig_current <-
   read_excel(
     "./raw_data/GVA/regionalgrossvalueaddedbalancedbyindustryandallitlregions.xlsx",
@@ -91,43 +89,70 @@ electronics_GVA <- electronics_GVA %>%
 write_xlsx(electronics_GVA, 
            "./cleaned_data/electronics_GVA.xlsx") 
 
-# Further sectoral detail and additional variables can be derived from the UK Annual Business Survey 
+##### **********************
+# 4-digit aGVA Data Download
 
+# Download the raw 4-digit aGVA data
 download.file("https://www.ons.gov.uk/file?uri=/businessindustryandtrade/business/businessservices/datasets/uknonfinancialbusinesseconomyannualbusinesssurveysectionsas/current/abssectionsas.xlsx",
               "./raw_data/Non-financial business economy, UK: Sections A to S.xlsx")
 
-# 33.12	Repair of machinery 
-# 33.13	Repair of electronic and optical equipment
-# 33.14	Repair of electrical equipment 
-# 95.1 Repair of computers and communication equipment
-# 95.11	Repair of computers and peripheral equipment
-# 95.12	Repair of communication equipment 
-# 95.21	Repair of consumer electronics
-# 95.22	Repair of household appliances and home and garden equipment
-# 77.3	Renting and leasing of other machinery, equipment and tangible goods
+# Extract all sheets into a list of dataframes. We use an ABS specific function to exclude 
+aGVA_sheets <- read_excel_allsheets_ABS(
+  "./raw_data/Non-financial business economy, UK: Sections A to S.xlsx")
 
-RSectors <- read_excel("ABS_input.xlsx") %>%
-  pivot_longer(-c(Year, Description, 1), names_to = c("Indicator")) %>%
+# Remove covering sheets containing division totals
+aGVA_sheets = aGVA_sheets[-c(1:4)]
+
+# Bind rows to create one single dataframe, filter, rename, pivot and filter again
+aGVA_data <-
+  dplyr::bind_rows(aGVA_sheets) %>%
+  filter(Description != "Description") %>%
+  rename(code = 1) %>%
+  mutate(code = gsub("\\.", "", code)) %>%
+  dplyr::filter(!grepl('(Part)', `code`)) %>%
+  clean_names() %>%
+  pivot_longer(-c(`code`,
+                  `description`,
+                  `year`),
+               names_to = "indicator",
+               values_to = "value") %>%
   filter(value != "[c]") %>%
   filter(value != "[low]") %>%
-  na.omit()
+  mutate_at(c('value'), as.numeric) %>%
+  mutate(indicator = gsub("number_of_enterprises", 'Number of enterprises', indicator),
+         indicator = gsub("total_turnover", 'Total turnover', indicator),
+         indicator = gsub("approximate_gross_value_added_at_basic_prices_a_gva", 'aGVA at basic prices', indicator),
+         indicator = gsub("total_purchases_of_goods_materials_and_services", 'Total purchases of goods and services', indicator),
+         indicator = gsub("total_employment_costs", 'Employment costs', indicator),
+         indicator = gsub("total_stocks_and_work_in_progress_value_at_end_of_year", 'Stock end of year', indicator),
+         indicator = gsub("total_stocks_and_work_in_progress_value_at_beginning_of_year", 'Stock beginning of year', indicator),
+         indicator = gsub("total_stocks_and_work_in_progress_increase_during_year", 'Stock increase during year', indicator),
+         indicator = gsub("total_net_capital_expenditure_note_2", 'Net capital expenditure', indicator),
+         indicator = gsub("total_capital_expenditure_acquisitions_note_2", 'Capital expenditure acquisitions', indicator),
+         indicator = gsub("total_capital_expenditure_disposals_note_2", 'Capital expenditure disposals', indicator))
 
-RSectors$Indicator <- trimws(RSectors$Indicator)
+# Write summary file
+write_xlsx(aGVA_data, 
+           "./cleaned_data/ABS_all.xlsx")
 
-extract <- c("Retail sale of second-hand goods in stores",
-             "Repair of computers and communication equipment",
-             "Repair of consumer electronics",
-             "Renting and leasing of personal and household goods",
-             "Renting and leasing of office machinery and equipment (including computers)",
-             "Repair of electronic and optical equipment",
-             "Repair of electrical equipment",
-             "Wholesale of waste and scrap")
+# Select codes of interest
+              # 33.12	Repair of machinery 
+extract <- c("3312",
+             # 33.13	Repair of electronic and optical equipment
+             "3313",
+             # 33.14	Repair of electrical equipment
+             "3314",
+             # 95.1 Repair of computers and communication equipment
+             "951",
+             # 95.21	Repair of consumer electronics
+             "9521",
+             # 95.22	Repair of household appliances and home and garden equipment
+             "9522")
 
-RSectors <- RSectors %>%
-  filter(Description %in% extract)
+# Extract those codes from the code column 
+aGVA_data_electronics <- aGVA_data %>%
+  filter(code %in% extract)
 
-RSectors$value <-
-  as.numeric(RSectors$value)
-
-RSectors$value <- 
-  round(RSectors$value, digits=0)
+# Write summary file
+write_xlsx(aGVA_data_electronics, 
+           "./cleaned_data/ABS_electronics.xlsx")

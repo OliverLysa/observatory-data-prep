@@ -177,10 +177,8 @@ Some historical lifespan data is available in, or can be derived from, existing 
 2.  Input prioritisation
 3.  Calculate mean and median from Weibull parameters
 4.  Compute distributions from lifespan parameters
-5.  Imports stock data
+5.  Imports benchmark stock data
 6.  Iterate over products' parameters to calculate stock and outflows
-
-Look at market transformation programme
 
 Lifespan data:
 
