@@ -14,10 +14,6 @@ require(plotly)
 library(rvest)
 library(netstat)
 
-# Plotly credentials
-Sys.setenv("plotly_username"="OliverLy")
-Sys.setenv("plotly_api_key"="eaSRJK9wPThl8ZhwORnY")
-
 # Import data
 Openrepair <- read_csv("OpenRepairData_v0.3_aggregate_202110.csv") 
 
@@ -55,8 +51,6 @@ Openrepairgg <- ggplot(na.omit(Openrepairtab), aes(product_category, fill = repa
 Openrepairggplotly <- ggplotly(Openrepairgg, tooltip = c("text")) %>%
   hide_legend()
 
-api_create(Openrepairggplotly, filename = "Open_repair_successrate")
-
 # Lifespan to repair
 Lifespanchart <- ggplot(Openrepairlifespan, aes(x = reorder(product_category, product_age, FUN = median), y = product_age)) + 
   geom_boxplot(outlier.size = -1) +
@@ -67,5 +61,3 @@ Lifespanchart <- ggplot(Openrepairlifespan, aes(x = reorder(product_category, pr
   theme(legend.title = element_blank())
 
 Lifespanchartggploly <- ggplotly(Lifespanchart, tooltip = c("count"))
-
-api_create(Lifespanchartggploly, filename = "Open_repair_lifespan_consumer") 

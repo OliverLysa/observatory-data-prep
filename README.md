@@ -248,8 +248,6 @@ The amount of waste generated in relation to economic output, or alternatively i
 
 -   Emissions intensity
 
--   Business-level data e.g. employment
-
 #### 008_stacked_chart.R
 
 #### 009_sankey_chart.R
