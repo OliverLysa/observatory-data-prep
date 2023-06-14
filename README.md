@@ -28,7 +28,7 @@ to populate the ce-observatory - a UK national CE-observatory dashboard for desc
 
 ## Software requirements
 
-Scripts are written in the programming languages R and Python.
+Scripts are written in the programming languages R and Python. Please see here for more information on running R scripts and software requirements and here for the equivalent information for Python.
 
 # Folder and file descriptions
 
