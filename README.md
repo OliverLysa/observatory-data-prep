@@ -2,7 +2,7 @@
 
 *Author*: Oliver Lysaght (oliverlysaght\@icloud.com)
 
-*Date of last update*: 2023-06-07
+Date of last update:
 
 # Table of contents
 
@@ -12,23 +12,29 @@ A collection of scripts to:
 
 1.  extract raw data from public official and emerging sources (incl. via API, web scraping and programmatic download requests); and
 
-2.  process/transform these including:
+2.  process/transform these, with steps including:
 
-    1.  grouping and summarising;
+    1.  cleaning and reformatting;
 
-    2.  validation (e.g. outlier replacement) and unknown value estimation;
+    2.  standardisation through mapping to classifications;
 
-    3.  cleaning and reformatting; and
+    3.  grouping and summarising;
 
-    4.  calculating key variables/metrics
+    4.  data validation (e.g. outlier replacement) and unknown value estimation;
 
-to populate the ce-observatory - a UK national CE-observatory dashboard for description of current baseline and comparison of alternative target future circular economy configurations for specific resource-product-industry categories. The ce-observatory can be viewed at the following URL:
+    5.  calculating key variables/metrics; and
+
+    6.  exporting to be used in the dashboard
+
+in order to populate the ce-observatory - a UK national CE-observatory dashboard for description of current baseline and comparison of alternative target future circular economy configurations for specific resource-product-industry categories. The ce-observatory can be viewed at the following URL:
+
+Builds on the dataset review undertaken by CE-Hub in 2022.
 
 # How to use
 
-## Software requirements
+## Software requirements and setup
 
-Scripts are written in the programming languages R and Python. Please see here for more information on running R scripts and software requirements and here for the equivalent information for Python.
+Scripts are written in the programming languages R and Python. Please see here for more information on running R scripts and software requirements. R components are currently packaged within an R Project and relative file paths are used. See here for the equivalent information for Python.
 
 # Folder and file descriptions
 
@@ -38,7 +44,7 @@ Raw data inputs downloaded from sources
 
 ## cleaned_data
 
-Cleaned data outputs, derived from raw data files following processing. Files may undergo additional processing through variable calculation within the dashboard environment.
+Cleaned data outputs derived from raw data files following processing in R or Python using scripts in the scripts folder. Cleaned data files may undergo additional processing e.g. on the fly variable calculation within the dashboard environment separately.
 
 ## scripts
 
@@ -50,18 +56,27 @@ A collection of regularly used functions across all product groups
 
 #### 000_classification_matching.R
 
-Data is presented in the observatory dashboard categorised by the [UNU-54](https://github.com/OliverLysa/observatory/blob/main/classifications/classifications/UNU.xlsx) classification developed by UNU (Wang et al., 2012; [Forti, Baldé and Kuehr, 2018](https://collections.unu.edu/eserv/UNU:6477/RZ_EWaste_Guidelines_LoRes.pdf)). The objective of this classification system is to group products by 'similar function, comparable material composition (in terms of hazardous substances and valuable materials) and related end-of-life attributes...in addition to...a homogeneous average weight and life-time distribution'. This can help simplify quantitative assessment, for instance, an average mass can be applied to each UNU category in a robust way.
+Data is presented for electronics in the observatory dashboard categorised by the [UNU-54](https://github.com/OliverLysa/observatory/blob/main/classifications/classifications/UNU.xlsx) classification (Wang et al., 2012; [Forti, Baldé and Kuehr, 2018](https://collections.unu.edu/eserv/UNU:6477/RZ_EWaste_Guidelines_LoRes.pdf)). The objective of this classification system is to group products by 'similar function, comparable material composition (in terms of hazardous substances and valuable materials) and related end-of-life attributes...in addition to...a homogeneous average weight and life-time distribution' ([Baldé *et al.* 2015](https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf)).
 
-The [script](https://github.com/OliverLysa/observatory/blob/main/scripts/classification_matching/UNU_classification_matching.R) imports classifications and makes correlation tables for moving between these. It takes the following steps:
+##### Inputs
 
-1.  Imports the UNU-HS6 correspondence table from Balde *et al.*
-2.  Joins CN8 to UNU_2\_HS6 to create a [correspondence table](https://github.com/OliverLysa/observatory/blob/main/classifications/concordance_tables/UNU_2_CN8_2_PRODCOM_SIC.csv) for extracting UK trade data
+-   UNU-HS6 correspondence table ([Baldé *et al.* 2015](https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf))
+-   CN8 codes
+-   Prodcom codes
+-   UKU14-CN correspondence table ([Stowell, Yumashev et al. 2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
+
+##### Operations
+
+The [script](https://github.com/OliverLysa/observatory/blob/main/scripts/classification_matching/UNU_classification_matching.R) imports classifications and makes correlation tables for moving between classifications to then be able to link data. It takes the following steps:
+
+1.  Imports the UNU-HS6 correspondence table from ([Baldé *et al.* 2015](https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf))
+2.  Joins CN8 to UNU_HS6 to create a [correspondence table](https://github.com/OliverLysa/observatory/blob/main/classifications/concordance_tables/UNU_2_CN8_2_PRODCOM_SIC.csv) for extracting UK trade data
 
 <details>
 
 <summary>More info: HS/CN classification</summary>
 
-The 6 digit Harmonised Commodity Description and Coding System (HS) advised by the World Customs Organisation which, in turn, forms the basis of the 8 digit Combined Nomenclature (CN), is consistent with nomenclature systems for describing domestic production drawn on in the UK.
+The 6 digit Harmonised Commodity Description and Coding System (HS) developed by the World Customs Organisation forms the basis of the 8 digit Combined Nomenclature (CN) and is relatively consistent with nomenclature systems for describing domestic production drawn on in the UK.
 
 </details>
 
@@ -71,7 +86,7 @@ The 6 digit Harmonised Commodity Description and Coding System (HS) advised by t
 
 <summary>More info: Prodcom classification</summary>
 
-The Classification of Products by Activity (CPA) coding frame for describing products (goods and services) at the level of the EU maps onto and extends the SIC classification by two further digits in alignment with the UN Central Product Classification (CPC). Prodcom headings used in statistics on UK manufacturing production draw on up to eight-digit numerical codes, the first six of which align with the CPA and with two additional digits for further detail.
+Prodcom headings used in statistics on UK manufacturing production draw on up to eight-digit numerical codes, the first six of which align with the Classification of Products by Activity (CPA) and with two additional digits for further detail. The CPA coding frame for describing products (goods and services) extends the SIC classification by two further digits in alignment with the UN Central Product Classification (CPC).
 
 </details>
 
@@ -88,6 +103,10 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 </details>
 
 5.  Links to the UK-14 classification used for EEE/WEEE Directive reporting based on concordance tables supplied by [Stowell, Yumashev et al. (2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
+
+##### Outputs
+
+-   UNU54 to HS6, CN8, Prodcom, SIC and UKU14 concordance table
 
 #### 001_domestic_production.R
 
@@ -134,6 +153,12 @@ This methodology can be applied at a sub-national level too, and is often referr
 1.  [Extracts](https://github.com/OliverLysa/observatory/blob/main/scripts/data_extraction_transformation/Electronics/environment_agency/On_the_market.R) placed on market data from Environment Agency EPR datasets
 
 #### 004_mass_conversion.R
+
+Purpose of the script is to convert unit-level data into mass e.g. tonnes of laptops and tablets each year. This is required both at the level of a total product as well as component and material for the sankey chart.
+
+A BoM is a hierarchical data object providing a (potentially extensive) list of the raw materials, components and instructions required to construct, manufacture, or repair a product. BoMs are generally used by firms to communicate information about a product as it moves along a value chain in order to help navigate regulations, efficiently manage inventory and to support product life-cycle assessments. Utilising component and material shares captured within a BoM data object alongside corresponding information on the volume/mass of flows (and stocks) of products/components, makes it possible to move between material, component and product flows (and stocks) at the micro level.
+
+Outside of specific areas such as food, textiles, household chemicals and cosmetics or where hazardous substances are involved, there appear to be limited requirements for information on a product's material makeup to be made publicly available in the UK such as via labels or registers. Beyond 'McCance and Widdowson's Composition of Foods Integrated Dataset' which captures nutritional content of food, our search did not identify any data source maintained by public actors collating standardised BoM-type information in a digital format. Commissioned studies providing information relevant to this input requirement were also identified, such as that undertaken on energy-using products on behalf of BEIS by the consultancy ICF (BEIS, 2021).
 
 1.  Extracts BoM data from Babbitt *et al* 2019 and mass trend data from Balde *et al.*
     1.  We assume homogeneity of the composition of products within each UNU after selecting a product archetype. We apply the trend in Balde *et al.* for years between X and X to simulate changes in trend into the future.
