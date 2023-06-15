@@ -6,6 +6,8 @@
 electronics_stacked_area_wide_units <- read_excel(
   "./cleaned_data/electronics_stacked_area_wide.xlsx")
 
+# Replace with output from script 5
+
 # Convert the wide format data to long format
 electronics_stacked_area_long_units <- electronics_stacked_area_wide %>%
   pivot_longer(-c(

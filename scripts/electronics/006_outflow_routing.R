@@ -86,9 +86,6 @@ electronics_bubble_outflow <- merge(Outflow_routing,
   mutate(across(c('scaled'), round, 1)) %>%
   select(-c(score))
 
-# e IT asset management sector (ITAM), mobile phone buyback schemes, online auction sites and classified listings
-# Commericla & domestic reuse
-
 # *******************************************************************************
 # WEEE collected in the UK
 # *******************************************************************************
