@@ -84,3 +84,4 @@ Babbitt_joined <- Babbitt_joined[, c("year",
 
 write_xlsx(Babbitt_joined, 
            "./cleaned_data/electronics_sankey_links.xlsx")
+

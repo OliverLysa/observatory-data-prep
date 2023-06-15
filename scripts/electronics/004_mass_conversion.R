@@ -19,7 +19,8 @@ packages <- c("magrittr",
               "devtools",
               "roxygen2",
               "testthat",
-              "knitr")
+              "knitr",
+              "reshape2")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())
@@ -42,25 +43,26 @@ source("./data_extraction_scripts/functions.R",
 options(scipen = 999)
 
 # *******************************************************************************
-# Mass data from https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf
+# Mass data from https://github.com/Statistics-Netherlands/ewaste/blob/master/data/htbl_Key_Weight.csv
 # *******************************************************************************
 
 # Import mass data
-UNU_mass <- read_excel(
-  "./cleaned_data/electronics_mass_trend.xlsx") %>%
-  pivot_longer(-c(
-    `UNU-KEY`
-  ),
-  names_to = "year", 
-  values_to = "value") %>%
-  clean_names() 
+UNU_mass <- read_csv(
+  "./cleaned_data/htbl_Key_Weight.csv") %>%
+  clean_names() %>%
+  group_by(unu_key, year) %>%
+  summarise(value = mean(average_weight))
 
 # Read inflow data and filter to consumption of units to multiply by mass
 inflows_indicators <-
   read_xlsx("./cleaned_data/inflows_indicators.xlsx") %>%
   filter(indicator == "apparent_consumption",
-         variable == "Units") %>%
-  na.omit()
+         unit == "Units") %>%
+  mutate_at(c('year'), as.numeric) %>%
+  na.omit() %>%
+  rename(variable = indicator) %>%
+  mutate(variable = gsub("apparent_consumption", "inflow", variable),
+         unit = gsub("Units", "unit", unit))
 
 # Join by unu key and closest year
 # For each value in inflow_indicators year column, find the closest value in UNU_mass that is less than or equal to that x value.
@@ -75,12 +77,23 @@ inflow_mass <- left_join(inflows_indicators, UNU_mass, by) %>%
             mass_inflow)) %>%
   rename(year = 2,
        value = 3) %>%
-  mutate(flow_type = "inflow") %>%
-  mutate(variable = "mass")
+  mutate(variable = "inflow") %>%
+  mutate(unit = "mass")
 
+# Bind the extracted data to create a complete dataset
+inflow_unu_mass_units <-
+  rbindlist(
+    list(
+      inflows_indicators,
+      inflow_mass
+    ),
+    use.names = TRUE
+  ) %>%
+  na.omit()
+  
 # Write xlsx to the cleaned data folder
-write_xlsx(inflow_mass, 
-           "./cleaned_data/inflow_mass.xlsx")
+write_xlsx(inflow_unu_mass_units, 
+           "./cleaned_data/inflow_unu_mass_units.xlsx")
 
 # *******************************************************************************
 # Extract BoM data from Babbitt 2019
@@ -166,70 +179,6 @@ BoM_data_average <- BoM_data_bound %>%
 BoM_data_average$product <- gsub("Laptops", "Laptops & Tablets", 
                                  BoM_data_average$product)
 
-# NEED TO EXTRACT MOST RECENT ARCHETYPAL PRODUCT FOR EACH UNU CATEGORY
-
 # Write data file
 write_xlsx(BoM_data_average, 
            "./raw_data/BoM_data_average_int.xlsx")
-
-BoM_recent <- read_excel(
-  "./cleaned_data/BoM_data_average_int2.xlsx")
-
-# Convert data to sankey format
-Babbit_sankey_input <- BoM_recent %>%
-  mutate(source = material) %>%
-  rename(target = component)
-
-# reorder columns for first half of sankey
-Babbit_sankey_input <- Babbit_sankey_input[, c("product", 
-                                               "source",
-                                               "target",
-                                               "material",
-                                               "value")]
-
-# Convert column names to source and target for 2nd half of sankey
-Babbit_sankey_input2 <- Babbit_sankey_input %>% 
-  mutate(source = target,
-         target = product)
-
-# reorder columns for second half of the sankey
-Babbit_sankey_input2 <- Babbit_sankey_input2[, c("product", 
-                                                 "source",
-                                                 "target",
-                                                 "material",
-                                                 "value")]
-
-# Bind two parts of the sankey 
-Electronics_BoM_sankey_Babbitt2 <- rbindlist(
-  list(
-    Babbit_sankey_input,
-    Babbit_sankey_input2),
-  use.names = TRUE)
-
-# Import flow data 
-stacked_units <- electronics_stacked_area_chart %>%
-  filter(variable == "inflow") %>%
-  rename(product = unu_description)
-
-# Multiply BoM data by the number of inflow units to get tonnes per flow
-Babbitt_joined <- right_join(Electronics_BoM_sankey_Babbitt2, 
-                             stacked_units,
-                             by = c("product")) %>%
-  mutate(value = (value.x * value.y)/1000000) %>%
-  select(-c(value.x,
-            variable,
-            value.y)) %>%
-  filter(value >0) %>%
-  mutate(across(c('value'), round, 2))
-
-# Again, reorder the columns to the sought ordering
-Babbitt_joined <- Babbitt_joined[, c("year",
-                                     "product",
-                                     "source",
-                                     "target",
-                                     "material",
-                                     "value")]
-
-# Write xlsx file
-write_xlsx(Babbitt_joined, 
-           "./cleaned_data/electronics_sankey_links.xlsx")

@@ -24,17 +24,15 @@ A collection of scripts to:
 
     5.  calculating key variables/metrics; and
 
-    6.  exporting to be used in the dashboard
+    6.  exporting and loading to supabase backend for use in the observatory.
 
 in order to populate the ce-observatory - a UK national CE-observatory dashboard for description of current baseline and comparison of alternative target future circular economy configurations for specific resource-product-industry categories. The ce-observatory can be viewed at the following URL:
-
-Builds on the dataset review undertaken by CE-Hub in 2022.
 
 # How to use
 
 ## Software requirements and setup
 
-Scripts are written in the programming languages R and Python. Please see here for more information on running R scripts and software requirements. R components are currently packaged within an R Project and relative file paths are used. See here for the equivalent information for Python.
+Scripts are written in the programming languages R and Python. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and software requirements. R components are currently packaged within an R Project and relative file paths are used. These can be most easily interacted with using R Studio. See [here](https://www.python.org/downloads/) for the equivalent information for Python scripts used, which are contained in [Jupyter Notebooks](https://jupyter.org/install).
 
 # Folder and file descriptions
 
@@ -44,13 +42,13 @@ Raw data inputs downloaded from sources
 
 ## cleaned_data
 
-Cleaned data outputs derived from raw data files following processing in R or Python using scripts in the scripts folder. Cleaned data files may undergo additional processing e.g. on the fly variable calculation within the dashboard environment separately.
+Cleaned data outputs derived from raw data files following processing in R or Python. Cleaned data files may undergo additional processing e.g. on the fly variable calculation within the dashboard environment subsequently.
 
 ## scripts
 
 ### functions.R
 
-A collection of regularly used functions across all product groups
+A collection of regularly used functions across all steps
 
 ### electronics
 
@@ -65,18 +63,18 @@ Data is presented for electronics in the observatory dashboard categorised by th
 -   Prodcom codes
 -   UKU14-CN correspondence table ([Stowell, Yumashev et al. 2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
 
-##### Operations
+##### Workflow
 
 The [script](https://github.com/OliverLysa/observatory/blob/main/scripts/classification_matching/UNU_classification_matching.R) imports classifications and makes correlation tables for moving between classifications to then be able to link data. It takes the following steps:
 
-1.  Imports the UNU-HS6 correspondence table from ([Baldé *et al.* 2015](https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf))
-2.  Joins CN8 to UNU_HS6 to create a [correspondence table](https://github.com/OliverLysa/observatory/blob/main/classifications/concordance_tables/UNU_2_CN8_2_PRODCOM_SIC.csv) for extracting UK trade data
+1.  Imports UNU_HS6 correspondence table ([Baldé *et al.* 2015](https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf))
+2.  Joins UNU_HS6 to CN8 to create a [correspondence table](https://github.com/OliverLysa/observatory/blob/main/classifications/concordance_tables/UNU_2_CN8_2_PRODCOM_SIC.csv) for extracting UK trade data
 
 <details>
 
 <summary>More info: HS/CN classification</summary>
 
-The 6 digit Harmonised Commodity Description and Coding System (HS) developed by the World Customs Organisation forms the basis of the 8 digit Combined Nomenclature (CN) and is relatively consistent with nomenclature systems for describing domestic production drawn on in the UK.
+The 6 digit Harmonised Commodity Description and Coding System (HS) developed by the World Customs Organisation forms the basis of the 8 digit Combined Nomenclature (CN) and is relatively consistent with nomenclature systems for describing domestic production drawn on in the UK (Prodcom).
 
 </details>
 
@@ -102,7 +100,7 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 
 </details>
 
-5.  Links to the UK-14 classification used for EEE/WEEE Directive reporting based on concordance tables supplied by [Stowell, Yumashev et al. (2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
+5.  Links to the UK-14 classification used for EEE/WEEE Directive using concordance table from [Stowell, Yumashev et al. (2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
 
 ##### Outputs
 
@@ -111,7 +109,7 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 #### 001_domestic_production.R
 
 1.  Selects SIC codes from the classification table to define which sheets are imported
-2.  Extracts relevant sheets in the ONS prodcom dataset, cleans data and put into tidy format
+2.  Extracts relevant sheets in the ONS prodcom dataset, cleans data and puts into tidy format
 3.  Validation and unknown values estimated
     1.  In some cases, values are suppressed
 
@@ -119,7 +117,7 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 
 Script extracts trade data from the UKTradeInfo website using the 'uktrade' R package.
 
-1.  Isolates list of CN8 codes from classification database for objects of interest
+1.  Isolates list of CN8 codes from classification database for codes of interest
 2.  Uses a for loop to iterate through the trade terms, extract data using the 'uktrade' extractor function/wrapper to the UKTradeInfo API and print results to a single dataframe (this can take some time to run)
 3.  Sums results grouped by year, flow type, country of source/destination, trade code
 
@@ -154,7 +152,9 @@ This methodology can be applied at a sub-national level too, and is often referr
 
 #### 004_mass_conversion.R
 
-Purpose of the script is to convert unit-level data into mass e.g. tonnes of laptops and tablets each year. This is required both at the level of a total product as well as component and material for the sankey chart.
+The purpose of this script is to convert unit-level inflow data into mass equivalents e.g. tonnes of laptops and tablets each year - a required input across core components. This data input requirement can be met in several ways:
+
+1.  
 
 A BoM is a hierarchical data object providing a (potentially extensive) list of the raw materials, components and instructions required to construct, manufacture, or repair a product. BoMs are generally used by firms to communicate information about a product as it moves along a value chain in order to help navigate regulations, efficiently manage inventory and to support product life-cycle assessments. Utilising component and material shares captured within a BoM data object alongside corresponding information on the volume/mass of flows (and stocks) of products/components, makes it possible to move between material, component and product flows (and stocks) at the micro level.
 
@@ -190,9 +190,9 @@ Outside of specific areas such as food, textiles, household chemicals and cosmet
 
 -   Material losses in production processes (leakage) - Material efficiency of production activities.
 
-#### stock_outflow_calculation
+#### 005_stock_outflow_calculation.R
 
-Python script for calculating stocks and total outflow from inflow and lifespan data
+Script for calculating stocks and total outflow from inflow and lifespan data. We also have a version of this script saved in the folder for conducting the same analysis in Python.
 
 A measurement of how long materials and products are kept in circulation. The industry average for the lifetime of a product or durable products for example.
 
@@ -209,7 +209,7 @@ Lifespan data:
 
 <https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf>
 
-#### 005_outflow_routing.R
+#### 006_outflow_routing.R
 
 The NICER programme was ran in advance of the introduction of the Waste Tracking system across the UK.
 
@@ -235,7 +235,7 @@ We know some outflow routes at a 14-category level from EA data
 
 10. Compares recycling flows in relation to waste arisings of the same material/source.
 
-#### 006_GVA.R
+#### 007_GVA.R
 
 Material productivity - Economic output per unit resource input.
 
@@ -265,7 +265,7 @@ At national level, can be measured from production perspective (GDP/DMC or DMI),
 
 The amount of waste generated in relation to economic output, or alternatively in relation to resource inputs/stocks.
 
-#### 007_emissions.R
+#### 008_emissions.R
 
 -   Production emissions
 
@@ -273,18 +273,18 @@ The amount of waste generated in relation to economic output, or alternatively i
 
 -   Emissions intensity
 
-#### 008_stacked_chart.R
+#### 009_stacked_chart.R
 
-#### 009_sankey_chart.R
+#### 010_sankey_chart.R
 
-#### 010_bubble_chart.R
+#### 011_bubble_chart.R
 
-#### 011_ifixit.R
+#### 012_ifixit.R
 
 -   Product characteristics - Product reparability (time required for disassembly, products meeting certain score of reparability), product failures.
 
-#### 012_open_repair.R
+#### 013_open_repair.R
 
-#### 013_ebay.R
+#### 014_ebay.R
 
-#### 014_policy_inputs.R
+#### 015_policy_inputs.R

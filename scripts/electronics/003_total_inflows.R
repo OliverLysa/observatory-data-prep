@@ -82,7 +82,8 @@ complete_inflows_long <- complete_inflows_wide %>%
                   year, 
                   variable),
                names_to = "indicator",
-               values_to = 'value')
+               values_to = 'value') %>%
+  rename(unit = variable)
 
 write_xlsx(complete_inflows_long, 
           "./cleaned_data/inflows_indicators.xlsx")
