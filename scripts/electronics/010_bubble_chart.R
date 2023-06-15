@@ -27,6 +27,17 @@ if (any(installed_packages == FALSE)) {
 invisible(lapply(packages, library, character.only = TRUE))
 
 # *******************************************************************************
+# Functions and options
+# *******************************************************************************
+
+# Import functions
+source("./data_extraction_scripts/functions.R", 
+       local = knitr::knit_global())
+
+# Stop scientific notation of numeric values
+options(scipen = 999)
+
+# *******************************************************************************
 # Bubble chart data
 
 # Read all flows data
