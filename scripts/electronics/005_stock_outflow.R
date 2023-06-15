@@ -48,20 +48,15 @@ lifespan_data <- read_excel(
   range = "A2:AY75")
 
 # Rename columns and clean names
-lifespan_data_filtered <- lifespan_data[c(1:73), c(1,7,8)] %>%
-  rename(UNU = 1,
-         UNU_5 = 2,
-         Shape = 3,
-         Scale = 4) %>%
-  clean_names()
+lifespan_data_filtered <- lifespan_data[c(1:54), c(1,7,8)] %>%
+  rename(unu_key = 1,
+         shape = 2,
+         scale = 3) %>%
+  na.omit() 
 
-# Specify x-axis (time periods for which distribution is printed
-# x_axis <- seq(0, 50, 
-#              by = 1)
-
-# for (i in seq_along(lifespan_data)) {
-#  cdweibull(x_axis, lifespan_data$shape, lifespan_data$scale)
-#  }
+for (i in seq_along(unu_keys)) {
+  weibullparinv(lifespan_data_filtered$shape, lifespan_data_filtered$scale, loc = 0)
+}
 
 # Calculate mean and median from Weibull parameters
 # weibullparinv(1.6, 8.1599999951404, loc = 0)

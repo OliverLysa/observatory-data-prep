@@ -62,3 +62,5 @@ cdweibull <- function(x, shape, scale, log = FALSE){
   dd <- 1-(cumsum(dd) * c(0, diff(x)))
   return(dd)
 }
+
+
