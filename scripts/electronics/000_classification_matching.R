@@ -1,3 +1,10 @@
+##### **********************
+# Author: Oliver Lysaght
+# Purpose:
+# Inputs:
+# Required updates and frequency: 
+# The URL to download from
+
 # *******************************************************************************
 # Packages
 # *******************************************************************************
@@ -34,11 +41,6 @@ source("./1. Extract/3. Extraction scripts/Functions.R",
 
 # Stop scientific notation of numeric values
 options(scipen = 999)
-
-##### **********************
-# Author: Oliver Lysaght
-# Purpose: Link classifications to aid interoperability between sources
-# Required annual updates:
 
 # *******************************************************************************
 # Linking datasets through classification matching

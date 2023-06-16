@@ -1,3 +1,10 @@
+##### **********************
+# Author: Oliver Lysaght
+# Purpose:
+# Inputs:
+# Required annual updates:
+# The URL to download from
+
 # *******************************************************************************
 # Packages
 # *******************************************************************************
@@ -59,6 +66,8 @@ for (i in seq_along(trade_terms)) {
   print(i)
   
 }
+
+# Only goes back to 2008 at present - can go back to 2001
 
 # Bind the list of dataframes to a single dataframe
 bind <- 

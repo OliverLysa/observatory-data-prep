@@ -43,7 +43,7 @@ extractor <- function(x) {
 
 # *******************************************************************************
 # Wrangling functions
-#********************************************************************************
+# *******************************************************************************
 
 # Clean prodcom sheets
 clean_prodcom <- function(df) {
@@ -55,6 +55,10 @@ clean_prodcom <- function(df) {
     filter(Variable != c("SIC Totals and Non Production Headings"))
     
 }
+
+# *******************************************************************************
+# Lifespan-related statistical functions
+# *******************************************************************************
 
 # Calculate CDF from Weibull parameters
 cdweibull <- function(x, shape, scale, log = FALSE){

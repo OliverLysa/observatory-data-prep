@@ -15,7 +15,11 @@ electronics_stacked_area_chart <- merge(unu_inflow_stock_outflow,
                                         UNU_colloquial,
                                         by=c("unu_key" = "unu_key")) %>%
   na.omit() %>%
-  select(-unu_key)
+  select(-unu_key) %>%
+  mutate(across(c('value'), round, 0)) %>%
+  filter(unit == "mass") %>%
+  select(-c(unit)) %>%
+  filter(value != 0)
 
 # Write stacked area chart data
 write_xlsx(electronics_stacked_area_chart, 

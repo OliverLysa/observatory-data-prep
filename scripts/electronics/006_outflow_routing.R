@@ -1,5 +1,10 @@
-
-# URLs will need to be updated each year (check end June) - https://www.gov.uk/government/statistical-data-sets/waste-electrical-and-electronic-equipment-weee-in-the-uk
+##### **********************
+# Author: Oliver Lysaght
+# Purpose:
+# Inputs:
+# Required annual updates:
+# The URL to download from (check end June)
+# https://www.gov.uk/government/statistical-data-sets/waste-electrical-and-electronic-equipment-weee-in-the-uk
 
 # *******************************************************************************
 # Packages

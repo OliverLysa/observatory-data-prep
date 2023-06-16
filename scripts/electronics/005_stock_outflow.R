@@ -1,3 +1,10 @@
+##### **********************
+# Author: Oliver Lysaght
+# Purpose:
+# Inputs:
+# Required annual updates:
+# The URL to download from
+
 # *******************************************************************************
 # Packages
 # *******************************************************************************
@@ -72,6 +79,8 @@ inflow_weibull <-
     by = c("unu_key"),
     all.x = TRUE
   )
+
+# How to make average of distribution 
 
 # Set up dataframe for outflow calculation based on Balde et al 2016. Create empty columns for all years in range of interest
 year_first <- min(as.integer(inflow_weibull$year))
