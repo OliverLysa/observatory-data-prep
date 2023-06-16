@@ -10,7 +10,7 @@ Date of last update:
 
 A collection of scripts to:
 
-1.  extract raw data from public official and emerging sources (incl. via API, web scraping and programmatic download requests); and
+1.  extract raw data from public official and emerging sources (incl. via API, web scraping and programmatic download requests) identified through our [dataset review](https://docs.google.com/spreadsheets/d/11jO8kaYktQ1ueMY1iJoaCl1dJU8r6RDfyxICPB1wFqg/edit#gid=795733331); and
 
 2.  process/transform these, with steps including:
 

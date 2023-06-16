@@ -368,3 +368,88 @@ WEEE_received_non_obligated <- WEEE_received_non_obligated %>%
 # Write output to xlsx form
 write_xlsx(WEEE_received_non_obligated, 
            "./cleaned_data/WEEE_received_non_obligated.xlsx")
+
+# WP1 
+
+# Download file from net
+download.file("http://data.defra.gov.uk/Waste/Table5_1_Total_generation_waste_NACE_EWC_STAT_2010_18_England.csv",
+              "./raw_data/WP1.csv")
+
+WP1 <- read.csv("./Publication/Input/WP/Downloaded_files/WP1.csv") %>%
+  clean_names() 
+
+WP1 <- WP1 %>%
+  pivot_longer(- year, - ewc_stat_code, -ewc_stat_description, -hazardous_non_hazardous_split, source, value)
+
+##### **********************
+# WDI Data Compilation (EA Dataset)
+
+# *******************************************************************************
+# Require packages
+#********************************************************************************
+
+library(readxl)
+library(tidyverse)
+library(dplyr)
+library(magrittr)
+
+# Turn off scientific notation 
+options(scipen=999)
+
+# *******************************************************************************
+
+#Import Major Mineral EWCs 
+MMMW_EWC_List <- read_excel("./Publication/Input/WT/Landfill_Incineration/Landfill/MMW_EWC_List.xlsx", sheet = 1) 
+
+# ****2019***********************************************************************
+
+# Import 2019 data
+All_2019 <- read_excel("./Publication/Input/WT/Landfill_Incineration/Landfill/2019/2019_WDI_Extract.xlsx", sheet = 1) 
+
+# Filter to Landfill
+WDIa <- WDI %>% filter (Site_Category=="Landfill") 
+
+# Subset EWC list
+WDIb <- WDIa %>% subset (! Waste_Code %in% nameslist2$Codes) 
+
+#Group by EWC-STAT
+WDIstat <- WDIa %>% group_by (EWC_Chapter) %>% summarise (Value = sum(Tonnes_Received))
+
+#Group by EWC Code
+WDIewc <- WDIa %>% group_by (Waste_Code, EWC_Waste_Desc) %>% summarise (Value = sum(Tonnes_Received))
+
+#Group by EWC Code (Subsetted)
+WDIsub <- WDIb %>% group_by (Waste_Code, EWC_Waste_Desc) %>% summarise (Value = sum(Tonnes_Received))
+
+# Write results to CSV
+write.csv(print(WDIewc), file = 'EWC.csv')
+write.csv(print(WDIstat), file = 'STAT.csv')
+write.csv(print(WDIsub), file = 'ExMajMinWastes.csv')
+
+## WP4 Derivation
+
+#Install packages
+library(readxl)
+library(tidyverse)
+library(dplyr)
+library(magrittr)
+
+# Turn off scientific notation 
+options(scipen=999)
+
+#Import Major Mineral EWCs 
+nameslist2 <- read_excel("EWC_List.xlsx", sheet = 1) 
+
+# Import EA Landfill data
+Incin <- read_excel("2019_Incin_EWC.xlsx", sheet = 2) 
+
+# Subset EWC list
+IncinExMin <- Incin %>% subset (! EWC %in% nameslist2$Codes) 
+
+#Group by EWC Code (Subsetted)
+
+# Write results to CSV
+write.csv(print(WDIewc), file = 'EWC.csv')
+write.csv(print(WDIstat), file = 'STAT.csv')
+write.csv(print(IncinExMin), file = 'ExMajMinWastes.csv')
+

@@ -3,32 +3,15 @@
 # Stacked area chart
 
 # Read inflow, stock and outflow data
-electronics_stacked_area_wide_units <- read_excel(
-  "./cleaned_data/electronics_stacked_area_wide.xlsx")
+unu_inflow_stock_outflow <- read_excel(
+  "./cleaned_data/unu_inflow_stock_outflow.xlsx")
 
-# Replace with output from script 5
-
-# Convert the wide format data to long format
-electronics_stacked_area_long_units <- electronics_stacked_area_wide %>%
-  pivot_longer(-c(
-    `UNU`,
-    `Shape`,
-    `Scale`,
-    `variable`
-  ),
-  names_to = "year", 
-  values_to = "value") %>%
-  as.data.frame() %>%
-  select(-c(`Shape`,
-            `Scale`)) %>%
-  clean_names() %>%
-  rename('unu_key' = 'unu')
-
-# Merge with UNU colloquial to get naming 
-
+# Read UNU colloquial
 UNU_colloquial <- read_xlsx("./classifications/classifications/UNU_colloquial.xlsx")
 
-electronics_stacked_area_chart <- merge(electronics_stacked_area_long,
+# Merge with UNU colloquial to get user-friendly naming
+
+electronics_stacked_area_chart <- merge(unu_inflow_stock_outflow,
                                         UNU_colloquial,
                                         by=c("unu_key" = "unu_key")) %>%
   na.omit() %>%

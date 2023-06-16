@@ -1,6 +1,7 @@
 # *******************************************************************************
 # Packages
 # *******************************************************************************
+
 # Package names
 packages <- c("magrittr", 
               "writexl", 
@@ -138,3 +139,7 @@ POM_data <- POM_data %>%
 # Write output to xlsx form
 write_xlsx(POM_data, 
           "./cleaned_data/electronics_placed_on_market.xlsx")
+
+# Outlier replacement
+
+# TS forecasts 

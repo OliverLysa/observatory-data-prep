@@ -44,7 +44,8 @@ options(scipen = 999)
 # https://onlinelibrary.wiley.com/doi/abs/10.1111/jiec.12551
 # https://www.sciencedirect.com/science/article/abs/pii/S0959652618339660
 
-# Import lifespan data
+# Import lifespan data - these need to be reviewed further to work out exactly to which period they refer. e.g. inflow through exiting stock
+# or inflow through hibernation etc. 
 lifespan_data <- read_excel("./cleaned_data/electronics_lifespan.xlsx",
                             sheet = 1,
                             range = "A2:AY75")

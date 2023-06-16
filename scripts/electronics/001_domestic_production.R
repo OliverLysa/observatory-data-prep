@@ -153,3 +153,5 @@ Prodcom_data_UNU <- merge(prodcom_filtered_all,
 # Write summary file
 write_xlsx(Prodcom_data_UNU, 
  "./cleaned_data/Prodcom_data_UNU.xlsx")
+
+# Confidential values

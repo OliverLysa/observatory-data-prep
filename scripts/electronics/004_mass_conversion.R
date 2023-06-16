@@ -182,3 +182,70 @@ BoM_data_average$product <- gsub("Laptops", "Laptops & Tablets",
 # Write data file
 write_xlsx(BoM_data_average, 
            "./raw_data/BoM_data_average_int.xlsx")
+
+## Material footprint data (RMC)
+
+#Import raw data by product group
+RMC <-
+  read_ods()
+
+Total_Material <- RMC[c(1:19), c(1:35)] %>% 
+  row_to_names(row_number = 1) %>% 
+  mutate(material = "Total Material") %>%
+  dplyr::rename(Year = 1)
+
+Biomass <- RMC[c(22:40), c(1:35)] %>% 
+  row_to_names(row_number = 1) %>% 
+  mutate(material = "Biomass") %>%
+  dplyr::rename(Year = 1)
+
+Metallic_Ores <- RMC[c(43:61), c(1:35)] %>%
+  row_to_names(row_number = 1) %>% 
+  mutate(material = "Metallic_Ores") %>% 
+  dplyr::rename(Year = 1)
+
+Fossil_Fuels <- RMC[c(64:82), c(1:35)] %>% 
+  row_to_names(row_number = 1) %>% 
+  mutate(material = "Fossil_Fuels") %>%
+  dplyr::rename(Year = 1)
+
+NMMM <- RMC[c(85:103), c(1:35)] %>% 
+  row_to_names(row_number = 1) %>%
+  mutate(material = "Non-Metallic_Minerals") %>%
+  dplyr::rename(Year = 1)
+
+RMC_Product <-
+  rbindlist(
+    list(
+      Total_Material,
+      Biomass,
+      Metallic_Ores,
+      Fossil_Fuels,
+      NMMM
+    ),
+    use.names = FALSE
+  )
+
+RMC_Product <- RMC_Product %>%
+  pivot_longer(-c(Year, material),
+               names_to = "category",
+               values_to = "value") %>%
+  mutate(set = "Product")
+
+RMC_all <-
+  rbindlist(
+    list(
+      RMC_Region,
+      RMC_Fin_Demand,
+      RMC_Product
+    ),
+    use.names = FALSE
+  )
+
+RMC_all$value <- as.numeric(RMC_all$value)
+
+RMC_all$Year <- as.numeric(RMC_all$Year)
+
+RMC_all <- RMC_all %>% 
+  mutate_if(is.numeric, round, digits=0) 
+
