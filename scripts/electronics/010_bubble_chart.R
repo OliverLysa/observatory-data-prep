@@ -44,10 +44,16 @@ options(scipen = 999)
 inflow_weibull <- read_xlsx( 
            "./cleaned_data/inflow_weibull.xlsx") %>%
   # Calculate mean from Weibull parameters
-  mutate(average = scale*exp(gammaln(1+1/shape)))
+  mutate(average = scale*exp(gammaln(1+1/shape)),
+         median = scale*(log(2))^(1/shape)) %>% 
+  select(-c(shape,
+            scale,
+            variable,
+            WEEE_POM_dif)) %>%
+  rename(year_pom = year) %>%
 
 
-J4×(LN(2))^(1÷I4)
+
 
 # Map flows data to electronics bubble chart
 electronics_bubble_flows <- flows_all %>%
