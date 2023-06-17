@@ -40,9 +40,14 @@ options(scipen = 999)
 # *******************************************************************************
 # Bubble chart data
 
-# Read all flows data
-flows_all <- read_excel(
-  "./cleaned_data/electronics_flows.xlsx")
+# Read input data for lifespan and mass
+inflow_weibull <- read_xlsx( 
+           "./cleaned_data/inflow_weibull.xlsx") %>%
+  # Calculate mean from Weibull parameters
+  mutate(average = scale*exp(gammaln(1+1/shape)))
+
+
+J4×(LN(2))^(1÷I4)
 
 # Map flows data to electronics bubble chart
 electronics_bubble_flows <- flows_all %>%

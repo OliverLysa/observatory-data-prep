@@ -96,6 +96,8 @@ complete_inflows_long <- complete_inflows_wide %>%
 write_xlsx(complete_inflows_long, 
           "./cleaned_data/inflows_indicators.xlsx")
 
+# Missing 0001, 0002, 0406, 0502, 0505, 0507, 0702
+
 # *******************************************************************************
 # POM method
 # *******************************************************************************

@@ -64,9 +64,6 @@ lifespan_data_filtered <- lifespan_data[c(1:54), c(1, 7, 8)] %>%
          scale = 3) %>%
   na.omit()
 
-# Calculate mean from Weibull parameters to go into the bubble chart (to do)
-weibullparinv(1.6, 8.1599999951404, loc = 0)
-
 # Import inflow data to match to lifespan
 inflow_unu_mass_units <-
   read_xlsx("./cleaned_data/inflow_unu_mass_units.xlsx")
@@ -80,6 +77,10 @@ inflow_weibull <-
     all.x = TRUE
   )
 
+# Write summary file
+write_xlsx(inflow_weibull, 
+           "./cleaned_data/inflow_weibull.xlsx")
+
 # How to make average of distribution 
 
 # Set up dataframe for outflow calculation based on Balde et al 2016. Create empty columns for all years in range of interest
@@ -91,28 +92,28 @@ empty <-
 colnames(empty) <- years
 
 # Add the empty columns to inflow weibull dataframe
-inflow_weibull <- cbind(inflow_weibull, empty)
+inflow_weibull_outflow <- cbind(inflow_weibull, empty)
 rm(empty)
 
 # Calculate WEEE from inflow year based on shape and scale parameters
 for (i in year_first:year_last) {
-  inflow_weibull$WEEE_POM_dif <-
+  inflow_weibull_outflow$WEEE_POM_dif <-
     i - (as.integer(inflow_weibull[, "year"]))
   wb <-
     dweibull(
-      inflow_weibull[(inflow_weibull$WEEE_POM_dif >= 0), "WEEE_POM_dif"] + 0.5,
-      shape = inflow_weibull[(inflow_weibull$WEEE_POM_dif >= 0), "shape"],
-      scale = inflow_weibull[(inflow_weibull$WEEE_POM_dif >= 0), "scale"],
+      inflow_weibull_outflow[(inflow_weibull_outflow$WEEE_POM_dif >= 0), "WEEE_POM_dif"] + 0.5,
+      shape = inflow_weibull_outflow[(inflow_weibull_outflow$WEEE_POM_dif >= 0), "shape"],
+      scale = inflow_weibull_outflow[(inflow_weibull_outflow$WEEE_POM_dif >= 0), "scale"],
       log = FALSE
     )
   weee <-
-    wb * inflow_weibull[(inflow_weibull$WEEE_POM_dif >= 0), "value"]
-  inflow_weibull[(inflow_weibull$WEEE_POM_dif >= 0), as.character(i)] <-
+    wb * inflow_weibull_outflow[(inflow_weibull_outflow$WEEE_POM_dif >= 0), "value"]
+  inflow_weibull_outflow[(inflow_weibull_outflow$WEEE_POM_dif >= 0), as.character(i)] <-
     weee
 }
 
 # Make long format while including the year placed on market
-inflow_weibull_long <- inflow_weibull %>% select(-c(shape,
+inflow_weibull_long <- inflow_weibull_outflow %>% select(-c(shape,
                                                     scale,
                                                     value,
                                                     WEEE_POM_dif)) %>%
@@ -151,10 +152,6 @@ inflow_weibull_long_outflow_summary <- inflow_weibull %>%
            year) %>%
   summarise(value = 
               sum(value))
-
-# Write summary file
-write_xlsx(unu_inflow_stock_outflow, 
-           "./cleaned_data/unu_inflow_stock_outflow.xlsx")
 
 # Bind the inflow and outflow data (with stock to be added next)
 unu_inflow_outflow <-
