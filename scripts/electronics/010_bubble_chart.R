@@ -50,5 +50,19 @@ inflow_weibull_chart <- read_xlsx(
             unit,
             median))
 
+# Import user-friendly names for codes
+UNU_colloquial <- read_xlsx( 
+  "./classifications/classifications/UNU_colloquial.xlsx")
+
+unu_inflow_weibull_chart <- merge(
+  inflow_weibull_chart,
+  UNU_colloquial,
+  by = c("unu_key")) %>%
+  select(-c(unu_key)) %>%
+  rename(apparent_consumption = 2,
+         mean_lifespan = 3) %>%
+  mutate(across(c('apparent_consumption', 'mean_lifespan'), round, 1))
+
+  
 electronics_bubble_chart2 <- read_excel(
   "./cleaned_data/electronics_bubble_chart.xlsx")
