@@ -5,15 +5,20 @@
 # Required annual updates:
 # The URL to download from (check end June)
 # https://www.gov.uk/government/statistical-data-sets/waste-electrical-and-electronic-equipment-weee-in-the-uk
-# Defra's 'waste tracking' system should provide improved numbers for outflow destinations when in place
+# Defra's 'waste tracking' system should provide improved numbers for outflow destinations within the regulated waste system when in place
 
 # Script calculates the outflow routing from the use and collection nodes across the following pathways to estimate a 'circularity rate'
 # Direct resale
+  # Commerical reuse
+  # Domestic reuse
 # Refurbishment
 # Remanufacture
 # Recycling
 # Urban mining
-# Disposal 
+# Disposal
+
+# Legal exports used EEE
+# 
 
 # *******************************************************************************
 # Packages
@@ -72,7 +77,14 @@ WP1 <- WP1 %>%
 # Collection
 # *******************************************************************************
 
-# This report shows the amount of household and non-household Waste Electrical and Electronic Equipment (WEEE) collected by Producer Compliance Schemes and their members.
+# Sum of:
+# collection by PCS members
+# direct reuse/resale through commercial and domestic routes
+# ITAMs and other asset managers
+# Warranty returns
+# Legal exports of WEEE
+
+# WEEE collected - shows the amount of household and non-household Waste Electrical and Electronic Equipment (WEEE) collected by Producer Compliance Schemes and their members.
 
 download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160179/WEEE_Collected_in_the_UK.ods",
               "./raw_data/WEEE_collected.ods")
@@ -349,49 +361,3 @@ WEEE_received_non_obligated <- WEEE_received_non_obligated %>%
 # Write output to xlsx form
 write_xlsx(WEEE_received_non_obligated, 
            "./cleaned_data/WEEE_received_non_obligated.xlsx")
-
-# *******************************************************************************
-# Outflow fate
-# *******************************************************************************
-
-#### Outflow fate (CE-score) ####
-
-# Import data, pivot longer, filter, drop NA and rename column 'route' 
-Outflow_routing <- read_excel(
-  "./cleaned_data/electronics_outflow.xlsx") %>%
-  pivot_longer(-c(
-    `UNU KEY`,
-    `UNU DESCRIPTION`,
-    `Variable`
-  ),
-  names_to = "route", 
-  values_to = "value") %>%
-  filter(Variable == "Percentage",
-         route != "Total") %>%
-  drop_na(value) %>%
-  mutate(Year = 2017) %>%
-  select(-Variable) %>%
-  mutate(route = gsub("General bin", "disposal", route),
-         route = gsub("Recycling", "recycling", route),
-         route = gsub("Sold", "resale", route),
-         route = gsub("Donation or re-use", "resale", route),
-         route = gsub("Other", "refurbish", route),
-         route = gsub("Take back scheme", "remanufacture", route),
-         route = gsub("Unknown", "maintenance", route))  
-
-# Multiply percentages by ordinal score
-
-Outflow_routing_weights <- read_excel(
-  "./data_extraction_scripts/Electronics/weights.xlsx")
-
-electronics_bubble_outflow <- merge(Outflow_routing,
-                                    Outflow_routing_weights,
-                                    by.x=c("route"),
-                                    by.y=c("route")) %>%
-  mutate(route_score = value*score) %>%
-  group_by(`UNU KEY`, `UNU DESCRIPTION`, Year) %>%
-  summarise(score = sum(route_score)) %>%
-  # =(suboptimal-actual)/(suboptimal-optimal)
-  mutate(scaled = (0-score)/(0-5)*100) %>%
-  mutate(across(c('scaled'), round, 1)) %>%
-  select(-c(score))

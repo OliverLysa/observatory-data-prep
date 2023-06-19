@@ -45,7 +45,7 @@ source("./data_extraction_scripts/functions.R",
 options(scipen = 999)
 
 # *******************************************************************************
-# Calculate outflows
+# Calculate outflows - EEE moving on from use, storage and hoarding
 # *******************************************************************************
 
 # https://onlinelibrary.wiley.com/doi/abs/10.1111/jiec.12551
@@ -80,8 +80,6 @@ inflow_weibull <-
 # Write summary file
 write_xlsx(inflow_weibull, 
            "./cleaned_data/inflow_weibull.xlsx")
-
-# How to make average of distribution 
 
 # Set up dataframe for outflow calculation based on Balde et al 2016. Create empty columns for all years in range of interest
 year_first <- min(as.integer(inflow_weibull$year))
