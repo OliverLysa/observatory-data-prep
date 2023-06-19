@@ -109,7 +109,7 @@ write_xlsx(inflow_unu_mass_units,
 # Download data file from the url
 download.file(
   "https://figshare.com/ndownloader/files/22858376",
-  "./1. Extract/4. Raw_data_files/Product_BOM.xlsx"
+  "./raw_data/Product_BOM.xlsx"
 )
 
 # Read all sheets for bill of materials
@@ -168,7 +168,7 @@ BoM_filter_list <- c("CRT Monitors",
                      "Household Monitoring")
 
 # Rename products to match the UNU colloquial classification, group by product, component and material to average across models and years, then filter to products for which data is held
-BoM_data_average <- BoM_data_bound %>%
+BoM_data_UNU <- BoM_data_bound %>%
   mutate(product = gsub("Blu-ray player", 'Video & DVD', product),
          product = gsub("CRT monitor", 'CRT Monitors', product),
          product = gsub("CRT TV", 'CRT TVs', product),
@@ -183,12 +183,12 @@ BoM_data_average <- BoM_data_bound %>%
          product = gsub("Smart & non-smart thermostat", 'Household Monitoring', product)) %>%
   filter(product %in% BoM_filter_list)
 
-BoM_data_average$product <- gsub("Laptops", "Laptops & Tablets", 
+BoM_data_UNU$product <- gsub("Laptops", "Laptops & Tablets", 
                                  BoM_data_average$product)
 
 # Write data file
 write_xlsx(BoM_data_average, 
-           "./raw_data/BoM_data_average_int.xlsx")
+           "./raw_data/BoM_data_UNU.xlsx")
 
 # *******************************************************************************
 # Extract material footprint/RMC data from Leeds publication

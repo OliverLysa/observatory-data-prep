@@ -50,43 +50,43 @@ options(scipen = 999)
 BoM_recent <- read_excel(
   "./cleaned_data/BoM_data_average_int2.xlsx")
 
-# Convert data to sankey format
+# Renames columns
 Babbit_sankey_input <- BoM_recent %>%
   mutate(source = material) %>%
   rename(target = component)
 
+# Reorders columns
 Babbit_sankey_input <- Babbit_sankey_input[, c("product", 
                                                "source",
                                                "target",
                                                "material",
                                                "value")]
 
-write_xlsx(Babbit_sankey_input, 
-           "./raw_data/Babbit_sankey_input.xlsx")
-
+# Duplicates the first file and renames columns
 Babbit_sankey_input2 <- Babbit_sankey_input %>% 
   mutate(source = target,
          target = product)
 
+# Reorders columns 
 Babbit_sankey_input2 <- Babbit_sankey_input2[, c("product", 
                                                  "source",
                                                  "target",
                                                  "material",
                                                  "value")]
 
-write_xlsx(Babbit_sankey_input2, 
-           "./raw_data/Babbit_sankey_input2.xlsx")
-
+# Binds the two files
 Electronics_BoM_sankey_Babbitt2 <- rbindlist(
   list(
     Babbit_sankey_input,
     Babbit_sankey_input2),
   use.names = TRUE)
 
+# Gets unit flows by year
 stacked_units <- electronics_stacked_area_chart %>%
   filter(variable == "inflow") %>%
   rename(product = unu_description)
 
+# Right joins the two files to multiply the BoM by flows to get flows in mass by year
 Babbitt_joined <- right_join(Electronics_BoM_sankey_Babbitt2, stacked_units,
                              by = c("product")) %>%
   mutate(value = (value.x * value.y)/1000000) %>%
@@ -96,6 +96,7 @@ Babbitt_joined <- right_join(Electronics_BoM_sankey_Babbitt2, stacked_units,
   filter(value >0) %>%
   mutate(across(c('value'), round, 2))
 
+# Reorders columns 
 Babbitt_joined <- Babbitt_joined[, c("year",
                                      "product",
                                      "source",
@@ -103,10 +104,11 @@ Babbitt_joined <- Babbitt_joined[, c("year",
                                      "material",
                                      "value")]
 
+# Write file 
 write_xlsx(Babbitt_joined, 
            "./cleaned_data/electronics_sankey_links.xlsx")
 
-# REE 
+# REE ()
 
 # Import units data
 REE_units <- 
