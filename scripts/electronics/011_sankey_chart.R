@@ -1,31 +1,52 @@
+##### **********************
+# Author: Oliver Lysaght
+# Purpose: Converts cleaned data into sankey format
+# Inputs:
+# Required updates:
+
+# *******************************************************************************
+# Packages
+# *******************************************************************************
+# Package names
+packages <- c("magrittr", 
+              "writexl", 
+              "readxl", 
+              "dplyr", 
+              "tidyverse", 
+              "readODS", 
+              "data.table", 
+              "RSelenium", 
+              "netstat", 
+              "uktrade", 
+              "httr",
+              "jsonlite",
+              "mixdist",
+              "janitor")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Packages loading
+invisible(lapply(packages, library, character.only = TRUE))
+
+# *******************************************************************************
+# Functions and options
+# *******************************************************************************
+
+# Import functions
+source("./data_extraction_scripts/functions.R", 
+       local = knitr::knit_global())
+
+# Stop scientific notation of numeric values
+options(scipen = 999)
 
 # *******************************************************************************
 # SANKEY
 
-# Import units data
-REE_units <- 
-  read_excel("./cleaned_data/REE_units.xlsx", col_names = T) %>%
-  select(1,3,5) %>%
-  rename(year = 1,
-         'Offshore wind turbine' = 2,
-         'Onshore wind turbine' = 3) %>%
-  pivot_longer(-year,
-               names_to = "product",
-               values_to = "value")
-
-# Import sankey data for single product by year
-REE_sankey_links <-
-  read_excel("./cleaned_data/REE_sankey_links.xlsx", col_names = T)
-
-# Left join and convert units to mass
-REE_sankey_links <- 
-  left_join(REE_sankey_links, REE_units, by = c('year','product')) %>%
-  mutate(value = Value*value) %>%
-  select(-Value)
-
-write_xlsx(REE_sankey_links, 
-           "./cleaned_data/REE_sankey_links_units.xlsx")  
-
+# Import BoM data for most recent product within each group
 BoM_recent <- read_excel(
   "./cleaned_data/BoM_data_average_int2.xlsx")
 
@@ -85,3 +106,28 @@ Babbitt_joined <- Babbitt_joined[, c("year",
 write_xlsx(Babbitt_joined, 
            "./cleaned_data/electronics_sankey_links.xlsx")
 
+# REE 
+
+# Import units data
+REE_units <- 
+  read_excel("./cleaned_data/REE_units.xlsx", col_names = T) %>%
+  select(1,3,5) %>%
+  rename(year = 1,
+         'Offshore wind turbine' = 2,
+         'Onshore wind turbine' = 3) %>%
+  pivot_longer(-year,
+               names_to = "product",
+               values_to = "value")
+
+# Import sankey data for single product by year
+REE_sankey_links <-
+  read_excel("./cleaned_data/REE_sankey_links.xlsx", col_names = T)
+
+# Left join and convert units to mass
+REE_sankey_links <- 
+  left_join(REE_sankey_links, REE_units, by = c('year','product')) %>%
+  mutate(value = Value*value) %>%
+  select(-Value)
+
+write_xlsx(REE_sankey_links, 
+           "./cleaned_data/REE_sankey_links_units.xlsx")  
