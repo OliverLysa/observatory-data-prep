@@ -1,10 +1,19 @@
 ##### **********************
 # Author: Oliver Lysaght
-# Purpose:
+# Purpose: Extract data and calculcate outflow destinations
 # Inputs:
 # Required annual updates:
 # The URL to download from (check end June)
 # https://www.gov.uk/government/statistical-data-sets/waste-electrical-and-electronic-equipment-weee-in-the-uk
+# Defra's 'waste tracking' system should provide improved numbers for outflow destinations when in place
+
+# Script calculates the outflow routing from the use and collection nodes across the following pathways to estimate a 'circularity rate'
+# Direct resale
+# Refurbishment
+# Remanufacture
+# Recycling
+# Urban mining
+# Disposal 
 
 # *******************************************************************************
 # Packages
@@ -46,56 +55,24 @@ source("./data_extraction_scripts/functions.R",
 options(scipen = 999)
 
 # *******************************************************************************
-# Outflow fate
+# WEEE generation (official statistics)
 # *******************************************************************************
 
-#### Outflow fate (CE-score) ####
+# Download file from net
+download.file("http://data.defra.gov.uk/Waste/Table5_1_Total_generation_waste_NACE_EWC_STAT_2010_18_England.csv",
+              "./raw_data/WP1.csv")
 
-# Import data, pivot longer, filter, drop NA and rename column 'route' 
-Outflow_routing <- read_excel(
-  "./cleaned_data/electronics_outflow.xlsx") %>%
-  pivot_longer(-c(
-    `UNU KEY`,
-    `UNU DESCRIPTION`,
-    `Variable`
-  ),
-  names_to = "route", 
-  values_to = "value") %>%
-  filter(Variable == "Percentage",
-         route != "Total") %>%
-  drop_na(value) %>%
-  mutate(Year = 2017) %>%
-  select(-Variable) %>%
-  mutate(route = gsub("General bin", "disposal", route),
-         route = gsub("Recycling", "recycling", route),
-         route = gsub("Sold", "resale", route),
-         route = gsub("Donation or re-use", "resale", route),
-         route = gsub("Other", "refurbish", route),
-         route = gsub("Take back scheme", "remanufacture", route),
-         route = gsub("Unknown", "maintenance", route))  
+WP1 <- read.csv("./Publication/Input/WP/Downloaded_files/WP1.csv") %>%
+  clean_names() 
 
-# Multiply percentages by ordinal score
-
-Outflow_routing_weights <- read_excel(
-  "./data_extraction_scripts/Electronics/weights.xlsx")
-
-electronics_bubble_outflow <- merge(Outflow_routing,
-                                    Outflow_routing_weights,
-                                    by.x=c("route"),
-                                    by.y=c("route")) %>%
-  mutate(route_score = value*score) %>%
-  group_by(`UNU KEY`, `UNU DESCRIPTION`, Year) %>%
-  summarise(score = sum(route_score)) %>%
-  # =(suboptimal-actual)/(suboptimal-optimal)
-  mutate(scaled = (0-score)/(0-5)*100) %>%
-  mutate(across(c('scaled'), round, 1)) %>%
-  select(-c(score))
+WP1 <- WP1 %>%
+  pivot_longer(- year, - ewc_stat_code, -ewc_stat_description, -hazardous_non_hazardous_split, source, value)
 
 # *******************************************************************************
-# WEEE collected in the UK
+# Collection
 # *******************************************************************************
 
-# This report shows both the amount of household and non-household Waste Electrical and Electronic Equipment (WEEE) collected by Producer Compliance Schemes and their members.
+# This report shows the amount of household and non-household Waste Electrical and Electronic Equipment (WEEE) collected by Producer Compliance Schemes and their members.
 
 download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160179/WEEE_Collected_in_the_UK.ods",
               "./raw_data/WEEE_collected.ods")
@@ -208,7 +185,7 @@ write_xlsx(collected_all,
            "./cleaned_data/electronics_collected_all.xlsx")
 
 # *******************************************************************************
-# WEEE received at an approved authorised treatment facility
+# WEEE received at an approved authorised treatment facility (AATF)
 # *******************************************************************************
 
 # Apply download.file function in R
@@ -271,7 +248,6 @@ write_xlsx(received_AATF_data,
 # *******************************************************************************
 # WEEE received by approved exporters
 # *******************************************************************************
-
 
 # Apply download.file function in R
 download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160181/WEEE_received_by_approved_exporters.ods",
@@ -374,87 +350,50 @@ WEEE_received_non_obligated <- WEEE_received_non_obligated %>%
 write_xlsx(WEEE_received_non_obligated, 
            "./cleaned_data/WEEE_received_non_obligated.xlsx")
 
-# WP1 
-
-# Download file from net
-download.file("http://data.defra.gov.uk/Waste/Table5_1_Total_generation_waste_NACE_EWC_STAT_2010_18_England.csv",
-              "./raw_data/WP1.csv")
-
-WP1 <- read.csv("./Publication/Input/WP/Downloaded_files/WP1.csv") %>%
-  clean_names() 
-
-WP1 <- WP1 %>%
-  pivot_longer(- year, - ewc_stat_code, -ewc_stat_description, -hazardous_non_hazardous_split, source, value)
-
-##### **********************
-# WDI Data Compilation (EA Dataset)
-
 # *******************************************************************************
-# Require packages
-#********************************************************************************
-
-library(readxl)
-library(tidyverse)
-library(dplyr)
-library(magrittr)
-
-# Turn off scientific notation 
-options(scipen=999)
-
+# Outflow fate
 # *******************************************************************************
 
-#Import Major Mineral EWCs 
-MMMW_EWC_List <- read_excel("./Publication/Input/WT/Landfill_Incineration/Landfill/MMW_EWC_List.xlsx", sheet = 1) 
+#### Outflow fate (CE-score) ####
 
-# ****2019***********************************************************************
+# Import data, pivot longer, filter, drop NA and rename column 'route' 
+Outflow_routing <- read_excel(
+  "./cleaned_data/electronics_outflow.xlsx") %>%
+  pivot_longer(-c(
+    `UNU KEY`,
+    `UNU DESCRIPTION`,
+    `Variable`
+  ),
+  names_to = "route", 
+  values_to = "value") %>%
+  filter(Variable == "Percentage",
+         route != "Total") %>%
+  drop_na(value) %>%
+  mutate(Year = 2017) %>%
+  select(-Variable) 
 
-# Import 2019 data
-All_2019 <- read_excel("./Publication/Input/WT/Landfill_Incineration/Landfill/2019/2019_WDI_Extract.xlsx", sheet = 1) 
+%>%
+  mutate(route = gsub("General bin", "disposal", route),
+         route = gsub("Recycling", "recycling", route),
+         route = gsub("Sold", "resale", route),
+         route = gsub("Donation or re-use", "resale", route),
+         route = gsub("Other", "refurbish", route),
+         route = gsub("Take back scheme", "remanufacture", route),
+         route = gsub("Unknown", "maintenance", route))  
 
-# Filter to Landfill
-WDIa <- WDI %>% filter (Site_Category=="Landfill") 
+# Multiply percentages by ordinal score
 
-# Subset EWC list
-WDIb <- WDIa %>% subset (! Waste_Code %in% nameslist2$Codes) 
+Outflow_routing_weights <- read_excel(
+  "./data_extraction_scripts/Electronics/weights.xlsx")
 
-#Group by EWC-STAT
-WDIstat <- WDIa %>% group_by (EWC_Chapter) %>% summarise (Value = sum(Tonnes_Received))
-
-#Group by EWC Code
-WDIewc <- WDIa %>% group_by (Waste_Code, EWC_Waste_Desc) %>% summarise (Value = sum(Tonnes_Received))
-
-#Group by EWC Code (Subsetted)
-WDIsub <- WDIb %>% group_by (Waste_Code, EWC_Waste_Desc) %>% summarise (Value = sum(Tonnes_Received))
-
-# Write results to CSV
-write.csv(print(WDIewc), file = 'EWC.csv')
-write.csv(print(WDIstat), file = 'STAT.csv')
-write.csv(print(WDIsub), file = 'ExMajMinWastes.csv')
-
-## WP4 Derivation
-
-#Install packages
-library(readxl)
-library(tidyverse)
-library(dplyr)
-library(magrittr)
-
-# Turn off scientific notation 
-options(scipen=999)
-
-#Import Major Mineral EWCs 
-nameslist2 <- read_excel("EWC_List.xlsx", sheet = 1) 
-
-# Import EA Landfill data
-Incin <- read_excel("2019_Incin_EWC.xlsx", sheet = 2) 
-
-# Subset EWC list
-IncinExMin <- Incin %>% subset (! EWC %in% nameslist2$Codes) 
-
-#Group by EWC Code (Subsetted)
-
-# Write results to CSV
-write.csv(print(WDIewc), file = 'EWC.csv')
-write.csv(print(WDIstat), file = 'STAT.csv')
-write.csv(print(IncinExMin), file = 'ExMajMinWastes.csv')
-
+electronics_bubble_outflow <- merge(Outflow_routing,
+                                    Outflow_routing_weights,
+                                    by.x=c("route"),
+                                    by.y=c("route")) %>%
+  mutate(route_score = value*score) %>%
+  group_by(`UNU KEY`, `UNU DESCRIPTION`, Year) %>%
+  summarise(score = sum(route_score)) %>%
+  # =(suboptimal-actual)/(suboptimal-optimal)
+  mutate(scaled = (0-score)/(0-5)*100) %>%
+  mutate(across(c('scaled'), round, 1)) %>%
+  select(-c(score))

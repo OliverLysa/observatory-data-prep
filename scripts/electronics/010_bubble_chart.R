@@ -10,7 +10,7 @@ packages <- c("magrittr",
               "readODS", 
               "data.table", 
               "mixdist",
-              "janitor"
+              "janitor",
               "logOfGamma")
 
 # Install packages not yet installed
@@ -37,7 +37,7 @@ options(scipen = 999)
 # Bubble chart data
 
 # Read input data for lifespan and mass 
-# This input is used in the earlier stock calculation
+# This input is used in the earlier stock calculation also
 inflow_weibull_chart <- read_xlsx( 
            "./cleaned_data/inflow_weibull.xlsx") %>%
   # Calculate mean and median from Weibull parameters
