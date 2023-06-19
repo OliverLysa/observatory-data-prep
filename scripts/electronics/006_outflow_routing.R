@@ -370,9 +370,7 @@ Outflow_routing <- read_excel(
          route != "Total") %>%
   drop_na(value) %>%
   mutate(Year = 2017) %>%
-  select(-Variable) 
-
-%>%
+  select(-Variable) %>%
   mutate(route = gsub("General bin", "disposal", route),
          route = gsub("Recycling", "recycling", route),
          route = gsub("Sold", "resale", route),
