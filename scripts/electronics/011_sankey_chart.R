@@ -14,13 +14,7 @@ packages <- c("magrittr",
               "dplyr", 
               "tidyverse", 
               "readODS", 
-              "data.table", 
-              "RSelenium", 
-              "netstat", 
-              "uktrade", 
-              "httr",
-              "jsonlite",
-              "mixdist",
+              "data.table",
               "janitor")
 
 # Install packages not yet installed
@@ -47,11 +41,18 @@ options(scipen = 999)
 # SANKEY
 
 # Import BoM data for most recent product within each group
-BoM_recent <- read_excel(
-  "./cleaned_data/BoM_data_average_int2.xlsx")
+BoM_data_UNU <- read_excel(
+  "./cleaned_data/BoM_data_UNU.xlsx") %>%
+  mutate_at(c('year'), trimws)
+
+# Remove non-numeric characters from the year column 
+BoM_data_UNU$year <-gsub("[^0-9]", "", BoM_data_UNU$year)
+
+# Remove rows where the year value is empty 
+BoM_data_UNU <- BoM_data_UNU[-which(BoM_data_UNU$year == ""), ]
 
 # Renames columns
-Babbit_sankey_input <- BoM_recent %>%
+Babbit_sankey_input <- BoM %>%
   mutate(source = material) %>%
   rename(target = component)
 
@@ -108,7 +109,14 @@ Babbitt_joined <- Babbitt_joined[, c("year",
 write_xlsx(Babbitt_joined, 
            "./cleaned_data/electronics_sankey_links.xlsx")
 
-# REE ()
+# REE Data input
+
+REE_sankey_links <- read_xlsx("./cleaned_data/REE_sankey_links.xlsx")  %>%
+  filter(value != 0,
+         target != "Lost")
+
+write_csv(REE_sankey_links,
+          "./cleaned_data/REE_sankey_links.csv")
 
 # Import units data
 REE_units <- 

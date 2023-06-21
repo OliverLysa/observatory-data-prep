@@ -151,7 +151,8 @@ BoM_data_bound <- BoM_data %>%
   mutate(across(c('value'), round, 2)) %>%
   drop_na(value) %>%
   separate(model, c("model", "year"), "\\(") %>%
-  mutate(year = gsub("\\)","", year))
+  mutate(year = gsub("\\)","", year)) %>%
+  mutate_at(c('product'), trimws)
 
 # Create filter of products for which we have data
 BoM_filter_list <- c("CRT Monitors",
@@ -165,7 +166,9 @@ BoM_filter_list <- c("CRT Monitors",
                      "Portable Audio",
                      "Printers",
                      "Mobile Phones",
-                     "Household Monitoring")
+                     "Household Monitoring",
+                     "Portable Audio",
+                     "Toys")
 
 # Rename products to match the UNU colloquial classification, group by product, component and material to average across models and years, then filter to products for which data is held
 BoM_data_UNU <- BoM_data_bound %>%
@@ -180,15 +183,17 @@ BoM_data_UNU <- BoM_data_bound %>%
          product = gsub("MP3 player", 'Portable Audio', product),
          product = gsub("Printer", 'Printers', product),
          product = gsub("Smartphone", 'Mobile Phones', product),
-         product = gsub("Smart & non-smart thermostat", 'Household Monitoring', product)) %>%
+         product = gsub("Smart & non-smart thermostat", 'Household Monitoring', product),
+         product = gsub("MP3 Player", 'Portable Audio', product),
+         product = gsub("Drone", 'Toys', product)) %>%
   filter(product %in% BoM_filter_list)
 
 BoM_data_UNU$product <- gsub("Laptops", "Laptops & Tablets", 
-                                 BoM_data_average$product)
+                             BoM_data_UNU$product)
 
 # Write data file
-write_xlsx(BoM_data_average, 
-           "./raw_data/BoM_data_UNU.xlsx")
+write_xlsx(BoM_data_UNU, 
+           "./cleaned_data/BoM_data_UNU.xlsx")
 
 # *******************************************************************************
 # Extract material footprint/RMC data from Leeds publication

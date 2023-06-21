@@ -38,7 +38,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 # *******************************************************************************
 
 # Import functions
-source("./data_extraction_scripts/functions.R", 
+source("./scripts/functions.R", 
        local = knitr::knit_global())
 
 # Stop scientific notation of numeric values
@@ -128,7 +128,7 @@ inflow_weibull_long <- inflow_weibull_outflow %>% select(-c(shape,
   na.omit()
 
 # Make long format aggregating by year outflow (i.e. suppressing year POM)
-inflow_weibull_long_outflow_summary <- inflow_weibull %>%
+inflow_weibull_long_outflow_summary <- inflow_weibull_outflow %>%
   select(-c(shape,
             scale,
             value,
