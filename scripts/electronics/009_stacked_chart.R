@@ -19,6 +19,10 @@ electronics_stacked_area_chart <- merge(unu_inflow_stock_outflow,
   filter(unit == "mass") %>%
   select(-c(unit))
 
+# Write stacked area chart data to excel file
+write_xlsx(electronics_stacked_area_chart, 
+          "./cleaned_data/electronics_stacked_area_chart.xlsx")
+
 # Write stacked area chart data
 write_csv(electronics_stacked_area_chart, 
            "./cleaned_data/electronics_stacked_area_chart.csv")

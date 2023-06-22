@@ -38,7 +38,7 @@ source("./data_extraction_scripts/functions.R",
 options(scipen = 999)
 
 # *******************************************************************************
-# SANKEY
+# Electronics
 
 # Import BoM data for most recent product within each group
 BoM_data_UNU <- read_excel(
@@ -51,8 +51,16 @@ BoM_data_UNU$year <-gsub("[^0-9]", "", BoM_data_UNU$year)
 # Remove rows where the year value is empty 
 BoM_data_UNU <- BoM_data_UNU[-which(BoM_data_UNU$year == ""), ]
 
+# Convert year column to numeric
+BoM_data_UNU$year <- as.numeric(as.character(BoM_data_UNU$year))
+
+# Get data for most modern product within each group
+BoM_data_UNU_latest <- BoM_data_UNU %>% 
+  group_by(product) %>%
+  top_n(1, abs(year))
+
 # Renames columns
-Babbit_sankey_input <- BoM %>%
+Babbit_sankey_input <- BoM_data_UNU_latest %>%
   mutate(source = material) %>%
   rename(target = component)
 
@@ -76,11 +84,14 @@ Babbit_sankey_input2 <- Babbit_sankey_input2[, c("product",
                                                  "value")]
 
 # Binds the two files
-Electronics_BoM_sankey_Babbitt2 <- rbindlist(
+Electronics_BoM_sankey_Babbitt <- rbindlist(
   list(
     Babbit_sankey_input,
     Babbit_sankey_input2),
   use.names = TRUE)
+
+electronics_stacked_area_chart <- read_excel(
+"./cleaned_data/electronics_stacked_area_chart.xlsx")
 
 # Gets unit flows by year
 stacked_units <- electronics_stacked_area_chart %>%
@@ -88,7 +99,7 @@ stacked_units <- electronics_stacked_area_chart %>%
   rename(product = unu_description)
 
 # Right joins the two files to multiply the BoM by flows to get flows in mass by year
-Babbitt_joined <- right_join(Electronics_BoM_sankey_Babbitt2, stacked_units,
+Babbitt_joined <- right_join(Electronics_BoM_sankey_Babbitt, stacked_units,
                              by = c("product")) %>%
   mutate(value = (value.x * value.y)/1000000) %>%
   select(-c(value.x,
@@ -109,8 +120,10 @@ Babbitt_joined <- Babbitt_joined[, c("year",
 write_xlsx(Babbitt_joined, 
            "./cleaned_data/electronics_sankey_links.xlsx")
 
-# REE Data input
+# *******************************************************************************
+# REE
 
+# REE Data input
 REE_sankey_links <- read_xlsx("./cleaned_data/REE_sankey_links.xlsx")  %>%
   filter(value != 0,
          target != "Lost")
@@ -118,26 +131,3 @@ REE_sankey_links <- read_xlsx("./cleaned_data/REE_sankey_links.xlsx")  %>%
 write_csv(REE_sankey_links,
           "./cleaned_data/REE_sankey_links.csv")
 
-# Import units data
-REE_units <- 
-  read_excel("./cleaned_data/REE_units.xlsx", col_names = T) %>%
-  select(1,3,5) %>%
-  rename(year = 1,
-         'Offshore wind turbine' = 2,
-         'Onshore wind turbine' = 3) %>%
-  pivot_longer(-year,
-               names_to = "product",
-               values_to = "value")
-
-# Import sankey data for single product by year
-REE_sankey_links <-
-  read_excel("./cleaned_data/REE_sankey_links.xlsx", col_names = T)
-
-# Left join and convert units to mass
-REE_sankey_links <- 
-  left_join(REE_sankey_links, REE_units, by = c('year','product')) %>%
-  mutate(value = Value*value) %>%
-  select(-Value)
-
-write_xlsx(REE_sankey_links, 
-           "./cleaned_data/REE_sankey_links_units.xlsx")  
