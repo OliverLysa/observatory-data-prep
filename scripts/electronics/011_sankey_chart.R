@@ -124,10 +124,10 @@ write_xlsx(Babbitt_joined,
 # REE
 
 # REE Data input
-REE_sankey_links <- read_xlsx("./cleaned_data/REE_sankey_links.xlsx")  %>%
+REE_sankey_links <- read_xlsx("./cleaned_data/REE_sankey_links.xlsx") %>%
   filter(value != 0,
-         target != "Lost")
+         target != "Lost") %>%
+  mutate(across(c('value'), round, 2))
 
 write_csv(REE_sankey_links,
           "./cleaned_data/REE_sankey_links.csv")
-

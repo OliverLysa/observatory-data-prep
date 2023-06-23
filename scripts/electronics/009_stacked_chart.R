@@ -26,3 +26,13 @@ write_xlsx(electronics_stacked_area_chart,
 # Write stacked area chart data
 write_csv(electronics_stacked_area_chart, 
            "./cleaned_data/electronics_stacked_area_chart.csv")
+
+# *******************************************************************************
+# REE
+
+# REE Data input
+REE_stacked_area <- read_xlsx("./cleaned_data/REE_chart_stacked_area.xlsx") %>%
+  mutate(across(c('value'), round, 2))
+
+write_csv(REE_stacked_area,
+          "./cleaned_data/REE_stacked_area.csv")
