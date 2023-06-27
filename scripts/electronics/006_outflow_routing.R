@@ -9,7 +9,7 @@
 
 # Script calculates the outflow routing from the use and collection nodes across the following pathways to estimate a 'circularity rate'
 # Direct resale
-  # Commerical reuse
+  # Commercial reuse
   # Domestic reuse
 # Refurbishment
 # Remanufacture
@@ -68,11 +68,18 @@ WP1 <- read.csv("./Publication/Input/WP/Downloaded_files/WP1.csv") %>%
   clean_names() 
 
 WP1 <- WP1 %>%
-  pivot_longer(- year, - ewc_stat_code, -ewc_stat_description, -hazardous_non_hazardous_split, source, value)
+  pivot_longer(- year, 
+               - ewc_stat_code, 
+               -ewc_stat_description, 
+               -hazardous_non_hazardous_split, 
+               source, 
+               value)
 
 # *******************************************************************************
 # Collection
 # *******************************************************************************
+
+# https://ec.europa.eu/environment/pdf/waste/weee/Final_Report_Art7_publication.pdf
 
 # Sum of:
 # collection by PCS members
@@ -256,6 +263,8 @@ write_xlsx(received_AATF_data,
 
 # *******************************************************************************
 # WEEE received by approved exporters
+# https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13406
+# https://step-initiative.org/files/_documents/other_publications/UNU-Transboundary-Movement-of-Used-EEE.pdf
 # *******************************************************************************
 
 # Apply download.file function in R

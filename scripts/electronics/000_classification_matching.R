@@ -47,6 +47,8 @@ options(scipen = 999)
 # *******************************************************************************
 #
 
+# https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf
+
 ## Link UNU to CN8
 
 # Import UNU HS6 correspondence table
