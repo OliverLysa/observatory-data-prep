@@ -101,9 +101,10 @@ write_xlsx(unitar_lifespan,
            "./cleaned_data/weibull_parameters.xlsx")
 
 # Import lifespan data and filter to source and region of interest
-lifespan_data <- read_excel("./cleaned_data/electronics_lifespan.xlsx",
-                            sheet = 1,
-                            range = "A2:AY75")
+lifespan_data <- read_excel("./cleaned_data/weibull_parameters.xlsx") %>%
+  filter(country == "NLFB") %>%
+  select(1:3) %>%
+  mutate_at(c('shape', 'scale'), as.numeric) 
 
 # Import inflow data to match to lifespan
 inflow_unu_mass_units <-
@@ -113,14 +114,10 @@ inflow_unu_mass_units <-
 inflow_weibull <-
   merge(
     inflow_unu_mass_units,
-    lifespan_data_filtered,
+    lifespan_data,
     by = c("unu_key"),
     all.x = TRUE
   )
-
-# Write summary file
-write_xlsx(inflow_weibull, 
-           "./cleaned_data/inflow_weibull.xlsx")
 
 # Set up dataframe for outflow calculation based on Balde et al 2016. Create empty columns for all years in range of interest
 year_first <- min(as.integer(inflow_weibull$year))

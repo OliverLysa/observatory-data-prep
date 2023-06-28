@@ -251,8 +251,7 @@ Loss functions modelled after a Weibull distribution ('a continuous probability 
 
 -   Values in a **cumulative survival function (CSF)** S(y) reflect the probability that an event occurs after time y (i.e. the inverse of the CDF).
 
-<https://onlinelibrary.wiley.com/doi/abs/10.1111/jiec.12551>
-<https://www.sciencedirect.com/science/article/abs/pii/S0959652618339660>
+<https://onlinelibrary.wiley.com/doi/abs/10.1111/jiec.12551> <https://www.sciencedirect.com/science/article/abs/pii/S0959652618339660>
 
 </details>
 
@@ -281,11 +280,24 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 
 ##### Inputs
 
+-   Disposal:
+
+    -   Waste Data Interrogator
+
+-   
+
 ##### Workflow
 
-1.  Import outflow routing estimates and map to wire diagram categories
+1.  Calculate collection
+    1.  \# Sum of:
+# collection by PCS members across EEE/WEEE categories
+# market-driven resale: 
+# direct reuse/resale through commercial and domestic routes: Commerical reuse - 90kt, domestic reuse - 82kt, 
+# ITAMs and other asset managers
+# Warranty returns
+# Legal exports of WEEE
 2.  Fly-tipping data (white goods) (Defra) and Illegal dumping (EA)
-3.  EA WDI data
+3.  
 4.  Material recycled - Mass of waste produced that is recycled and re-enters the economic system.
 5.  Material remanufactured - Mass of waste produced that is remanufactured and re-enters the economy system.
 6.  Material reused -

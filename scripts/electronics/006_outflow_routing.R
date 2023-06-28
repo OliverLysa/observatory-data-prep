@@ -1,13 +1,12 @@
 ##### **********************
 # Author: Oliver Lysaght
-# Purpose: Extract data and calculcate outflow destinations
+# Purpose: Script calculates the outflow routing from the use and collection nodes across the following pathways to estimate a 'circularity rate'
 # Inputs:
 # Required annual updates:
 # The URL to download from (check end June)
 # https://www.gov.uk/government/statistical-data-sets/waste-electrical-and-electronic-equipment-weee-in-the-uk
 # Defra's 'waste tracking' system should provide improved numbers for outflow destinations within the regulated waste system when in place
 
-# Script calculates the outflow routing from the use and collection nodes across the following pathways to estimate a 'circularity rate'
 # Direct resale
   # Commercial reuse
   # Domestic reuse
@@ -50,43 +49,15 @@ invisible(lapply(packages, library, character.only = TRUE))
 # *******************************************************************************
 
 # Import functions
-source("./data_extraction_scripts/functions.R", 
+source("./scripts/functions.R", 
        local = knitr::knit_global())
 
 # Stop scientific notation of numeric values
 options(scipen = 999)
 
 # *******************************************************************************
-# WEEE generation (official statistics)
+# Collection/separation 
 # *******************************************************************************
-
-# Download file from net
-download.file("http://data.defra.gov.uk/Waste/Table5_1_Total_generation_waste_NACE_EWC_STAT_2010_18_England.csv",
-              "./raw_data/WP1.csv")
-
-WP1 <- read.csv("./Publication/Input/WP/Downloaded_files/WP1.csv") %>%
-  clean_names() 
-
-WP1 <- WP1 %>%
-  pivot_longer(- year, 
-               - ewc_stat_code, 
-               -ewc_stat_description, 
-               -hazardous_non_hazardous_split, 
-               source, 
-               value)
-
-# *******************************************************************************
-# Collection
-# *******************************************************************************
-
-# https://ec.europa.eu/environment/pdf/waste/weee/Final_Report_Art7_publication.pdf
-
-# Sum of:
-# collection by PCS members
-# direct reuse/resale through commercial and domestic routes
-# ITAMs and other asset managers
-# Warranty returns
-# Legal exports of WEEE
 
 # WEEE collected - shows the amount of household and non-household Waste Electrical and Electronic Equipment (WEEE) collected by Producer Compliance Schemes and their members.
 
@@ -199,6 +170,41 @@ collected_all <-
 # Write output to xlsx form
 write_xlsx(collected_all, 
            "./cleaned_data/electronics_collected_all.xlsx")
+
+# Prepare for converting from UKU 14 to UNU-54
+collected_all_summarised <- collected_all %>%
+  mutate_at(c('value'), as.numeric) %>%
+  group_by(product, year) %>%
+  summarise(value = sum(value))
+
+# Convert to wide format
+collected_all_wide <- collected_all_summarised %>%
+  pivot_wider(names_from = "year", 
+            values_from = "value")
+
+# Reorder rows to match the UK14 to UNU mapping tool 
+collected_all_wide$product <- factor(collected_all_wide$product, levels=c(
+              "Large Household Appliances",
+              "Small Household Appliances",
+              "IT and Telcomms Equipment",
+              "Consumer Equipment",
+              "Lighting Equipment",
+              "Electrical and Electronic Tools",
+              "Toys Leisure and Sports",
+              "Medical Devices",
+              "Monitoring and Control Instruments",
+              "Automatic Dispensers",
+              "Display Equipment",
+              "Cooling Appliances Containing Refrigerants",
+              "Gas Discharge Lamps",
+              "Gas Discharge Lamps and LED Light Sources",
+              "Photovoltaic Panels"))
+
+collected_all_wide <- collected_all_wide[order(collected_all_wide$product), ]
+
+# Write output to xlsx form
+write_xlsx(collected_all_wide, 
+           "./intermediate_data/collected_all_wide.xlsx")
 
 # *******************************************************************************
 # WEEE received at an approved authorised treatment facility (AATF)
@@ -367,3 +373,57 @@ WEEE_received_non_obligated <- WEEE_received_non_obligated %>%
 # Write output to xlsx form
 write_xlsx(WEEE_received_non_obligated, 
            "./cleaned_data/WEEE_received_non_obligated.xlsx")
+
+# *******************************************************************************
+# Sayers et al 
+# *******************************************************************************
+
+# Import data outflow fate (CE-score), pivot longer, filter, drop NA and rename column 'route' 
+outflow_routing <- read_excel(
+  "./cleaned_data/electronics_outflow.xlsx") %>%
+  clean_names() %>%
+  pivot_longer(-c(
+    `unu_key`,
+    `unu_description`,
+    `variable`
+  ),
+  names_to = "route", 
+  values_to = "value") %>%
+  filter(variable == "Percentage",
+         route != "Total") %>%
+  drop_na(value) %>%
+  mutate(year = 2017) %>%
+  select(-c(variable, unu_description)) %>%
+  mutate(route = gsub("General bin", "disposal", route),
+         route = gsub("Recycling", "recycling", route),
+         route = gsub("Sold", "resale", route),
+         route = gsub("Donation or re-use", "resale", route),
+         route = gsub("Other", "refurbish", route),
+         route = gsub("Take back scheme", "remanufacture", route),
+         route = gsub("Unknown", "maintenance", route))
+
+# *******************************************************************************
+# Disposal
+# *******************************************************************************
+
+# Waste Data Interrogator (waste received)
+
+# EWC codes specific to electronics - Discarded electrical and electronic equipment
+# 09 01 10
+# 09 01 11*
+# 09 01 12
+# 16 02 11*
+# 16 02 13*
+# 16 02 14
+# 20 01 23*
+# 20 01 35*
+# 20 01 36 
+
+# LACW Statistics
+
+
+
+# Household waste composition study 
+
+# UK HOUSEHOLD RESIDUAL plus RECYCLING TOTAL - 516,000 tonnes 320,560 going into the recycling stream. 195544 going into residual stream
+
