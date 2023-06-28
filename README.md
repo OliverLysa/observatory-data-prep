@@ -32,7 +32,9 @@ in order to populate the ce-observatory - a UK national CE-observatory dashboard
 
 ## Software requirements and setup
 
-Scripts are written in the programming languages R and Python. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and software requirements. R components are currently packaged within an R Project and relative file paths are used. These can be most easily interacted with using R Studio. See [here](https://www.python.org/downloads/) for the equivalent information for Python scripts used, which are contained in [Jupyter Notebooks](https://jupyter.org/install).
+Scripts are largely written in the programming languages R. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and software requirements. The R and package versions are listed in the package_version file. Required packages are listed at the top of each script. R components are currently packaged within an R Project and relative file paths locations are used to call files, functions and other scripts. These can be most easily used with using the R Studio IDE.
+
+Where Python is significantly more performant for specific tasks or provides functions not otherwise available in R, Python scripts have also included in the project. These are presented within [Jupyter Notebooks](https://jupyter.org/install), which can be ran using the following instructions (see [here](https://www.python.org/downloads/)).
 
 # Folder and file descriptions
 
@@ -48,13 +50,16 @@ Cleaned data outputs derived from raw data files following processing in R or Py
 
 ### functions.R
 
-A collection of regularly used functions across all steps
+A collection of regularly used functions across all other scripts not otherwise provided in R packages
 
 ### electronics
 
 #### 000_classification_matching.R
 
-Data is presented for electronics in the observatory dashboard categorised by the [UNU-54](https://github.com/OliverLysa/observatory/blob/main/classifications/classifications/UNU.xlsx) classification (Wang et al., 2012; [Forti, Baldé and Kuehr, 2018](https://collections.unu.edu/eserv/UNU:6477/RZ_EWaste_Guidelines_LoRes.pdf)). The objective of this classification system is to group products by 'similar function, comparable material composition (in terms of hazardous substances and valuable materials) and related end-of-life attributes...in addition to...a homogeneous average weight and life-time distribution' ([Baldé *et al.* 2015](https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf)).
+The observatory dashboard presents data on electronics using two classifications:
+
+1.  A 54 category '[UNU-KEY'](https://github.com/OliverLysa/observatory/blob/main/classifications/classifications/UNU.xlsx) classification (Wang et al., 2012; [Forti, Baldé and Kuehr, 2018](https://collections.unu.edu/eserv/UNU:6477/RZ_EWaste_Guidelines_LoRes.pdf)) - the objective of which is to group products by 'similar function, comparable material composition (in terms of hazardous substances and valuable materials) and related end-of-life attributes...in addition to...a homogeneous average weight and life-time distribution' ([Baldé *et al.* 2015](https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf)); and
+2.  A 14 category classification used by public authorities in the UK to report EEE/WEEE-related data against.
 
 ##### Inputs
 
@@ -65,7 +70,7 @@ Data is presented for electronics in the observatory dashboard categorised by th
 
 ##### Workflow
 
-The [script](https://github.com/OliverLysa/observatory/blob/main/scripts/classification_matching/UNU_classification_matching.R) imports classifications and makes correlation tables for moving between classifications to then be able to link data. It takes the following steps:
+The [script](https://github.com/OliverLysa/observatory/blob/main/scripts/classification_matching/UNU_classification_matching.R) imports stand-alone classifications and a correspondence table published in the literature and makes an expanded correlation table to help move between the data sources drawn on. It takes the following steps:
 
 1.  Imports UNU_HS6 correspondence table ([Baldé *et al.* 2015](https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf))
 2.  Joins UNU_HS6 to CN8 to create a [correspondence table](https://github.com/OliverLysa/observatory/blob/main/classifications/concordance_tables/UNU_2_CN8_2_PRODCOM_SIC.csv) for extracting UK trade data
@@ -100,111 +105,156 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 
 </details>
 
-5.  Links to the UK-14 classification used for EEE/WEEE Directive using concordance table from [Stowell, Yumashev et al. (2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
+5.  Links to the UK-14 classification using concordance table from [Stowell, Yumashev et al. (2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
 
 ##### Outputs
 
--   UNU54 to HS6, CN8, Prodcom, SIC and UKU14 concordance table
+-   An excel and csv of a concordance table linking the following classifications: UNU54, HS6, CN8, Prodcom, SIC and UKU14
 
 #### 001_domestic_production.R
 
-##### Input
+Scripts extracts domestic production data from the annual ONS publication.
+
+##### Inputs
+
+-   [ONS Prodcom data](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/bulletins/ukmanufacturerssalesbyproductprodcom/2021results) (2008-20)
+-   ONS Prodcom data (2021 onwards)
+-   Prodcom codes derived from 000_classification_matching.R
 
 ##### Workflow
 
-1.  Selects SIC codes from the classification table to define which sheets are imported
-2.  Extracts relevant sheets in the ONS prodcom dataset, cleans data and puts into tidy format
-3.  Validation and unknown values estimated
-    1.  In some cases, values are suppressed
+1.  Imports the ONS Prodcom datasets, binds all sheets to create single tables, binds the 2008-2020 and 2021 data and exports full dataset for use across product categories
+2.  Extracts data for prodcom codes specific to electronics, cleans data and puts into tidy format
+3.  As Prodcom includes suppressed values - the omission of which will present a data gap in the final presentation - omitted values are estimated. Following V.M. van Straalen (2017), to do this a ratio is calculated between units exported (generally not suppressed) and units produced for years for which data is available. A median is taken across these ratios and applied to the years for which data is missing based on export units/ratio = prodcom units.
 
-##### Output
+##### Outputs
+
+-   Spreadsheet of UK prodcom data across all available divisions (\< 33)
+-   Spreadsheet of domestic production data, summarised by UNU
 
 #### 002_international_trade.R
 
-Script extracts trade data from the UKTradeInfo website using the 'uktrade' R package.
+Script extracts international trade data from the UKTradeInfo API using the 'uktrade' R package/wrapper.
 
-##### Input
+##### Inputs
+
+-   CN8 trade codes derived from 000_classification_matching.R
+-   Extractor function in functions script
 
 ##### Workflow
 
 1.  Isolates list of CN8 codes from classification database for codes of interest
 2.  Uses a for loop to iterate through the trade terms, extract data using the 'uktrade' extractor function/wrapper to the UKTradeInfo API and print results to a single dataframe (this can take some time to run)
-3.  Sums results grouped by year, flow type, country of source/destination, trade code
+3.  Sums results grouped by year, flow type, country of source/destination, trade code as well as by year, flow type and trade code
 
-##### Output
+##### Outputs
+
+-   Spreadsheet of trade data including country-detail
+-   Spreadsheet of trade data excluding country-detail
 
 #### 003_total_inflows.R
 
-##### Apparent consumption
+##### Apparent consumption method
 
 <details>
 
 <summary>More info: Apparent consumption</summary>
 
-There are a range of methodologies available for analysing material flows, the choice of which will affect final estimates (ONS, ). The most widely established methodological framework for measuring material resource flows at a national level is the Economy-Wide Material Flow Accounting (EW-MFA) system ([Eurostat, 2018](https://seea.un.org/sites/seea.un.org/files/ks-gq-18-006-en-n.pdf)) which underpins the SNA SEEA Material Flow Accounts (SNA-SEEA-MFA). In a closed economy or at the global level, the sum of domestic resource extraction (DE) is equivalent to consumption-based material flow indicators such as domestic material consumption (DMC) or raw material consumption (RMC) as well as their equivalent input-based indicators e.g., direct material input (DMI) and Raw Material Input (RMI) as all trade flows net out.
+There are a range of methodologies available for analysing material flows, the choice of which will affect final estimates (ONS, ). The most widely established methodological framework for measuring material resource flows at a national level is the Economy-Wide Material Flow Accounting (EW-MFA) system ([Eurostat, 2018](https://seea.un.org/sites/seea.un.org/files/ks-gq-18-006-en-n.pdf)) which underpins the SNA SEEA Material Flow Accounts (SNA-SEEA-MFA). In a closed economy or at the global level, the sum of domestic resource extraction (DE) is equivalent to consumption-based material flow indicators such as domestic material consumption (DMC) or raw material consumption (RMC) as well as their equivalent input-based indicators such as direct material input (DMI) and Raw Material Input (RMI) as all trade flows net out.
 
-Domestic Material Consumption (DMC) is a headline indicator derived from the EW-MFA and SEEA-CF-MFA systems. It is currently the most widely used material flow-based indicator at the core of national statistical reporting on material flows. DMC is calculated by summing the used fraction of domestically extracted and harvested materials and the weight of imported raw materials, semi-finished and manufactured products, while excluding the weight of exported raw materials, semi-finished and manufactured products. 
+Domestic Material Consumption (DMC) is a headline indicator derived from the EW-MFA and SEEA-CF-MFA systems. It is currently the most widely used material flow-based indicator at the core of national statistical reporting on material flows. DMC is calculated by summing the used fraction of domestically extracted and harvested materials and the weight of imported raw materials, semi-finished and manufactured products, while excluding the weight of exported raw materials, semi-finished and manufactured products. DMC can therefore be written as:
 
-DMC can therefore be written as:
+$$DE + PtB$$
 
-Where *DE* is domestic extraction and *PtB* defines the physical trade balance of *Im* i.e. imports and *Ex* i.e. exports. DMC excludes hidden flows throughout. A closely linked indicator, Direct Material Input (DMI) is based on the same methodology but incorporates the materials mobilised or used in the production of exported goods and services ([OECD, 2008](https://www.oecd.org/environment/indicators-modelling-outlooks/MFA-Guide.pdf)).
-
-This methodology can be applied at a sub-national level too, and is often referred to as an 'apparent consumption' method.
+Where *DE* is domestic extraction and *PtB* defines the physical trade balance of *Im* i.e. imports and *Ex* i.e. exports. DMC excludes hidden flows throughout. A closely linked indicator, Direct Material Input (DMI) is based on the same methodology but incorporates the materials mobilised or used in the production of exported goods and services ([OECD, 2008](https://www.oecd.org/environment/indicators-modelling-outlooks/MFA-Guide.pdf)). This methodology can be applied at a sub-national level too albeit entirely within the confines of the technosphere by summing PtB and domestic production, and is often referred to as an 'apparent consumption' method.
 
 </details>
 
+###### Inputs
+
+-   Prodcom data summarised by UNU
+-   Trade data summarised by UNU
+
 ###### Workflow
 
-1.  Left join summary trade and UNU classification to get flows by UNU
-2.  Filter prodcom variable column and mutate values
-3.  Pivot wide to create aggregate values then re-pivot long to estimate key aggregates
-4.  Indicators based on <https://www.resourcepanel.org/global-material-flows-database>
+1.  Import prodcom and trade data summarised by UNU to get domestic production, imports and exports
+2.  Calculate indicators and key aggregates based on <https://www.resourcepanel.org/global-material-flows-database>
+3.  Export combined and summarised data
 
 ###### Outputs
 
--   Material imports: Direct imports of materials as the weight of products crossing the border
--   Material exports:
--   domestic material input: Material requirement of production and consumption i.e. DE plus imports. Mass of raw materials extracted from the domestic territory, plus the physical weight of imports.
--   Physical trade balance (imports minus exports) (PTB) - Direct trade dependency in terms of material flows
--   Domestic Material Consumption - DE + PTB. Mass of raw materials extracted from the domestic territory, plus the physical weight of imports, minus the physical weight of exports. Differs from RMC by not taking the raw material equivalents of imports.
--   Raw Material Consumption (RMC) i.e. DE plus RTB - Mass of global raw material extraction associated with producing the goods and services consumed in England (not including hidden flows)
--   Material processed - Mass of domestic extraction, net imports and secondary materials.
--   Net addition to stocks - Mass of materials added to the economy's stock each year (gross additions) in buildings and other infrastructure, and materials incorporated into new durable goods such as cars, industrial machinery and household appliances, while old materials are removed from stock as buildings are demolished and durable goods disposed of.
--   Material import dependency - The proportion of materials used which derive from domestic extraction and material domestically reprocessed.
+-   A spreadsheet of combined domestic production and trade data, as well as the following indicators:
+    -   Total imports - sum of EU and non-EU source imports
+    -   Total exports - sum of EU and non-EU source exports
+    -   Net trade balance - Imports - exports i.e. PtB
+    -   Apparent consumption - domestic_production + total imports - total exports
+    -   Apparent output - domestic production + total exports
+    -   Apparent input - domestic production + total imports
+    -   Material import dependency - The proportion of units imported of imports plus exports
 
 ##### Placed on the market
 
+###### Inputs
+
+-   Environment Agency placed on market (POM) data
+
 ###### Workflow
 
-1.  [Extracts](https://github.com/OliverLysa/observatory/blob/main/scripts/data_extraction_transformation/Electronics/environment_agency/On_the_market.R) placed on market data from Environment Agency EPR datasets
+1.  [Extracts](https://github.com/OliverLysa/observatory/blob/main/scripts/data_extraction_transformation/Electronics/environment_agency/On_the_market.R) placed on market data from Environment Agency EPR spreadsheet, binds data from across sheets, pivot to long-format and exports as a consolidated file
+
+###### Outputs
+
+-   Compiled POM data 2007 onward
 
 #### 004_mass_conversion.R
 
-The purpose of this script is to convert unit-level inflow data into mass equivalents e.g. tonnes of laptops and tablets each year using bill of materials (BoM data).
+Script converts unit-level inflow data into mass equivalents e.g. tonnes of laptops and tablets each year using 'bill of materials' (BoM) data.
 
-A BoM is a hierarchical data object providing a (potentially extensive) list of the raw materials, components and instructions required to construct, manufacture, or repair a product. BoMs are generally used by firms to communicate information about a product as it moves along a value chain in order to help navigate regulations, efficiently manage inventory and to support product life-cycle assessments. Utilising component and material shares captured within a BoM data object alongside corresponding information on the volume/mass of flows (and stocks) of products/components, makes it possible to move between material, component and product flows (and stocks) at the micro level.
+A BoM is a hierarchical data object providing a list of the raw materials, components and instructions required to construct, manufacture, or repair a product. BoMs are generally used by firms to communicate information about a product as it moves along a value chain in order to help navigate regulations, efficiently manage inventory and to support product life-cycle assessments. Utilising component and material shares captured within a BoM data object alongside corresponding information on the volume/mass of flows (and stocks) of products/components, makes it possible to move between material, component and product flows (and stocks) at the micro level.
 
 ##### Inputs
+
+-   Outputs of 003_total_inflows.R
+-   Babbitt *et al* 2019
 
 ##### Workflow
 
-1.  Extracts BoM data from Babbitt *et al* 2019 and mass trend data from Balde *et al.*
-    1.  We assume homogeneity of the composition of products within each UNU after selecting a product archetype. We apply the trend in Balde *et al.* for years between X and X to simulate changes in trend into the future.
-    2.  Can make the archetypal product profile more up to date
-2.  Apply to unit-level flow data incl. using weightings
-3.  Convert BoM to Sankey format
+1.  Extracts BoM data from Babbitt *et al* 2019 and assigns these to UNU categories, assuming homogeneity of composition in each category
+2.  Apply the mass trend data from van Straalen (2017) to simulate trends over time
 
-##### Output
+##### Outputs
 
-##### Mass conversion
+-   
 
 #### 005_stock_outflow_calculation.R
 
-Generate stock and outflow estimates based on inflow and lifespan data. 'Lifespan' is a measure of how long materials and products are kept in circulation. Some historical lifespan data is available in, or can be derived from, existing literature and which varies in its presentation, definitions and methods employed (Oguchi et al. 2010). In some cases, lifespan point estimates such as a mean or median are provided, in other cases a range is given, and in others lifespan distribution parameters are made available. Care needs to be taken in transferring results, including accounting for difference in time and the place in which studies have been undertaken.
+Script calculates stock and outflow variables using inflow and lifespan data inputs.
 
 ##### Inputs
 
-<https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf>
+-   Lifespan data by UNU category transferred from life-time profiles in the Netherlands, France, Belgium and Italy ([CIRCABC, 2023](https://circabc.europa.eu/ui/group/636f928d-2669-41d3-83db-093e90ca93a2/library/8e36f907-0973-4bb3-8949-f2bf3efeb125/details)). Loss functions modelled after a Weibull distribution ('a continuous probability distribution that, when used for stock and flow models, can be described as modelling the population given a variable and time-dependent failure rate.') ([ProSUM, 2017](https://www.prosumproject.eu/sites/default/files/170601%20ProSUM%20Deliverable%203.3%20Final.pdf)).
+-   Inflow data in unit and mass terms
+
+<details>
+
+<summary>Lifespans as an input into MFA</summary>
+
+At its simplest, a lifespan refers to a specific interval of time an object exists in a particular form (see NICER overview). Here, 'Lifetime seeks to capture the period after a product has been sold and stays in households or businesses until it is disposed of. This includes 'the dormant time in sheds and the exchange of second-hand equipment between households and businesses within the country'. Lifespan information can input into material stock and flow accounting, life-cycle costing and linked assessments of impact in various ways. For instance, material stock accounting can take a bottom-up approach based on item inventories and material intensities (e.g. Wiedenhofer *et al.* 2015), or be estimated from the top-down based on inflow data and estimated lifespan distributions as in delay/survival models (e.g. [Fishman *et al.* (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4251510/).
+
+As an example, the ONS and most National Statistical Institutions (NSIs) estimate the monetary value of non-financial assets as part of national balance sheets using a perpetual inventory method (PIM). This involves starting with a benchmark asset monetary value and accumulating asset purchases through gross fixed capital formation over their estimated lifetime (based on ad-hoc research e.g., [asset lives study](https://www.niesr.ac.uk/publications/academic-review-asset-lives-uk)) via an assumed capital retirement distribution to estimate *gross* capital stocks. From this, a depreciation function is used to estimate the *net* capital stock (Dey-Chowdhury, 2009), with this further step taken because of the monetary representation of values.
+
+Loss functions modelled after a Weibull distribution ('a continuous probability distribution that, when used for stock and flow models, can be described as modelling the population given a variable and time-dependent failure rate.') ([ProSUM, 2017](https://www.prosumproject.eu/sites/default/files/170601%20ProSUM%20Deliverable%203.3%20Final.pdf)). A variable Y \> 0 represents time until an event from a particular origin. Y is variously referred to as survival time, event time, failure time and duration.
+
+-   Values in a **hazard function** (h(y) reflect the probability that an event occurs in a period of time.
+
+-   Values in a **cumulative distribution function (CDF)** F(y) reflect the probability that an event occurs at or before time y.
+
+-   Values in a **cumulative survival function (CSF)** S(y) reflect the probability that an event occurs after time y (i.e. the inverse of the CDF).
+
+<https://onlinelibrary.wiley.com/doi/abs/10.1111/jiec.12551>
+<https://www.sciencedirect.com/science/article/abs/pii/S0959652618339660>
+
+</details>
 
 ##### Workflow
 
@@ -217,13 +267,19 @@ Generate stock and outflow estimates based on inflow and lifespan data. 'Lifespa
 
 ##### Outputs
 
+-   A spreadsheet containing inflow, stock and outflow data by UNU-Key by year
+-   Outflows calculated as the sum of discarded products entering the stock in each historic year multiplied by its lifetime distribution probability
+-   Net change in stock between periods equals the difference between the total inflows and outflows.
+
+$$
+K(t) = I(t)-O(t)
+$$
+
+where K(t) is the change and I(t) and O(t) are the corresponding inflows and outflows in that year, respectively. This net change is added to the stock level in year t-1
+
 #### 006_outflow_routing.R
 
-We know some outflow routes at a 14-category level from EA data.
-
-##### Input
-
-The NICER programme was ran in advance of the introduction of the Waste Tracking system across the UK.
+##### Inputs
 
 ##### Workflow
 
@@ -237,9 +293,7 @@ The NICER programme was ran in advance of the introduction of the Waste Tracking
 8.  Data reformatted and restructured to calculate derived aggregates using end-of use mix % multiplied by an ordinal score, combined within a simple linear combination to produce CE-score metric
 9.  Compares recycling flows in relation to waste arisings of the same material/source.
 
-##### Output
-
-1.  Domestic Processed Output - The mass of materials used in the national economy before flowing into the environment, covering emissions to air, emissions to land (solid waste disposal), emissions to water, dissipative use of products (e.g. fertiliser) and dissipative losses (e.g. rubber losses from vehicles tyres).
+##### Outputs
 
 #### 007_GVA.R
 
@@ -261,9 +315,15 @@ The NICER programme was ran in advance of the introduction of the Waste Tracking
 
 Scripts for sources capturing monetary data additional to prodcom/trade across production and consumption perspectives. We are looking at products which fall largely within the SIC codes 26-29. We start by looking at 2-digit GVA data for these codes GVA for the products in scope. This could include not only data from the manufacturing sector, but also from repair and maintenance activities associated with those products as captured below. This allows us to capture structural shifts at the meso-level.
 
+<details>
+
+<summary>Intensity ratios</summary>
+
 At its most basic, a measure of efficiency or productivity tells us about a relationship in terms of scale between an output and an input. Singular measures of resource efficiency/productivity (as opposite to combined measures e.g. total factor productivity) generally seek to track the effectiveness with which an economy or sub-national process uses resource inputs to generate material or service outputs or anthropocentric value of some description.
 
 Economic-physical productivity i.e. the money value of outputs per mass unit of material resource inputs. At national level, can be measured from production perspective (GDP/DMC or DMI), or can be measured from consumption perspective (GDP/RMC or RMI). Other indicators could be the amount of waste generated in relation to economic output, or alternatively in relation to resource inputs/stocks.
+
+</details>
 
 #### 008_emissions.R
 
@@ -271,18 +331,14 @@ Economic-physical productivity i.e. the money value of outputs per mass unit of
 
 -   Consumption emissions
 
--   Emissions intensity
-
 #### 009_stacked_chart.R
 
-#### 010_sankey_chart.R
+#### 010_bubble_chart.R
 
-#### 011_bubble_chart.R
+#### 011_sankey_chart.R
 
 #### 012_ifixit.R
 
 -   Product characteristics - Product reparability (time required for disassembly, products meeting certain score of reparability), product failures.
 
 #### 013_open_repair.R
-
-#### 014_ebay.R
