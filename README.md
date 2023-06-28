@@ -289,13 +289,12 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 ##### Workflow
 
 1.  Calculate collection
-    1.  \# Sum of:
-# collection by PCS members across EEE/WEEE categories
-# market-driven resale: 
-# direct reuse/resale through commercial and domestic routes: Commerical reuse - 90kt, domestic reuse - 82kt, 
-# ITAMs and other asset managers
-# Warranty returns
-# Legal exports of WEEE
+    1.  Sum of:
+        1.  collection by PCS members across EEE/WEEE categories
+        2.  market-driven resale:
+        3.  direct reuse/resale through commercial and domestic routes
+        4.  Warranty returns
+        5.  Legal exports of WEEE
 2.  Fly-tipping data (white goods) (Defra) and Illegal dumping (EA)
 3.  
 4.  Material recycled - Mass of waste produced that is recycled and re-enters the economic system.
