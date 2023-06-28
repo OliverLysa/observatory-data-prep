@@ -211,9 +211,9 @@ Generate stock and outflow estimates based on inflow and lifespan data. 'Lifespa
 1.  Extract lifespan/residence-time data
 2.  Input prioritisation
 3.  Calculate mean and median from Weibull parameters
-4.  Compute distributions from lifespan parameters
+4.  Compute distributions from lifespan parameters in CDF form
 5.  Imports benchmark stock data
-6.  Iterate over products' parameters to calculate stock and outflows
+6.  Iterate over products' inflow data by year and lifespan parameters to calculate stock and outflows
 
 ##### Outputs
 
@@ -234,9 +234,12 @@ The NICER programme was ran in advance of the introduction of the Waste Tracking
 5.  Material remanufactured - Mass of waste produced that is remanufactured and re-enters the economy system.
 6.  Material reused -
 7.  Material repaired - Fixing something that is broken or unusable so it can be used for its original purpose.
-8.  Domestic Processed Output - The mass of materials used in the national economy before flowing into the environment, covering emissions to air, emissions to land (solid waste disposal), emissions to water, dissipative use of products (e.g. fertiliser) and dissipative losses (e.g. rubber losses from vehicles tyres).
-9.  Data reformatted and restructured to calculate derived aggregates using end-of use mix % multiplied by an ordinal score, combined within a simple linear combination to produce CE-score metric
-10. Compares recycling flows in relation to waste arisings of the same material/source.
+8.  Data reformatted and restructured to calculate derived aggregates using end-of use mix % multiplied by an ordinal score, combined within a simple linear combination to produce CE-score metric
+9.  Compares recycling flows in relation to waste arisings of the same material/source.
+
+##### Output
+
+1.  Domestic Processed Output - The mass of materials used in the national economy before flowing into the environment, covering emissions to air, emissions to land (solid waste disposal), emissions to water, dissipative use of products (e.g. fertiliser) and dissipative losses (e.g. rubber losses from vehicles tyres).
 
 #### 007_GVA.R
 
@@ -283,5 +286,3 @@ Economic-physical productivity i.e. the money value of outputs per mass unit of
 #### 013_open_repair.R
 
 #### 014_ebay.R
-
-#### 015_policy_inputs.R

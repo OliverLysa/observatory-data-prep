@@ -14,7 +14,8 @@ packages <- c("magrittr",
               "readxl", 
               "dplyr", 
               "tidyverse", 
-              "readODS", 
+              "readODS",
+              "pdftools",
               "data.table", 
               "RSelenium", 
               "netstat", 
@@ -22,7 +23,8 @@ packages <- c("magrittr",
               "httr",
               "jsonlite",
               "mixdist",
-              "janitor")
+              "janitor",
+              "tabulizer")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())
@@ -48,21 +50,60 @@ options(scipen = 999)
 # Calculate outflows - EEE moving on from use, storage and hoarding
 # *******************************************************************************
 
-# https://onlinelibrary.wiley.com/doi/abs/10.1111/jiec.12551
-# https://www.sciencedirect.com/science/article/abs/pii/S0959652618339660
+# Extract lifespan data from the following source https://circabc.europa.eu/ui/group/636f928d-2669-41d3-83db-093e90ca93a2/library/8e36f907-0973-4bb3-8949-f2bf3efeb125/details
 
-# Import lifespan data - these need to be reviewed further to work out exactly to which period they refer. e.g. inflow through exiting stock
-# or inflow through hibernation etc. 
+# Extract first half of table
+unitar_lifespan_pg1 <- extract_tables('./raw_data/WEEE Calculation Tool__Manual_2023.pdf', pages = 22) %>%
+  as.data.frame() 
+
+# Clip to data of interest, separate columns
+unitar_lifespan_pg1 <- unitar_lifespan_pg1[c(6:46), c(1:3)] %>%
+  separate(2, c("shape_NLFB", "scale_NLFB"), " ") %>%
+  separate(4, c("shape_IT", "scale_IT"), " ")
+
+# Extract 2nd half of table
+unitar_lifespan_pg2 <- extract_tables('./raw_data/WEEE Calculation Tool__Manual_2023.pdf', pages = 23) %>%
+  as.data.frame()
+
+# Bind/append tables to create a complete dataset
+unitar_lifespan <- rbindlist(
+  list(
+    unitar_lifespan_pg1,
+    unitar_lifespan_pg2),
+  use.names = FALSE) %>%
+  rename(unu_key = 1)
+
+# Separate data by country 
+unitar_lifespan_IT <- unitar_lifespan[c(1:54), c(1,4,5)] %>%
+  mutate(source = "unitar",
+         country = "IT") %>%
+  rename(unu_key = 1,
+         shape = 2,
+         scale = 3)
+
+# Separate data by country 
+unitar_lifespan_NLFB <- unitar_lifespan[c(1:54), c(1:3)] %>%
+  mutate(source = "unitar",
+         country = "NLFB") %>%
+  rename(unu_key = 1,
+         shape = 2,
+         scale = 3)
+
+# Bind/append tables to create a complete dataset
+unitar_lifespan <- rbindlist(
+  list(
+    unitar_lifespan_IT,
+    unitar_lifespan_NLFB),
+  use.names = TRUE)
+
+# Write summary file
+write_xlsx(unitar_lifespan, 
+           "./cleaned_data/weibull_parameters.xlsx")
+
+# Import lifespan data and filter to source and region of interest
 lifespan_data <- read_excel("./cleaned_data/electronics_lifespan.xlsx",
                             sheet = 1,
                             range = "A2:AY75")
-
-# Keep only collated lifespan data columns and rename
-lifespan_data_filtered <- lifespan_data[c(1:54), c(1, 7, 8)] %>%
-  rename(unu_key = 1,
-         shape = 2,
-         scale = 3) %>%
-  na.omit()
 
 # Import inflow data to match to lifespan
 inflow_unu_mass_units <-

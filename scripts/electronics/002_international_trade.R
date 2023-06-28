@@ -26,7 +26,9 @@ packages <- c("magrittr",
               "httr",
               "jsonlite",
               "mixdist",
-              "janitor")
+              "janitor",
+              "future",
+              "furrr")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())
@@ -57,6 +59,19 @@ trade_terms <-
   UNU_CN_PRODCOM$CN8 %>%
 unlist()
 
+# Isolate list of CN8 codes from classification table, column 'CN'
+trade_terms_wot <- WOT_UNU_CN8 %>%
+  filter(Year > 2008) %>%
+  mutate(CN = gsub("85279290","85279200", CN)) %>%
+  filter(CN != c("85287235",
+                 "85287251"))
+
+# Extract unique terms from the list
+trade_terms_wot <-
+  unique(trade_terms_wot$CN) %>%
+  unlist() %>%
+  as.character(CN)
+
 # Create a for loop that goes through the trade terms, extracts the data using the extractor function (in function script) based on the uktrade wrapper
 # and prints the results to a list of dataframes
 res <- list()
@@ -66,8 +81,6 @@ for (i in seq_along(trade_terms)) {
   print(i)
   
 }
-
-# Only goes back to 2008 at present - can go back to 2001
 
 # Bind the list of dataframes to a single dataframe
 bind <- 

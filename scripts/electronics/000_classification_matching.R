@@ -21,7 +21,11 @@ packages <- c("magrittr",
               "uktrade", 
               "httr",
               "jsonlite",
-              "mixdist")
+              "mixdist",
+              "RCurl",
+              "curl",
+              "future",
+              "furr")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())
@@ -47,9 +51,7 @@ options(scipen = 999)
 # *******************************************************************************
 #
 
-# https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf
-
-## Link UNU to CN8
+## Link UNU to CN8 and PRDCODE - old method
 
 # Import UNU HS6 correspondence table
 UNU_HS6 <-
@@ -105,5 +107,20 @@ UNU_CN_PRODCOM$PRCCODE <-
   trimws(UNU_CN_PRODCOM$PRCCODE, 
          which = c("both"))
 
+# Write file
 write_xlsx(UNU_CN_PRODCOM, 
           "./classifications/concordance_tables/UNU_CN_PRODCOM_SIC.xlsx")
+
+## Link UNU to CN8 and PRDCODE - 2nd method
+
+# Import correspondence table from WOT 
+
+# Import UNU CN8 correspondence correspondence table
+WOT_UNU_CN8 <-
+  read_csv("./classifications/concordance_tables/wot2.0/cn-to-pcc-to-unu-mappings-in-WOT.csv") %>%
+  mutate(SIC2 = substr(PCC, 1, 2),
+         SIC4 = substr(PCC, 1, 4))
+
+# Write file
+write_xlsx(WOT_UNU_CN8, 
+           "./classifications/concordance_tables/WOT_UNU_CN8_PCC_SIC.xlsx")

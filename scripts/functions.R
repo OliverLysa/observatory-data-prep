@@ -27,7 +27,7 @@ extractor <- function(x) {
   trade_results <-
     load_ots(
       # The month argument specifies a range in the form of c(min, max)
-      month = c(200801, 202112),
+      month = c(200101, 202112),
       flow = NULL,
       commodity = c(x),
       country = NULL,

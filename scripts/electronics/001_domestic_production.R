@@ -157,8 +157,22 @@ Prodcom_data_UNU <- merge(prodcom_filtered_all,
   summarise(Value = sum(Value)) %>%
   filter(Variable != "Volume (Kilogram)")
 
+# Merge prodcom data with UNU classification, summarise by UNU Key and filter volume rows not expressed in number of units
+Prodcom_data_UNU_WOT <- merge(prodcom_filtered_all,
+                          WOT_UNU_CN8,
+                          by.x=c("Code"),
+                          by.y=c("PCC")) %>%
+  group_by(`UNU`, Year.x, Variable) %>%
+  summarise(Value = sum(Value)) %>%
+  filter(Variable != "Volume (Kilogram)") %>%
+  rename(Year = 2)
+
 # Write summary file
 write_xlsx(Prodcom_data_UNU, 
  "./cleaned_data/Prodcom_data_UNU.xlsx")
+
+# Write summary file
+write_xlsx(Prodcom_data_UNU_WOT, 
+           "./cleaned_data/Prodcom_data_UNU_WOT.xlsx")
 
 # Confidential values
