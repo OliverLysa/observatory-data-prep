@@ -52,7 +52,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 source("./scripts/functions.R", 
        local = knitr::knit_global())
 
-# Stop scientific notation of numeric values
+# Turn off scientific notation of numeric values
 options(scipen = 999)
 
 # *******************************************************************************
@@ -202,12 +202,24 @@ collected_all_wide$product <- factor(collected_all_wide$product, levels=c(
 
 collected_all_wide <- collected_all_wide[order(collected_all_wide$product), ]
 
-# Write output to xlsx form
+# Write output to xlsx form to convert via the UNU_UK mapping excel tool 
 write_xlsx(collected_all_wide, 
            "./intermediate_data/collected_all_wide.xlsx")
 
+# Reimport the data after converting UK 14 to UNU 54 in excel, clean
+collected_all_wide_54 <- read_xlsx("./intermediate_data/Interactive_UNU_UK_EU_SMW_Mapping_Tool.xlsx",
+           sheet = "Convert_UK14_POM_to_UNU",
+           range = "A21:L75") %>%
+           row_to_names(row_number = 1) %>%
+  remove_empty() %>%
+  rename(unu_key = 1,
+         unu_description = 2) %>%
+  select(-c("2008")) %>%
+  mutate(# Remove everything after the brackets/parentheses in the code column
+         unu_description = gsub("\\(.*", "", unu_description))
+
 # *******************************************************************************
-# WEEE received at an approved authorised treatment facility (AATF)
+# WEEE received at an approved authorised treatment facility (AATF) - covers recycling primarily, some household & non-household reuse
 # *******************************************************************************
 
 # Apply download.file function in R
