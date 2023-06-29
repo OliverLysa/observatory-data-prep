@@ -216,7 +216,10 @@ collected_all_wide_54 <- read_xlsx("./intermediate_data/Interactive_UNU_UK_EU_SM
          unu_description = 2) %>%
   select(-c("2008")) %>%
   mutate(# Remove everything after the brackets/parentheses in the code column
-         unu_description = gsub("\\(.*", "", unu_description))
+         unu_description = gsub("\\(.*", "", unu_description)) 
+
+# Add leading 0s to unu_key column to help match to other data
+collected_all_wide_54$unu_key <- str_pad(collected_all_wide_54$unu_key, 4, pad = "0")
 
 # *******************************************************************************
 # WEEE received at an approved authorised treatment facility (AATF) - covers recycling primarily, some household & non-household reuse
@@ -414,6 +417,15 @@ outflow_routing <- read_excel(
          route = gsub("Take back scheme", "remanufacture", route),
          route = gsub("Unknown", "maintenance", route))
 
+
+# Total collection
+
+# Reuse
+
+# Recycling
+
+# 
+
 # *******************************************************************************
 # Disposal
 # *******************************************************************************
@@ -432,8 +444,6 @@ outflow_routing <- read_excel(
 # 20 01 36 
 
 # LACW Statistics
-
-
 
 # Household waste composition study 
 
