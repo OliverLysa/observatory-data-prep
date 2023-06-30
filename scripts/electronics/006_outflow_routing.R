@@ -320,10 +320,16 @@ write_xlsx(received_reuse_summarised_wide,
            "./intermediate_data/received_reuse_summarised_wide.xlsx")
 
 # IT asset management sector (ITAM), mobile phone buyback schemes, online auction sites and classified listings.
-# Commercial reuse: 90kt
+# B2B: 90kt
 # ITAM: 90Kt - covers remanufacturing too
-# Domestic reuse: 82Kt
+# B2C/C2C reuse: 82Kt
+# https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf
+
 # Warranty and returns: 102Kt
+
+# Illegal dumping
+# https://www.gov.uk/government/statistical-data-sets/env24-fly-tipping-incidents-and-actions-taken-in-england
+# https://www.gov.uk/government/publications/environment-agency-2021-data-on-regulated-businesses-in-england
 
 # *******************************************************************************
 # Remanufacture
