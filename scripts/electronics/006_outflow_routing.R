@@ -7,15 +7,6 @@
 # https://www.gov.uk/government/statistical-data-sets/waste-electrical-and-electronic-equipment-weee-in-the-uk
 # Defra's 'waste tracking' system should provide improved numbers for outflow destinations within the regulated waste system when in place
 
-# Direct resale
-  # Commercial reuse
-  # Domestic reuse
-# Refurbishment
-# Remanufacture
-# Recycling
-# Urban mining
-# Disposal
-
 # *******************************************************************************
 # Packages
 # *******************************************************************************
@@ -54,6 +45,10 @@ source("./scripts/functions.R",
 
 # Turn off scientific notation of numeric values
 options(scipen = 999)
+
+# *******************************************************************************
+# Maintenance/repair
+# *******************************************************************************
 
 # *******************************************************************************
 # Collection/separation 
@@ -221,9 +216,14 @@ collected_all_wide_54 <- read_xlsx("./intermediate_data/Interactive_UNU_UK_EU_SM
 # Add leading 0s to unu_key column to help match to other data
 collected_all_wide_54$unu_key <- str_pad(collected_all_wide_54$unu_key, 4, pad = "0")
 
+# Household waste composition study 
+# UK HOUSEHOLD RESIDUAL plus RECYCLING TOTAL - 516,000 tonnes 320,560 going into the recycling stream. 195544 going into residual stream
+
 # *******************************************************************************
-# WEEE received at an approved authorised treatment facility (AATF) - covers recycling primarily, some household & non-household reuse
+# Reuse/resale and refurbishment
 # *******************************************************************************
+
+# Reported household & non-household reuse of WEEE received at an approved authorised treatment facility (AATF)
 
 # Apply download.file function in R
 download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160180/WEEE_received_at_an_approved_authorised_treatment_facility.ods",
@@ -232,8 +232,6 @@ download.file("https://assets.publishing.service.gov.uk/government/uploads/syste
 # Extract and list all sheet names 
 received_AATF_sheet_names <- list_ods_sheets(
   "./raw_data/WEEE_received_AATF.ods")
-
-a <- read_ods("./raw_data/WEEE_received_AATF.ods")
 
 # Map sheet names to imported file by adding a column "sheetname" with its name
 received_AATF_data <- purrr::map_df(received_AATF_sheet_names, 
@@ -267,7 +265,7 @@ received_AATF_data <- purrr::map_df(received_AATF_sheet_names,
 # Substring year column to last 4 characters
 received_AATF_data$year = str_sub(received_AATF_data$year,-4)
 
-# Make long-format and filter to household only
+# Make long-format
 received_AATF_data <- received_AATF_data %>%
   # Remove everything in the code column following a hyphen
   # Pivot long to input to charts
@@ -282,11 +280,154 @@ received_AATF_data <- received_AATF_data %>%
 write_xlsx(received_AATF_data, 
            "./cleaned_data/received_AATF_data.xlsx")
 
+# filter to reuse
+received_reuse <- received_AATF_data %>%
+  filter(route == "received_reuse")
+  
+# Prepare for converting from UKU 14 to UNU-54
+received_reuse_summarised <- received_reuse %>%
+  mutate_at(c('value'), as.numeric) %>%
+  group_by(product, year) %>%
+  summarise(value = sum(value))
+
+# Convert to wide format
+received_reuse_summarised_wide <- received_reuse_summarised %>%
+  pivot_wider(names_from = "year", 
+              values_from = "value")
+
+# Reorder rows to match the UK14 to UNU mapping tool 
+received_reuse_summarised_wide$product <- factor(received_reuse_summarised_wide$product, levels=c(
+  "Large Household Appliances",
+  "Small Household Appliances",
+  "IT and Telcomms Equipment",
+  "Consumer Equipment",
+  "Lighting Equipment",
+  "Electrical and Electronic Tools",
+  "Toys Leisure and Sports",
+  "Medical Devices",
+  "Monitoring and Control Instruments",
+  "Automatic Dispensers",
+  "Display Equipment",
+  "Cooling Appliances Containing Refrigerants",
+  "Gas Discharge Lamps",
+  "Gas Discharge Lamps and LED Light Sources",
+  "Photovoltaic Panels"))
+
+received_reuse_summarised_wide <- received_reuse_summarised_wide[order(received_reuse_summarised_wide$product), ]
+
+# Write output to xlsx form to convert via the UNU_UK mapping excel tool 
+write_xlsx(received_reuse_summarised_wide, 
+           "./intermediate_data/received_reuse_summarised_wide.xlsx")
+
+# IT asset management sector (ITAM), mobile phone buyback schemes, online auction sites and classified listings.
+# Commercial reuse: 90kt
+# ITAM: 90Kt - covers remanufacturing too
+# Domestic reuse: 82Kt
+# Warranty and returns: 102Kt
+
 # *******************************************************************************
+# Remanufacture
+# *******************************************************************************
+
+# *******************************************************************************
+# Recycling
+# *******************************************************************************
+
+# filter received data to received at aatf for recycling
+received_recycling <- received_AATF_data %>%
+  filter(route == "received_treatment")
+
+# Prepare for converting from UKU 14 to UNU-54
+received_recycling_summarised <- received_recycling %>%
+  mutate_at(c('value'), as.numeric) %>%
+  group_by(product, year) %>%
+  summarise(value = sum(value))
+
+# Convert to wide format
+received_recycling_summarised_wide <- received_recycling_summarised %>%
+  pivot_wider(names_from = "year", 
+              values_from = "value")
+
+# Reorder rows to match the UK14 to UNU mapping tool 
+received_recycling$product <- factor(received_recycling$product, levels=c(
+  "Large Household Appliances",
+  "Small Household Appliances",
+  "IT and Telcomms Equipment",
+  "Consumer Equipment",
+  "Lighting Equipment",
+  "Electrical and Electronic Tools",
+  "Toys Leisure and Sports",
+  "Medical Devices",
+  "Monitoring and Control Instruments",
+  "Automatic Dispensers",
+  "Display Equipment",
+  "Cooling Appliances Containing Refrigerants",
+  "Gas Discharge Lamps",
+  "Gas Discharge Lamps and LED Light Sources",
+  "Photovoltaic Panels"))
+
+received_recycling_summarised_wide <- received_recycling_summarised_wide[order(received_recycling_summarised_wide$product), ]
+
+# Write output to xlsx form to convert via the UNU_UK mapping excel tool 
+write_xlsx(received_recycling_summarised_wide, 
+           "./intermediate_data/received_recycling_summarised_wide.xlsx")
+
+# Non-obligated WEEE received at approved authorised treatment facilities and approved exporters
+
+# Apply download.file function in R
+download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160183/Non-obligated_WEEE_received_at_approved_authorised_treatment_facilities_and_approved_exporters.ods",
+              "./raw_data/WEEE_received_non_obligated.ods")
+
+# Extract and list all sheet names 
+WEEE_received_non_obligated <- list_ods_sheets(
+  "./raw_data/WEEE_received_non_obligated.ods")
+
+# Map sheet names to imported file by adding a column "sheetname" with its name
+WEEE_received_non_obligated <- purrr::map_df(WEEE_received_non_obligated, 
+                                             ~dplyr::mutate(read_ods(
+                                               "./raw_data/WEEE_received_non_obligated.ods", 
+                                               sheet = .x), 
+                                               sheetname = .x)) %>%
+  mutate(quarters = case_when(str_detect(Var.1, "Period covered") ~ Var.1), .before = Var.1) %>%
+  tidyr::fill(1) %>%
+  filter(grepl('January to December', quarters)) %>%
+  # make numeric and filter out anything but 1-14 in column 1
+  mutate_at(c('Var.1'), as.numeric) %>%
+  filter(between(Var.1, 1, 14)) %>%
+  select(-c(
+    `Var.1`,
+    sheetname,
+    Var.5)) %>% 
+  rename(year = 1,
+         product = 2,
+         received_AATF_AE = 3,
+         received_AATF_DCF = 4)
+
+# Substring year column to last 4 characters
+WEEE_received_non_obligated$year = str_sub(WEEE_received_non_obligated$year,-4)
+
+# Make long-format
+WEEE_received_non_obligated <- WEEE_received_non_obligated %>%
+  # Remove everything in the code column following a hyphen
+  # Pivot long to input to charts
+  pivot_longer(-c(
+    year,
+    product),
+    names_to = "route", 
+    values_to = "value") %>%
+  mutate(source = "unspecified")
+
+# Write output to xlsx form
+write_xlsx(WEEE_received_non_obligated, 
+           "./cleaned_data/WEEE_received_non_obligated.xlsx")
+
+# https://www.data.gov.uk/dataset/0e0c12d8-24f6-461f-b4bc-f6d6a5bf2de5/wastedataflow-local-authority-waste-management
+
+# *******************************************************************************
+# Exports
+# *******************************************************************************
+
 # WEEE received by approved exporters
-# https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13406
-# https://step-initiative.org/files/_documents/other_publications/UNU-Transboundary-Movement-of-Used-EEE.pdf
-# *******************************************************************************
 
 # Apply download.file function in R
 download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160181/WEEE_received_by_approved_exporters.ods",
@@ -338,93 +479,8 @@ WEEE_received_export_data <- WEEE_received_export_data %>%
 write_xlsx(WEEE_received_export_data, 
            "./cleaned_data/WEEE_received_export_data.xlsx")
 
-# *******************************************************************************
-# Non-obligated WEEE received at approved authorised treatment facilities and approved exporters
-# *******************************************************************************
-
-# Apply download.file function in R
-download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160183/Non-obligated_WEEE_received_at_approved_authorised_treatment_facilities_and_approved_exporters.ods",
-              "./raw_data/WEEE_received_non_obligated.ods")
-
-# Extract and list all sheet names 
-WEEE_received_non_obligated <- list_ods_sheets(
-  "./raw_data/WEEE_received_non_obligated.ods")
-
-# Map sheet names to imported file by adding a column "sheetname" with its name
-WEEE_received_non_obligated <- purrr::map_df(WEEE_received_non_obligated, 
-                                           ~dplyr::mutate(read_ods(
-                                             "./raw_data/WEEE_received_non_obligated.ods", 
-                                             sheet = .x), 
-                                             sheetname = .x)) %>%
-  mutate(quarters = case_when(str_detect(Var.1, "Period covered") ~ Var.1), .before = Var.1) %>%
-  tidyr::fill(1) %>%
-  filter(grepl('January to December', quarters)) %>%
-  # make numeric and filter out anything but 1-14 in column 1
-  mutate_at(c('Var.1'), as.numeric) %>%
-  filter(between(Var.1, 1, 14)) %>%
-  select(-c(
-    `Var.1`,
-    sheetname,
-    Var.5)) %>% 
-  rename(year = 1,
-         product = 2,
-         received_AATF_AE = 3,
-         received_AATF_DCF = 4)
-
-# Substring year column to last 4 characters
-WEEE_received_non_obligated$year = str_sub(WEEE_received_non_obligated$year,-4)
-
-# Make long-format
-WEEE_received_non_obligated <- WEEE_received_non_obligated %>%
-  # Remove everything in the code column following a hyphen
-  # Pivot long to input to charts
-  pivot_longer(-c(
-    year,
-    product),
-    names_to = "route", 
-    values_to = "value") %>%
-  mutate(source = "unspecified")
-
-# Write output to xlsx form
-write_xlsx(WEEE_received_non_obligated, 
-           "./cleaned_data/WEEE_received_non_obligated.xlsx")
-
-# *******************************************************************************
-# Sayers et al 
-# *******************************************************************************
-
-# Import data outflow fate (CE-score), pivot longer, filter, drop NA and rename column 'route' 
-outflow_routing <- read_excel(
-  "./cleaned_data/electronics_outflow.xlsx") %>%
-  clean_names() %>%
-  pivot_longer(-c(
-    `unu_key`,
-    `unu_description`,
-    `variable`
-  ),
-  names_to = "route", 
-  values_to = "value") %>%
-  filter(variable == "Percentage",
-         route != "Total") %>%
-  drop_na(value) %>%
-  mutate(year = 2017) %>%
-  select(-c(variable, unu_description)) %>%
-  mutate(route = gsub("General bin", "disposal", route),
-         route = gsub("Recycling", "recycling", route),
-         route = gsub("Sold", "resale", route),
-         route = gsub("Donation or re-use", "resale", route),
-         route = gsub("Other", "refurbish", route),
-         route = gsub("Take back scheme", "remanufacture", route),
-         route = gsub("Unknown", "maintenance", route))
-
-
-# Total collection
-
-# Reuse
-
-# Recycling
-
-# 
+# https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13406
+# https://step-initiative.org/files/_documents/other_publications/UNU-Transboundary-Movement-of-Used-EEE.pdf
 
 # *******************************************************************************
 # Disposal
@@ -444,8 +500,37 @@ outflow_routing <- read_excel(
 # 20 01 36 
 
 # LACW Statistics
+# Helps separate large fraction
 
-# Household waste composition study 
+# C&I routes
 
-# UK HOUSEHOLD RESIDUAL plus RECYCLING TOTAL - 516,000 tonnes 320,560 going into the recycling stream. 195544 going into residual stream
+# *******************************************************************************
+# Sayers et al 
+# *******************************************************************************
+
+# Import data outflow fate (CE-score), pivot longer, filter, drop NA and rename column 'route' 
+outflow_routing <- read_excel(
+  "./cleaned_data/electronics_outflow.xlsx") %>%
+  clean_names() %>%
+  pivot_longer(-c(
+    `unu_key`,
+    `unu_description`,
+    `variable`
+  ),
+  names_to = "route", 
+  values_to = "value") %>%
+  filter(variable == "Percentage",
+         route != "Total",
+         value != 	
+           0.000000000) %>%
+  drop_na(value) %>%
+  mutate(year = 2017) %>%
+  select(-c(variable, unu_description)) %>%
+  mutate(route = gsub("General bin", "disposal", route),
+         route = gsub("Recycling", "recycling", route),
+         route = gsub("Sold", "resale", route),
+         route = gsub("Donation or re-use", "resale", route),
+         route = gsub("Other", "refurbish", route),
+         route = gsub("Take back scheme", "remanufacture", route),
+         route = gsub("Unknown", "maintenance", route))
 
