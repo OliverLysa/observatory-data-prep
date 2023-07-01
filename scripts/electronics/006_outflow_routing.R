@@ -216,8 +216,26 @@ collected_all_wide_54 <- read_xlsx("./intermediate_data/Interactive_UNU_UK_EU_SM
 # Add leading 0s to unu_key column to help match to other data
 collected_all_wide_54$unu_key <- str_pad(collected_all_wide_54$unu_key, 4, pad = "0")
 
-# Household waste composition study 
+collected_all_54 <- collected_all_wide_54 %>% 
+  pivot_longer(-c(
+  unu_key,
+  unu_description),
+  names_to = "year", 
+  values_to = "value")
+
+# Write output to xlsx form to convert via the UNU_UK mapping excel tool 
+write_xlsx(collected_all_54, 
+           "./cleaned_data/electronics_sankey/collected_all_54.xlsx")
+
+# Collected from households for disposal Household waste composition study 
 # UK HOUSEHOLD RESIDUAL plus RECYCLING TOTAL - 516,000 tonnes 320,560 going into the recycling stream. 195544 going into residual stream
+
+# IT asset management sector (ITAM), mobile phone buyback schemes, online auction sites and classified listings.
+# B2B: 90kt
+# ITAM: 90Kt - covers remanufacturing too
+# B2C/C2C reuse: 82Kt
+# https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf
+# Warranty and returns: 102Kt
 
 # *******************************************************************************
 # Reuse/resale and refurbishment
@@ -324,7 +342,6 @@ write_xlsx(received_reuse_summarised_wide,
 # ITAM: 90Kt - covers remanufacturing too
 # B2C/C2C reuse: 82Kt
 # https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf
-
 # Warranty and returns: 102Kt
 
 # Illegal dumping
@@ -334,6 +351,9 @@ write_xlsx(received_reuse_summarised_wide,
 # *******************************************************************************
 # Remanufacture
 # *******************************************************************************
+
+# Oakdene Hollins
+# Industry report (2005) - remanufacturing industry association
 
 # *******************************************************************************
 # Recycling
@@ -506,9 +526,7 @@ write_xlsx(WEEE_received_export_data,
 # 20 01 36 
 
 # LACW Statistics
-# Helps separate large fraction
-
-# C&I routes
+# Helps separate mixed municipal waste code
 
 # *******************************************************************************
 # Sayers et al 

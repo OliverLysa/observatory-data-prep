@@ -40,7 +40,7 @@ options(scipen = 999)
 # *******************************************************************************
 # Electronics
 
-# Import BoM data for most recent product within each group
+# Import BoM data
 BoM_data_UNU <- read_excel(
   "./cleaned_data/BoM_data_UNU.xlsx") %>%
   mutate_at(c('year'), trimws)
@@ -54,7 +54,7 @@ BoM_data_UNU <- BoM_data_UNU[-which(BoM_data_UNU$year == ""), ]
 # Convert year column to numeric
 BoM_data_UNU$year <- as.numeric(as.character(BoM_data_UNU$year))
 
-# Get data for most modern product within each group
+# Get data for most recent product within each group
 BoM_data_UNU_latest <- BoM_data_UNU %>% 
   group_by(product) %>%
   top_n(1, abs(year))
