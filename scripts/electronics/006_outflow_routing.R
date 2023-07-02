@@ -213,7 +213,7 @@ collected_all_wide_54 <- read_xlsx("./intermediate_data/Interactive_UNU_UK_EU_SM
   mutate(# Remove everything after the brackets/parentheses in the code column
          unu_description = gsub("\\(.*", "", unu_description)) 
 
-# Add leading 0s to unu_key column to help match to other data
+# Add leading 0s to unu_key column up to 4 digits to help match to other data
 collected_all_wide_54$unu_key <- str_pad(collected_all_wide_54$unu_key, 4, pad = "0")
 
 collected_all_54 <- collected_all_wide_54 %>% 
@@ -230,18 +230,16 @@ write_xlsx(collected_all_54,
 # Collected from households for disposal Household waste composition study 
 # UK HOUSEHOLD RESIDUAL plus RECYCLING TOTAL - 516,000 tonnes 320,560 going into the recycling stream. 195544 going into residual stream
 
-# IT asset management sector (ITAM), mobile phone buyback schemes, online auction sites and classified listings.
-# B2B: 90kt
-# ITAM: 90Kt - covers remanufacturing too
-# B2C/C2C reuse: 82Kt
-# https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf
-# Warranty and returns: 102Kt
+# LACW Statistics
+
+# Difference between WEE collection and WEEE received is collection-stage leakage 
 
 # *******************************************************************************
 # Reuse/resale and refurbishment
 # *******************************************************************************
 
 # Reported household & non-household reuse of WEEE received at an approved authorised treatment facility (AATF)
+# amount of WEEE that AATFs have reused themselves and sent onto others for reuse.
 
 # Apply download.file function in R
 download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160180/WEEE_received_at_an_approved_authorised_treatment_facility.ods",
@@ -252,6 +250,7 @@ received_AATF_sheet_names <- list_ods_sheets(
   "./raw_data/WEEE_received_AATF.ods")
 
 # Map sheet names to imported file by adding a column "sheetname" with its name
+# 2016 data is incorrectly listed in the source file as 2017. Have manually changed in the excel
 received_AATF_data <- purrr::map_df(received_AATF_sheet_names, 
                                 ~dplyr::mutate(read_ods(
                                   "./raw_data/WEEE_received_AATF.ods", 
@@ -299,22 +298,22 @@ write_xlsx(received_AATF_data,
            "./cleaned_data/received_AATF_data.xlsx")
 
 # filter to reuse
-received_reuse <- received_AATF_data %>%
+received_AATF_reuse <- received_AATF_data %>%
   filter(route == "received_reuse")
   
 # Prepare for converting from UKU 14 to UNU-54
-received_reuse_summarised <- received_reuse %>%
+received_AATF_reuse_summarised <- received_AATF_reuse %>%
   mutate_at(c('value'), as.numeric) %>%
   group_by(product, year) %>%
   summarise(value = sum(value))
 
 # Convert to wide format
-received_reuse_summarised_wide <- received_reuse_summarised %>%
+received_AATF_reuse_summarised_wide <- received_AATF_reuse_summarised %>%
   pivot_wider(names_from = "year", 
               values_from = "value")
 
 # Reorder rows to match the UK14 to UNU mapping tool 
-received_reuse_summarised_wide$product <- factor(received_reuse_summarised_wide$product, levels=c(
+received_AATF_reuse_summarised_wide$product <- factor(received_AATF_reuse_summarised_wide$product, levels=c(
   "Large Household Appliances",
   "Small Household Appliances",
   "IT and Telcomms Equipment",
@@ -331,22 +330,42 @@ received_reuse_summarised_wide$product <- factor(received_reuse_summarised_wide$
   "Gas Discharge Lamps and LED Light Sources",
   "Photovoltaic Panels"))
 
-received_reuse_summarised_wide <- received_reuse_summarised_wide[order(received_reuse_summarised_wide$product), ]
+received_AATF_reuse_summarised_wide <- received_AATF_reuse_summarised_wide[order(received_AATF_reuse_summarised_wide$product), ]
 
 # Write output to xlsx form to convert via the UNU_UK mapping excel tool 
-write_xlsx(received_reuse_summarised_wide, 
+write_xlsx(received_AATF_reuse_summarised_wide, 
            "./intermediate_data/received_reuse_summarised_wide.xlsx")
 
-# IT asset management sector (ITAM), mobile phone buyback schemes, online auction sites and classified listings.
-# B2B: 90kt
-# ITAM: 90Kt - covers remanufacturing too
-# B2C/C2C reuse: 82Kt
-# https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf
-# Warranty and returns: 102Kt
+# Reimport the data after converting UK 14 to UNU 54 in excel, clean
+received_AATF_reuse_wide_54 <- read_xlsx("./intermediate_data/received_reuse_summarised_wide.xlsx",
+                                   sheet = 2) %>%
+  remove_empty() %>%
+  rename(unu_key = 1,
+         unu_description = 2) %>%
+  mutate(# Remove everything after the brackets/parentheses in the code column
+    unu_description = gsub("\\(.*", "", unu_description)) 
 
-# Illegal dumping
-# https://www.gov.uk/government/statistical-data-sets/env24-fly-tipping-incidents-and-actions-taken-in-england
-# https://www.gov.uk/government/publications/environment-agency-2021-data-on-regulated-businesses-in-england
+# Add leading 0s to unu_key column up to 4 digits to help match to other data
+received_AATF_reuse_wide_54$unu_key <- str_pad(received_AATF_reuse_wide_54$unu_key, 4, pad = "0")
+
+received_AATF_reuse_54 <- received_AATF_reuse_wide_54 %>% 
+  pivot_longer(-c(
+    unu_key,
+    unu_description),
+    names_to = "year", 
+    values_to = "value") %>%
+  mutate(flow = "received_AATF_reuse")
+
+# Write output to xlsx
+write_xlsx(received_AATF_reuse_54, 
+           "./cleaned_data/electronics_sankey/received_AATF_reuse_54.xlsx")
+
+# IT asset management sector (ITAM), mobile phone buyback schemes, online auction sites and classified listings.
+# Commercial reuse (B2B): 90Kt
+# Domestic reuse (B2C/C2C): 82Kt - https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf
+# ITAM/D e.g large global operators like RDC-Computacenter, TES and SIMS: 90Kt - covers remanufacturing too
+# Returns under warranty: 102Kt
+# We estimate the weight of products collected for potential reuse, to be 237 Kt for 2017
 
 # *******************************************************************************
 # Remanufacture
@@ -375,7 +394,7 @@ received_recycling_summarised_wide <- received_recycling_summarised %>%
               values_from = "value")
 
 # Reorder rows to match the UK14 to UNU mapping tool 
-received_recycling$product <- factor(received_recycling$product, levels=c(
+received_recycling_summarised_wide$product <- factor(received_recycling_summarised_wide$product, levels=c(
   "Large Household Appliances",
   "Small Household Appliances",
   "IT and Telcomms Equipment",
@@ -397,6 +416,31 @@ received_recycling_summarised_wide <- received_recycling_summarised_wide[order(r
 # Write output to xlsx form to convert via the UNU_UK mapping excel tool 
 write_xlsx(received_recycling_summarised_wide, 
            "./intermediate_data/received_recycling_summarised_wide.xlsx")
+
+# Reimport the data after converting UK 14 to UNU 54 in excel, clean
+received_AATF_recycling_wide_54 <- read_xlsx("./intermediate_data/received_recycling_summarised_wide.xlsx",
+                                         sheet = 2) %>%
+  remove_empty() %>%
+  rename(unu_key = 1,
+         unu_description = 2) %>%
+  mutate(# Remove everything after the brackets/parentheses in the code column
+    unu_description = gsub("\\(.*", "", unu_description)) 
+
+# Add leading 0s to unu_key column up to 4 digits to help match to other data
+received_AATF_recycling_wide_54$unu_key <- str_pad(received_AATF_recycling_wide_54$unu_key, 4, pad = "0")
+
+# Pivot longer and add flow identifier
+received_AATF_recycling_54 <- received_AATF_reuse_wide_54 %>% 
+  pivot_longer(-c(
+    unu_key,
+    unu_description),
+    names_to = "year", 
+    values_to = "value") %>%
+  mutate(flow = "received_AATF_recycling")
+
+# Write output to xlsx
+write_xlsx(received_AATF_recycling_54, 
+           "./cleaned_data/electronics_sankey/received_AATF_recycling_54.xlsx")
 
 # Non-obligated WEEE received at approved authorised treatment facilities and approved exporters
 
@@ -512,7 +556,7 @@ write_xlsx(WEEE_received_export_data,
 # Disposal
 # *******************************************************************************
 
-# Waste Data Interrogator (waste received)
+# Landfill - Waste Data Interrogator (waste received)
 
 # EWC codes specific to electronics - Discarded electrical and electronic equipment
 # 09 01 10
@@ -525,8 +569,11 @@ write_xlsx(WEEE_received_export_data,
 # 20 01 35*
 # 20 01 36 
 
-# LACW Statistics
 # Helps separate mixed municipal waste code
+
+# Illegal dumping
+# https://www.gov.uk/government/statistical-data-sets/env24-fly-tipping-incidents-and-actions-taken-in-england
+# https://www.gov.uk/government/publications/environment-agency-2021-data-on-regulated-businesses-in-england
 
 # *******************************************************************************
 # Sayers et al 
