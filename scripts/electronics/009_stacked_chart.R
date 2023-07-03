@@ -74,7 +74,7 @@ EV_high_lifespan_high_circularity <-
          metric = 5)
 
 # Bind the extracted data to create a complete dataset, filter to variables of interest and rename these variables
-REE_scenarios_all <-
+REE_stacked_area <-
   rbindlist(
     list(
       wind_low_lifespan_low_circularity,
@@ -91,12 +91,12 @@ REE_scenarios_all <-
                values_to = "value") %>%
   mutate(variable = gsub("Release rate 6 R", "Inflow", variable),
          variable = gsub("Release rate 6", "Inflow", variable),
-         variable = gsub("Release rate 7", "Mass", variable))
-
-
-
-REE_stacked_area <- read_xlsx("./cleaned_data/REE_chart_stacked_area.xlsx") %>%
-  mutate(across(c('value'), round, 2))
+         variable = gsub("Release rate 7 R", "Outflow", variable),
+         variable = gsub("Release rate 7", "Outflow", variable),
+         variable = gsub("\"", "", variable),
+         variable = gsub("Consume \\(use\\) S", "Stock", variable)) %>%
+  mutate(across(c('value'), round, 2)) %>%
+  mutate(unit = "mass")
 
 write_csv(REE_stacked_area,
-          "./cleaned_data/REE_stacked_area.csv")
+          "./cleaned_data/REE_chart_stacked_area.csv")
