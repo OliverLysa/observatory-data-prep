@@ -2,39 +2,33 @@
 
 *Author*: Oliver Lysaght (oliverlysaght\@icloud.com)
 
-Date of last update:
-
 # Table of contents
 
 # Purpose
 
 A collection of scripts to:
 
-1.  extract raw data from public official and emerging sources (incl. via API, web scraping and programmatic download requests) identified through a [dataset review](https://docs.google.com/spreadsheets/d/11jO8kaYktQ1ueMY1iJoaCl1dJU8r6RDfyxICPB1wFqg/edit#gid=795733331); and
+1.  extract raw data from public official and emerging sources (incl. via API, web scraping and programmatic download requests) identified through a [dataset review](https://docs.google.com/spreadsheets/d/11jO8kaYktQ1ueMY1iJoaCl1dJU8r6RDfyxICPB1wFqg/edit#gid=795733331);
 
-2.  process/transform these, with steps including:
+2.  transform these, with steps including:
 
     1.  cleaning and reformatting;
-
-    2.  mapping to a central classification;
-
-    3.  grouping and summarising;
-
+    2.  grouping and summarising;
+    3.  mapping to a central classification;
     4.  data validation (e.g. outlier replacement) and unknown value estimation;
-
     5.  calculating key variables/metrics; and
 
-    6.  exporting and loading to the supabase backend being used to host observatory data.
+3.  export cleaned data outputs to an open source PostGreSQL database (supabase) for storage.
 
-in order to populate the ce-observatory - a UK national CE-observatory dashboard for description of current baseline and comparison of alternative target future circular economy configurations for specific resource-product-industry categories. The ce-observatory can be viewed at the following URL:
+Data outputs of these scripts are used to populate the ce-observatory - a dashboard giving: 1) a detailed description of current baseline material and monetary flows and wider impacts for specific resource-product-industry categories; 2) the means to compare this baseline against alternative circular economy configurations. The ce-observatory can be viewed at the following URL:
 
 # How to use
 
 ## Software requirements and setup
 
-Scripts are largely written in the programming languages R. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and software requirements. The R and package versions are listed in the package_version file. Required packages are listed at the top of each script. R components are currently packaged within an R Project and relative file paths locations are used to call files, functions and other scripts. These can be most easily used with using the R Studio IDE.
+Scripts in this repository are largely written in the programming language R. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and computer software requirements. The version of R used and for packages used are listed in the package_version file. Required packages are also listed at the top of each script. Files are packaged within an R Project with relative file paths used to call data inputs, processing functions and other scripts. These can be most easily used with using the R Studio IDE.
 
-Where Python is significantly more performant for specific tasks or provides functions not otherwise available in R, Python scripts have also included in the project. These are presented within [Jupyter Notebooks](https://jupyter.org/install), which can be ran using the following instructions (see [here](https://www.python.org/downloads/)).
+The Python scripting language has also been used as part of the project in cases of superior performance or providing functions not otherwise available in R. Python scripts are largely presented within [Jupyter Notebooks](https://jupyter.org/install) - an open source IDE that requires installing the jupyter-notebook package in your Python environment, more information about which can be found [here](https://www.python.org/downloads/).
 
 # Folder and file descriptions
 
