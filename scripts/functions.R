@@ -9,10 +9,10 @@ read_excel_allsheets <- function(filename, tibble = FALSE) {
   x <- lapply(sheets, function(X) readxl::read_excel(filename, sheet = X))
   if(!tibble) x <- lapply(x, as.data.frame)
   names(x) <- sheets
-  x
+  x 
 }
 
-# Read all sheets of an excel file
+# Read all sheets of ABS excel file
 read_excel_allsheets_ABS <- function(filename, tibble = FALSE) {
   # but if you would prefer a tibble output, pass tibble = TRUE
   sheets <- readxl::excel_sheets(filename)
