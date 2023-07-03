@@ -71,7 +71,8 @@ collected_data <- purrr::map_df(collected_sheet_names,
                             sheetname = .x)) %>%
   mutate(quarters = case_when(str_detect(Var.1, "Period Covered") ~ Var.1), .before = Var.1) %>%
   tidyr::fill(1) %>%
-  filter(grepl('January to December', quarters)) %>%
+  filter(grepl('January to December', quarters) |
+           grepl('January - December', quarters)) %>%
   mutate(source = case_when(str_detect(Var.1, "Collected in the UK") ~ Var.1), .before = Var.1) %>%
   tidyr::fill(2) %>%
   # make numeric and filter out anything but 1-14 in column 1
@@ -88,7 +89,7 @@ collected_data <- purrr::map_df(collected_sheet_names,
          dcf = 4,
          reg_432 = 5,
          reg_503 = 6)
-
+     
 # Substring year column to last 4 characters
 collected_data$year = str_sub(collected_data$year,-4)
 
@@ -116,7 +117,8 @@ collected_data_non_household <- purrr::map_df(collected_sheet_names,
                                   sheetname = .x)) %>%
   mutate(quarters = case_when(str_detect(Var.1, "Period Covered") ~ Var.1), .before = Var.1) %>%
   tidyr::fill(1) %>%
-  filter(grepl('January to December', quarters)) %>%
+  filter(grepl('January to December', quarters) |
+           grepl('January - December', quarters)) %>%
   mutate(source = case_when(str_detect(Var.1, "Collected in the UK") ~ Var.1), .before = Var.1) %>%
   tidyr::fill(2) %>%
   # make numeric and filter out anything but 1-14 in column 1
@@ -140,7 +142,7 @@ collected_data_non_household$year = str_sub(collected_data_non_household$year,-4
 # Replace na with household
 collected_data_non_household["source"][is.na(collected_data["source"])] <- "Household"
 
-# Make long-format and filter to household only
+# Make long-format and filter to non-household only
 collected_data_non_household <- collected_data_non_household %>%
   # Remove everything in the code column following a hyphen
   mutate(source = gsub("\\ .*", "", source)) %>%
@@ -202,44 +204,38 @@ write_xlsx(collected_all_wide,
            "./intermediate_data/collected_all_wide.xlsx")
 
 # Reimport the data after converting UK 14 to UNU 54 in excel, clean
-collected_all_wide_54 <- read_xlsx("./intermediate_data/Interactive_UNU_UK_EU_SMW_Mapping_Tool.xlsx",
-           sheet = "Convert_UK14_POM_to_UNU",
-           range = "A21:L75") %>%
-           row_to_names(row_number = 1) %>%
+collected_all_wide_54 <- read_xlsx("./intermediate_data/collected_all_wide.xlsx",
+           sheet = 2) %>%
   remove_empty() %>%
   rename(unu_key = 1,
          unu_description = 2) %>%
-  select(-c("2008")) %>%
   mutate(# Remove everything after the brackets/parentheses in the code column
          unu_description = gsub("\\(.*", "", unu_description)) 
 
 # Add leading 0s to unu_key column up to 4 digits to help match to other data
 collected_all_wide_54$unu_key <- str_pad(collected_all_wide_54$unu_key, 4, pad = "0")
 
+# Convert to long-form
 collected_all_54 <- collected_all_wide_54 %>% 
   pivot_longer(-c(
   unu_key,
   unu_description),
   names_to = "year", 
-  values_to = "value")
+  values_to = "value") %>%
+  mutate(flow = "collected")
 
 # Write output to xlsx form to convert via the UNU_UK mapping excel tool 
 write_xlsx(collected_all_54, 
            "./cleaned_data/electronics_sankey/collected_all_54.xlsx")
 
-# Collected from households for disposal Household waste composition study 
-# UK HOUSEHOLD RESIDUAL plus RECYCLING TOTAL - 516,000 tonnes 320,560 going into the recycling stream. 195544 going into residual stream
-
-# LACW Statistics
-
-# Difference between WEE collection and WEEE received is collection-stage leakage 
+# Difference between WEE collection and WEEE received may proxy collection-stage leakage 
 
 # *******************************************************************************
 # Reuse/resale and refurbishment
 # *******************************************************************************
 
 # Reported household & non-household reuse of WEEE received at an approved authorised treatment facility (AATF)
-# amount of WEEE that AATFs have reused themselves and sent onto others for reuse.
+# Amount of WEEE that AATFs have reused themselves and sent onto others for reuse.
 
 # Apply download.file function in R
 download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160180/WEEE_received_at_an_approved_authorised_treatment_facility.ods",
@@ -358,7 +354,7 @@ received_AATF_reuse_54 <- received_AATF_reuse_wide_54 %>%
 
 # Write output to xlsx
 write_xlsx(received_AATF_reuse_54, 
-           "./cleaned_data/electronics_sankey/received_AATF_reuse_54.xlsx")
+           "./cleaned_data/electronics_sankey/reuse_received_AATF_54.xlsx")
 
 # IT asset management sector (ITAM), mobile phone buyback schemes, online auction sites and classified listings.
 # Commercial reuse (B2B): 90Kt
@@ -440,7 +436,7 @@ received_AATF_recycling_54 <- received_AATF_reuse_wide_54 %>%
 
 # Write output to xlsx
 write_xlsx(received_AATF_recycling_54, 
-           "./cleaned_data/electronics_sankey/received_AATF_recycling_54.xlsx")
+           "./cleaned_data/electronics_sankey/recycling_received_AATF_54.xlsx")
 
 # Non-obligated WEEE received at approved authorised treatment facilities and approved exporters
 
@@ -485,13 +481,76 @@ WEEE_received_non_obligated <- WEEE_received_non_obligated %>%
     product),
     names_to = "route", 
     values_to = "value") %>%
-  mutate(source = "unspecified")
+  mutate(source = "unspecified") %>%
+  na.omit()
 
 # Write output to xlsx form
 write_xlsx(WEEE_received_non_obligated, 
            "./cleaned_data/WEEE_received_non_obligated.xlsx")
 
+# Prepare for converting from UKU 14 to UNU-54
+received_non_obligated_summarised <-WEEE_received_non_obligated %>%
+  mutate_at(c('value'), as.numeric) %>%
+  group_by(product, year) %>%
+  summarise(value = sum(value))
+
+# Convert to wide format
+received_non_obligated_summarised_wide <- received_non_obligated_summarised %>%
+  pivot_wider(names_from = "year", 
+              values_from = "value")
+
+# Reorder rows to match the UK14 to UNU mapping tool 
+received_non_obligated_summarised_wide$product <- factor(received_non_obligated_summarised_wide$product, levels=c(
+  "Large Household Appliances",
+  "Small Household Appliances",
+  "IT and Telcomms Equipment",
+  "Consumer Equipment",
+  "Lighting Equipment",
+  "Electrical and Electronic Tools",
+  "Toys Leisure and Sports",
+  "Medical Devices",
+  "Monitoring and Control Instruments",
+  "Automatic Dispensers",
+  "Display Equipment",
+  "Cooling Appliances Containing Refrigerants",
+  "Gas Discharge Lamps",
+  "Gas Discharge Lamps and LED Light Sources",
+  "Photovoltaic Panels"))
+
+received_non_obligated_summarised_wide <- received_non_obligated_summarised_wide[order(received_non_obligated_summarised_wide$product), ]
+
+# Write output to xlsx form to convert via the UNU_UK mapping excel tool 
+write_xlsx(received_non_obligated_summarised_wide, 
+           "./intermediate_data/received_non_obligated_summarised_wide.xlsx")
+
+# Reimport the data after converting UK 14 to UNU 54 in excel, clean
+received_non_obligated_summarised_wide_54 <- read_xlsx("./intermediate_data/received_non_obligated_summarised_wide.xlsx",
+                                         sheet = 2) %>%
+  remove_empty() %>%
+  rename(unu_key = 1,
+         unu_description = 2) %>%
+  mutate(# Remove everything after the brackets/parentheses in the code column
+    unu_description = gsub("\\(.*", "", unu_description)) 
+
+# Add leading 0s to unu_key column up to 4 digits to help match to other data
+received_non_obligated_summarised_wide_54$unu_key <- str_pad(received_non_obligated_summarised_wide_54$unu_key, 4, pad = "0")
+
+# Make long
+received_non_obligated_54 <- received_non_obligated_summarised_wide_54 %>% 
+  pivot_longer(-c(
+    unu_key,
+    unu_description),
+    names_to = "year", 
+    values_to = "value") %>%
+  mutate(flow = "received_AATF_reuse")
+
+# Write output to xlsx
+write_xlsx(received_non_obligated_54, 
+           "./cleaned_data/electronics_sankey/received_non_obligated_54.xlsx")
+
 # https://www.data.gov.uk/dataset/0e0c12d8-24f6-461f-b4bc-f6d6a5bf2de5/wastedataflow-local-authority-waste-management
+
+# sites operating under exemptions T11 (Para 47 Scotland) and ATF permits
 
 # *******************************************************************************
 # Exports
@@ -545,9 +604,65 @@ WEEE_received_export_data <- WEEE_received_export_data %>%
     names_to = "route", 
     values_to = "value")
 
-# Write output to xlsx form
-write_xlsx(WEEE_received_export_data, 
-           "./cleaned_data/WEEE_received_export_data.xlsx")
+# Prepare for converting from UKU 14 to UNU-54
+received_export_data_summarised <-WEEE_received_export_data %>%
+  mutate_at(c('value'), as.numeric) %>%
+  group_by(product, year) %>%
+  summarise(value = sum(value))
+
+# Convert to wide format
+received_export_data_summarised_wide <- received_export_data_summarised %>%
+  pivot_wider(names_from = "year", 
+              values_from = "value")
+
+# Reorder rows to match the UK14 to UNU mapping tool 
+received_export_data_summarised_wide$product <- factor(received_export_data_summarised_wide$product, levels=c(
+  "Large Household Appliances",
+  "Small Household Appliances",
+  "IT and Telcomms Equipment",
+  "Consumer Equipment",
+  "Lighting Equipment",
+  "Electrical and Electronic Tools",
+  "Toys Leisure and Sports",
+  "Medical Devices",
+  "Monitoring and Control Instruments",
+  "Automatic Dispensers",
+  "Display Equipment",
+  "Cooling Appliances Containing Refrigerants",
+  "Gas Discharge Lamps",
+  "Gas Discharge Lamps and LED Light Sources",
+  "Photovoltaic Panels"))
+
+received_export_data_summarised_wide <- received_export_data_summarised_wide[order(received_export_data_summarised_wide$product), ]
+
+# Write output to xlsx form to convert via the UNU_UK mapping excel tool 
+write_xlsx(received_export_data_summarised_wide, 
+           "./intermediate_data/received_export_data_summarised_wide.xlsx")
+
+# Reimport the data after converting UK 14 to UNU 54 in excel, clean
+received_export_data_summarised_wide_54 <- read_xlsx("./intermediate_data/received_export_data_summarised_wide.xlsx",
+                                                       sheet = 2) %>%
+  remove_empty() %>%
+  rename(unu_key = 1,
+         unu_description = 2) %>%
+  mutate(# Remove everything after the brackets/parentheses in the code column
+    unu_description = gsub("\\(.*", "", unu_description)) 
+
+# Add leading 0s to unu_key column up to 4 digits to help match to other data
+received_export_data_summarised_wide_54$unu_key <- str_pad(received_export_data_summarised_wide_54$unu_key, 4, pad = "0")
+
+# Make long
+received_export_data_54 <- received_export_data_summarised_wide_54 %>% 
+  pivot_longer(-c(
+    unu_key,
+    unu_description),
+    names_to = "year", 
+    values_to = "value") %>%
+  mutate(flow = "export (AE)")
+
+# Write output to xlsx
+write_xlsx(received_export_data_54, 
+           "./cleaned_data/electronics_sankey/export_received_54.xlsx")
 
 # https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13406
 # https://step-initiative.org/files/_documents/other_publications/UNU-Transboundary-Movement-of-Used-EEE.pdf
@@ -555,8 +670,12 @@ write_xlsx(WEEE_received_export_data,
 # *******************************************************************************
 # Disposal
 # *******************************************************************************
+# Covering material releases into environmental mediums incl. land and water
 
 # Landfill - Waste Data Interrogator (waste received)
+
+received_AATF_reuse_wide_54 <- read_xlsx("./intermediate_data/received_reuse_summarised_wide.xlsx",
+                                         sheet = 2) %>%
 
 # EWC codes specific to electronics - Discarded electrical and electronic equipment
 # 09 01 10
@@ -570,6 +689,11 @@ write_xlsx(WEEE_received_export_data,
 # 20 01 36 
 
 # Helps separate mixed municipal waste code
+
+# Collected from households for disposal Household waste composition study 
+# UK HOUSEHOLD RESIDUAL plus RECYCLING TOTAL - 516,000 tonnes 320,560 going into the recycling stream. 195544 going into residual stream
+
+# LACW Statistics
 
 # Illegal dumping
 # https://www.gov.uk/government/statistical-data-sets/env24-fly-tipping-incidents-and-actions-taken-in-england
