@@ -550,7 +550,16 @@ write_xlsx(received_non_obligated_54,
 
 # https://www.data.gov.uk/dataset/0e0c12d8-24f6-461f-b4bc-f6d6a5bf2de5/wastedataflow-local-authority-waste-management
 
-# sites operating under exemptions T11 (Para 47 Scotland) and ATF permits
+# sites operating under exemptions T11 (Para 47 Scotland) and ATF permits (UK)
+
+# Small Domestic Appliances 0.853 Kt
+# IT and Telcoms Equipment 3.535 Kt
+# Display Equipment 0.812 Kt
+# Total of categories assessed 5.200 Kt 
+
+# The total calculation of unrecorded treatment under an exemption, adds a further 220 Kt for 2017
+
+# Light iron
 
 # *******************************************************************************
 # Exports
@@ -664,6 +673,10 @@ received_export_data_54 <- received_export_data_summarised_wide_54 %>%
 write_xlsx(received_export_data_54, 
            "./cleaned_data/electronics_sankey/export_received_54.xlsx")
 
+# 16 Kt of functional used EEE as exported
+
+# Illegal exports 
+
 # https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13406
 # https://step-initiative.org/files/_documents/other_publications/UNU-Transboundary-Movement-of-Used-EEE.pdf
 
@@ -672,38 +685,93 @@ write_xlsx(received_export_data_54,
 # *******************************************************************************
 # Covering material releases into environmental mediums incl. land and water
 
+# Waste codes specific to electronics
+WDI_filter <- c("09 01 10", 
+                "09 01 11*", 
+                "09 01 12", 
+                "16 02 11*", 
+                "16 02 13*",
+                "16 02 14",
+                "20 01 23*",
+                "20 01 35*",
+                "20 01 36",
+                "20 03 01",
+                "200301")
+
 # Landfill - Waste Data Interrogator (waste received)
 
-received_AATF_reuse_wide_54 <- read_xlsx("./intermediate_data/received_reuse_summarised_wide.xlsx",
-                                         sheet = 2) %>%
+# Import summarised WDI data and filter to waste codes
+landfill_WDI <- read_xlsx("./raw_data/Landfill_Incineration/Landfill/Output/Landfill_Grouped_All_Waste.xlsx",
+                                         sheet = 1) %>%
+  filter(Waste_Code %in% WDI_filter)
 
-# EWC codes specific to electronics - Discarded electrical and electronic equipment
-# 09 01 10
-# 09 01 11*
-# 09 01 12
-# 16 02 11*
-# 16 02 13*
-# 16 02 14
-# 20 01 23*
-# 20 01 35*
-# 20 01 36 
+# Incineration monitoring reports
+incineration <- read_xlsx("./cleaned_data/incineration_EWC.xlsx",
+                 sheet = 1) %>%
+  filter(EWC %in% WDI_filter)
 
-# Helps separate mixed municipal waste code
-
-# Collected from households for disposal Household waste composition study 
+# Extract percentage of mixed municipal waste based on household waste composition study
 # UK HOUSEHOLD RESIDUAL plus RECYCLING TOTAL - 516,000 tonnes 320,560 going into the recycling stream. 195544 going into residual stream
 
-# LACW Statistics
+# Fly-tipping
+# https://www.gov.uk/government/statistical-data-sets/env24-fly-tipping-incidents-and-actions-taken-in-england
+
+flytipping_filter <- c("white_goods", "other_electrical")
+
+flytipping <- read_ods(
+  path = "./raw_data/Flytipping_incidents_and_actions_taken_nat_level_data_2007-08_to_2021-22_accessible (1).ods",
+  sheet = "National_Level_Incidents",
+  range = "A24:Q36"
+) %>%
+  clean_names() %>%
+  rename(year = 1) %>%
+  pivot_longer(-year,
+               names_to = "type",
+               values_to = "value") %>%
+  filter(type %in% flytipping_filter) %>%
+  mutate(flow = "flytipping")
+
+# Illegal waste sites
+# https://www.gov.uk/government/publications/environment-agency-2021-data-on-regulated-businesses-in-england
+
+illegal_sites <- read_ods(
+  path = "./raw_data/RPEG_2021_waste_crime_summary_data.ods",
+  range = "A100:N109"
+) %>%
+  select(-c(2:5)) %>%
+  pivot_longer(-1,
+               names_to = "year",
+               values_to = "value") %>%
+  rename(type = 1) %>%
+  filter(type == "WEEE") %>%
+  mutate(flow = "illegal sites")
 
 # Illegal dumping
-# https://www.gov.uk/government/statistical-data-sets/env24-fly-tipping-incidents-and-actions-taken-in-england
-# https://www.gov.uk/government/publications/environment-agency-2021-data-on-regulated-businesses-in-england
+
+illegal_dumping <- read_ods(
+  path = "./raw_data/RPEG_2021_waste_crime_summary_data.ods",
+  range = "A112:N124"
+) %>%
+  select(-c(2:3)) %>%
+  pivot_longer(-1,
+               names_to = "year",
+               values_to = "value") %>%
+  rename(type = 1) %>%
+  filter(type == "Electrical equipment") %>%
+  mutate(flow = "illegal dumping")
+
+# Illegal waste exports
+
+# Combined weight of WEEE collected and treated
+# inappropriately to be 461 Kt, 32% of the used EEE moving on from use, storage and hoarding for
+# collection or 28% of calculated EEE put on market.
 
 # *******************************************************************************
 # Sayers et al 
 # *******************************************************************************
 
 # Import data outflow fate (CE-score), pivot longer, filter, drop NA and rename column 'route' 
+
 outflow_routing <- read_excel(
   "./cleaned_data/electronics_outflow.xlsx") %>%
   clean_names() %>%

@@ -252,3 +252,5 @@ unu_inflow_stock_outflow <-
 write_xlsx(unu_inflow_stock_outflow, 
            "./cleaned_data/unu_inflow_stock_outflow.xlsx")
 
+# Stock data published by BEIS
+# https://www.gov.uk/government/statistics/energy-consumption-in-the-uk-2022
