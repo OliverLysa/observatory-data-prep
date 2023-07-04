@@ -1,4 +1,4 @@
-# CE observatory
+# CE observatory data processing 
 
 *Author*: Oliver Lysaght (oliverlysaght\@icloud.com)
 
@@ -185,14 +185,14 @@ This methodology can be applied at a sub-national level too (albeit entirely wit
 
 ###### Outputs
 
--   A CSV combining domestic production, import and export data, as well as the following indicators:
+-   A CSV combining domestic production, import and export data, as well as the following derived indicators in unit terms:
     -   Total imports - sum of EU and non-EU source imports
     -   Total exports - sum of EU and non-EU source exports
     -   Net trade balance - Imports - exports i.e. PtB
     -   Apparent consumption - domestic_production + total imports - total exports
     -   Apparent output - domestic production + total exports
     -   Apparent input - domestic production + total imports
-    -   Material import dependency - The proportion of units imported of imports plus exports
+    -   Import dependency - The proportion of units imported of imports plus exports
 
 ##### Placed on the market
 
