@@ -79,7 +79,7 @@ UNU_CN8 <-
   # Omit HS6 codes where CN8 codes corresponding to UNU categories were not available
   na.omit()
 
-# Import prodcom_cn condordance table (missing prodcom description)
+# Import prodcom_cn condcordance table
 PRODCOM_CN <-
   read_excel("./classifications/concordance_tables/PRODCOM_CN.xlsx")  %>%
   as.data.frame() %>%

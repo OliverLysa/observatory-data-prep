@@ -10,41 +10,45 @@ A collection of scripts to:
 
 1.  extract raw data from public official and emerging sources (incl. via API, web scraping and programmatic download requests) identified through a [dataset review](https://docs.google.com/spreadsheets/d/11jO8kaYktQ1ueMY1iJoaCl1dJU8r6RDfyxICPB1wFqg/edit#gid=795733331);
 
-2.  transform these, with steps including:
+2.  transform these through steps including:
 
     1.  cleaning and reformatting;
     2.  grouping and summarising;
     3.  mapping to a central classification;
-    4.  data validation (e.g. outlier replacement) and unknown value estimation;
+    4.  data validation and unknown value estimation;
     5.  calculating key variables/metrics; and
 
 3.  export cleaned data outputs to an open source PostGreSQL database (supabase) for storage.
 
-Data outputs of these scripts are used to populate the ce-observatory - a dashboard giving: 1) a detailed description of current baseline material and monetary flows and wider impacts for specific resource-product-industry categories; 2) the means to compare this baseline against alternative circular economy configurations. The ce-observatory can be viewed at the following URL:
+Data outputs from these scripts are used to populate the ce-observatory - a dashboard providing for specific resource-product-industry categories, a detailed description of current baseline material and monetary flows alongside wider impacts alongside the means to make comparison with alternative circular economy configurations. The ce-observatory can be viewed at the following URL:
 
 # How to use
 
 ## Software requirements and setup
 
-Scripts in this repository are largely written in the programming language R. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and computer software requirements. The version of R used and for packages used are listed in the package_version file. Required packages are also listed at the top of each script. Files are packaged within an R Project with relative file paths used to call data inputs, processing functions and other scripts. These can be most easily used with using the R Studio IDE.
+Scripts in this repository are largely written in the programming language R. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and computer software requirements. The version of R and packages used are listed in the package_version file. Required packages are listed at the top of each script. Files are packaged within an R Project with relative file paths used to call data inputs and functions. These can be most easily navigated and ran within the R Studio IDE, though this can also be done in the terminal/command line.
 
-The Python scripting language has also been used as part of the project in cases of superior performance or providing functions not otherwise available in R. Python scripts are largely presented within [Jupyter Notebooks](https://jupyter.org/install) - an open source IDE that requires installing the jupyter-notebook package in your Python environment, more information about which can be found [here](https://www.python.org/downloads/).
+The Python scripting language has also been used as part of the project in cases of superior performance or providing functions not otherwise available in R. Python scripts are largely presented within [Jupyter Notebooks](https://jupyter.org/install) - an open source IDE that requires installing the jupyter-notebook package in your Python environment, more information about which can be found [here](https://www.python.org/downloads/). In some cases, .py Python scripts are also used. These can be viewed and modified in a code editor such as Visual Studio Code and ran in the terminal/command line.
 
 # Folder and file descriptions
 
 ## raw_data
 
-Raw data inputs downloaded from sources
+Raw data inputs downloaded from a variety of sources
+
+## intermediate_data
+
+In a few cases, processing steps require exporting data outputs from the R/Python environments for processing in excel and reimporting. An example is the mapping tool used to convert 14-category electronics data captured in UK WEEE EPR datasets to the 54-category UNU-key classification used in presenting data on the electronics page. 'Intermediate' data files which undergo this type of processing are stored here.
 
 ## cleaned_data
 
-Cleaned data outputs derived from raw data files following processing in R or Python. Cleaned data files may undergo additional processing e.g. on the fly variable calculation within the dashboard environment subsequently.
+Cleaned data outputs derived from raw and intermediate data files following processing in R, Python and/excel and which are added to the postgresql database backend for the observatory dashboard. Within the dashboard environment, cleaned data files may undergo additional processing such as on-the-fly aggregation or division of variables.
 
 ## scripts
 
 ### functions.R
 
-A collection of regularly used functions across all other scripts not otherwise provided in R packages
+A collection of regularly used functions across all other R scripts not otherwise provided in R packages.
 
 ### electronics
 
@@ -60,7 +64,7 @@ The observatory dashboard presents data on electronics using two classifications
 -   UNU-HS6 correspondence table ([Baldé *et al.* 2015](https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf))
 -   CN8 codes
 -   Prodcom codes
--   UKU14-CN correspondence table ([Stowell, Yumashev et al. 2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
+-   UKU14-UNU54 interactive mapping tool ([Stowell, Yumashev et al. 2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
 
 ##### Workflow
 
@@ -103,28 +107,26 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 
 ##### Outputs
 
--   An excel and csv of a concordance table linking the following classifications: UNU54, HS6, CN8, Prodcom, SIC and UKU14
+-   CSV of extended concordance table linking the UKU14, UNU54, HS6, CN8, Prodcom and SIC classifications
 
 #### 001_domestic_production.R
 
-Scripts extracts domestic production data from the annual ONS publication.
+Script extracts UK domestic production data from the annual ONS publication.
 
 ##### Inputs
 
--   [ONS Prodcom data](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/bulletins/ukmanufacturerssalesbyproductprodcom/2021results) (2008-20)
--   ONS Prodcom data (2021 onwards)
--   Prodcom codes derived from 000_classification_matching.R
+-   [ONS Prodcom data](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/bulletins/ukmanufacturerssalesbyproductprodcom/2021results) (2008-20) and [2021 onwards](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/datasets/ukmanufacturerssalesbyproductprodcom)
+-   Prodcom codes for the electronics sector derived from 000_classification_matching.R
 
 ##### Workflow
 
-1.  Imports the ONS Prodcom datasets, binds all sheets to create single tables, binds the 2008-2020 and 2021 data and exports full dataset for use across product categories
-2.  Extracts data for prodcom codes specific to electronics, cleans data and puts into tidy format
-3.  As Prodcom includes suppressed values - the omission of which will present a data gap in the final presentation - omitted values are estimated. Following V.M. van Straalen (2017), to do this a ratio is calculated between units exported (generally not suppressed) and units produced for years for which data is available. A median is taken across these ratios and applied to the years for which data is missing based on export units/ratio = prodcom units.
+1.  Imports the UK ONS Prodcom datasets published by the ONS as multi-page spreadsheets, binds all sheets to create a single table, binds the 2008-2020 and 2021 data and exports full dataset for use across product categories
+2.  Extracts data for prodcom codes specific to electronics, cleans data, summarises by UNU-KEY and puts into tidy format
 
 ##### Outputs
 
--   Spreadsheet of UK prodcom data across all available divisions (\< 33)
--   Spreadsheet of domestic production data, summarised by UNU
+-   CSV of UK prodcom data across all available divisions (\< 33) in tidy format
+-   CSV of domestic production data summarised by UNU in tidy format
 
 #### 002_international_trade.R
 
@@ -132,19 +134,20 @@ Script extracts international trade data from the UKTradeInfo API using the 'ukt
 
 ##### Inputs
 
--   CN8 trade codes derived from 000_classification_matching.R
+-   CN8 trade codes derived from 000_classification_matching.R script
 -   Extractor function in functions script
 
 ##### Workflow
 
 1.  Isolates list of CN8 codes from classification database for codes of interest
-2.  Uses a for loop to iterate through the trade terms, extract data using the 'uktrade' extractor function/wrapper to the UKTradeInfo API and print results to a single dataframe (this can take some time to run)
-3.  Sums results grouped by year, flow type, country of source/destination, trade code as well as by year, flow type and trade code
+2.  Uses a for loop to iterate through the trade terms and extract trade data using the 'uktrade' extractor function/wrapper to the UKTradeInfo API and print results to a single dataframe (this can take some time to run)
+3.  Sums results grouped by year, flow type, country of source/destination, trade code as well as by year, flow type and trade code (where country detail is not required)
 
 ##### Outputs
 
--   Spreadsheet of trade data including country-detail
--   Spreadsheet of trade data excluding country-detail
+-   CSV of trade data (imports and exports) by CN8 code
+-   CSV of trade data by UNU-Key, including broken-down by country
+-   CSV of trade data by UNU-Key, without country breakdown
 
 #### 003_total_inflows.R
 
@@ -154,30 +157,35 @@ Script extracts international trade data from the UKTradeInfo API using the 'ukt
 
 <summary>More info: Apparent consumption</summary>
 
-There are a range of methodologies available for analysing material flows, the choice of which will affect final estimates (ONS, ). The most widely established methodological framework for measuring material resource flows at a national level is the Economy-Wide Material Flow Accounting (EW-MFA) system ([Eurostat, 2018](https://seea.un.org/sites/seea.un.org/files/ks-gq-18-006-en-n.pdf)) which underpins the SNA SEEA Material Flow Accounts (SNA-SEEA-MFA). In a closed economy or at the global level, the sum of domestic resource extraction (DE) is equivalent to consumption-based material flow indicators such as domestic material consumption (DMC) or raw material consumption (RMC) as well as their equivalent input-based indicators such as direct material input (DMI) and Raw Material Input (RMI) as all trade flows net out.
+The most widely established methodological framework for measuring material resource flows at a national level is the Economy-Wide Material Flow Accounting (EW-MFA) system ([Eurostat, 2018](https://seea.un.org/sites/seea.un.org/files/ks-gq-18-006-en-n.pdf)) which also underpins the SNA SEEA Material Flow Accounts (SNA-SEEA-MFA) (Lysaght *et al.* 2022).
+
+In the language of these statistical systems, in a closed economy or at the global level, the sum of domestic resource extraction (DE) is equivalent to consumption-based material flow indicators such as domestic material consumption (DMC) or raw material consumption (RMC) as well as their equivalent input-based indicators such as direct material input (DMI) and Raw Material Input (RMI) as all trade flows net out.
 
 Domestic Material Consumption (DMC) is a headline indicator derived from the EW-MFA and SEEA-CF-MFA systems. It is currently the most widely used material flow-based indicator at the core of national statistical reporting on material flows. DMC is calculated by summing the used fraction of domestically extracted and harvested materials and the weight of imported raw materials, semi-finished and manufactured products, while excluding the weight of exported raw materials, semi-finished and manufactured products. DMC can therefore be written as:
 
 $$DE + PtB$$
 
-Where *DE* is domestic extraction and *PtB* defines the physical trade balance of *Im* i.e. imports and *Ex* i.e. exports. DMC excludes hidden flows throughout. A closely linked indicator, Direct Material Input (DMI) is based on the same methodology but incorporates the materials mobilised or used in the production of exported goods and services ([OECD, 2008](https://www.oecd.org/environment/indicators-modelling-outlooks/MFA-Guide.pdf)). This methodology can be applied at a sub-national level too albeit entirely within the confines of the technosphere by summing PtB and domestic production, and is often referred to as an 'apparent consumption' method.
+Where *DE* is domestic extraction and *PtB* defines the physical trade balance of *Im* i.e. imports and *Ex* i.e. exports. DMC excludes hidden flows throughout. A closely linked indicator, Direct Material Input (DMI) is based on the same methodology but incorporates the materials mobilised or used in the production of exported goods and services ([OECD, 2008](https://www.oecd.org/environment/indicators-modelling-outlooks/MFA-Guide.pdf)).
+
+This methodology can be applied at a sub-national level too (albeit entirely within the confines of the technosphere) by summing domestic production and PtB, which is often referred to as an 'apparent consumption' method (e.g. Gray, 2021).
 
 </details>
 
 ###### Inputs
 
--   Prodcom data summarised by UNU
--   Trade data summarised by UNU
+-   Prodcom data summarised by UNU (output of script 001)
+-   Trade data summarised by UNU (output of script 002)
 
 ###### Workflow
 
-1.  Import prodcom and trade data summarised by UNU to get domestic production, imports and exports
-2.  Calculate indicators and key aggregates based on <https://www.resourcepanel.org/global-material-flows-database>
-3.  Export combined and summarised data
+1.  Import prodcom and trade data summarised by UNU to compiled domestic production, imports and exports
+2.  As Prodcom includes suppressed values to protect confidentiality ([ONS, 2018](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/methodologies/ukmanufacturerssalesbyproductsurveyprodcomqmi)) - the omission of which will present a data gap - omitted values are estimated. Following V.M. van Straalen (2017), a ratio is calculated between units exported (generally not suppressed) and units produced for years for which data is available. Where values are available in adjacent years, a straight line projection is used. Otherwise, a median is taken across these ratios and applied to the years for which data is missing based on a calculation of export units/ratio = prodcom units.
+3.  Key indicators and aggregates are calculated
+4.  Data exported in CSV
 
 ###### Outputs
 
--   A spreadsheet of combined domestic production and trade data, as well as the following indicators:
+-   A CSV combining domestic production, import and export data, as well as the following indicators:
     -   Total imports - sum of EU and non-EU source imports
     -   Total exports - sum of EU and non-EU source exports
     -   Net trade balance - Imports - exports i.e. PtB

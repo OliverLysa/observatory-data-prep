@@ -27,7 +27,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 # *******************************************************************************
 
 # Import functions
-source("./data_extraction_scripts/functions.R", 
+source("./scripts/functions.R", 
        local = knitr::knit_global())
 
 # Stop scientific notation of numeric values
