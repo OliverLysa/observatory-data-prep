@@ -149,4 +149,6 @@ POM_data <- POM_data %>%
 write_xlsx(POM_data, 
           "./cleaned_data/electronics_placed_on_market.xlsx")
 
-# TS forecasts 
+# Freeriders: 46Kt
+# Misreporting: 1Kt
+# WEEE reported in UK and sold in Ireland: 5Kt 

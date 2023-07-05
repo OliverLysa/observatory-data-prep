@@ -42,37 +42,44 @@ options(scipen = 999)
 # Electronics
 
 # Import BoM data
-BoM_data_UNU <- read_excel(
+BoM_sankey_input <- read_excel(
   "./cleaned_data/BoM_data_UNU.xlsx") %>%
-  mutate_at(c('year'), trimws)
-
-# Remove non-numeric characters from the year column 
-BoM_data_UNU$year <-gsub("[^0-9]", "", BoM_data_UNU$year)
-
-# Remove rows where the year value is empty 
-BoM_data_UNU <- BoM_data_UNU[-which(BoM_data_UNU$year == ""), ]
-
-# Convert year column to numeric
-BoM_data_UNU$year <- as.numeric(as.character(BoM_data_UNU$year))
-
-# Get data for most recent product within each group
-BoM_data_UNU_latest <- BoM_data_UNU %>% 
+  # remove non-numeric entries in year column to then be able to select the latest
+  mutate_at(c('year'), trimws) %>%
+  mutate(year = gsub("[^0-9]", "", year)) %>%
+  # convert to numeric
+  mutate_at(c('year'), as.numeric) %>%
+  na.omit() %>%
+  # get data for most recent product within each group
   group_by(product) %>%
-  top_n(1, abs(year))
-
-# Renames columns
-Babbit_sankey_input <- BoM_data_UNU_latest %>%
+  top_n(1, abs(year)) %>%
+  # Renames columns
   mutate(source = material) %>%
-  rename(target = component)
+  rename(target = component) %>%
+  select("product", 
+         "source",
+         "target",
+         "material",
+         "value")
 
-# Reorders columns
-Babbit_sankey_input <- Babbit_sankey_input[, c("product", 
-                                               "source",
-                                               "target",
-                                               "material",
-                                               "value")]
+# Import unit inflow data from the stacked area chart
+stacked_units <- read_excel(
+  "./cleaned_data/electronics_stacked_area_chart.xlsx") %>%
+  filter(variable == "inflow") %>%
+  rename(product = unu_description)
 
-# Duplicates the first file and renames columns
+# Right joins the two files to multiply the BoM by flows to get flows in mass by year
+material_formulation <- right_join(Babbit_sankey_input, stacked_units,
+                             by = c("product")) %>%
+  mutate(value = (value.x * value.y)/1000000) %>%
+  select(-c(value.x,
+            variable,
+            value.y)) %>%
+  filter(value >0) %>%
+  mutate(across(c('value'), round, 2)) %>%
+  mutate(flow = "material formulation")
+
+# Duplicates the first file and renames columns to create the next sankey link
 Babbit_sankey_input2 <- Babbit_sankey_input %>% 
   mutate(source = target,
          target = product)
@@ -84,38 +91,29 @@ Babbit_sankey_input2 <- Babbit_sankey_input2[, c("product",
                                                  "material",
                                                  "value")]
 
-# Binds the two files
+# Right joins the two files to multiply the BoM by flows to get flows in mass by year
+component_manufacture <- right_join(Babbit_sankey_input2, stacked_units,
+                                   by = c("product")) %>%
+  mutate(value = (value.x * value.y)/1000000) %>%
+  select(-c(value.x,
+            variable,
+            value.y)) %>%
+  filter(value >0) %>%
+  mutate(across(c('value'), round, 2)) %>%
+  mutate(flow = "component manufacture")
+
+# Imports collection data
+
+
+
+# Binds the files
 Electronics_BoM_sankey_Babbitt <- rbindlist(
   list(
     Babbit_sankey_input,
     Babbit_sankey_input2),
   use.names = TRUE)
 
-electronics_stacked_area_chart <- read_excel(
-"./cleaned_data/electronics_stacked_area_chart.xlsx")
 
-# Gets unit flows by year
-stacked_units <- electronics_stacked_area_chart %>%
-  filter(variable == "inflow") %>%
-  rename(product = unu_description)
-
-# Right joins the two files to multiply the BoM by flows to get flows in mass by year
-Babbitt_joined <- right_join(Electronics_BoM_sankey_Babbitt, stacked_units,
-                             by = c("product")) %>%
-  mutate(value = (value.x * value.y)/1000000) %>%
-  select(-c(value.x,
-            variable,
-            value.y)) %>%
-  filter(value >0) %>%
-  mutate(across(c('value'), round, 2))
-
-# Reorders columns 
-Babbitt_joined <- Babbitt_joined[, c("year",
-                                     "product",
-                                     "source",
-                                     "target",
-                                     "material",
-                                     "value")]
 
 # Write file 
 write_xlsx(Babbitt_joined, 

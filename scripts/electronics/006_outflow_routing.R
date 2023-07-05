@@ -356,12 +356,10 @@ received_AATF_reuse_54 <- received_AATF_reuse_wide_54 %>%
 write_xlsx(received_AATF_reuse_54, 
            "./cleaned_data/electronics_sankey/reuse_received_AATF_54.xlsx")
 
-# IT asset management sector (ITAM), mobile phone buyback schemes, online auction sites and classified listings.
 # Commercial reuse (B2B): 90Kt
-# Domestic reuse (B2C/C2C): 82Kt - https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf
 # ITAM/D e.g large global operators like RDC-Computacenter, TES and SIMS: 90Kt - covers remanufacturing too
+# Domestic reuse (B2C/C2C): 82Kt - https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf
 # Returns under warranty: 102Kt
-# We estimate the weight of products collected for potential reuse, to be 237 Kt for 2017
 
 # *******************************************************************************
 # Remanufacture
@@ -550,16 +548,12 @@ write_xlsx(received_non_obligated_54,
 
 # https://www.data.gov.uk/dataset/0e0c12d8-24f6-461f-b4bc-f6d6a5bf2de5/wastedataflow-local-authority-waste-management
 
-# sites operating under exemptions T11 (Para 47 Scotland) and ATF permits (UK)
-
-# Small Domestic Appliances 0.853 Kt
-# IT and Telcoms Equipment 3.535 Kt
-# Display Equipment 0.812 Kt
-# Total of categories assessed 5.200 Kt 
-
-# The total calculation of unrecorded treatment under an exemption, adds a further 220 Kt for 2017
-
-# Light iron
+# sites operating under exemptions T11 (Para 47 Scotland) and ATF permits (UK): 5kt
+  # Small Domestic Appliances 0.853 Kt
+  # IT and Telcoms Equipment 3.535 Kt
+  # Display Equipment 0.812 Kt
+# Light iron: 215Kt
+# Misreporting AATF: 2Kt
 
 # *******************************************************************************
 # Exports
@@ -673,9 +667,9 @@ received_export_data_54 <- received_export_data_summarised_wide_54 %>%
 write_xlsx(received_export_data_54, 
            "./cleaned_data/electronics_sankey/export_received_54.xlsx")
 
-# 16 Kt of functional used EEE as exported
-
-# Illegal exports 
+# Legal export: 16 Kt of functional used EEE
+# Illegal exports: 32Kt
+# Dry mixed recycling: 13Kt
 
 # https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13406
 # https://step-initiative.org/files/_documents/other_publications/UNU-Transboundary-Movement-of-Used-EEE.pdf
@@ -760,11 +754,9 @@ illegal_dumping <- read_ods(
   filter(type == "Electrical equipment") %>%
   mutate(flow = "illegal dumping")
 
-# Illegal waste exports
-
-# Combined weight of WEEE collected and treated
-# inappropriately to be 461 Kt, 32% of the used EEE moving on from use, storage and hoarding for
-# collection or 28% of calculated EEE put on market.
+# Household residual: 155Kt
+# C&I residual: 145Kt
+# Theft: 114Kt
 
 # *******************************************************************************
 # Sayers et al 
