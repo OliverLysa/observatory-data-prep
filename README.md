@@ -198,85 +198,82 @@ This methodology can be applied at a sub-national level too (albeit entirely wit
 
 ###### Inputs
 
--   Environment Agency placed on market (POM) data
+-   Environment Agency placed on market (POM) [data](https://www.gov.uk/government/statistical-data-sets/waste-electrical-and-electronic-equipment-weee-in-the-uk)
 
 ###### Workflow
 
-1.  [Extracts](https://github.com/OliverLysa/observatory/blob/main/scripts/data_extraction_transformation/Electronics/environment_agency/On_the_market.R) placed on market data from Environment Agency EPR spreadsheet, binds data from across sheets, pivot to long-format and exports as a consolidated file
+1.  [Extracts](https://github.com/OliverLysa/observatory/blob/main/scripts/data_extraction_transformation/Electronics/environment_agency/On_the_market.R) placed on market data from Environment Agency EPR administrative data publication presented across multiple sheets, binds annual data, converts to long-format and exports as a single consolidated file
 
 ###### Outputs
 
--   Compiled POM data 2007 onward
+-   A CSV of compiled POM data for years 2007 onward
 
 #### 004_mass_conversion.R
 
-Script converts unit-level inflow data into mass equivalents e.g. tonnes of laptops and tablets each year using 'bill of materials' (BoM) data.
-
-A BoM is a hierarchical data object providing a list of the raw materials, components and instructions required to construct, manufacture, or repair a product. BoMs are generally used by firms to communicate information about a product as it moves along a value chain in order to help navigate regulations, efficiently manage inventory and to support product life-cycle assessments. Utilising component and material shares captured within a BoM data object alongside corresponding information on the volume/mass of flows (and stocks) of products/components, makes it possible to move between material, component and product flows (and stocks) at the micro level.
+Script converts unit-level inflow data into mass equivalents e.g. tonnes of laptops and tablets.
 
 ##### Inputs
 
--   Outputs of 003_total_inflows.R
--   Babbitt *et al* 2019
-
-##### Workflow
-
-1.  Extracts BoM data from Babbitt *et al* 2019 and assigns these to UNU categories, assuming homogeneity of composition in each category
-2.  Apply the mass trend data from van Straalen (2017) to simulate trends over time
-
-##### Outputs
-
--   
-
-#### 005_stock_outflow_calculation.R
-
-Script calculates stock and outflow variables using inflow and lifespan data inputs.
-
-##### Inputs
-
--   Lifespan data by UNU category transferred from life-time profiles in the Netherlands, France, Belgium and Italy ([CIRCABC, 2023](https://circabc.europa.eu/ui/group/636f928d-2669-41d3-83db-093e90ca93a2/library/8e36f907-0973-4bb3-8949-f2bf3efeb125/details)). Loss functions modelled after a Weibull distribution ('a continuous probability distribution that, when used for stock and flow models, can be described as modelling the population given a variable and time-dependent failure rate.') ([ProSUM, 2017](https://www.prosumproject.eu/sites/default/files/170601%20ProSUM%20Deliverable%203.3%20Final.pdf)).
--   Inflow data in unit and mass terms
+-   Outputs of 003_total_inflows.R script 'apparent consumption' method
+-   van Straalen (2017) mass trend data
+-   Babbitt *et al* 2019 'bill of materials' (BoM) data
 
 <details>
 
-<summary>Lifespans as an input into MFA</summary>
+<summary>More info: Bill of materials</summary>
 
-At its simplest, a lifespan refers to a specific interval of time an object exists in a particular form (see NICER overview). Here, 'Lifetime seeks to capture the period after a product has been sold and stays in households or businesses until it is disposed of. This includes 'the dormant time in sheds and the exchange of second-hand equipment between households and businesses within the country'. Lifespan information can input into material stock and flow accounting, life-cycle costing and linked assessments of impact in various ways. For instance, material stock accounting can take a bottom-up approach based on item inventories and material intensities (e.g. Wiedenhofer *et al.* 2015), or be estimated from the top-down based on inflow data and estimated lifespan distributions as in delay/survival models (e.g. [Fishman *et al.* (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4251510/).
-
-As an example, the ONS and most National Statistical Institutions (NSIs) estimate the monetary value of non-financial assets as part of national balance sheets using a perpetual inventory method (PIM). This involves starting with a benchmark asset monetary value and accumulating asset purchases through gross fixed capital formation over their estimated lifetime (based on ad-hoc research e.g., [asset lives study](https://www.niesr.ac.uk/publications/academic-review-asset-lives-uk)) via an assumed capital retirement distribution to estimate *gross* capital stocks. From this, a depreciation function is used to estimate the *net* capital stock (Dey-Chowdhury, 2009), with this further step taken because of the monetary representation of values.
-
-Loss functions modelled after a Weibull distribution ('a continuous probability distribution that, when used for stock and flow models, can be described as modelling the population given a variable and time-dependent failure rate.') ([ProSUM, 2017](https://www.prosumproject.eu/sites/default/files/170601%20ProSUM%20Deliverable%203.3%20Final.pdf)). A variable Y \> 0 represents time until an event from a particular origin. Y is variously referred to as survival time, event time, failure time and duration.
-
--   Values in a **hazard function** (h(y) reflect the probability that an event occurs in a period of time.
-
--   Values in a **cumulative distribution function (CDF)** F(y) reflect the probability that an event occurs at or before time y.
-
--   Values in a **cumulative survival function (CSF)** S(y) reflect the probability that an event occurs after time y (i.e. the inverse of the CDF).
-
-<https://onlinelibrary.wiley.com/doi/abs/10.1111/jiec.12551> <https://www.sciencedirect.com/science/article/abs/pii/S0959652618339660>
+A BoM is a hierarchical data object providing a list of the raw materials, components and instructions required to construct, manufacture, or repair a product. BoMs are generally used by firms to communicate information about a product as it moves along a value chain in order to help navigate regulations, efficiently manage inventory and to support product life-cycle assessments. Utilising component and material shares captured within a BoM data object alongside corresponding information on the volume/mass of flows (and stocks) of products/components, makes it possible to move between material, component and product flows (and stocks) at the micro level.
 
 </details>
 
 ##### Workflow
 
-1.  Extract lifespan/residence-time data
-2.  Input prioritisation
-3.  Calculate mean and median from Weibull parameters
-4.  Compute distributions from lifespan parameters in CDF form
-5.  Imports benchmark stock data
-6.  Iterate over products' inflow data by year and lifespan parameters to calculate stock and outflows
+1.  Extracts BoM data from Babbitt *et al.* 2019 and assigns these to UNU-KEYs
+2.  Matches BoM data to inflow data by UNU-KEY and multiplies annual unit-level data by BoM data to calculate apparent consumption in mass terms
 
 ##### Outputs
 
--   A spreadsheet containing inflow, stock and outflow data by UNU-Key by year
--   Outflows calculated as the sum of discarded products entering the stock in each historic year multiplied by its lifetime distribution probability
--   Net change in stock between periods equals the difference between the total inflows and outflows.
+-   A CSV of annual inflows by UNU-KEY in both unit and mass terms
+
+#### 005_stock_outflow_calculation.R
+
+Script calculates values for the stock of electronics and outflows from the stock based on inflow data and lifespan assumptions
+
+##### Inputs
+
+-   Inflow data in unit and mass terms
+-   Lifespan assumptions by UNU category transferred from life-time profiles in the Netherlands, France, Belgium and Italy ([CIRCABC, 2023](https://circabc.europa.eu/ui/group/636f928d-2669-41d3-83db-093e90ca93a2/library/8e36f907-0973-4bb3-8949-f2bf3efeb125/details)) and specified as scale and shape variables of a Weibull distribution
+
+<details>
+
+<summary>Lifespans as an input into MFA</summary>
+
+At its simplest, a lifespan refers to a specific interval of time an object exists in a particular form (see NICER overview). Here, 'lifetime seeks to capture the period after a product has been sold and stays in households or businesses until it is disposed of'. This includes 'the dormant time in sheds and the exchange of second-hand equipment between households and businesses within the country' ([CIRCABC, 2023](https://circabc.europa.eu/ui/group/636f928d-2669-41d3-83db-093e90ca93a2/library/8e36f907-0973-4bb3-8949-f2bf3efeb125/details)).
+
+Lifespan information can input into material stock and flow accounting, life-cycle costing and linked assessments of impact in various ways. For instance, material stock accounting can take a bottom-up approach based on item inventories and material intensities (e.g. Wiedenhofer *et al.* 2015), or be estimated from the top-down based on inflow data and estimated lifespan distributions as in delay/survival models (e.g. [Fishman *et al.* (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4251510/).
+
+As an example, the ONS and most National Statistical Institutions (NSIs) estimate the monetary value of non-financial assets as part of national balance sheets using a perpetual inventory method (PIM). This involves starting with a benchmark asset monetary value and accumulating asset purchases through gross fixed capital formation over their estimated lifetime (based on ad-hoc research e.g., [asset lives study](https://www.niesr.ac.uk/publications/academic-review-asset-lives-uk)) via an assumed capital retirement distribution to estimate *gross* capital stocks. From this, a depreciation function is used to estimate the *net* capital stock (Dey-Chowdhury, 2009), with this further step taken because of the monetary representation of values.
+
+</details>
+
+##### Workflow
+
+1.  Imports lifespan data specified as shape and scale parameters of the Weibull distribution - 'a continuous probability distribution that, when used for stock and flow models, can be described as modelling the population given a variable and time-dependent failure rate' ([ProSUM, 2017](https://www.prosumproject.eu/sites/default/files/170601%20ProSUM%20Deliverable%203.3%20Final.pdf)).
+2.  Imports unit- and mass-level inflow data
+3.  Estimates outflows by inflow year calculated based on a **hazard function** (h(y) (reflecting the probability that an event occurs in a period of time) and as the sum of discarded products entering the stock in each historic year multiplied by its lifetime distribution probability
+4.  Calculate the stock in weight and units by calculating the cumulative sums of inflows and outflows by year and then subtracting from each other. Net change in stock between periods equals the difference between the total inflows and outflows i.e.
 
 $$
 K(t) = I(t)-O(t)
 $$
 
 where K(t) is the change and I(t) and O(t) are the corresponding inflows and outflows in that year, respectively. This net change is added to the stock level in year t-1
+
+5.  Combines inflow, stock and outflow by UNU-KEY by year into a single dataset
+
+##### Outputs
+
+-   A CSV file containing inflow, stock and outflow data by UNU-Key by year in both unit and mass-terms
 
 #### 006_outflow_routing.R
 
@@ -298,19 +295,16 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
         4.  Warranty returns
         5.  Legal exports of WEEE
 2.  Fly-tipping data (white goods) (Defra) and Illegal dumping (EA)
-3.  
-4.  Material recycled - Mass of waste produced that is recycled and re-enters the economic system.
-5.  Material remanufactured - Mass of waste produced that is remanufactured and re-enters the economy system.
-6.  Material reused -
-7.  Material repaired - Fixing something that is broken or unusable so it can be used for its original purpose.
-8.  Data reformatted and restructured to calculate derived aggregates using end-of use mix % multiplied by an ordinal score, combined within a simple linear combination to produce CE-score metric
-9.  Compares recycling flows in relation to waste arisings of the same material/source.
+3.  Material recycled - Mass of waste produced that is recycled and re-enters the economic system.
+4.  Material remanufactured - Mass of waste produced that is remanufactured and re-enters the economy system.
+5.  Material reused -
+6.  Material repaired - Fixing something that is broken or unusable so it can be used for its original purpose.
+7.  Data reformatted and restructured to calculate derived aggregates using end-of use mix % multiplied by an ordinal score, combined within a simple linear combination to produce CE-score metric
+8.  Compares recycling flows in relation to waste arisings of the same material/source.
 
 ##### Outputs
 
 #### 007_GVA.R
-
-"Intensity indicators compare trends in economic activity such as value-added, income or consumption with trends in specific environmental flows such as emissions, energy and water use, and flows of waste. These indicators are expressed as either intensity or productivity ratios, where intensity indicators are calculated as the ratio of the environmental flow to the measure of economic activity, and productivity indicators are the inverse of this ratio." (SEEA-Environment Extensions, 2012, pg. 13).
 
 ##### Input
 
@@ -334,9 +328,13 @@ Scripts for sources capturing monetary data additional to prodcom/trade across p
 
 At its most basic, a measure of efficiency or productivity tells us about a relationship in terms of scale between an output and an input. Singular measures of resource efficiency/productivity (as opposite to combined measures e.g. total factor productivity) generally seek to track the effectiveness with which an economy or sub-national process uses resource inputs to generate material or service outputs or anthropocentric value of some description.
 
-Economic-physical productivity i.e. the money value of outputs per mass unit of material resource inputs. At national level, can be measured from production perspective (GDP/DMC or DMI), or can be measured from consumption perspective (GDP/RMC or RMI). Other indicators could be the amount of waste generated in relation to economic output, or alternatively in relation to resource inputs/stocks.
+"Intensity indicators compare trends in economic activity such as value-added, income or consumption with trends in specific environmental flows such as emissions, energy and water use, and flows of waste. These indicators are expressed as either intensity or productivity ratios, where intensity indicators are calculated as the ratio of the environmental flow to the measure of economic activity, and productivity indicators are the inverse of this ratio." (SEEA-Environment Extensions, 2012, pg. 13).
+
+Economic-physical productivity i.e. the money value of outputs per mass unit of material resource inputs. At national level, can be measured from production perspective (GDP/DMC or DMI), or can be measured from consumption perspective (GDP/RMC or RMI). Other indicators could be the amount of waste generated in relation to economic output, or alternatively in relation to resource inputs/stocks.
 
 </details>
+
+##### Outputs
 
 #### 008_emissions.R
 
@@ -347,6 +345,8 @@ Economic-physical productivity i.e. the money value of outputs per mass unit of
 #### 009_stacked_chart.R
 
 #### 010_bubble_chart.R
+
+1.  Calculate mean and median from Weibull parameters
 
 #### 011_sankey_chart.R
 
