@@ -1,4 +1,4 @@
-# CE observatory data processing 
+# CE observatory data processing
 
 *Author*: Oliver Lysaght (oliverlysaght\@icloud.com)
 
@@ -108,6 +108,8 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 
 -   CSV of extended concordance table linking the UKU14, UNU54, HS6, CN8, Prodcom and SIC classifications
 
+\-\--
+
 #### 001_domestic_production.R
 
 Script extracts UK domestic production data from the annual ONS publication.
@@ -127,6 +129,8 @@ Script extracts UK domestic production data from the annual ONS publication.
 
 -   CSV of UK prodcom data across all available divisions (\< 33) in tidy format
 -   CSV of domestic production data summarised by UNU in tidy format
+
+\-\--
 
 #### 002_international_trade.R
 
@@ -149,6 +153,8 @@ Script extracts international trade data from the UKTradeInfo API using the 'ukt
 -   CSV of trade data (imports and exports) by CN8 code
 -   CSV of trade data by UNU-Key, including broken-down by country
 -   CSV of trade data by UNU-Key, without country breakdown
+
+\-\--
 
 #### 003_total_inflows.R
 
@@ -210,6 +216,8 @@ This methodology can be applied at a sub-national level too (albeit entirely wit
 
 -   A CSV of compiled POM data for years 2007 onward
 
+\-\--
+
 #### 004_mass_conversion.R
 
 Script converts unit-level inflow data into mass equivalents e.g. tonnes of laptops and tablets.
@@ -237,6 +245,8 @@ A BoM is a hierarchical data object providing a list of the raw materials, compo
 ##### Outputs
 
 -   A CSV of annual inflows by UNU-KEY in both unit and mass terms
+
+\-\--
 
 #### 005_stock_outflow_calculation.R
 
@@ -279,6 +289,8 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 
 -   A CSV file containing inflow, stock and outflow data by UNU-Key by year in both unit and mass-terms
 
+\-\--
+
 #### 006_outflow_routing.R
 
 ##### Inputs
@@ -298,6 +310,8 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 ##### Outputs
 
 -   CSV of mass and unit flows by value-chain stage
+
+\-\--
 
 #### 007_GVA.R
 
@@ -339,6 +353,8 @@ Economic-physical productivity i.e. the money value of outputs per mass unit of 
 
 -   A CSV of 2-digit GVA and 4-digit aGVA data specific to electronics
 
+\-\--
+
 #### 008_emissions.R
 
 A script to import production and consumption emissions data and link to electronics classification.
@@ -359,6 +375,8 @@ A script to import production and consumption emissions data and link to electro
 
 -   A CSV of production and consumption emissions data by SIC
 
+\-\--
+
 #### 009_stacked_chart.R
 
 ##### Inputs
@@ -375,6 +393,8 @@ A script to import production and consumption emissions data and link to electro
 ##### Outputs
 
 -   A CSV of stacked area data
+
+\-\--
 
 #### 010_bubble_chart.R
 
@@ -396,6 +416,8 @@ A script to import production and consumption emissions data and link to electro
 
 -   A CSV file containing data on mean lifespan, CE-score and inflow by UNU-KEY by year
 
+\-\--
+
 #### 011_sankey_chart.R
 
 ##### Inputs
@@ -405,6 +427,8 @@ A script to import production and consumption emissions data and link to electro
 ##### Outputs
 
 -   CSV of sankey data
+
+\-\--
 
 #### 012_ifixit.R
 
@@ -420,6 +444,8 @@ A script to import production and consumption emissions data and link to electro
 ##### Outputs
 
 -   A CSV of repairability scores by product
+
+\-\--
 
 #### 013_open_repair.R
 
