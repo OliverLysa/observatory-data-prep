@@ -104,6 +104,7 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 </details>
 
 5.  Links to the UK-14 classification using concordance table from [Stowell, Yumashev et al. (2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
+6.  Exports data to CSV format
 
 ##### Outputs
 
@@ -115,13 +116,14 @@ Script extracts UK domestic production data from the annual ONS publication.
 
 ##### Inputs
 
--   [ONS Prodcom data](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/bulletins/ukmanufacturerssalesbyproductprodcom/2021results) (2008-20) and [2021 onwards](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/datasets/ukmanufacturerssalesbyproductprodcom)
+-   [ONS Prodcom data](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/bulletins/ukmanufacturerssalesbyproductprodcom/2021results) (2008-20) and [2021 onwards](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/datasets/ukmanufacturerssalesbyproductprodcom). Prodcom currently collates data for 232 industries at the 4 digit code level and covers SIC Divisions 8-33
 -   Prodcom codes for the electronics sector derived from 000_classification_matching.R
 
 ##### Workflow
 
 1.  Imports the UK ONS Prodcom datasets published by the ONS as multi-page spreadsheets, binds all sheets to create a single table, binds the 2008-2020 and 2021 data and exports full dataset for use across product categories
 2.  Extracts data for prodcom codes specific to electronics, cleans data, summarises by UNU-KEY and puts into tidy format
+3.  Exports data to CSV format
 
 ##### Outputs
 
@@ -142,6 +144,7 @@ Script extracts international trade data from the UKTradeInfo API using the 'ukt
 1.  Isolates list of CN8 codes from classification database for codes of interest
 2.  Uses a for loop to iterate through the trade terms and extract trade data using the 'uktrade' extractor function/wrapper to the UKTradeInfo API and print results to a single dataframe (this can take some time to run)
 3.  Sums results grouped by year, flow type, country of source/destination, trade code as well as by year, flow type and trade code (where country detail is not required)
+4.  Exports data to CSV format
 
 ##### Outputs
 
@@ -181,7 +184,7 @@ This methodology can be applied at a sub-national level too (albeit entirely wit
 1.  Import prodcom and trade data summarised by UNU to compiled domestic production, imports and exports
 2.  As Prodcom includes suppressed values to protect confidentiality ([ONS, 2018](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/methodologies/ukmanufacturerssalesbyproductsurveyprodcomqmi)) - the omission of which will present a data gap - omitted values are estimated. Following V.M. van Straalen (2017), a ratio is calculated between units exported (generally not suppressed) and units produced for years for which data is available. Where values are available in adjacent years, a straight line projection is used. Otherwise, a median is taken across these ratios and applied to the years for which data is missing based on a calculation of export units/ratio = prodcom units.
 3.  Key indicators and aggregates are calculated
-4.  Data exported in CSV
+4.  Exports data to CSV format
 
 ###### Outputs
 
@@ -202,7 +205,8 @@ This methodology can be applied at a sub-national level too (albeit entirely wit
 
 ###### Workflow
 
-1.  [Extracts](https://github.com/OliverLysa/observatory/blob/main/scripts/data_extraction_transformation/Electronics/environment_agency/On_the_market.R) placed on market data from Environment Agency EPR administrative data publication presented across multiple sheets, binds annual data, converts to long-format and exports as a single consolidated file
+1.  [Extracts](https://github.com/OliverLysa/observatory/blob/main/scripts/data_extraction_transformation/Electronics/environment_agency/On_the_market.R) placed on market data from Environment Agency EPR administrative data publication presented across multiple sheets, binds annual data, converts to long-format
+2.  Exports consolidated data to CSV format
 
 ###### Outputs
 
@@ -230,6 +234,7 @@ A BoM is a hierarchical data object providing a list of the raw materials, compo
 
 1.  Extracts BoM data from Babbitt *et al.* 2019 and assigns these to UNU-KEYs
 2.  Matches BoM data to inflow data by UNU-KEY and multiplies annual unit-level data by BoM data to calculate apparent consumption in mass terms
+3.  Exports data to CSV format
 
 ##### Outputs
 
@@ -270,6 +275,7 @@ $$
 where K(t) is the change and I(t) and O(t) are the corresponding inflows and outflows in that year, respectively. This net change is added to the stock level in year t-1
 
 5.  Combines inflow, stock and outflow by UNU-KEY by year into a single dataset
+6.  Exports data to CSV format
 
 ##### Outputs
 
@@ -279,11 +285,7 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 
 ##### Inputs
 
--   Disposal:
-
-    -   Waste Data Interrogator
-
--   
+-   Waste Data Interrogator
 
 ##### Workflow
 
@@ -306,21 +308,27 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 
 #### 007_GVA.R
 
+Script imports 2-digit and 4-digit gross value added (GVA) data and filters to SIC codes of relevance to electronics based on review of [methodological options](https://docs.google.com/document/d/1jb01KOxCMkPIIc_za8DF5-2LLjh03HJv/edit?usp=sharing&ouid=100007595496292131489&rtpof=true&sd=true)
+
 ##### Input
 
--   [Regional GVA figures](https://www.ons.gov.uk/economy/grossvalueaddedgva/datasets/nominalandrealregionalgrossvalueaddedbalancedbyindustry) - 2 digit
+-   2-digit [regional GVA figures](https://www.ons.gov.uk/economy/grossvalueaddedgva/datasets/nominalandrealregionalgrossvalueaddedbalancedbyindustry) published by the UK ONS
+-   4-digit aGVA data published by the ONS in its publication [Non-financial business economy, UK: Sections A to S](https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/datasets/uknonfinancialbusinesseconomyannualbusinesssurveysectionsas). - 4 digit
+-   SIC codes derived from script 000
 
--   Up to 4-digit aGVA estimates provided in the ONS publication [Non-financial business economy, UK: Sections A to S](https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/datasets/uknonfinancialbusinesseconomyannualbusinesssurveysectionsas). - 4 digit
+<details>
 
--   Prodcom currently collates data for 232 industries at the 4 digit code level and covers SIC Divisions 8-33, whereas regional GVA figures cover 1-98 at a 2 digit level
+<summary>More info: Gross value added</summary>
+
+Gross value added (GVA) measures the increase in the value of the economy due to the production of goods and services calculated as the difference between the value of goods and services sold and intermediate expenses incurred to produce these.
+
+</details>
 
 ##### Workflow
 
--   [Methodological options](https://docs.google.com/document/d/1jb01KOxCMkPIIc_za8DF5-2LLjh03HJv/edit?usp=sharing&ouid=100007595496292131489&rtpof=true&sd=true)
-
--   Extracts GVA data and maps to UNU codes
-
-Scripts for sources capturing monetary data additional to prodcom/trade across production and consumption perspectives. We are looking at products which fall largely within the SIC codes 26-29. We start by looking at 2-digit GVA data for these codes GVA for the products in scope. This could include not only data from the manufacturing sector, but also from repair and maintenance activities associated with those products as captured below. This allows us to capture structural shifts at the meso-level.
+-   Imports 2-digit and 4-digit GVA data from ONS publications, binds all sheets to create a single table
+-   Maps GVA data for SIC codes 26-29 (capturing manufacturing-related GVA values) and codes representing repair andv maintenance activities (to capture structural shifts at the mes-level) to UNU-Keys
+-   Exports data to CSV format
 
 <details>
 
@@ -335,6 +343,8 @@ Economic-physical productivity i.e. the money value of outputs per mass unit of 
 </details>
 
 ##### Outputs
+
+-   A CSV of 2-digit GVA and 4-digit aGVA data specific to electronics
 
 #### 008_emissions.R
 
