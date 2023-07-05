@@ -249,7 +249,7 @@ Script calculates values for the stock of electronics and outflows from the stoc
 
 <details>
 
-<summary>Lifespans as an input into MFA</summary>
+<summary>More info: Lifespans as an input into MFA</summary>
 
 At its simplest, a lifespan refers to a specific interval of time an object exists in a particular form (see NICER overview). Here, 'lifetime seeks to capture the period after a product has been sold and stays in households or businesses until it is disposed of'. This includes 'the dormant time in sheds and the exchange of second-hand equipment between households and businesses within the country' ([CIRCABC, 2023](https://circabc.europa.eu/ui/group/636f928d-2669-41d3-83db-093e90ca93a2/library/8e36f907-0973-4bb3-8949-f2bf3efeb125/details)).
 
@@ -288,21 +288,16 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 ##### Workflow
 
 1.  Calculate collection
-    1.  Sum of:
-        1.  collection by PCS members across EEE/WEEE categories
-        2.  market-driven resale:
-        3.  direct reuse/resale through commercial and domestic routes
-        4.  Warranty returns
-        5.  Legal exports of WEEE
-2.  Fly-tipping data (white goods) (Defra) and Illegal dumping (EA)
-3.  Material recycled - Mass of waste produced that is recycled and re-enters the economic system.
-4.  Material remanufactured - Mass of waste produced that is remanufactured and re-enters the economy system.
-5.  Material reused -
-6.  Material repaired - Fixing something that is broken or unusable so it can be used for its original purpose.
-7.  Data reformatted and restructured to calculate derived aggregates using end-of use mix % multiplied by an ordinal score, combined within a simple linear combination to produce CE-score metric
-8.  Compares recycling flows in relation to waste arisings of the same material/source.
+2.  Calculate maintenance and repair - Fixing something that is broken or unusable so it can be used for its original purpose.
+3.  Calculate reuse/resale and refurbishment
+4.  Calculate remanufactured - Mass of waste produced that is remanufactured and re-enters the economy system.
+5.  Calculate recycled - Mass of waste produced that is recycled and re-enters the economic system
+6.  Calculate domestic disposal
+7.  Calculate exports
 
 ##### Outputs
+
+-   CSV of mass and unit flows by value-chain stage
 
 #### 007_GVA.R
 
@@ -330,7 +325,7 @@ Gross value added (GVA) measures the increase in the value of the economy due to
 
 <details>
 
-<summary>Intensity ratios</summary>
+<summary>More information: Intensity ratios</summary>
 
 At its most basic, a measure of efficiency or productivity tells us about a relationship in terms of scale between an output and an input. Singular measures of resource efficiency/productivity (as opposite to combined measures e.g. total factor productivity) generally seek to track the effectiveness with which an economy or sub-national process uses resource inputs to generate material or service outputs or anthropocentric value of some description.
 
@@ -362,18 +357,83 @@ A script to import production and consumption emissions data and link to electro
 
 ##### Outputs
 
--   A CSV of production and consumption emissions data
+-   A CSV of production and consumption emissions data by SIC
 
 #### 009_stacked_chart.R
 
+##### Inputs
+
+-   Outputs of script 005
+-   UNU-KEY colloquial lookup
+
+##### Workflow
+
+1.  Imports tidy inflow, stock and outflow data in mass terms from script 005
+2.  Merges with the UNU-KEY colloquial lookup to link to a user-friendly naming scheme
+3.  Exports CSV of stacked area chart
+
+##### Outputs
+
+-   A CSV of stacked area data
+
 #### 010_bubble_chart.R
 
-1.  Calculate mean and median from Weibull parameters
+##### Inputs
+
+-   004 mass conversion
+-   005 - lifespan assumptions
+-   006 outflow routing
+
+##### Workflow
+
+1.  Calculate mean and median lifespan point estimates from Weibull parameters based on the following equations:
+    -   mean = scale\*exp(gammaln(1+1/shape))
+    -   median = scale\*(log(2))\^(1/shape))
+2.  Calculate 'CE-score' as a weighted linear combination including the share of flows across each post-use reverse loop, disposal or losses multiplied by an ordinal factor, combined within a simple linear combination
+3.  Extracts inflow data from the outputs of script 005
+
+##### Outputs
+
+-   A CSV file containing data on mean lifespan, CE-score and inflow by UNU-KEY by year
 
 #### 011_sankey_chart.R
 
+##### Inputs
+
+##### Workflow
+
+##### Outputs
+
+-   CSV of sankey data
+
 #### 012_ifixit.R
 
--   Product characteristics - Product reparability (time required for disassembly, products meeting certain score of reparability), product failures.
+##### Inputs
+
+-   Expert-given repair scores across laptops, tablets and smartphones provided on the iFixit website
+
+##### Workflow
+
+1.  Scrap data from the iFixit website
+2.  Summarise by product type, by make, by year using an average where there are multiple models by brand in a given year
+
+##### Outputs
+
+-   A CSV of repairability scores by product
 
 #### 013_open_repair.R
+
+##### Inputs
+
+-   Citizen science data collected from repair cafes and collated by the Open Repair Alliance
+
+##### Workflow
+
+1.  Import data, filter to data from GBR repair cafes
+2.  Calculate lifespan until repair attempt for products where manufacturing year and year of repair attempt are noted
+3.  Calculate repair success rate as the share of successful repairs of the total number of attempted repairs by product
+
+##### Outputs
+
+-   CSV containing data on repair success rate by product
+-   CSV containing data on lifespan until repair attempt by product
