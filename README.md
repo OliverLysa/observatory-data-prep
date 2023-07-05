@@ -2,8 +2,6 @@
 
 *Author*: Oliver Lysaght (oliverlysaght\@icloud.com)
 
-# Table of contents
-
 # Purpose
 
 A collection of scripts to:
@@ -326,9 +324,9 @@ Gross value added (GVA) measures the increase in the value of the economy due to
 
 ##### Workflow
 
--   Imports 2-digit and 4-digit GVA data from ONS publications, binds all sheets to create a single table
--   Maps GVA data for SIC codes 26-29 (capturing manufacturing-related GVA values) and codes representing repair andv maintenance activities (to capture structural shifts at the mes-level) to UNU-Keys
--   Exports data to CSV format
+1.  Imports 2-digit and 4-digit GVA data from ONS publications, binds all sheets to create a single table
+2.  Maps GVA data for SIC codes 26-29 (capturing manufacturing-related GVA values) and codes representing repair andv maintenance activities (to capture structural shifts at the mes-level) to UNU-Keys
+3.  Exports data to CSV format
 
 <details>
 
@@ -348,9 +346,23 @@ Economic-physical productivity i.e. the money value of outputs per mass unit of 
 
 #### 008_emissions.R
 
--   Production emissions
+A script to import production and consumption emissions data and link to electronics classification.
 
--   Consumption emissions
+##### Inputs
+
+-   UK production emissions by SIC published by BEIS
+-   UK consumption emissions by SIC published by Defra
+-   SIC codes derived from script 000
+
+##### Workflow
+
+1.  Imports production emissions data and filter to SIC codes of relevance
+2.  Imports consumption emissions data and filters to SIC codes of relevance
+3.  Exports combined production and consumption emissions data by year by SIC code
+
+##### Outputs
+
+-   A CSV of production and consumption emissions data
 
 #### 009_stacked_chart.R
 

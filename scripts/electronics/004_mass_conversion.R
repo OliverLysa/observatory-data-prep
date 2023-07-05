@@ -196,9 +196,3 @@ write_xlsx(BoM_data_UNU,
            "./cleaned_data/BoM_data_UNU.xlsx")
 
 # https://etl.beis.gov.uk/shared-files/3316/3713/8281/UK_ErP_Policy_Study_final_v4-stc_2_11_21.pdf
-
-# *******************************************************************************
-# Extract material footprint/RMC data from Leeds publication
-# *******************************************************************************
-
-
