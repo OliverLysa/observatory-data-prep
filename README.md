@@ -1,4 +1,4 @@
-# CE observatory data processing
+# 🚀 CE observatory data processing
 
 *Author*: Oliver Lysaght (oliverlysaght\@icloud.com)
 
@@ -23,6 +23,14 @@ Data outputs from these scripts are used to populate the ce-observatory - a dash
 # How to use
 
 ## Software requirements and setup
+
+```         
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=r,py,postgres,git,js,gatsby" />
+  </a>
+</p>
+```
 
 Scripts in this repository are largely written in the programming language R. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and computer software requirements. The version of R and packages used are listed in the package_version file. Required packages are listed at the top of each script. Files are packaged within an R Project with relative file paths used to call data inputs and functions. These can be most easily navigated and ran within the R Studio IDE, though this can also be done in the terminal/command line.
 
@@ -108,7 +116,7 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 
 -   CSV of extended concordance table linking the UKU14, UNU54, HS6, CN8, Prodcom and SIC classifications
 
-\-\--
+------------------------------------------------------------------------
 
 #### 001_domestic_production.R
 
@@ -130,7 +138,7 @@ Script extracts UK domestic production data from the annual ONS publication.
 -   CSV of UK prodcom data across all available divisions (\< 33) in tidy format
 -   CSV of domestic production data summarised by UNU in tidy format
 
-\-\--
+------------------------------------------------------------------------
 
 #### 002_international_trade.R
 
@@ -154,7 +162,7 @@ Script extracts international trade data from the UKTradeInfo API using the 'ukt
 -   CSV of trade data by UNU-Key, including broken-down by country
 -   CSV of trade data by UNU-Key, without country breakdown
 
-\-\--
+------------------------------------------------------------------------
 
 #### 003_total_inflows.R
 
@@ -216,7 +224,7 @@ This methodology can be applied at a sub-national level too (albeit entirely wit
 
 -   A CSV of compiled POM data for years 2007 onward
 
-\-\--
+------------------------------------------------------------------------
 
 #### 004_mass_conversion.R
 
@@ -246,7 +254,7 @@ A BoM is a hierarchical data object providing a list of the raw materials, compo
 
 -   A CSV of annual inflows by UNU-KEY in both unit and mass terms
 
-\-\--
+------------------------------------------------------------------------
 
 #### 005_stock_outflow_calculation.R
 
@@ -289,7 +297,7 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 
 -   A CSV file containing inflow, stock and outflow data by UNU-Key by year in both unit and mass-terms
 
-\-\--
+------------------------------------------------------------------------
 
 #### 006_outflow_routing.R
 
@@ -311,7 +319,7 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 
 -   CSV of mass and unit flows by value-chain stage
 
-\-\--
+------------------------------------------------------------------------
 
 #### 007_GVA.R
 
@@ -353,7 +361,7 @@ Economic-physical productivity i.e. the money value of outputs per mass unit of 
 
 -   A CSV of 2-digit GVA and 4-digit aGVA data specific to electronics
 
-\-\--
+------------------------------------------------------------------------
 
 #### 008_emissions.R
 
@@ -375,7 +383,7 @@ A script to import production and consumption emissions data and link to electro
 
 -   A CSV of production and consumption emissions data by SIC
 
-\-\--
+------------------------------------------------------------------------
 
 #### 009_stacked_chart.R
 
@@ -394,7 +402,7 @@ A script to import production and consumption emissions data and link to electro
 
 -   A CSV of stacked area data
 
-\-\--
+------------------------------------------------------------------------
 
 #### 010_bubble_chart.R
 
@@ -416,7 +424,7 @@ A script to import production and consumption emissions data and link to electro
 
 -   A CSV file containing data on mean lifespan, CE-score and inflow by UNU-KEY by year
 
-\-\--
+------------------------------------------------------------------------
 
 #### 011_sankey_chart.R
 
@@ -428,7 +436,7 @@ A script to import production and consumption emissions data and link to electro
 
 -   CSV of sankey data
 
-\-\--
+------------------------------------------------------------------------
 
 #### 012_ifixit.R
 
@@ -445,7 +453,7 @@ A script to import production and consumption emissions data and link to electro
 
 -   A CSV of repairability scores by product
 
-\-\--
+------------------------------------------------------------------------
 
 #### 013_open_repair.R
 
