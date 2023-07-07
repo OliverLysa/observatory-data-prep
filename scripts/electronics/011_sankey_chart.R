@@ -1,10 +1,9 @@
 ##### **********************
 # Author: Oliver Lysaght
-# Purpose: Converts cleaned data into sankey format
+# Purpose: Converts cleaned data into sankey format for presenting in sankey chart
 # Inputs:
 # Required updates:
 
-# https://cran.r-project.org/web/packages/PantaRhei/vignettes/panta-rhei.html
 # *******************************************************************************
 # Packages
 # *******************************************************************************
@@ -32,7 +31,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 # *******************************************************************************
 
 # Import functions
-source("./data_extraction_scripts/functions.R", 
+source("./scripts/functions.R", 
        local = knitr::knit_global())
 
 # Stop scientific notation of numeric values
@@ -62,62 +61,95 @@ BoM_sankey_input <- read_excel(
          "material",
          "value")
 
-# Import unit inflow data from the stacked area chart
-stacked_units <- read_excel(
-  "./cleaned_data/electronics_stacked_area_chart.xlsx") %>%
-  filter(variable == "inflow") %>%
-  rename(product = unu_description)
+# convert into % terms 
+BoM_sankey_percentage <- BoM_sankey_input %>% 
+  group_by(product, material) %>% 
+  summarise(sum(value)) %>%
+  rename(value = 3) %>%
+  mutate(freq = value / sum(value)) %>%
+  select(-value)
+
+# Import inflow data from the stacked area chart to multiply the BoM by to get tonnes per year across inflow stages
+inflows <- read_excel(
+  "./cleaned_data/inflows_indicators.xlsx") %>%
+filter(indicator == "apparent_consumption",
+       unit == "Units")
+
+inflows <- merge(inflows, UNU_colloquial,
+                   by = c("unu_key")) %>%
+  select(-c(unu_key, unit))
 
 # Right joins the two files to multiply the BoM by flows to get flows in mass by year
-material_formulation <- right_join(Babbit_sankey_input, stacked_units,
+material_formulation <- right_join(BoM_sankey_input, inflows,
                              by = c("product")) %>%
   mutate(value = (value.x * value.y)/1000000) %>%
   select(-c(value.x,
-            variable,
+            indicator,
             value.y)) %>%
   filter(value >0) %>%
   mutate(across(c('value'), round, 2)) %>%
-  mutate(flow = "material formulation")
+  mutate(flow = "material formulation_component manufacture")
 
-# Duplicates the first file and renames columns to create the next sankey link
-Babbit_sankey_input2 <- Babbit_sankey_input %>% 
+# Duplicates the first file and renames columns to create the next sankey link through making long-format the BoM
+component_manufacture <- material_formulation %>% 
   mutate(source = target,
-         target = product)
+         target = product) %>%
+  # Reorders columns
+  select("product", 
+         "source",
+         "target",
+         "material",
+         "year",
+         "value") %>%
+  mutate(flow = "component manufacture_product usage")
 
-# Reorders columns 
-Babbit_sankey_input2 <- Babbit_sankey_input2[, c("product", 
-                                                 "source",
-                                                 "target",
-                                                 "material",
-                                                 "value")]
+# Import collected data
+collected_all_54 <- read_excel(
+  "./cleaned_data/electronics_sankey/collected_all_54.xlsx")
 
-# Right joins the two files to multiply the BoM by flows to get flows in mass by year
-component_manufacture <- right_join(Babbit_sankey_input2, stacked_units,
+# Produce product usage > collected stage data in sankey format in mass by 
+# multiplying the proportions from the BoM to the mass flows
+# the difference between this, other collection and anticipated outflows based on lifespans is leakage
+collected <- merge(collected_all_54, UNU_colloquial,
+                                     by = c("unu_key")) %>%
+  mutate(source = product,
+         target = product) %>%
+  select("product", 
+         "source",
+         "target",
+         "year",
+         "value") %>%
+  mutate(flow = "Product usage_collected") %>%
+  filter(product %in% unique(component_manufacture$product)) %>%
+  mutate_at(c('year'), as.numeric)
+
+# Right join the BoM proportion and mass collected per year
+collected_material <- right_join(BoM_sankey_percentage, collected,
                                    by = c("product")) %>%
-  mutate(value = (value.x * value.y)/1000000) %>%
-  select(-c(value.x,
-            variable,
-            value.y)) %>%
-  filter(value >0) %>%
-  mutate(across(c('value'), round, 2)) %>%
-  mutate(flow = "component manufacture")
-
-# Imports collection data
-
-
+  mutate(mass = freq*value) %>%
+  select("product", 
+         "source",
+         "target",
+         "material",
+         "year",
+         "mass",
+         "flow") %>%
+  rename(value = mass)
+  
+collected_material$target <- paste(collected_material$target, "collected", sep = "_")
 
 # Binds the files
-Electronics_BoM_sankey_Babbitt <- rbindlist(
+sankey_all <- rbindlist(
   list(
-    Babbit_sankey_input,
-    Babbit_sankey_input2),
-  use.names = TRUE)
-
-
+    material_formulation,
+    component_manufacture,
+    collected_material),
+  use.names = TRUE) %>%
+  filter(year != 2022)
 
 # Write file 
-write_xlsx(Babbitt_joined, 
-           "./cleaned_data/electronics_sankey_links.xlsx")
+write_csv(sankey_material_collection, 
+           "./cleaned_data/sankey_material_collection.csv")
 
 # *******************************************************************************
 # REE

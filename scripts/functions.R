@@ -57,6 +57,15 @@ clean_prodcom <- function(df) {
 }
 
 # *******************************************************************************
+# Renaming functions
+# *******************************************************************************
+
+# Import user-friendly names for codes
+UNU_colloquial <- read_xlsx( 
+  "./classifications/classifications/UNU_colloquial.xlsx") %>%
+  rename(product = unu_description)
+
+# *******************************************************************************
 # Lifespan-related statistical functions
 # *******************************************************************************
 
