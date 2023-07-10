@@ -103,6 +103,8 @@ component_manufacture <- material_formulation %>%
          "value") %>%
   mutate(flow = "component manufacture_product usage")
 
+# Collected
+
 # Import collected data
 collected_all_54 <- read_excel(
   "./cleaned_data/electronics_sankey/collected_all_54.xlsx")
@@ -138,18 +140,57 @@ collected_material <- right_join(BoM_sankey_percentage, collected,
   
 collected_material$target <- paste(collected_material$target, "collected", sep = "_")
 
+# Reuse 
+
+reuse_received_AATF_54 <- read_excel(
+  "./cleaned_data/electronics_sankey/reuse_received_AATF_54.xlsx")
+
+# Produce product usage > collected stage data in sankey format in mass by 
+# multiplying the proportions from the BoM to the mass flows
+# the difference between this, other collection and anticipated outflows based on lifespans is leakage
+reuse_received_AATF <- merge(reuse_received_AATF_54, UNU_colloquial,
+                   by = c("unu_key")) %>%
+  mutate(source = product,
+         target = product) %>%
+  select("product", 
+         "source",
+         "target",
+         "year",
+         "value") %>%
+  mutate(flow = "collected_reuse AATF") %>%
+  filter(product %in% unique(component_manufacture$product)) %>%
+  mutate_at(c('year'), as.numeric)
+
+# Right join the BoM proportion and mass collected per year
+reuse_received_AATF_material <- right_join(BoM_sankey_percentage, reuse_received_AATF,
+                                 by = c("product")) %>%
+  mutate(mass = freq*value) %>%
+  select("product", 
+         "source",
+         "target",
+         "material",
+         "year",
+         "mass",
+         "flow") %>%
+  rename(value = mass)
+
+reuse_received_AATF_material$source <- paste(reuse_received_AATF_material$source, "collected", sep = "_")
+
 # Binds the files
 sankey_all <- rbindlist(
   list(
     material_formulation,
     component_manufacture,
-    collected_material),
+    collected_material,
+    reuse_received_AATF_material),
   use.names = TRUE) %>%
-  filter(year != 2022)
+  filter(year != 2022,
+         value != 0) %>%
+  mutate(across(c('value'), round, 2))
 
 # Write file 
-write_csv(sankey_material_collection, 
-           "./cleaned_data/sankey_material_collection.csv")
+write_csv(sankey_all, 
+           "./cleaned_data/sankey_material_collection2.csv")
 
 # *******************************************************************************
 # REE
