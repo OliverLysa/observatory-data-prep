@@ -30,11 +30,11 @@ The Python scripting language has also been used as part of the project in cases
 
 # Folder and file descriptions
 
-## raw_data
+## [raw_data](https://github.com/OliverLysa/observatory/tree/main/raw_data)
 
 Raw data inputs downloaded from a variety of sources
 
-## intermediate_data
+## [intermediate_data](https://github.com/OliverLysa/observatory/tree/main/intermediate_data)
 
 In a few cases, processing steps require exporting data outputs from the R/Python environments for processing in excel and reimporting. An example is the mapping tool used to convert 14-category electronics data captured in UK WEEE EPR datasets to the 54-category UNU-key classification used in presenting data on the electronics page. 'Intermediate' data files which undergo this type of processing are stored here.
 
