@@ -191,15 +191,3 @@ sankey_all <- rbindlist(
 # Write file 
 write_csv(sankey_all, 
            "./cleaned_data/sankey_material_collection2.csv")
-
-# *******************************************************************************
-# REE
-
-# REE Data input
-REE_sankey_links <- read_xlsx("./intermediate_data/sankey_scenarios.xlsx") %>%
-  filter(value != 0,
-         target != "Lost") %>%
-  mutate(across(c('value'), round, 2))
-
-write_csv(REE_sankey_links,
-          "./cleaned_data/REE_sankey_links2.csv")

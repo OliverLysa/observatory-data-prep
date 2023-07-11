@@ -123,13 +123,3 @@ unu_inflow_weibull_outflow_chart["ce_score"][is.na(unu_inflow_weibull_outflow_ch
 # Write file   
 write_csv(unu_inflow_weibull_outflow_chart,
   "./cleaned_data/electronics_chart_bubble.csv")
-
-# *******************************************************************************
-# REE
-
-# REE Data input
-REE_chart_bubble <- read_xlsx("./cleaned_data/REE_chart_bubble.xlsx") %>%
-  mutate(across(c('mass'), round, 1))
-
-write_csv(REE_chart_bubble,
-          "./cleaned_data/REE_chart_bubble.csv")
