@@ -38,19 +38,19 @@ Raw data inputs downloaded from a variety of sources
 
 In a few cases, processing steps require exporting data outputs from the R/Python environments for processing in excel and reimporting. An example is the mapping tool used to convert 14-category electronics data captured in UK WEEE EPR datasets to the 54-category UNU-key classification used in presenting data on the electronics page. 'Intermediate' data files which undergo this type of processing are stored here.
 
-## cleaned_data
+## [cleaned_data](https://github.com/OliverLysa/observatory/tree/main/cleaned_data)
 
 Cleaned data outputs derived from raw and intermediate data files following processing in R, Python and/excel and which are added to the postgresql database backend for the observatory dashboard. Within the dashboard environment, cleaned data files may undergo additional processing such as on-the-fly aggregation or division of variables.
 
 ## scripts
 
-### functions.R
+### [functions.R](https://github.com/OliverLysa/observatory/blob/main/scripts/functions.R)
 
 A collection of regularly used functions across all other R scripts not otherwise provided in R packages.
 
 ### electronics
 
-#### 000_classification_matching.R
+#### [000_classification_matching.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/000_classification_matching.R)
 
 The observatory dashboard presents data on electronics using two classifications:
 
@@ -110,7 +110,7 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 
 ------------------------------------------------------------------------
 
-#### 001_domestic_production.R
+#### [001_domestic_production.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/001_domestic_production.R)
 
 Script extracts UK domestic production data from the annual ONS publication.
 
@@ -132,7 +132,7 @@ Script extracts UK domestic production data from the annual ONS publication.
 
 ------------------------------------------------------------------------
 
-#### 002_international_trade.R
+#### [002_international_trade.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/002_international_trade.R)
 
 Script extracts international trade data from the UKTradeInfo API using the 'uktrade' R package/wrapper.
 
@@ -156,7 +156,7 @@ Script extracts international trade data from the UKTradeInfo API using the 'ukt
 
 ------------------------------------------------------------------------
 
-#### 003_total_inflows.R
+#### [003_total_inflows.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/003_total_inflows.R)
 
 ##### Apparent consumption method
 
@@ -218,7 +218,7 @@ This methodology can be applied at a sub-national level too (albeit entirely wit
 
 ------------------------------------------------------------------------
 
-#### 004_mass_conversion.R
+#### [004_mass_conversion.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/004_mass_conversion.R)
 
 Script converts unit-level inflow data into mass equivalents e.g. tonnes of laptops and tablets.
 
@@ -248,7 +248,7 @@ A BoM is a hierarchical data object providing a list of the raw materials, compo
 
 ------------------------------------------------------------------------
 
-#### 005_stock_outflow_calculation.R
+#### [005_stock_outflow_calculation.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/005_stock_outflow.R)
 
 Script calculates values for the stock of electronics and outflows from the stock based on inflow data and lifespan assumptions
 
@@ -291,7 +291,7 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 
 ------------------------------------------------------------------------
 
-#### 006_outflow_routing.R
+#### [006_outflow_routing.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/006_outflow_routing.R)
 
 ##### Inputs
 
@@ -313,7 +313,7 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 
 ------------------------------------------------------------------------
 
-#### 007_GVA.R
+#### [007_GVA.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/007_GVA.R)
 
 Script imports 2-digit and 4-digit gross value added (GVA) data and filters to SIC codes of relevance to electronics based on review of [methodological options](https://docs.google.com/document/d/1jb01KOxCMkPIIc_za8DF5-2LLjh03HJv/edit?usp=sharing&ouid=100007595496292131489&rtpof=true&sd=true)
 
@@ -355,7 +355,7 @@ Economic-physical productivity i.e. the money value of outputs per mass unit of 
 
 ------------------------------------------------------------------------
 
-#### 008_emissions.R
+#### [008_emissions.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/008_emissions.R)
 
 A script to import production and consumption emissions data and link to electronics classification.
 
@@ -377,7 +377,7 @@ A script to import production and consumption emissions data and link to electro
 
 ------------------------------------------------------------------------
 
-#### 009_stacked_chart.R
+#### [009_stacked_chart.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/009_stacked_chart.R)
 
 ##### Inputs
 
@@ -396,7 +396,7 @@ A script to import production and consumption emissions data and link to electro
 
 ------------------------------------------------------------------------
 
-#### 010_bubble_chart.R
+#### [010_bubble_chart.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/010_bubble_chart.R)
 
 ##### Inputs
 
@@ -418,7 +418,7 @@ A script to import production and consumption emissions data and link to electro
 
 ------------------------------------------------------------------------
 
-#### 011_sankey_chart.R
+#### [011_sankey_chart.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/011_sankey_chart.R)
 
 ##### Inputs
 
@@ -430,7 +430,7 @@ A script to import production and consumption emissions data and link to electro
 
 ------------------------------------------------------------------------
 
-#### 012_ifixit.R
+#### [012_ifixit.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/012_ifixit.R)
 
 ##### Inputs
 
@@ -447,7 +447,7 @@ A script to import production and consumption emissions data and link to electro
 
 ------------------------------------------------------------------------
 
-#### 013_open_repair.R
+#### [013_open_repair.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/013_open_repair.R)
 
 ##### Inputs
 
