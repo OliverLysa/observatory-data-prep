@@ -46,7 +46,7 @@ Cleaned data outputs derived from raw and intermediate data files following proc
 
 ### [functions.R](https://github.com/OliverLysa/observatory/blob/main/scripts/functions.R)
 
-A collection of regularly used functions across all other R scripts not otherwise provided in R packages.
+A collection of custom user-defined functions regularly used throughout the data processing pipeline and not otherwise provided in R packages.
 
 ### electronics
 
