@@ -25,7 +25,9 @@ packages <- c("magrittr",
               "RCurl",
               "curl",
               "future",
-              "furr")
+              "furr",
+              "targets",
+              "renv")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())

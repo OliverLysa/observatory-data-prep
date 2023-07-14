@@ -295,7 +295,16 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 
 ##### Inputs
 
--   Waste Data Interrogator
+-   Environment Agency administrative [EPR data](https://www.gov.uk/government/statistical-data-sets/waste-electrical-and-electronic-equipment-weee-in-the-uk) on:
+    -   WEEE collected - household and non-household Waste Electrical and Electronic Equipment (WEEE) collected by Producer Compliance Schemes and their members
+    -   Reported household & non-household reuse of WEEE received at an approved authorised treatment facility (AATF)
+    -   Non-obligated WEEE received at approved authorised treatment facilities and approved exporters
+    -   WEEE received by approved exporters
+-   Wider Environment Agency data on:
+    -   Illegal waste sites
+    -   Waste Data Interrogator
+-   Defra data on flytipping
+-   UKU14-UNU54 interactive mapping tool ([Stowell, Yumashev et al. 2019)](https://www.research.lancs.ac.uk/portal/en/datasets/wot-insights-into-the-flows-and-fates-of-ewaste-in-the-uk(3465c4c6-6e46-4ec5-aa3a-fe13da51661d).html)
 
 ##### Workflow
 
