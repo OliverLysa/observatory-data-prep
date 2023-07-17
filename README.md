@@ -24,9 +24,9 @@ Data outputs from these scripts are used to populate the ce-observatory - a dash
 
 ## Software requirements and setup
 
-Scripts in this repository are largely written in the programming language R. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and computer software requirements. The version of R and packages used are listed in the package_version file. Required packages are listed at the top of each script. Files are packaged within an R Project with relative file paths used to call data inputs and functions. These can be most easily navigated and ran within the R Studio IDE, though this can also be done in the terminal/command line.
+Scripts in this repository are largely written in the programming language R. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and computer software requirements. We use targets and renv packages for a reproducible environment, saved here. Files are packaged within an R Project with relative file paths used to call data inputs and functions. These can be most easily navigated and ran within the R Studio IDE, though this can also be done in the terminal/command line.
 
-The Python scripting language has also been used as part of the project in cases of superior performance or providing functions not otherwise available in R. Python scripts are largely presented within [Jupyter Notebooks](https://jupyter.org/install) - an open source IDE that requires installing the jupyter-notebook package in your Python environment, more information about which can be found [here](https://www.python.org/downloads/). In some cases, .py Python scripts are also used. These can be viewed and modified in a code editor such as Visual Studio Code and ran in the terminal/command line.
+The Python scripting language has also been used as part of the project in cases where it offers better performance or provides functions not otherwise available in R. Python scripts are largely presented within [Jupyter Notebooks](https://jupyter.org/install) - an open source IDE that requires installing the jupyter-notebook package in your Python environment, more information about which can be found [here](https://www.python.org/downloads/). In some cases, .py Python scripts are also used. These can be viewed and modified in a code editor such as Visual Studio Code and ran in the terminal/command line.
 
 # Folder and file descriptions
 
@@ -388,6 +388,8 @@ A script to import production and consumption emissions data and link to electro
 
 #### [009_stacked_chart.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/009_stacked_chart.R)
 
+A script to prepare data for the stacked area/bar chart in the dashboard
+
 ##### Inputs
 
 -   Outputs of script 005
@@ -406,6 +408,8 @@ A script to import production and consumption emissions data and link to electro
 ------------------------------------------------------------------------
 
 #### [010_bubble_chart.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/010_bubble_chart.R)
+
+A script to prepare data for the bubble/scatter chart in the dashboard
 
 ##### Inputs
 
@@ -429,9 +433,21 @@ A script to import production and consumption emissions data and link to electro
 
 #### [011_sankey_chart.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/011_sankey_chart.R)
 
+A script to converts cleaned data into sankey format for presenting in dashboard
+
 ##### Inputs
 
+-   BoM data from script 004
+-   Inflow data from script 003
+-   Outflow data from script 006
+
 ##### Workflow
+
+1.  Imports BoM data to construct the inflow stages, multiplying BoM data in physical terms by inflow in units
+
+2.  Imports outflow data (in mass) and applies the BoM (in proportion) to calculate material composition of relevant flows
+
+3.  Binds data tables together to get flows, by year
 
 ##### Outputs
 
@@ -440,6 +456,8 @@ A script to import production and consumption emissions data and link to electro
 ------------------------------------------------------------------------
 
 #### [012_ifixit.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/012_ifixit.R)
+
+A script to import and clean data on repairability scores to go into the dashbord shelf on 'enablers' and prepares for presentation in chart
 
 ##### Inputs
 
@@ -457,6 +475,8 @@ A script to import production and consumption emissions data and link to electro
 ------------------------------------------------------------------------
 
 #### [013_open_repair.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/013_open_repair.R)
+
+A script to import and clean data collated from Repair Cafes by the Open Repair Alliance
 
 ##### Inputs
 

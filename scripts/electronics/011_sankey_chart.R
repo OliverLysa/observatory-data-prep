@@ -190,4 +190,4 @@ sankey_all <- rbindlist(
 
 # Write file 
 write_csv(sankey_all, 
-           "./cleaned_data/sankey_material_collection2.csv")
+           "./cleaned_data/electronics_chart_sankey.csv")
