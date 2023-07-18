@@ -4,6 +4,8 @@
 
 # Purpose
 
+*'Dashboards can be a powerful way of allowing access to large amounts of data, which can help people make decisions'* ([ONS, 2022](https://analysisfunction.civilservice.gov.uk/policy-store/top-tips-for-designing-dashboards/))
+
 A collection of scripts to:
 
 1.  extract raw data from public official and emerging sources (incl. via API, web scraping and programmatic download requests) identified through a [dataset review](https://docs.google.com/spreadsheets/d/11jO8kaYktQ1ueMY1iJoaCl1dJU8r6RDfyxICPB1wFqg/edit#gid=795733331);
@@ -27,6 +29,10 @@ Data outputs from these scripts are used to populate the ce-observatory - a dash
 Scripts in this repository are largely written in the programming language R. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and computer software requirements. We use targets and renv packages for a reproducible environment, saved here. Files are packaged within an R Project with relative file paths used to call data inputs and functions. These can be most easily navigated and ran within the R Studio IDE, though this can also be done in the terminal/command line.
 
 The Python scripting language has also been used as part of the project in cases where it offers better performance or provides functions not otherwise available in R. Python scripts are largely presented within [Jupyter Notebooks](https://jupyter.org/install) - an open source IDE that requires installing the jupyter-notebook package in your Python environment, more information about which can be found [here](https://www.python.org/downloads/). In some cases, .py Python scripts are also used. These can be viewed and modified in a code editor such as Visual Studio Code and ran in the terminal/command line.
+
+## Updates
+
+The observatory has been designed to incorporate new data as it becomes available to help with trend assessment, monitoring and evaluation. On the dashboard front-end, this is achieved with scheduled content updates via Contentful. On the back-end, this is achieved through automated R and Python scripts for data extraction and processing, followed by automated PostgreSQL scripts for data storage. In R, we use the package 'cronR' to execute cronjobs in the MacOS environment, with a daily re-run schedule. Imported data undergoes a structure validation and content validation check to reduce risk of build failure.
 
 # Folder and file descriptions
 
@@ -443,7 +449,7 @@ A script to converts cleaned data into sankey format for presenting in dashboard
 
 ##### Workflow
 
-1.  Imports BoM data to construct the inflow stages, multiplying BoM data in physical terms by inflow in units
+1.  Imports BoM data stored as flat file with a from-to pair structure to construct the inflow stages, multiplying BoM data in physical terms by inflow in units
 
 2.  Imports outflow data (in mass) and applies the BoM (in proportion) to calculate material composition of relevant flows
 
@@ -492,3 +498,5 @@ A script to import and clean data collated from Repair Cafes by the Open Repair 
 
 -   CSV containing data on repair success rate by product
 -   CSV containing data on lifespan until repair attempt by product
+
+# Product accessibility statement 
