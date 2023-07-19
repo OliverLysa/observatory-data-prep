@@ -56,6 +56,8 @@ A collection of custom user-defined functions regularly used throughout the data
 
 ### electronics
 
+Individual scripts encompass extraction and transformation steps.
+
 #### [000_classification_matching.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/000_classification_matching.R)
 
 The observatory dashboard presents data on electronics using two classifications:
@@ -118,18 +120,20 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 
 #### [001_domestic_production.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/001_domestic_production.R)
 
-Script extracts UK domestic production data from the annual ONS publication.
+Script extracts UK domestic production data from the annual ONS publication. Estimation of missing values and outlier replacement is undertaken in script 003.
 
 ##### Inputs
 
--   [ONS Prodcom data](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/bulletins/ukmanufacturerssalesbyproductprodcom/2021results) (2008-20) and [2021 onwards](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/datasets/ukmanufacturerssalesbyproductprodcom). Prodcom currently collates data for 232 industries at the 4 digit code level and covers SIC Divisions 8-33
+-   [ONS Prodcom data](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/bulletins/ukmanufacturerssalesbyproductprodcom/2021results) (2008-20) and [2021 onwards](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/datasets/ukmanufacturerssalesbyproductprodcom). Prodcom currently collates data for 232 industries at the 4 digit code level and covers SIC Divisions 8-33. 'Items within PRODCOM can be divided into three main categories (raw materials, industries' intermediate consumption and final consumer products)' ([Barrett *et al.* 2004](https://www.researchgate.net/publication/245912879_Development_of_Physical_Accounts_for_the_UK_and_Evaluating_Policy_Scenarios)).
 -   Prodcom codes for the electronics sector derived from 000_classification_matching.R
 
 ##### Workflow
 
 1.  Imports the UK ONS Prodcom datasets published by the ONS as multi-page spreadsheets, binds all sheets to create a single table, binds the 2008-2020 and 2021 data and exports full dataset for use across product categories
 2.  Extracts data for prodcom codes specific to electronics, cleans data, summarises by UNU-KEY and puts into tidy format
-3.  Exports data to CSV format
+3.  Backcasting - needed for accurate stock and outflow estimates
+4.  Projections
+5.  Exports data to CSV format
 
 ##### Outputs
 
@@ -152,7 +156,9 @@ Script extracts international trade data from the UKTradeInfo API using the 'ukt
 1.  Isolates list of CN8 codes from classification database for codes of interest
 2.  Uses a for loop to iterate through the trade terms and extract trade data using the 'uktrade' extractor function/wrapper to the UKTradeInfo API and print results to a single dataframe (this can take some time to run)
 3.  Sums results grouped by year, flow type, country of source/destination, trade code as well as by year, flow type and trade code (where country detail is not required)
-4.  Exports data to CSV format
+4.  Backcasting - needed for accurate stock and outflow estimates
+5.  Projections
+6.  Exports data to CSV format
 
 ##### Outputs
 
@@ -180,7 +186,7 @@ $$DE + PtB$$
 
 Where *DE* is domestic extraction and *PtB* defines the physical trade balance of *Im* i.e. imports and *Ex* i.e. exports. DMC excludes hidden flows throughout. A closely linked indicator, Direct Material Input (DMI) is based on the same methodology but incorporates the materials mobilised or used in the production of exported goods and services ([OECD, 2008](https://www.oecd.org/environment/indicators-modelling-outlooks/MFA-Guide.pdf)).
 
-This methodology can be applied at a sub-national level too (albeit entirely within the confines of the technosphere) by summing domestic production and PtB, which is often referred to as an 'apparent consumption' method (e.g. Gray, 2021).
+This methodology can be applied at a sub-national level too (albeit entirely within the confines of the technosphere) by summing domestic production and PtB, which is often referred to as an 'apparent consumption' method (e.g. Gray, 2021). A reliance on apparent consumption methodologies alone carry risk of obfuscating true global environmental impact of production and trade activities in the UK better captured through indicators such as 'raw material consumption' (RMC) and its equivalents. These seek to capture the full upstream used material extraction associated with consumption activities. At the same time, there remains a gap in the understanding of actual material flows through the UK economy and this work seeks to fill this gap.
 
 </details>
 
@@ -192,7 +198,7 @@ This methodology can be applied at a sub-national level too (albeit entirely wit
 ###### Workflow
 
 1.  Import prodcom and trade data summarised by UNU to compiled domestic production, imports and exports
-2.  As Prodcom includes suppressed values to protect confidentiality ([ONS, 2018](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/methodologies/ukmanufacturerssalesbyproductsurveyprodcomqmi)) - the omission of which will present a data gap - omitted values are estimated. Following V.M. van Straalen (2017), a ratio is calculated between units exported (generally not suppressed) and units produced for years for which data is available. Where values are available in adjacent years, a straight line projection is used. Otherwise, a median is taken across these ratios and applied to the years for which data is missing based on a calculation of export units/ratio = prodcom units.
+2.  ***Estimating confidential data***: As Prodcom includes suppressed values to protect confidentiality ([ONS, 2018](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/methodologies/ukmanufacturerssalesbyproductsurveyprodcomqmi)) - the omission of which will present a data gap - omitted values are estimated. Following V.M. van Straalen (2017), a ratio is calculated between units exported (generally not suppressed) and units produced for years for which data is available. Where values are available in adjacent years, a straight line projection is used. Otherwise, a median is taken across these ratios and applied to the years for which data is missing based on a calculation of export units/ratio = prodcom units.
 3.  Key indicators and aggregates are calculated
 4.  Exports data to CSV format
 
@@ -233,6 +239,9 @@ Script converts unit-level inflow data into mass equivalents e.g. tonnes of lapt
 -   Outputs of 003_total_inflows.R script 'apparent consumption' method
 -   van Straalen (2017) mass trend data
 -   Babbitt *et al* 2019 'bill of materials' (BoM) data
+-   ICF (2021) UK Energy-related Products Policy Study
+-   Plank, B., Streeck, J., Virág, D., Kraussman, F., Haberl, H., Widenhofer, D. (2022) Compilation of an economy-wide material flow database for 14 stock-building materials in 177 countries from 1900 to 2016. MethodsX, Volume 9. <https://doi.org/10.1016/j.mex.2022.101654.>
+    -   filtered to final goods, classified in SITC
 
 <details>
 
@@ -299,6 +308,8 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 
 #### [006_outflow_routing.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/006_outflow_routing.R)
 
+Calculates the route of products and materials leaving the stock (as our lifespan data reflects years both in the in-use and non-in-use stock) across several categories aligned to the wire diagram.
+
 ##### Inputs
 
 -   Environment Agency administrative [EPR data](https://www.gov.uk/government/statistical-data-sets/waste-electrical-and-electronic-equipment-weee-in-the-uk) on:
@@ -314,13 +325,16 @@ where K(t) is the change and I(t) and O(t) are the corresponding inflows and out
 
 ##### Workflow
 
-1.  Calculate collection
-2.  Calculate maintenance and repair - Fixing something that is broken or unusable so it can be used for its original purpose.
-3.  Calculate reuse/resale and refurbishment
-4.  Calculate remanufactured - Mass of waste produced that is remanufactured and re-enters the economy system.
-5.  Calculate recycled - Mass of waste produced that is recycled and re-enters the economic system
-6.  Calculate domestic disposal
-7.  Calculate exports
+1.  Calculate collection including by PCS, B2B
+2.  Calculate repair ('*repair of defective product so it can be used with its original function*')
+3.  Calculate reuse/resale ('*reuse by another consumer of discarded product which is still in good condition and fulfils its original function*')
+4.  Calculate refurbishment ('*restore an old product and bring it up to date*')
+5.  Calculate remanufactured ('*use parts of discarded product in a new product with the same function*')
+6.  Calculate recycled ('*process materials to obtain the same (high grade) or lower (low grade) quality*')
+7.  Calculate domestic disposal (including incineration of material with energy recovery, without energy recovery and landfill)
+8.  Calculate exports
+
+Definitions in quotation marks from [Kirchher, Reike and Hekkert (2017)](https://pdf.sciencedirectassets.com/271808/1-s2.0-S0921344917X00104/1-s2.0-S0921344917302835/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAoaCXVzLWVhc3QtMSJHMEUCIFp9P2BGjCHqPBgb2xV19C6sgiM6xIwynQIwqHTZeRIbAiEA9vPeduKQMJGka6wLwCNDSd0fAhM4XlTcKct9YyVEqtUqvAUIk%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAFGgwwNTkwMDM1NDY4NjUiDLxImPnrwM%2B3l58gqyqQBS3kw5hBhmdwqbWqrnz9A%2FzouvmmJnHuUKqSSZqw40vay8fLzJdQDOiMjVciiv38xgtwMlGXKy56gOlLzo7Ck2iVFbldjFnvFeeWUcPk%2BvUv%2BvJx44IrdJEo4iDFB9A1zCOgQiHAWHjc2dsh91hUsgBvtFmgNGbWEEvjtVbwZ0N5913R50lUAjWyqSGk%2BZPhlJXTeNO7pGhgqz6qGn3YToqPz6pRYlbPki4v%2BqqNRL9Bi%2B%2FpNl7CNsFiETjwl0EPLMcx1JNsNmlkcrhHvNY%2B5vwkGKl7dx3nDeQPBcRUN%2FiEkOrPAHCzFltEwG4TUqpbQquCc%2B3MIYR0S2FVMDhF1gfj3fGQAerI3VVwLsPfxedKlM6g1VdHI6QiiSkBwj4%2FKhs9FjSoBlUxAlOBRnMWeI5U5EwsYJt5%2FgAhs%2F23RkhvAYFeJtIXSG%2F4aITfX5NAAz4aOVU%2BsZq0B6Iikmoe%2F0Vw82doqaHeLwES9f25pqZinPIo0dj6L%2BTsSjHm8x8yvL7UgLdqVKzBhYf0TmYulseS0fo8mfSdMfHJv%2BOaUYVpwjRISmjcAN%2FQ3tMnhAeLVvIR0ni8twSZTPkKsmr1G5Oja568uKYdYWcyQ9D%2BOIuP92FQfNrO3eBFczW0HcksaqmVUIZ93dDUutVLU%2BboS2pm39XqsbCAODS2bM0Niy%2FZIOQidmjTyWJWYFKZzsxvSSCXIsDddUVxYXWPFHGI6iM2oLoNNkDYV3qCAI92%2FWFpIKam7wDMfohqC9Jt3%2FIGx%2ByDOkQbnUWCStXYikeBRjWWAr9SgASGnXX%2BH7Lqbc7uAJv1woy3dUTCpvP2VGLzweghnVUZWIzqj4pKVWNklG4AXDOqkkzeDDEABRknaEAKMP244KUGOrEB79srAJRuPIFLwimi%2BNoOYR74QY6giHH9UJbs%2B3Mtw3kkwWesoeoigHc0gM74R%2BNVuAVe2XRoidC8k35WhCApRjN3ri0xBqm4fRL0ueC%2FcpuNxmaoRizvUzSN3USacfT79koKUYIehazW2LOZJ0nBQ0yUbfjuMRE%2BFz2iNVBd6Vhf7CU6wNFszwRhKciz7zWZmmbNz7zWNamCmfaexW4eBbSD8t%2FiDFdyJfSg6OIvmYBF&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230719T183149Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTY2TUPFYPI%2F20230719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9f73cbf3a05b1ed248358cdf71a38335dc91bfb00b3297a54647aab730e28be4&hash=dcaa3fd5d00981711e978218987ce1db48ef6bec8085a8b31781eac58bd54d80&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S0921344917302835&tid=spdf-82cdff6d-2c9b-487c-b36a-faa12036d8eb&sid=2216cd4c54eef848569a67e187efaadbe15bgxrqa&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=0f1c560a565b5604535e&rr=7e950b28ba233ac7&cc=us).
 
 ##### Outputs
 
@@ -499,4 +513,4 @@ A script to import and clean data collated from Repair Cafes by the Open Repair 
 -   CSV containing data on repair success rate by product
 -   CSV containing data on lifespan until repair attempt by product
 
-# Product accessibility statement 
+# Product accessibility statement
