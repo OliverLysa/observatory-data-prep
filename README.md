@@ -120,7 +120,7 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 
 #### [001_domestic_production.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/001_domestic_production.R)
 
-Script extracts UK domestic production data from the annual ONS publication. Estimation of missing values and outlier replacement is undertaken in script 003.
+Script extracts UK domestic production data from the annual ONS publication. Estimation of missing values through interpolation and outlier replacement is undertaken in script 003.
 
 ##### Inputs
 
@@ -198,7 +198,7 @@ This methodology can be applied at a sub-national level too (albeit entirely wit
 ###### Workflow
 
 1.  Import prodcom and trade data summarised by UNU to compiled domestic production, imports and exports
-2.  ***Estimating confidential data***: As Prodcom includes suppressed values to protect confidentiality ([ONS, 2018](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/methodologies/ukmanufacturerssalesbyproductsurveyprodcomqmi)) - the omission of which will present a data gap - omitted values are estimated. Following V.M. van Straalen (2017), a ratio is calculated between units exported (generally not suppressed) and units produced for years for which data is available. Where values are available in adjacent years, a straight line projection is used. Otherwise, a median is taken across these ratios and applied to the years for which data is missing based on a calculation of export units/ratio = prodcom units.
+2.  ***Estimating confidential data***: As Prodcom includes suppressed values to protect confidentiality ([ONS, 2018](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/methodologies/ukmanufacturerssalesbyproductsurveyprodcomqmi)) - the omission of which will present a data gap - omitted values are estimated. Following V.M. van Straalen (2017), a ratio is calculated between units exported (generally not suppressed) and units produced for years for which data is available. Where values are available in any adjacent years within the available timeseries, linear interpolation is used. Otherwise, a median is taken across an available ratio and applied to the years for which data is missing based on a calculation of export units/ratio = prodcom units.
 3.  Key indicators and aggregates are calculated
 4.  Exports data to CSV format
 
@@ -238,9 +238,9 @@ Script converts unit-level inflow data into mass equivalents e.g. tonnes of lapt
 
 -   Outputs of 003_total_inflows.R script 'apparent consumption' method
 -   van Straalen (2017) mass trend data
--   Babbitt *et al* 2019 'bill of materials' (BoM) data
--   ICF (2021) UK Energy-related Products Policy Study
--   Plank, B., Streeck, J., Virág, D., Kraussman, F., Haberl, H., Widenhofer, D. (2022) Compilation of an economy-wide material flow database for 14 stock-building materials in 177 countries from 1900 to 2016. MethodsX, Volume 9. <https://doi.org/10.1016/j.mex.2022.101654.>
+-   [Babbitt *et al.* 2019 'bill of materials' (BoM) data](https://www.nature.com/articles/s41597-020-0573-9)
+-   [ICF (2021) UK Energy-related Products Policy Study](https://etl.beis.gov.uk/shared-files/3316/3713/8281/UK_ErP_Policy_Study_final_v4-stc_2_11_21.pdf)
+-   Plank, B., Streeck, J., Virág, D., Kraussman, F., Haberl, H., Widenhofer, D. (2022) Compilation of an economy-wide material flow database for 14 stock-building materials in 177 countries from 1900 to 2016. MethodsX, Volume 9. doi: 10.1016/j.mex.2022.101654.
     -   filtered to final goods, classified in SITC
 
 <details>
