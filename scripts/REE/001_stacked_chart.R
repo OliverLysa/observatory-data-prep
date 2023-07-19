@@ -9,9 +9,7 @@ packages <- c("magrittr",
               "tidyverse", 
               "readODS", 
               "data.table", 
-              "mixdist",
-              "janitor",
-              "logOfGamma")
+              "janitor")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())
@@ -36,7 +34,7 @@ options(scipen = 999)
 # *******************************************************************************
 # REE
 
-# Import the vensim output
+# Import the vensim output presented in spreadsheet format
 REE_vensim_all <- read_excel_allsheets(
   "./raw_data/230616_Wind_REE Scenarios_Sankey string generator.xlsx")
 
