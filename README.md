@@ -170,6 +170,8 @@ Script extracts international trade data from the UKTradeInfo API using the 'ukt
 
 #### [003_total_inflows.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/003_total_inflows.R)
 
+Script calculates total inflows based on the apparent consumption method (drawing on domestic production and trade data) and extracting placed on market data (PoM) from UK-level administrative data from the EEE/WEEE Extended Producer Responsibility Scheme.
+
 ##### Apparent consumption method
 
 <details>
