@@ -206,7 +206,7 @@ This methodology can be applied at a sub-national level too (albeit entirely wit
 3.  **Detect outliers** at the level of domestic production, exports and imports by UNU through using a moving/rolling median absolute deviation (MAD) approach (runmad package). Outliers are replaced based on a straight line interpolation between values for years either side of the outlier.
 4.  Key indicators and aggregates are calculated for all years 1990-2030.
 5.  Future baseline values for UNUs are **forecasted** based on the observed relationship/ratio between per capita GDP in chained volume measures (CVM) and apparent consumption for the years for which data is available. While other variables such as household expenditure are likely to display a stronger relationship to apparent consumption of electronics, due to the availability of projections data for GDP as published by the UK OBR, GDP is used. For calculating the ratio from observed data, a chained volume measure of GVA and GDP is used to remove inflationary price effects, allowing for inter-temporal comparison in 'real' terms. A time-series forecasting approach is used to forecast future ratios between GDP and UNU-key. These ratios are then mutiplied by per-capita GDP forecasts derived from data published by the OBR and ONS to estimate future apparent consumption by UNU (at a unit-level).
-6.  The same approach is used to estimate historic consumption back to 1990, as a time-series backcast based on the observed relationship between GDP and apparent consumption by UNU-key for years for which data is available. Observed historical population and GDP data is then used to calculate the unobserved apparent consumption by UNU-key based on a consumption ratio to per-capita GDP.
+6.  The same approach is used to estimate historic consumption back to 1990, as a time-series backcast based on the observed relationship between GDP and apparent consumption by UNU-key for years for which data is available. Observed historical population and GDP data is then used to calculate the unobserved apparent consumption by UNU-key based on a consumption ratio to per-capita GDP. This is done both to provide historical comparison, but also to improve the
 7.  Exports data to CSV format
 
 ###### Outputs
@@ -303,6 +303,8 @@ K(t) = I(t)-O(t)
 $$
 
 where K(t) is the change and I(t) and O(t) are the corresponding inflows and outflows in that year, respectively. This net change is added to the stock level in year t-1
+
+Stock estimates are compared against stock estimates data published by DESNZ (largely based on survey data), sources such as Ofcom and projections undertaken as part of the Market Transformation Programme.
 
 5.  Combines inflow, stock and outflow by UNU-KEY by year into a single dataset
 6.  Exports data to CSV format
