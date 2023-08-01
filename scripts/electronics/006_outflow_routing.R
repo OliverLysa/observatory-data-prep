@@ -231,7 +231,24 @@ write_xlsx(collected_all_54,
 # Difference between WEE collection and WEEE received may proxy collection-stage leakage 
 
 # *******************************************************************************
-# Reuse/resale and refurbishment
+# Repair/maintenance
+# *******************************************************************************
+
+# Open repair data
+
+# Import data, filter to britain
+Openrepair <- read_csv("./raw_data/OpenRepairData_v0.3_aggregate_202210.csv") %>%
+  filter(country == "GBR",
+         product_age != "NA",
+         product_age < 40, 
+         product_age > 0)
+
+# Reclassify products to UNU
+
+# Convert into mass terms
+
+# *******************************************************************************
+# Reuse/resale
 # *******************************************************************************
 
 # Reported household & non-household reuse of WEEE received at an approved authorised treatment facility (AATF)
@@ -360,6 +377,10 @@ write_xlsx(received_AATF_reuse_54,
 # ITAM/D e.g large global operators like RDC-Computacenter, TES and SIMS: 90Kt - covers remanufacturing too
 # Domestic reuse (B2C/C2C): 82Kt - https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf
 # Returns under warranty: 102Kt
+
+# *******************************************************************************
+# Refurbishment
+# *******************************************************************************
 
 # *******************************************************************************
 # Remanufacture
@@ -762,7 +783,7 @@ illegal_dumping <- read_ods(
 # Sayers et al 
 # *******************************************************************************
 
-# Import data outflow fate (CE-score), pivot longer, filter, drop NA and rename column 'route' 
+# Import data outflow fate (CE-score), pivot longer, filter, drop NA and rename column 'route' to create dummy date
 
 outflow_routing <- read_excel(
   "./cleaned_data/electronics_outflow.xlsx") %>%

@@ -54,23 +54,25 @@ options(scipen = 999)
 # *******************************************************************************
 #
 
-# Isolate list of CN8 codes from classification table, column 'CN8'
+# Create filter list for any codes to exclude - these cause a 403 API error on my computer
+filter_list <- c("84721000",
+                 "95030061",
+                 "85286920",
+                 "85192010",
+                 "90258080")
+
+# Read file of CN codes
+UNU_CN_PRODCOM <- read_xlsx("./classifications/concordance_tables/UNU_CN_PRODCOM_SIC.xlsx") %>%
+  filter(! CN8 %in% filter_list)
+
+# Isolate list of CN8 codes from classification table, column 'CN8', extract unique codes and unlist
 trade_terms <- 
   UNU_CN_PRODCOM$CN8 %>%
-unlist()
+  unique() %>%
+  unlist()
 
-# Isolate list of CN8 codes from classification table, column 'CN'
-trade_terms_wot <- WOT_UNU_CN8 %>%
-  filter(Year > 2008) %>%
-  mutate(CN = gsub("85279290","85279200", CN)) %>%
-  filter(CN != c("85287235",
-                 "85287251"))
-
-# Extract unique terms from the list
-trade_terms_wot <-
-  unique(trade_terms_wot$CN) %>%
-  unlist() %>%
-  as.character(CN)
+# If a subset of those codes are sought, these can be selected by index position 
+# trade_terms <- trade_terms[271:303]
 
 # Create a for loop that goes through the trade terms, extracts the data using the extractor function (in function script) based on the uktrade wrapper
 # and prints the results to a list of dataframes
@@ -82,16 +84,24 @@ for (i in seq_along(trade_terms)) {
   
 }
 
-# Bind the list of dataframes to a single dataframe
+# Bind the list of returned dataframes to a single dataframe
 bind <- 
   dplyr::bind_rows(res)
+
+# If you have not used the in-built lookup codes in the uktrade R package, the flow-types need to be described
+bind <- bind %>%
+  mutate(FlowTypeId = gsub(1, 'EU Imports', FlowTypeId),
+         FlowTypeId = gsub(2, 'EU Exports', FlowTypeId),
+         FlowTypeId = gsub(3, 'Non-EU Imports', FlowTypeId),
+         FlowTypeId = gsub(4, 'Non-EU Exports', FlowTypeId)) %>%
+  rename(FlowTypeDescription = FlowTypeId)
 
 # Remove the month identifier in the month ID column to be able to group by year
 # This feature can be removed for more time-granular data e.g. by month or quarter
 bind$MonthId <- 
   substr(bind$MonthId, 1, 4)
 
-# Summarise results in value, mass and unit terms grouped by year, flow type, trade code and country
+# Summarise results in value, mass and unit terms grouped by year, flow type, trade code and country. Requires having used the lookup tables in the trade package
 Summary_trade_country_split <- bind %>%
   group_by(MonthId, 
            FlowTypeDescription, 
@@ -132,7 +142,7 @@ write_xlsx(Summary_trade_country_UNU,
 Summary_trade <- bind %>%
   group_by(MonthId, 
            FlowTypeDescription, 
-           Cn8Code) %>%
+           CommodityId) %>%
   summarise(sum(Value), 
             sum(NetMass), 
             sum(SuppUnit)) %>%
@@ -140,7 +150,7 @@ Summary_trade <- bind %>%
   # Pivot results longer
   pivot_longer(-c(Year, 
                   FlowTypeDescription, 
-                  Cn8Code),
+                  CommodityId),
                names_to = "Variable",
                values_to = 'Value') %>%
   # Convert trade code to character
@@ -149,7 +159,7 @@ Summary_trade <- bind %>%
 # Left join summary trade and UNU classification to summarise by UNU
 Summary_trade_UNU <- left_join(Summary_trade,
                                UNU_CN_PRODCOM,
-                               by = c('Cn8Code' = 'CN8')) %>%
+                               by = c('CommodityId' = 'CN8')) %>%
   group_by(`UNU KEY`, Year, Variable, FlowTypeDescription) %>%
   summarise(Value = sum(Value)) %>%
   # Rename contents in variable column
@@ -159,4 +169,19 @@ Summary_trade_UNU <- left_join(Summary_trade,
 
 # Write xlsx file of output
 write_xlsx(Summary_trade_UNU, 
-          "./cleaned_data/summary_trade_UNU.xlsx")
+          "./cleaned_data/summary_trade_UNU_pre_2007.xlsx")
+
+# Work in progress
+
+# Isolate list of CN8 codes from classification table, column 'CN'
+trade_terms_wot <- WOT_UNU_CN8 %>%
+  filter(Year > 2008) %>%
+  mutate(CN = gsub("85279290","85279200", CN)) %>%
+  filter(CN != c("85287235",
+                 "85287251"))
+
+# Extract unique terms from the list
+trade_terms_wot <-
+  unique(trade_terms_wot$CN) %>%
+  unlist() %>%
+  as.character(CN)

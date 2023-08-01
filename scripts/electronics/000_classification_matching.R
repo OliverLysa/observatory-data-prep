@@ -53,7 +53,7 @@ options(scipen = 999)
 # *******************************************************************************
 #
 
-## Link UNU to CN8 and PRDCODE - old method
+## Link UNU to CN8 and PRDCODE - 1st method
 
 # Import UNU HS6 correspondence table
 UNU_HS6 <-
