@@ -373,6 +373,11 @@ received_AATF_reuse_54 <- received_AATF_reuse_wide_54 %>%
 write_xlsx(received_AATF_reuse_54, 
            "./cleaned_data/electronics_sankey/reuse_received_AATF_54.xlsx")
 
+## EBAY DATA
+
+# Terms used by product group 
+
+# Sayers 
 # Commercial reuse (B2B): 90Kt
 # ITAM/D e.g large global operators like RDC-Computacenter, TES and SIMS: 90Kt - covers remanufacturing too
 # Domestic reuse (B2C/C2C): 82Kt - https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf

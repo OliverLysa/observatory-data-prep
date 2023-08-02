@@ -10,7 +10,7 @@
 
 A collection of scripts to:
 
-1.  extract raw data from public official and emerging sources (incl. via API, web scraping and programmatic download requests) identified through a [dataset review](https://docs.google.com/spreadsheets/d/11jO8kaYktQ1ueMY1iJoaCl1dJU8r6RDfyxICPB1wFqg/edit#gid=795733331);
+1.  extract raw data from public official and emerging sources (incl. via API, web scraping and programmatic download requests) starting from those identified through a [dataset review](https://docs.google.com/spreadsheets/d/11jO8kaYktQ1ueMY1iJoaCl1dJU8r6RDfyxICPB1wFqg/edit#gid=795733331);
 
 2.  transform these through steps including:
 
@@ -22,7 +22,7 @@ A collection of scripts to:
 
 3.  export cleaned data outputs to an open source PostGreSQL database (supabase) for storage.
 
-Data outputs from these scripts are used to populate the ce-observatory - a dashboard providing for specific resource-product-industry categories, a detailed description of current baseline material and monetary flows alongside wider impacts alongside the means to make comparison with alternative circular economy configurations. The ce-observatory can be viewed at the following URL:
+Data outputs from these scripts are used to populate the ce-observatory - a dashboard providing for specific resource-product-industry categories, a detailed description of current baseline material and monetary flows as well as wider impacts, alongside the means to make comparison with alternative circular economy configurations. The ce-observatory can be viewed at the following URL:
 
 # How to use
 
@@ -34,7 +34,7 @@ The Python scripting language has also been used as part of the project in cases
 
 ## Updates
 
-The observatory has been designed to incorporate new data as it becomes available to help with trend assessment, monitoring and evaluation. On the dashboard front-end, this is achieved with scheduled content updates via Contentful. On the back-end, this is achieved through automated R and Python scripts for data extraction and processing, followed by automated PostgreSQL scripts for data storage. In R, we use the package 'cronR' to execute cronjobs in the MacOS environment, with a daily re-run schedule. Imported data undergoes a structure validation and content validation check to reduce risk of build failure.
+The observatory has been designed to incorporate new data as it becomes available to help with trend assessment, monitoring and evaluation. On the dashboard front-end, this is achieved with scheduled content updates via Contentful. On the back-end, this is achieved through automated R and Python scripts for data extraction and processing, followed by automated PostgreSQL scripts for data storage. In R, we use the package 'cronR' to execute cronjobs in the MacOS environment, with a daily re-run schedule. Imported data undergoes a structure validation and content validation check to reduce risk of build failure on the front-end.
 
 # Folder and file descriptions
 
@@ -44,7 +44,7 @@ Raw data inputs downloaded from a variety of sources
 
 ## [intermediate_data](https://github.com/OliverLysa/observatory/tree/main/intermediate_data)
 
-In a few cases, processing steps require exporting data outputs from the R/Python environments for processing in excel and reimporting. An example is the mapping tool used to convert 14-category electronics data captured in UK WEEE EPR datasets to the 54-category UNU-key classification used in presenting data on the electronics page. 'Intermediate' data files which undergo this type of processing are stored here.
+In a few cases, processing steps require exporting data outputs from the R/Python environments for processing in excel and reimporting. An example is the mapping tool used to convert 14-category electronics data captured in UK WEEE EPR datasets to the 54-category UNU-key classification used in presenting data on the electronics page. 'Intermediate' data files which undergo this type of processing are stored in this folder.
 
 ## [cleaned_data](https://github.com/OliverLysa/observatory/tree/main/cleaned_data)
 

@@ -3,7 +3,6 @@
 # Purpose:
 # Inputs:
 # Required annual updates:
-# The URL to download from
 
 # *******************************************************************************
 # Packages
@@ -128,7 +127,15 @@ Pacf(economic_electronics)
 
 # ARIMA backcast
 
+euretail %>%
+  reverse_ts() %>%
+  auto.arima() %>%
+  forecast() %>%
+  reverse_forecast() -> bc
+
 # Comparison with outturn data
+
+
 
 # *******************************************************************************
 # POM method
