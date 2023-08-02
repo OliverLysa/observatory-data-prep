@@ -23,7 +23,9 @@ packages <- c("magrittr",
               "httr",
               "jsonlite",
               "mixdist",
-              "janitor")
+              "janitor",
+              "forecast",
+              "lmtest")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())
@@ -99,6 +101,36 @@ write_xlsx(complete_inflows_long,
 # Missing 0001, 0002, 0406, 0502, 0505, 0507, 0702
 
 # *******************************************************************************
+# Interpolation
+# *******************************************************************************
+# 
+
+# *******************************************************************************
+# Outlier replacement
+# *******************************************************************************
+# 
+
+# *******************************************************************************
+# Forecasts and backcasts
+# *******************************************************************************
+# 
+
+# Import economic data 
+economic_electronics <- ts(data$column, start = 1998, frequency = 1)
+
+# Generate ACF to define ARIMA parameters
+Acf(economic_electronics)
+
+# Generate PACF to define ARIMA parameters
+Pacf(economic_electronics)
+
+# ARIMA forecast
+
+# ARIMA backcast
+
+# Comparison with outturn data
+
+# *******************************************************************************
 # POM method
 # *******************************************************************************
 #
@@ -149,6 +181,7 @@ POM_data <- POM_data %>%
 write_xlsx(POM_data, 
           "./cleaned_data/electronics_placed_on_market.xlsx")
 
+# Sayer et al 2019
 # Freeriders: 46Kt
 # Misreporting: 1Kt
 # WEEE reported in UK and sold in Ireland: 5Kt 

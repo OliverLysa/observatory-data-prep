@@ -54,13 +54,6 @@ options(scipen = 999)
 # *******************************************************************************
 #
 
-# Create filter list for any codes to exclude - these cause a 403 API error on my computer
-filter_list <- c("84721000",
-                 "95030061",
-                 "85286920",
-                 "85192010",
-                 "90258080")
-
 # Read file of CN codes
 UNU_CN_PRODCOM <- read_xlsx("./classifications/concordance_tables/UNU_CN_PRODCOM_SIC.xlsx") %>%
   filter(! CN8 %in% filter_list)
@@ -88,7 +81,7 @@ for (i in seq_along(trade_terms)) {
 bind <- 
   dplyr::bind_rows(res)
 
-# If you have not used the in-built lookup codes in the uktrade R package, the flow-types need to be described
+# If you have not used the in-built lookup codes in the uktrade R package (makes requests run slow), the flow-types need to be described
 bind <- bind %>%
   mutate(FlowTypeId = gsub(1, 'EU Imports', FlowTypeId),
          FlowTypeId = gsub(2, 'EU Exports', FlowTypeId),

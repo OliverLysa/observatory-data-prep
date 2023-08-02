@@ -198,6 +198,7 @@ This methodology can be applied at a sub-national level too (albeit entirely wit
 
 -   Prodcom data summarised by UNU (output of script 001)
 -   Trade data summarised by UNU (output of script 002)
+-   GDP forecasts
 
 ###### Workflow
 

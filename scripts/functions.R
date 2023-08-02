@@ -27,7 +27,7 @@ extractor <- function(x) {
   trade_results <-
     load_ots(
       # The month argument specifies a range in the form of c(min, max)
-      month = c(200101, 200712),
+      month = c(200101, 202212),
       flow = NULL,
       commodity = c(x),
       country = NULL,
@@ -66,8 +66,11 @@ UNU_colloquial <- read_xlsx(
   rename(product = unu_description)
 
 # *******************************************************************************
-# Lifespan-related statistical functions
+# statistical functions
 # *******************************************************************************
+
+# *******************************************************************************
+# Lifespans
 
 # Calculate CDF from Weibull parameters
 cdweibull <- function(x, shape, scale, log = FALSE){
@@ -91,4 +94,25 @@ weibullparinv <- function(shape, scale, loc = 0)
       scale
   }
   data.frame(mu, sigma, loc)
+}
+
+# *******************************************************************************
+# Backcasting
+
+# Function to reverse time
+reverse_ts <- function(y)
+{
+  ts(rev(y), start=tsp(y)[1L], frequency=frequency(y))
+}
+# Function to reverse a forecast
+reverse_forecast <- function(object)
+{
+  h <- length(object[["mean"]])
+  f <- frequency(object[["mean"]])
+  object[["x"]] <- reverse_ts(object[["x"]])
+  object[["mean"]] <- ts(rev(object[["mean"]]),
+                         end=tsp(object[["x"]])[1L]-1/f, frequency=f)
+  object[["lower"]] <- object[["lower"]][h:1L,]
+  object[["upper"]] <- object[["upper"]][h:1L,]
+  return(object)
 }
