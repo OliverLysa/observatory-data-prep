@@ -43,7 +43,8 @@ options(scipen = 999)
 # REE Data input
 REE_sankey_links <- read_xlsx("./intermediate_data/sankey_scenarios.xlsx") %>%
   filter(target != "Lost") %>%
-  mutate(across(c('value'), round, 2))
+  mutate(across(c('value'), round, 2)) %>%
+  
 
 write_csv(REE_sankey_links,
           "./cleaned_data/REE_sankey_links.csv")

@@ -120,31 +120,7 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 
 ------------------------------------------------------------------------
 
-#### [001_domestic_production.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/001_domestic_production.R)
-
-Script extracts UK domestic production data from the annual ONS publication. Estimation of missing values through interpolation and outlier replacement is undertaken in script 003.
-
-##### Inputs
-
--   [ONS Prodcom data](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/bulletins/ukmanufacturerssalesbyproductprodcom/2021results) (2008-20) and [2021 onwards](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/datasets/ukmanufacturerssalesbyproductprodcom). Prodcom currently collates data for 232 industries at the 4 digit code level and covers SIC Divisions 8-33. 'Items within PRODCOM can be divided into three main categories (raw materials, industries' intermediate consumption and final consumer products)' ([Barrett *et al.* 2004](https://www.researchgate.net/publication/245912879_Development_of_Physical_Accounts_for_the_UK_and_Evaluating_Policy_Scenarios)).
--   Prodcom codes for the electronics sector derived from 000_classification_matching.R
-
-##### Workflow
-
-1.  Imports the UK ONS Prodcom datasets published by the ONS as multi-page spreadsheets, binds all sheets to create a single table, binds the 2008-2020 and 2021 data and exports full dataset for use across product categories
-2.  Extracts data for prodcom codes specific to electronics, cleans data, summarises by UNU-KEY and puts into tidy format
-3.  Backcasting - needed for accurate stock and outflow estimates
-4.  Projections
-5.  Exports data to CSV format
-
-##### Outputs
-
--   CSV of UK prodcom data across all available divisions (\< 33) in tidy format
--   CSV of domestic production data summarised by UNU in tidy format
-
-------------------------------------------------------------------------
-
-#### [002_international_trade.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/002_international_trade.R)
+#### [001_international_trade.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/002_international_trade.R)
 
 Script extracts international trade data from the UKTradeInfo API using the 'uktrade' R package/wrapper.
 
@@ -167,6 +143,29 @@ Script extracts international trade data from the UKTradeInfo API using the 'ukt
 -   CSV of trade data (imports and exports) by CN8 code
 -   CSV of trade data by UNU-Key, including broken-down by country
 -   CSV of trade data by UNU-Key, without country breakdown
+
+------------------------------------------------------------------------
+
+#### [001_domestic_production.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/001_domestic_production.R)
+
+Script extracts UK domestic production data from the annual ONS publication. Estimation of missing values through interpolation and outlier replacement is undertaken in script 003.
+
+##### Inputs
+
+-   [ONS Prodcom data](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/bulletins/ukmanufacturerssalesbyproductprodcom/2021results) (2008-20) and [2021 onwards](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/datasets/ukmanufacturerssalesbyproductprodcom). Prodcom currently collates data for 232 industries at the 4 digit code level and covers SIC Divisions 8-33. 'Items within PRODCOM can be divided into three main categories (raw materials, industries' intermediate consumption and final consumer products)' ([Barrett *et al.* 2004](https://www.researchgate.net/publication/245912879_Development_of_Physical_Accounts_for_the_UK_and_Evaluating_Policy_Scenarios)).
+-   Prodcom codes for the electronics sector derived from 000_classification_matching.R
+
+##### Workflow
+
+1.  Imports the UK ONS Prodcom datasets published by the ONS as multi-page spreadsheets, binds all sheets to create a single table, binds the 2008-2020 and 2021 data and exports full dataset for use across product categories as well as filtering to those specific to electronis
+2.  As Prodcom includes **suppressed values** to protect confidentiality ([ONS, 2018](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/methodologies/ukmanufacturerssalesbyproductsurveyprodcomqmi)) and the omission of which will present a data gap, these values are estimated. To do so and following van Straalen *et al.* (2016), a ratio is calculated between units exported (generally not suppressed) and units produced for years for which data is available. Where values are available in any adjacent years within the available timeseries, linear interpolation is used. Otherwise, a median is taken across an available ratio and applied to the years for which data is missing based on a calculation of export units/ratio = prodcom units
+3.  Projections
+4.  Exports data to CSV format
+
+##### Outputs
+
+-   CSV of UK prodcom data across all available divisions (\< 33) in tidy format
+-   CSV of domestic production data summarised by UNU in tidy format
 
 ------------------------------------------------------------------------
 
@@ -203,12 +202,11 @@ This methodology can be applied at a sub-national level too (albeit entirely wit
 ###### Workflow
 
 1.  Import domestic production and trade data summarised by UNU
-2.  As Prodcom includes **suppressed values** to protect confidentiality ([ONS, 2018](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/methodologies/ukmanufacturerssalesbyproductsurveyprodcomqmi)) and the omission of which will present a data gap, these values are estimated. To do so and following van Straalen *et al.* (2016), a ratio is calculated between units exported (generally not suppressed) and units produced for years for which data is available. Where values are available in any adjacent years within the available timeseries, linear interpolation is used. Otherwise, a median is taken across an available ratio and applied to the years for which data is missing based on a calculation of export units/ratio = prodcom units.
-3.  **Detect outliers** at the level of domestic production, exports and imports by UNU through using a moving/rolling median absolute deviation (MAD) approach (runmad package). Outliers are replaced based on a straight line interpolation between values for years either side of the outlier.
-4.  Key indicators and aggregates are calculated for all years 1990-2030.
-5.  Future baseline values for UNUs are **forecasted** based on the observed relationship/ratio between per capita GDP in chained volume measures (CVM) and apparent consumption for the years for which data is available. While other variables such as household expenditure are likely to display a stronger relationship to apparent consumption of electronics, due to the availability of projections data for GDP as published by the UK OBR, GDP is used. For calculating the ratio from observed data, a chained volume measure of GVA and GDP is used to remove inflationary price effects, allowing for inter-temporal comparison in 'real' terms. A time-series forecasting approach is used to forecast future ratios between GDP and UNU-key. These ratios are then mutiplied by per-capita GDP forecasts derived from data published by the OBR and ONS to estimate future apparent consumption by UNU (at a unit-level).
-6.  The same approach is used to estimate historic consumption back to 1990, as a time-series backcast based on the observed relationship between GDP and apparent consumption by UNU-key for years for which data is available. Observed historical population and GDP data is then used to calculate the unobserved apparent consumption by UNU-key based on a consumption ratio to per-capita GDP. This is done both to provide historical comparison, but also to improve the
-7.  Exports data to CSV format
+2.  **Detect outliers** at the level of domestic production, exports and imports by UNU through using a moving/rolling median absolute deviation (MAD) approach (runmad package). Outliers are replaced based on a straight line interpolation between values for years either side of the outlier.
+3.  Future baseline values for UNUs are **forecasted** based on the observed relationship/ratio between per capita GDP in chained volume measures (CVM) and apparent consumption for the years for which data is available. While other variables such as household expenditure are likely to display a stronger relationship to apparent consumption of electronics, due to the availability of projections data for GDP as published by the UK OBR, GDP is used. For calculating the ratio from observed data, a chained volume measure of GVA and GDP is used to remove inflationary price effects, allowing for inter-temporal comparison in 'real' terms. A time-series forecasting approach is used to forecast future ratios between GDP and UNU-key. These ratios are then mutiplied by per-capita GDP forecasts derived from data published by the OBR and ONS to estimate future apparent consumption by UNU (at a unit-level).
+4.  The same approach is used to estimate historic consumption back to 1990, as a time-series **backcast** based on the observed relationship between GDP and apparent consumption by UNU-key for years for which data is available. Observed historical population and GDP data is then used to calculate the unobserved apparent consumption by UNU-key based on a consumption ratio to per-capita GDP. This is done both to provide historical comparison, but also to improve the stock and outflow calculation for which we do otherwise not include benchmark values.
+5.  Key indicators and aggregates are calculated for all years 1990-2030.
+6.  Exports data to CSV format
 
 ###### Outputs
 

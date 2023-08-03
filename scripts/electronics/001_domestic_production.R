@@ -59,7 +59,7 @@ download.file(
 # *******************************************************************************
 #
 
-# Read all prodcom sheets into a list of sheets
+# Read all prodcom sheets into a list of sheets (2008-2020)
 prodcom_all <- read_excel_allsheets(
   "./raw_data/UK manufacturers' sales by product.xlsx")
 
@@ -85,7 +85,7 @@ prodcom_filtered2 <-
   filter(str_like(Variable, "Volume%"))
 
 # Bind the extracted data to create a complete dataset
-prodcom_filtered_all <-
+prodcom_all <-
   rbindlist(
     list(
       prodcom_filtered1,
@@ -96,7 +96,7 @@ prodcom_filtered_all <-
   na.omit()
 
 # Use g sub to remove unwanted characters in the code column
-prodcom_filtered_all <- prodcom_filtered_all %>%
+prodcom_all <- prodcom_all %>%
   # Remove everything in the code column following a hyphen
   mutate(Code = gsub("\\-.*", "", Code),
          # Remove SIC07 in the code column to stop the SIC-level codes from being deleted with the subsequent line
@@ -106,7 +106,7 @@ prodcom_filtered_all <- prodcom_filtered_all %>%
   )
 
 # Rename columns so that they reflect the year for which data is available
-prodcom_filtered_all <- prodcom_filtered_all %>%
+prodcom_all <- prodcom_all %>%
   rename("2008" = 3,
          "2009" = 4,
          "2010" = 5,
@@ -122,7 +122,7 @@ prodcom_filtered_all <- prodcom_filtered_all %>%
          "2020" = 15) 
 
 # Convert dataset to long-form, filter non-numeric values in the value column and mutate values
-prodcom_filtered_all <- prodcom_filtered_all %>%
+prodcom_all_numeric <- prodcom_all %>%
   pivot_longer(-c(
     `Code`,
     `Variable`
@@ -145,11 +145,11 @@ prodcom_filtered_all <- prodcom_filtered_all %>%
   mutate_at(c('Code'), trimws)
 
 # Write prodcom all (for other areas of research outside of electronics)
-write_xlsx(prodcom_filtered_all, 
+write_xlsx(prodcom_all_numeric, 
            "./cleaned_data/prodcom_all.xlsx")
 
 # Merge prodcom data with UNU classification, summarise by UNU Key and filter volume rows not expressed in number of units
-Prodcom_data_UNU <- merge(prodcom_filtered_all,
+Prodcom_data_UNU <- merge(prodcom_all,
                                 UNU_CN_PRODCOM,
                                 by.x=c("Code"),
                                 by.y=c("PRCCODE")) %>%
