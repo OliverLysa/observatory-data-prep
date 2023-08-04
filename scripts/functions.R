@@ -41,6 +41,9 @@ extractor <- function(x) {
   return(trade_results)
 }
 
+# Specify list separately
+mutate_at(vars(nm1), ~ str_replace(., "a", "b"))
+
 # *******************************************************************************
 # Wrangling functions
 # *******************************************************************************

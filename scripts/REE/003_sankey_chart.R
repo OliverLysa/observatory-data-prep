@@ -44,6 +44,7 @@ options(scipen = 999)
 REE_sankey_links <- read_xlsx("./intermediate_data/sankey_scenarios.xlsx") %>%
   filter(target != "Lost") %>%
   mutate(across(c('value'), round, 2)) %>%
+  # Remove the pre-2008 BEV
   
 
 write_csv(REE_sankey_links,

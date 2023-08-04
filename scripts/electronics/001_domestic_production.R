@@ -144,9 +144,90 @@ prodcom_all_numeric <- prodcom_all %>%
   mutate_at(c('Value'), as.numeric) %>%
   mutate_at(c('Code'), trimws)
 
-# Write prodcom all (for other areas of research outside of electronics)
+# Write prodcom all (full dataset incl. for other areas of research outside of electronics)
 write_xlsx(prodcom_all_numeric, 
            "./cleaned_data/prodcom_all.xlsx")
+
+# Interpolation
+# *******************************************************************************
+
+# E = Estimate by ONS - accepted at face value
+# S/S* = Suppressed (included in other SIC4 aggregate) - estimated
+# N/A = Data not available - removed once pivotted
+
+# Pivot, filter out N/A and mutate to get prodcom including suppressed values
+prodcom_all_suppressed <- prodcom_all %>%
+  pivot_longer(-c(
+    `Code`,
+    `Variable`
+  ),
+  names_to = "Year", 
+  values_to = "Value") %>%
+  filter(Value != "N/A") %>%
+  mutate(Value = gsub(" ","", Value),
+         # Remove letter E in the value column
+         Value = gsub("E","", Value),
+         # Remove commas in the value column
+         Value = gsub(",","", Value),
+         # Remove anything after hyphen in the value column
+         Value = gsub("\\-.*","", Value))
+
+# Import trade data to calculate the trade ratio for suppressed data (in number of items)
+trade_data <- 
+  read_csv("./cleaned_data/electronics_trade_ungrouped.csv") %>%
+  mutate(FlowTypeDescription = gsub("EU Exports", "Exports", FlowTypeDescription),
+         FlowTypeDescription = gsub("Non-EU Exports", "Exports", FlowTypeDescription)) %>%
+  filter(FlowTypeDescription == "Exports")
+
+# Remove the month identifier in the month ID column to be able to group by year
+# This feature can be removed for more time-granular data e.g. by month or quarter
+trade_data$MonthId <- 
+  substr(trade_data$MonthId, 1, 4)
+
+trade_data <- trade_data %>%
+  select("MonthId", 
+         "FlowTypeDescription",
+         "Cn8Code",
+         "SuppUnit") %>%
+  group_by(MonthId, Cn8Code) %>%
+  summarise(Unit = sum(SuppUnit)) %>%
+  rename(Year = 1)
+
+# Import prodcom_cn condcordance table
+PRODCOM_CN <-
+  read_excel("./classifications/concordance_tables/PRODCOM_CN.xlsx")  %>%
+  as.data.frame() %>%
+  # Drop year, CN-split and prodtype columns
+  select(-c(`YEAR`,
+            `CN-Split`,
+            `PRODTYPE`)) %>%
+  na.omit()
+
+# Remove spaces from the CN code
+PRODCOM_CN$CNCODE <- 
+  gsub('\\s+', '', PRODCOM_CN$CNCODE)
+
+# Match prodcom data with trade data (code by year)
+
+Trade_prodcom <- merge(trade_data,
+                          PRODCOM_CN,
+                          by.x=c("Cn8Code"),
+                          by.y=c("CNCODE"))
+
+Trade_prodcom <- merge(Trade_prodcom,
+                       prodcom_all_suppressed,
+                       by.x=c("PRCCODE"),
+                       by.y=c("Code"))
+
+# Aggregate CN to Prodcom level
+
+# Calculate sum of values and units for all years in which data is available
+
+# Calculate ratio between value and number of units
+
+# Attach this ratio to dataframe with all exports
+
+# Estimate missing number of units with the calculated ratio
 
 # Merge prodcom data with UNU classification, summarise by UNU Key and filter volume rows not expressed in number of units
 Prodcom_data_UNU <- merge(prodcom_all,
@@ -156,6 +237,9 @@ Prodcom_data_UNU <- merge(prodcom_all,
   group_by(`UNU KEY`, Year, Variable) %>%
   summarise(Value = sum(Value)) %>%
   filter(Variable != "Volume (Kilogram)")
+
+# if a cell contains S or S*, we will replace it based on ratio of units exported and units produced for year for which data is available
+# based on calculation of export units/ratio = prodcom units for that year
 
 # Write summary file
 write_xlsx(Prodcom_data_UNU, 
