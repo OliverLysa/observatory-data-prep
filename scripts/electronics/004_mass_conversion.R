@@ -43,7 +43,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 # *******************************************************************************
 
 # Import functions
-source("./data_extraction_scripts/functions.R", 
+source("./scripts/functions.R", 
        local = knitr::knit_global())
 
 # Stop scientific notation of numeric values
@@ -115,6 +115,7 @@ download.file(
 # Read all sheets for bill of materials
 BoM_sheet_names <- readxl::excel_sheets(
   "./raw_data/Product_BOM.xlsx")
+
 # Import data mapped to sheet name 
 BoM_data <- purrr::map_df(BoM_sheet_names, 
                           ~dplyr::mutate(readxl::read_excel(
@@ -167,8 +168,9 @@ BoM_filter_list <- c("CRT Monitors",
                      "Printers",
                      "Mobile Phones",
                      "Household Monitoring",
-                     "Portable Audio",
-                     "Toys")
+                     "Toys",
+                     "Digital camera",
+                     "Games console")
 
 # Rename products to match the UNU colloquial classification, group by product, component and material to average across models and years, then filter to products for which data is held
 BoM_data_UNU <- BoM_data_bound %>%

@@ -41,11 +41,11 @@ options(scipen = 999)
 # REE
 
 # REE Data input
-REE_sankey_links <- read_xlsx("./intermediate_data/sankey_scenarios.xlsx") %>%
-  filter(target != "Lost") %>%
+REE_sankey_links <- read_xlsx("./intermediate_data/REE_sankey_links.xlsx") %>%
   mutate(across(c('value'), round, 2)) %>%
-  # Remove the pre-2008 BEV
-  
+  filter(!year < 2007 | product != "BEV") %>%
+  filter(target != "Lost")
 
+# Write CSV
 write_csv(REE_sankey_links,
-          "./cleaned_data/REE_sankey_links.csv")
+          "./cleaned_data/REE_sankey_links_trial.csv")
