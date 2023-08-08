@@ -33,14 +33,15 @@ source("./scripts/functions.R",
 options(scipen = 999)
 
 # *******************************************************************************
-# REE
+# Calculation
+# *******************************************************************************
+#
 
-# Get lifespan data (constant within each scenario)
-REE_lifespan_assumptions <- read_xlsx("./intermediate_data/REE_lifespan_assumptions.xlsx") 
+# Get lifespan data (constant within each scenario and product group)
+REE_lifespan_assumptions <- 
+  read_xlsx("./intermediate_data/REE_lifespan_assumptions.xlsx") 
 
-# Calculate 'ce_score'
-
-# Import sankey data to get outflow route by year 
+# Import sankey data to get outflow route by year to calculate ce-score
 outflow_routing <- read_csv("./cleaned_data/REE_sankey_links.csv") %>%
   filter(source == "Collect") %>%
   select(-c(material, source)) %>%
@@ -54,8 +55,9 @@ outflow_routing <- read_csv("./cleaned_data/REE_sankey_links.csv") %>%
                   Total),
                names_to = "route",
                values_to = "value") %>% 
-  mutate(value = round(value / Total *100, 2)) %>%
-  mutate(value = gsub("NaN", "0", value))
+  mutate(value = round(value / Total, 2)) %>%
+  mutate(value = gsub("NaN", "0", value)) %>%
+  mutate_at(c('value'), as.numeric)
 
 # Multiply percentages by ordinal score
 outflow_routing_weights <- read_excel(
@@ -67,19 +69,25 @@ outflow_routing_weighted <- merge(outflow_routing,
                                   by.x=c("route"),
                                   by.y=c("route")) %>%
   mutate(route_score = value*score) %>%
-  group_by(`unu_key`, year) %>%
+  group_by(scenario,product, year) %>%
   summarise(ce_score = sum(route_score))
 
-# Import consumption/inflow data
+# Import inflow data
 consumption <- read_csv("./cleaned_data/REE_chart_stacked_area.csv") %>%
-  filter(variable == "Inflow") %>%
-  mutate(across(c('mass'), round, 1))
+  filter(variable == "Inflow")
 
-# Merge datasets across the variables listed, clean table for supabase
-REE_chart_bubble <- merge(consumption, REE_chart_bubble,
-                   by = c("product", "scenario", "year")) %>%
-  select(-c(aggregation, variable, mass, unit)) %>%
-  rename("mass" = value)
+# Merge consumption and lifespan assumptions
+REE_chart_bubble <- merge(consumption, REE_lifespan_assumptions,
+                          by = c("product", "scenario"))
+
+# Merge consumption and ce-score
+REE_chart_bubble <- merge(REE_chart_bubble, 
+                          outflow_routing_weighted,
+                          by = c("product", 
+                                 "scenario", 
+                                 "year")) %>%
+  select(-c(aggregation, variable, unit)) %>%
+  rename(mass = value)
 
 # Write file
 write_csv(REE_chart_bubble,
