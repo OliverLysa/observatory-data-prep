@@ -148,10 +148,10 @@ prodcom_all_numeric <- prodcom_all %>%
 write_xlsx(prodcom_all_numeric, 
            "./cleaned_data/prodcom_all.xlsx")
 
-# Interpolation
+# Estimation of suppressed values
 # *******************************************************************************
 
-# E = Estimate by ONS - accepted at face value
+# E = Estimate by ONS - taken at face value i.e. no adjustment
 # S/S* = Suppressed (included in other SIC4 aggregate) - estimated
 # N/A = Data not available - removed once pivotted
 

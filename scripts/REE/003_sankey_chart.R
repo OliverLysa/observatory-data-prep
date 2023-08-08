@@ -48,4 +48,4 @@ REE_sankey_links <- read_xlsx("./intermediate_data/REE_sankey_links.xlsx") %>%
 
 # Write CSV
 write_csv(REE_sankey_links,
-          "./cleaned_data/REE_sankey_links_trial.csv")
+          "./cleaned_data/REE_sankey_links.csv")

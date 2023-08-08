@@ -191,3 +191,5 @@ sankey_all <- rbindlist(
 # Write file 
 write_csv(sankey_all, 
            "./cleaned_data/electronics_chart_sankey.csv")
+
+# Multiply recycling by BoM Sankey percentage 
