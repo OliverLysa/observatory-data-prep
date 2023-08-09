@@ -104,6 +104,7 @@ reverse_ts <- function(y)
 {
   ts(rev(y), start=tsp(y)[1L], frequency=frequency(y))
 }
+
 # Function to reverse a forecast
 reverse_forecast <- function(object)
 {

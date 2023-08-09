@@ -32,13 +32,13 @@ source("./scripts/functions.R",
 options(scipen = 999)
 
 # *******************************************************************************
-# REE
+# REE - taken from pages with the following naming scheme '1. Wi_20y_zero CE_1' 
 
-# Import the vensim output presented in spreadsheet format
+# Import the vensim output in spreadsheet format
 REE_vensim_all <- read_excel_allsheets(
   "./raw_data/230807_Wind_REE Scenarios_Sankey string generator_SEin.xlsx")
 
-# Extract wind data
+## Extract wind data
 
 # Extract low lifespan, low circularity scenario for wind
 wind_low_lifespan_low_circularity <- 
@@ -76,7 +76,7 @@ wind_high_lifespan_high_circularity <-
   rename(variable = 4,
          metric = 5)
 
-# BEV
+## BEV
 
 # Extract low lifespan, low circularity scenario for EV
 EV_low_lifespan_low_circularity <- 
@@ -143,5 +143,6 @@ REE_stacked_area <-
   mutate(across(c('value'), round, 2)) %>%
   mutate(unit = "mass")
 
+# Write csv file
 write_csv(REE_stacked_area,
           "./cleaned_data/REE_chart_stacked_area.csv")

@@ -33,7 +33,7 @@ source("./scripts/functions.R",
 options(scipen = 999)
 
 # *******************************************************************************
-# Calculation
+# Chart construction
 # *******************************************************************************
 #
 
@@ -55,9 +55,9 @@ outflow_routing <- read_csv("./cleaned_data/REE_sankey_links.csv") %>%
                   Total),
                names_to = "route",
                values_to = "value") %>% 
-  mutate(value = round(value / Total, 2)) %>%
-  mutate(value = gsub("NaN", "0", value)) %>%
-  mutate_at(c('value'), as.numeric)
+  mutate(percentage = round(value / Total, 2)) %>%
+  mutate(percentage = gsub("NaN", "0", percentage)) %>%
+  mutate_at(c('percentage'), as.numeric)
 
 # Multiply percentages by ordinal score
 outflow_routing_weights <- read_excel(
@@ -68,7 +68,7 @@ outflow_routing_weighted <- merge(outflow_routing,
                                   outflow_routing_weights,
                                   by.x=c("route"),
                                   by.y=c("route")) %>%
-  mutate(route_score = value*score) %>%
+  mutate(route_score = score*percentage) %>%
   group_by(scenario,product, year) %>%
   summarise(ce_score = sum(route_score))
 
