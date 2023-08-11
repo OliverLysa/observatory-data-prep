@@ -353,19 +353,17 @@ Definitions in quotation marks from [Kirchher, Reike and Hekkert (2017)](https:/
 
 ##### Outputs
 
--   **Historic Indicators from Eurostat**
-    1.  **Collection rate** = Equals the volumes collected of WEEE in the reference year divided by the average quantity of electrical and electronic equipment (EEE) put on the market in the previous three years (both expressed in mass unit).
+1.  **Collection rate** = Equals the volumes collected of WEEE in the reference year divided by the anticipated waste volume through the stock flow model.
 
-    2.  **Reuse and recycling rate** = calculated by dividing the weight of the WEEE that enters the recycling/preparing for re-use facility by the weight of all separately collected WEEE (both in mass unit) in accordance with Article 11(2) of the WEEE Directive 2012/19/EU, considering that the total amount of collected WEEE is sent to treatment/recycling facilities. Reuse and recycling rate', as addressed in the Directive 2012/19/EU, measures the efficiency of the treatment process only 
+2.  **Reuse and recycling rate** = calculated by dividing the weight of the WEEE that enters the recycling/preparing for re-use facility by the weight of all separately collected WEEE (both in mass unit), measuring the efficiency of the treatment process only.
 
-    3.  **Recycling rate of e-waste =** Eurostat multiplies the WEEE 'collection rate' and use the reuse and recycling rate (3 and 4) to produce a combined recycling rate.
--   CSV of mass and unit flows by value-chain stage
+-   CSV of mass and unit flows by value-chain flow
 
 ------------------------------------------------------------------------
 
 #### [007_GVA.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/007_GVA.R)
 
-Script imports 2-digit and 4-digit gross value added (GVA) data and filters to SIC codes of relevance to electronics based on review of [methodological options](https://docs.google.com/document/d/1jb01KOxCMkPIIc_za8DF5-2LLjh03HJv/edit?usp=sharing&ouid=100007595496292131489&rtpof=true&sd=true)
+Script imports 2-digit and 4-digit gross value added (GVA) data and filters to SIC codes of relevance to electronics
 
 ##### Input
 

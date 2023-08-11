@@ -193,8 +193,34 @@ BoM_data_UNU <- BoM_data_bound %>%
 BoM_data_UNU$product <- gsub("Laptops", "Laptops & Tablets", 
                              BoM_data_UNU$product)
 
+Rename components:
+
+  Case > body
+  Casing > body
+  Main body > body
+  Main assembly > body
+  Access panel assembly > body
+  Frame > body
+  Case assembly > body
+  Chasis bottom > body
+  Chasis top > body
+  Other components* Other components
+  Inner frame > Body
+  Outer frame > Body
+  ICs > Induction coils 
+  Monitor cable > Monitor
+  Drone (main body + camera) > body
+  3D glasses > controls
+  Remote control > controls
+  
+    
+# *******************************************************************************
+# Extract BoM data from BEIS 
+# *******************************************************************************
+
+# https://etl.beis.gov.uk/shared-files/3316/3713/8281/UK_ErP_Policy_Study_final_v4-stc_2_11_21.pdf
+
+
 # Write data file
 write_xlsx(BoM_data_UNU, 
            "./cleaned_data/BoM_data_UNU.xlsx")
-
-# https://etl.beis.gov.uk/shared-files/3316/3713/8281/UK_ErP_Policy_Study_final_v4-stc_2_11_21.pdf

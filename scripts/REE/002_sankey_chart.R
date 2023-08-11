@@ -44,8 +44,8 @@ options(scipen = 999)
 REE_sankey_links <- read_xlsx("./intermediate_data/REE_sankey_links.xlsx") %>%
   mutate(across(c('value'), round, 2)) %>%
   filter(!year < 2007 | product != "BEV") %>%
-  mutate(value = gsub("-", "", value)) %>%
-  filter(target != "Lost")
+  filter(target != "Lost") %>%
+  mutate(value = gsub("-", "", value))
 
 # Write CSV
 write_csv(REE_sankey_links,
