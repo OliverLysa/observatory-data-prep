@@ -188,31 +188,29 @@ BoM_data_UNU <- BoM_data_bound %>%
          product = gsub("Smart & non-smart thermostat", 'Household Monitoring', product),
          product = gsub("MP3 Player", 'Portable Audio', product),
          product = gsub("Drone", 'Toys', product)) %>%
-  filter(product %in% BoM_filter_list)
+  filter(product %in% BoM_filter_list) %>%
+  mutate(across(everything(), ~replace(., . == "Case", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Casing", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Main body", "Body"))) %>%              
+  mutate(across(everything(), ~replace(., . == "Main assembly", "Body"))) %>%              
+  mutate(across(everything(), ~replace(., . == "Access panel assembly", "Body"))) %>%            
+  mutate(across(everything(), ~replace(., . == "Frame", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Case assembly", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Chasis bottom", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Chasis top", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Inner frame", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Outer frame", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Drone (main body + camera)", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Other components*", "Other components"))) %>%
+  mutate(across(everything(), ~replace(., . == "ICs", "Induction coils"))) %>%
+  mutate(across(everything(), ~replace(., . == "Inductor coils", "Induction coils"))) %>%
+  mutate(across(everything(), ~replace(., . == "monitor cable", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "3D Glasses", "Controls"))) %>%
+  mutate(across(everything(), ~replace(., . == "Remote control", "Controls"))) %>%     
+  mutate(across(everything(), ~replace(., . == "Fitness tracker body", "Body"))) 
 
 BoM_data_UNU$product <- gsub("Laptops", "Laptops & Tablets", 
                              BoM_data_UNU$product)
-
-Rename components:
-
-  Case > body
-  Casing > body
-  Main body > body
-  Main assembly > body
-  Access panel assembly > body
-  Frame > body
-  Case assembly > body
-  Chasis bottom > body
-  Chasis top > body
-  Other components* Other components
-  Inner frame > Body
-  Outer frame > Body
-  ICs > Induction coils 
-  Monitor cable > Monitor
-  Drone (main body + camera) > body
-  3D glasses > controls
-  Remote control > controls
-  
     
 # *******************************************************************************
 # Extract BoM data from BEIS 

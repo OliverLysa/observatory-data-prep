@@ -59,7 +59,8 @@ BoM_sankey_input <- read_excel(
          "source",
          "target",
          "material",
-         "value")
+         "value") %>%
+  mutate_at(c('value'), as.numeric)
 
 # convert into % terms 
 BoM_sankey_percentage <- BoM_sankey_input %>% 

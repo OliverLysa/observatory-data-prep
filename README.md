@@ -158,7 +158,7 @@ Script extracts UK domestic production data from the annual ONS publication. Est
 ##### Workflow
 
 1.  Imports the UK ONS Prodcom datasets published by the ONS as multi-page spreadsheets, binds all sheets to create a single table, binds the 2008-2020 and 2021 data and exports full dataset for use across product categories as well as filtering to those specific to electronis
-2.  As Prodcom includes **suppressed values** to protect confidentiality ([ONS, 2018](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/methodologies/ukmanufacturerssalesbyproductsurveyprodcomqmi)) and the omission of which will present a data gap, these values are estimated. In source data, these are notated as NA, N/A, S, S\*. To do so and following van Straalen *et al.* (2016), a ratio is calculated between units exported (generally not suppressed) and units produced for years for which data is available. Prodcom units are then estimated based on a calculation of export units/ratio = prodcom units.
+2.  As Prodcom includes **suppressed values** to protect confidentiality ([ONS, 2018](https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/methodologies/ukmanufacturerssalesbyproductsurveyprodcomqmi)) and the omission of which will present a data gap, these values are estimated. In source data, these are notated as NA, N/A, S, S\*. To do so and following van Straalen *et al.* (2016), a ratio is calculated between units exported (generally not suppressed) and units produced for years for which data is available. Prodcom units are then estimated based on a calculation of export units \* ratio = prodcom units.
 3.  Exports data to CSV format
 
 ##### Outputs

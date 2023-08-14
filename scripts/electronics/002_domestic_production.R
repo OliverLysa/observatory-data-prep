@@ -1,9 +1,6 @@
 ##### **********************
 # Author: Oliver Lysaght
-# Purpose:
-# Inputs:
-# Required annual updates:
-# The URL to download from
+# Purpose: See Github read me for more information. 
 
 # *******************************************************************************
 # Packages
@@ -17,12 +14,6 @@ packages <- c("magrittr",
               "tidyverse", 
               "readODS", 
               "data.table", 
-              "RSelenium", 
-              "netstat", 
-              "uktrade", 
-              "httr",
-              "jsonlite",
-              "mixdist",
               "janitor")
 
 # Install packages not yet installed
@@ -152,8 +143,8 @@ write_xlsx(prodcom_all_numeric,
 # *******************************************************************************
 
 # E = Estimate by ONS - taken at face value i.e. no adjustment
-# S/S* = Suppressed (included in other SIC4 aggregate) - estimated
 # N/A = Data not available - removed once pivotted
+# S/S* = Suppressed (* included in other SIC4 aggregate) - estimated
 
 # Pivot, filter out N/A and mutate to get prodcom including suppressed values
 prodcom_all_suppressed <- prodcom_all %>%
@@ -163,14 +154,23 @@ prodcom_all_suppressed <- prodcom_all %>%
   ),
   names_to = "Year", 
   values_to = "Value") %>%
-  filter(Value != "N/A") %>%
+  filter(Value != "N/A",
+         Variable == "Volume (Number of items)") %>%
   mutate(Value = gsub(" ","", Value),
          # Remove letter E in the value column
          Value = gsub("E","", Value),
          # Remove commas in the value column
          Value = gsub(",","", Value),
          # Remove anything after hyphen in the value column
-         Value = gsub("\\-.*","", Value))
+         Value = gsub("\\-.*","", Value)) %>%
+  select(-c(Variable)) %>%
+  rename(Unit = Value,
+         PRCCODE = Code)
+
+# Remove leading and trailing white space 
+prodcom_all_suppressed$PRCCODE <- 
+  trimws(prodcom_all_suppressed$PRCCODE, 
+         which = c("both"))
 
 # Import trade data to calculate the trade ratio for suppressed data (in number of items)
 trade_data <- 
@@ -180,10 +180,10 @@ trade_data <-
   filter(FlowTypeDescription == "Exports")
 
 # Remove the month identifier in the month ID column to be able to group by year
-# This feature can be removed for more time-granular data e.g. by month or quarter
 trade_data$MonthId <- 
   substr(trade_data$MonthId, 1, 4)
 
+# Filter to relevant variables (columns)
 trade_data <- trade_data %>%
   select("MonthId", 
          "FlowTypeDescription",
@@ -207,43 +207,68 @@ PRODCOM_CN <-
 PRODCOM_CN$CNCODE <- 
   gsub('\\s+', '', PRODCOM_CN$CNCODE)
 
-# Match prodcom data with trade data (code by year)
-
+# Match trade data with prodcom code lookup
 Trade_prodcom <- merge(trade_data,
                           PRODCOM_CN,
                           by.x=c("Cn8Code"),
                           by.y=c("CNCODE"))
 
+# Match trade data with prodcom data based on the previous lookup
 Trade_prodcom <- merge(Trade_prodcom,
                        prodcom_all_suppressed,
-                       by.x=c("PRCCODE"),
-                       by.y=c("Code"))
+                       by=c("PRCCODE","Year")) %>%
+  rename(Trade = Unit.x,
+         Domestic = Unit.y) %>%
+  mutate(Domestic_numeric = Domestic) %>%
+  mutate(Domestic_numeric = gsub("S","", Domestic_numeric)) %>%
+  mutate_at(c('Domestic_numeric'), as.numeric)
+  
+# Calculate sum of units for all years in which data is available
+# Trade
+Grouped_trade <- Trade_prodcom %>%
+  group_by(PRCCODE) %>%
+  summarise(Trade = sum(Trade)) 
 
-# Aggregate CN to Prodcom level
+# Domestic production
+Grouped_domestic <- Trade_prodcom %>%
+  na.omit() %>%
+  group_by(PRCCODE) %>%
+  summarise(Domestic = sum(Domestic_numeric)) 
 
-# Calculate sum of values and units for all years in which data is available
-
-# Calculate ratio between value and number of units
+# Match trade data with prodcom code lookup and calculate ratio between units
+Grouped_all <- merge(Grouped_trade,
+                       Grouped_domestic,
+                       by=c("PRCCODE")) %>%
+  mutate(ratio = Domestic/Trade) %>%
+  filter(ratio != c("Inf")) %>%
+  filter(ratio != c("NaN"))
 
 # Attach this ratio to dataframe with all exports
+Grouped_all <- left_join(Trade_prodcom,
+                         Grouped_all,
+                     by=c("PRCCODE")) 
 
 # Estimate missing number of units with the calculated ratio
+Grouped_all <- Grouped_all %>%
+  mutate(estimated = if_else(`Domestic.x` == "S", Trade.x*ratio, Domestic_numeric)) %>%
+  mutate(flag = if_else(`Domestic.x` == "S", "estimated", "actual")) %>%
+  select(c("PRCCODE", "Year", "estimated", "flag")) %>%
+  rename(Value = estimated)
+
+UNU_CN_PRODCOM <- read_xlsx("./classifications/concordance_tables/UNU_CN_PRODCOM_SIC.xlsx")
 
 # Merge prodcom data with UNU classification, summarise by UNU Key and filter volume rows not expressed in number of units
-Prodcom_data_UNU <- merge(prodcom_all,
+Prodcom_data_UNU <- merge(Grouped_all,
                                 UNU_CN_PRODCOM,
-                                by.x=c("Code"),
-                                by.y=c("PRCCODE")) %>%
-  group_by(`UNU KEY`, Year, Variable) %>%
-  summarise(Value = sum(Value)) %>%
-  filter(Variable != "Volume (Kilogram)")
-
-# if a cell contains S or S*, we will replace it based on ratio of units exported and units produced for year for which data is available
-# based on calculation of export units/ratio = prodcom units for that year
+                                by="PRCCODE") %>%
+  group_by(`UNU KEY`, Year) %>%
+  summarise(Value = sum(Value))
 
 # Write summary file
 write_xlsx(Prodcom_data_UNU, 
            "./cleaned_data/Prodcom_data_UNU.xlsx")
+
+# Alternative method
 
 # Merge prodcom data with UNU classification, summarise by UNU Key and filter volume rows not expressed in number of units
 Prodcom_data_UNU_WOT <- merge(prodcom_filtered_all,
