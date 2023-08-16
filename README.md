@@ -134,9 +134,8 @@ Script extracts international trade data from the UKTradeInfo API using the 'ukt
 1.  Isolates list of CN8 codes from classification database for codes of interest
 2.  Uses a for loop to iterate through the trade terms and extract trade data using the 'uktrade' extractor function/wrapper to the UKTradeInfo API and print results to a single dataframe (this can take some time to run)
 3.  Sums results grouped by year, flow type, country of source/destination, trade code as well as by year, flow type and trade code (where country detail is not required)
-4.  Backcasting - needed for accurate stock and outflow estimates
-5.  Projections
-6.  Exports data to CSV format
+4.  Projections
+5.  Exports data to CSV format
 
 ##### Outputs
 
@@ -202,10 +201,9 @@ This methodology can be applied at a sub-national level too (albeit entirely wit
 
 1.  Import domestic production and trade data summarised by UNU
 2.  **Apply outlier** detection algorithm using a rolling median absolute deviation (MAD, runmad package) and Hampel Filter (i.e. median +\_ 3 median absolute deviations) approach to aggregated domestic production, exports and imports data by UNU by year through. Points deviating significantly from the trend are flagged for manual review. Point outliers for which out of sample behaviour cannot be explained are replaced based on a straight line interpolation between values for years either side of the outlier. In the event numeric values are not available in adjacent years, the median of available data is used.
-3.  Future baseline values for UNUs are **forecasted** based on the observed relationship/ratio between per capita GDP in chained volume measures (CVM) and apparent consumption for the years for which data is available. While other variables such as household expenditure are likely to display a stronger relationship to apparent consumption of electronics, due to the availability of projections data for GDP as published by the UK OBR, GDP is used. For calculating the ratio from observed data, a chained volume measure of GVA and GDP is used to remove inflationary price effects, allowing for inter-temporal comparison in 'real' terms. A time-series forecasting approach is used to forecast future ratios between GDP and UNU-key. These ratios are then mutiplied by per-capita GDP forecasts derived from data published by the OBR and ONS to estimate future apparent consumption by UNU (at a unit-level).
-4.  The same approach is used to estimate historic consumption back to 1990, as a time-series **backcast** based on the observed relationship between GDP and apparent consumption by UNU-key for years for which data is available. Observed historical population and GDP data is then used to calculate the unobserved apparent consumption by UNU-key based on a consumption ratio to per-capita GDP. This is done both to provide historical comparison, but also to improve the stock and outflow calculation for which we do otherwise not include benchmark values.
-5.  Key indicators and aggregates are calculated for all years 1990-2030.
-6.  Exports data to CSV format
+3.  Future baseline values for UNUs are **forecasted** using an ARIMA model to the year 2030, with an external economic variable - per capita GDP in chained volume measures (CVM). A chained volume measure of GVA and GDP is used to remove inflationary price effects, allowing for inter-temporal comparison in 'real' terms. While other variables such as household expenditure are likely to display a stronger relationship to apparent consumption of electronics, due to the availability of projections data for GDP as published by the UK OBR (alongside population by the ONS), GDP is used.
+4.  Key indicators and aggregates are calculated for all years 1990-2030.
+5.  Exports data to CSV format
 
 ###### Outputs
 

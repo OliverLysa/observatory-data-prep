@@ -178,3 +178,6 @@ trade_terms_wot <-
   unique(trade_terms_wot$CN) %>%
   unlist() %>%
   as.character(CN)
+
+# For trade data pre-dating the UK trade API we use comtrade
+

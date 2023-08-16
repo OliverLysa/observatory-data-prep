@@ -105,7 +105,7 @@ write_xlsx(complete_inflows_long,
 # *******************************************************************************
 # 
 
-# We use linear interpolation
+# Linear interpolation
 # Truncation/imputation
 # https://stackoverflow.com/questions/72867763/linear-interpolation-in-r-for-columns
 
@@ -113,104 +113,73 @@ df$new_rates <- na.approx(df$rates)
 df
 
 # *******************************************************************************
-# Forecasts and backcasts
+# Forecasts
 # *******************************************************************************
-# 
+#
 
-# Import economic data 
-economic_electronics <- ts(data$column, start = 1998, frequency = 1)
+# Produce forecast of sales - arima with economic variable externally 
+# Hierarchical time-series with bottom up aggregation approach to forecast construction
 
-# Generate ACF to define ARIMA parameters
-Acf(economic_electronics)
-
-# Generate PACF to define ARIMA parameters
-Pacf(economic_electronics)
-
-# ARIMA forecast
-
-# Import data for outturn and forecast
-data_eng <- read_excel("ci_data_eng.xlsx", sheet = "Sheet1")
-data_gdp_forecast <- read_excel("ci_data_eng.xlsx", sheet = "Sheet2")
+# Import outturn sales data (back to 2001 currently).
+# 22 data point for annual time-step, 264 for monthly
+apparent_consumption <- 
+  read_excel("forecast_inputs.xlsx", sheet = 1)
 
 # Convert to time series format
-gdp <- ts(data_eng$gdp_uk, start = 1998, frequency = 1)
-gdp_f <- ts(data_gdp_forecast$gdp_uk, start = 2019, frequency = 1)
+apparent_consumption <- ts(apparent_consumption$value, 
+                           start = 2001, 
+                           frequency = 1)
 
-# Create trend variable
-trend <- data_eng$year - 1997
+# Generate ACF to define ARIMA parameters
+Acf(apparent_consumption)
 
-# Take the log of the trend
-log_trend <- log(trend)
-trend_f <- seq(2019, 2050, 1) - 1997
-log_trend_f <- log(trend_f)
-dum <- data_eng$dum
-dum_f <- rep(0, 32)
-dum_f[2:5] <- c(1,0.5,0.25,0.125)
-year_f <- seq(2019, 2050, 1)
+# Generate PACF to define ARIMA parameters
+Pacf(apparent_consumption)
 
-################################################################################
+# Import forecasted external data (GDP,GVA, GDHI, HE)
+external_forecasts_1 <-
+  read_excel("gdp_forecast_1.xlsx", sheet = 2)
 
-# Import GVA data 
-gva_com <- ts(data_eng$commercial, start = 1998, frequency = 1)
+# Convert external forecasts to time series format
+gdp_forecast_1 <- ts(external_forecasts_1$gdp_1,
+            start = 2022, 
+            frequency = 1)
 
-# Generate 
-Acf(gva_com)
-Pacf(gva_com)
+# Create dummy variable (if needed) 
+dummy <- apparent_consumption$dummy
+dummy_f <- rep(0, 28)
+dummy_f[2:5] <- c(1,0.5,0.25,0.125)
+year_f <- seq(2022, 2050, 1)
 
-xreg_com <- cbind(gdp, dum)
-xreg_com_f <- cbind(gdp_f, dum_f)
-xreg_com_f <- as.ts(xreg_com_f, start = 2019, frequency = 1)
+# Combine external predictive variables
+xreg_com <- cbind(gdp_forecast_1, dummy)
+xreg_com_f <- cbind(gdp_forecast_1, dummy_f)
+# Convert to timeseries
+xreg_com_f <- as.ts(xreg_com_f, start = 2022, frequency = 1)
+# Change column names
 colnames(xreg_com_f) <- colnames(xreg_com)
 
-arima_com <- Arima(gva_com, order = c(1,0,0), include.drift = F, include.mean = T, xreg = xreg_com)
-coeftest(arima_com, df = 17)
-tsdiag(arima_com)
+# Define arima model of consumption
+arima_consumption <- Arima(apparent_consumption, 
+                   order = c(1,0,0), 
+                   include.drift = F, 
+                   include.mean = T, 
+                   xreg = xreg_com)
 
+# Coefficient test (generic function for performing z and (quasi-)t Wald tests of estimated coefficients)
+coeftest(arima_consumption, 
+         # Define degrees of freedom
+         df = )
+
+# Generate forecast
 forecast_com <- forecast(arima_com, h=32, fan = F, level = 95, xreg = xreg_com_f)
-autoplot(forecast_com)
 
-################################################################################
-
-
-gva_ind <- ts(data_eng$industrial, start = 1998, end = 2018, frequency = 1)
-Acf(gva_ind)
-Pacf(gva_ind)
-
-xreg_ind <- cbind(gdp, dum)
-xreg_ind_f <- cbind(gdp_f, dum_f)
-xreg_ind_f <- as.ts(xreg_ind_f, start = 2019, frequency = 1)
-colnames(xreg_ind_f) <- colnames(xreg_ind)
-
-arima_ind <- Arima(gva_ind, order = c(0,0,1), include.drift = F, include.mean = T, xreg = xreg_ind)
-coeftest(arima_ind, df = 17)
-tsdiag(arima_ind)
-
-forecast_ind <- forecast(arima_ind, h=32, fan = F, level = 95, xreg = xreg_ind_f)
-autoplot(forecast_ind)
-
-################################################################################
-
-
-gva_c_i_f <- data.frame(year_f, 
-                        forecast_com$mean, forecast_com$lower[,1], forecast_com$upper[,1],
-                        forecast_ind$mean, forecast_ind$lower[,1], forecast_ind$upper[,1])
-colnames(gva_c_i_f) <- c("Year", "Com Central", "Com Lower", "Com Upper", 
-                         "Ind Central", "Ind Lower", "Ind Upper")
-
-write.csv(gva_c_i_f, "gva_c_i_forecast.csv", row.names = F)
-
-# ARIMA backcast
-
-euretail %>%
-  reverse_ts() %>%
-  auto.arima() %>%
-  forecast() %>%
-  reverse_forecast() -> bc
-
-# Comparison with outturn data
+# Create dataframe with forecasted data compiled
+apparent_consumption_f <- data.frame(year_f, 
+                        forecast_com$mean, forecast_com$lower[,1], forecast_com$upper[,1])
 
 # *******************************************************************************
-# POM method
+# POM method (EA WEEE EPR data)
 # *******************************************************************************
 #
 

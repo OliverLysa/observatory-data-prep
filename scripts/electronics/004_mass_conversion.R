@@ -157,7 +157,6 @@ BoM_data_bound <- BoM_data %>%
 
 # Create filter of products for which we have data
 BoM_filter_list <- c("CRT Monitors",
-                     "CRT TVs",
                      "Video & DVD",
                      "Desktop PCs",
                      "Small Household Items",
@@ -197,6 +196,8 @@ BoM_data_UNU <- BoM_data_bound %>%
   mutate(across(everything(), ~replace(., . == "Frame", "Body"))) %>%
   mutate(across(everything(), ~replace(., . == "Case assembly", "Body"))) %>%
   mutate(across(everything(), ~replace(., . == "Chasis bottom", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Chasis", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Cabinet", "Body"))) %>%
   mutate(across(everything(), ~replace(., . == "Chasis top", "Body"))) %>%
   mutate(across(everything(), ~replace(., . == "Inner frame", "Body"))) %>%
   mutate(across(everything(), ~replace(., . == "Outer frame", "Body"))) %>%
@@ -206,9 +207,23 @@ BoM_data_UNU <- BoM_data_bound %>%
   mutate(across(everything(), ~replace(., . == "Inductor coils", "Induction coils"))) %>%
   mutate(across(everything(), ~replace(., . == "monitor cable", "Body"))) %>%
   mutate(across(everything(), ~replace(., . == "3D Glasses", "Controls"))) %>%
-  mutate(across(everything(), ~replace(., . == "Remote control", "Controls"))) %>%     
-  mutate(across(everything(), ~replace(., . == "Fitness tracker body", "Body"))) 
-
+  mutate(across(everything(), ~replace(., . == "Remote control", "Controls"))) %>%
+  mutate(across(everything(), ~replace(., . == "Remote", "Controls"))) %>%
+  mutate(across(everything(), ~replace(., . == "Fitness tracker body", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Buckle", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Band", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Hard drive", "Drives"))) %>%
+  mutate(across(everything(), ~replace(., . == "Optical drive", "Drives"))) %>%
+  mutate(across(everything(), ~replace(., . == "Cradle", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Power Supply", "Cable"))) %>%
+  mutate(across(everything(), ~replace(., . == "Disk drive", "Drives"))) %>%
+  mutate(across(everything(), ~replace(., . == "Brackets", "Body"))) %>%
+  mutate(across(everything(), ~replace(., . == "Socket", "Cable"))) %>%
+  mutate(across(everything(), ~replace(., . == "Power supply unit", "Power"))) %>%
+  mutate(across(everything(), ~replace(., . == "Interior modules", "Drives"))) %>%
+  mutate(across(everything(), ~replace(., . == "Fan", "Fan and heat sink"))) %>%
+  mutate(across(everything(), ~replace(., . == "Heat sink", "Fan and heat sink")))
+  
 BoM_data_UNU$product <- gsub("Laptops", "Laptops & Tablets", 
                              BoM_data_UNU$product)
     
@@ -218,6 +233,11 @@ BoM_data_UNU$product <- gsub("Laptops", "Laptops & Tablets",
 
 # https://etl.beis.gov.uk/shared-files/3316/3713/8281/UK_ErP_Policy_Study_final_v4-stc_2_11_21.pdf
 
+BoM_BEIS <- 
+  read_xlsx("./cleaned_data/BoM_manual.xlsx")
+
+# Add leading 0s to unu_key column up to 4 digits to help match to other data
+BoM_BEIS$UNU <- str_pad(BoM_BEIS$UNU, 4, pad = "0")
 
 # Write data file
 write_xlsx(BoM_data_UNU, 

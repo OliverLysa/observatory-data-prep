@@ -36,14 +36,19 @@ source("./scripts/Functions.R",
 options(scipen = 999)
 
 # *******************************************************************************
-# Data extraction
+# Data download
 # *******************************************************************************
 #
 
-# Download dataset
+# Download dataset (2008-2020)
 download.file(
   "https://www.ons.gov.uk/file?uri=/businessindustryandtrade/manufacturingandproductionindustry/datasets/ukmanufacturerssalesbyproductprodcom/current/prodcomdata2020final10082021145108.xlsx",
-  "raw_data/UK manufacturers' sales by product.xlsx")
+  "raw_data/prodcom_2008_20.xlsx")
+
+# Download dataset 2021-on
+download.file(
+  "https://www.ons.gov.uk/file?uri=/businessindustryandtrade/manufacturingandproductionindustry/datasets/ukmanufacturerssalesbyproductprodcom/current/prodcom2022final1.xlsx",
+  "raw_data/prodcom_2021_on.xlsx")
 
 # *******************************************************************************
 # Data cleaning
@@ -52,7 +57,7 @@ download.file(
 
 # Read all prodcom sheets into a list of sheets (2008-2020)
 prodcom_all <- read_excel_allsheets(
-  "./raw_data/UK manufacturers' sales by product.xlsx")
+  "./raw_data/prodcom_2008_20.xlsx")
 
 # Remove sheets containing division totals (these create problems with bind)
 prodcom_all = prodcom_all[-c(1:4)]
@@ -86,8 +91,47 @@ prodcom_all <-
   ) %>%
   na.omit()
 
+# Import Prodcom data covering 2021-22
+
+# Read all prodcom sheets into a list of sheets (2012-2022)
+prodcom_all_21_on <- read_excel_allsheets_ABS(
+  "./raw_data/prodcom_2021_on.xlsx")
+
+# Remove sheets containing division totals (these create problems with bind)
+prodcom_all_21_on = prodcom_all_21_on[-c(1:7)]
+
+# Bind remaining sheets, create a code column and fill, filter to value-relevant rows
+prodcom_filtered1 <- 
+  dplyr::bind_rows(prodcom_all_21_on) %>%
+  rename(Variable = 1) %>%
+  clean_prodcom() %>%
+  mutate(Code = case_when(str_detect(Variable, "CN") ~ Variable), .before = 1) %>%
+  tidyr::fill(1) %>%
+  filter(str_like(Variable, "Value%"))
+
+# Bind remaining sheets, create a code column and fill, filter to volume relevant rows
+prodcom_filtered2 <- 
+  dplyr::bind_rows(prodcom_all_21_on) %>%
+  rename(Variable = 1) %>%
+  # Use the clean prodcom function
+  clean_prodcom() %>%
+  mutate(Code = case_when(str_detect(Variable, "CN") ~ Variable), .before = 1) %>%
+  tidyr::fill(1) %>%
+  filter(str_like(Variable, "Volume%"))
+
+# Bind the extracted data to create a complete dataset
+prodcom_all_21_on <-
+  rbindlist(
+    list(
+      prodcom_filtered1,
+      prodcom_filtered2
+    ),
+    use.names = FALSE
+  ) %>%
+  na.omit()
+
 # Use g sub to remove unwanted characters in the code column
-prodcom_all <- prodcom_all %>%
+prodcom_all_21_on <- prodcom_all_21_on %>%
   # Remove everything in the code column following a hyphen
   mutate(Code = gsub("\\-.*", "", Code),
          # Remove SIC07 in the code column to stop the SIC-level codes from being deleted with the subsequent line
@@ -97,22 +141,21 @@ prodcom_all <- prodcom_all %>%
   )
 
 # Rename columns so that they reflect the year for which data is available
-prodcom_all <- prodcom_all %>%
-  rename("2008" = 3,
-         "2009" = 4,
-         "2010" = 5,
-         "2011" = 6,
-         "2012" = 7,
-         "2013" = 8,
-         "2014" = 9,
-         "2015" = 10,
-         "2016" = 11,
-         "2017" = 12,
-         "2018" = 13,
-         "2019" = 14,
-         "2020" = 15) 
+prodcom_all_21_on <- prodcom_all_21_on %>%
+  rename("2012" = 3,
+         "2013" = 4,
+         "2014" = 5,
+         "2015" = 6,
+         "2016" = 7,
+         "2017" = 8,
+         "2018" = 9,
+         "2019" = 10,
+         "2020" = 11,
+         "2021" = 12,
+         "2022" = 13) %>%
+  select(1,2,12,13)
 
-# Convert dataset to long-form, filter non-numeric values in the value column and mutate values
+# Convert 2008-2020 dataset to long-form, filter non-numeric values in the value column and mutate values
 prodcom_all_numeric <- prodcom_all %>%
   pivot_longer(-c(
     `Code`,
@@ -142,11 +185,13 @@ write_xlsx(prodcom_all_numeric,
 # Estimation of suppressed values
 # *******************************************************************************
 
+# This notation corresponds to the 2008-2020 dataset
+
 # E = Estimate by ONS - taken at face value i.e. no adjustment
 # N/A = Data not available - removed once pivotted
 # S/S* = Suppressed (* included in other SIC4 aggregate) - estimated
 
-# Pivot, filter out N/A and mutate to get prodcom including suppressed values
+# Pivot, filter out N/A and mutate to get prodcom data 2008-20 including suppressed values
 prodcom_all_suppressed <- prodcom_all %>%
   pivot_longer(-c(
     `Code`,
@@ -167,10 +212,41 @@ prodcom_all_suppressed <- prodcom_all %>%
   rename(Unit = Value,
          PRCCODE = Code)
 
+# 2021 onwards notation
+
+# [x] = data not available; - removed once pivoted
+# [e] = data has low response, and therefore a high level of estimation, which may impact on the quality of the estimate - taken at face value
+# [c] = confidential data suppressed to avoid disclosure - estimated 
+# [a] = data is suppressed to avoid disclosure and aggregated within the UK Manufacturer Sales of "Other" products - estimated
+
+# Pivot, filter out N/A and mutate to get prodcom data 2008-20 including suppressed values
+prodcom_all_suppressed_21_on <- prodcom_all_21_on %>%
+  pivot_longer(-c(
+    `Code`,
+    `Variable`
+  ),
+  names_to = "Year", 
+  values_to = "Value") %>%
+  filter(Value != "\\[x]",
+         Variable == "Volume (Number of items)") %>%
+  mutate(Value = gsub(" ","", Value),
+         # Remove letter E in the value column
+         Value = gsub("\\[e]","", Value),
+         # Remove commas in the value column
+         Value = gsub(",","", Value),
+         # Remove anything after hyphen in the value column
+         Value = gsub("\\-.*","", Value)) %>%
+  select(-c(Variable)) %>%
+  rename(Unit = Value,
+         PRCCODE = Code)
+
 # Remove leading and trailing white space 
 prodcom_all_suppressed$PRCCODE <- 
   trimws(prodcom_all_suppressed$PRCCODE, 
          which = c("both"))
+
+## USE STRAIGHT LINE INTERPOLATION 
+# Group by and use straight-line interpolation
 
 # Import trade data to calculate the trade ratio for suppressed data (in number of items)
 trade_data <- 
@@ -253,7 +329,8 @@ Grouped_all <- Grouped_all %>%
   mutate(estimated = if_else(`Domestic.x` == "S", Trade.x*ratio, Domestic_numeric)) %>%
   mutate(flag = if_else(`Domestic.x` == "S", "estimated", "actual")) %>%
   select(c("PRCCODE", "Year", "estimated", "flag")) %>%
-  rename(Value = estimated)
+  rename(Value = estimated) %>%
+  distinct()
 
 UNU_CN_PRODCOM <- read_xlsx("./classifications/concordance_tables/UNU_CN_PRODCOM_SIC.xlsx")
 
