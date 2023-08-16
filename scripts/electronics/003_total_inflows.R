@@ -101,19 +101,26 @@ write_xlsx(complete_inflows_long,
 # Missing 0001, 0002, 0406, 0502, 0505, 0507, 0702
 
 # *******************************************************************************
-# Outlier replacement
+# Outlier detection and replacement
 # *******************************************************************************
 # 
 
-# Linear interpolation
-# Truncation/imputation
-# https://stackoverflow.com/questions/72867763/linear-interpolation-in-r-for-columns
+# Import UNU timeseries data in column form (can be calculated as a vector or matrix)
+# Perform rolling MAD
+runmad(x, 
+       k, 
+       center = runmed(x,k), 
+       constant = 3, 
+       endrule=c("mad"), 
+       align = c("center"))
+
+# Linear interpolation (https://stackoverflow.com/questions/72867763/linear-interpolation-in-r-for-columns)
 
 df$new_rates <- na.approx(df$rates)
 df
 
 # *******************************************************************************
-# Forecasts
+# Forecasts (of lightly interpolated data)
 # *******************************************************************************
 #
 
@@ -144,6 +151,8 @@ external_forecasts_1 <-
 gdp_forecast_1 <- ts(external_forecasts_1$gdp_1,
             start = 2022, 
             frequency = 1)
+
+# Trend
 
 # Create dummy variable (if needed) 
 dummy <- apparent_consumption$dummy
