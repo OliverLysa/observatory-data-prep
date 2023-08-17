@@ -193,4 +193,15 @@ sankey_all <- rbindlist(
 write_csv(sankey_all, 
            "./cleaned_data/electronics_chart_sankey.csv")
 
-# Multiply recycling by BoM Sankey percentage 
+# Multiply recycling by BoM Sankey percentage
+
+# Network view exploration
+
+networkd3::forceNetwork(
+  Links = edges_d3, Nodes = nodes_d3,  
+  Source = "from", Target = "to",      # so the network is directed.
+  NodeID = "label", Group = "id", Value = "weight", 
+  opacity = 1, fontSize = 16, zoom = TRUE
+)
+
+# Hierarchical clustering visualisation

@@ -16,9 +16,8 @@ A collection of scripts to:
 
     1.  cleaning and reformatting;
     2.  grouping and summarising;
-    3.  mapping to a central classification;
-    4.  data validation and unknown value estimation;
-    5.  calculating key variables/metrics; and
+    3.  data validation, interpolation and extrapolation;
+    4.  calculating key variables/metrics; and
 
 3.  export cleaned data outputs to an open source PostGreSQL database (supabase) for storage.
 
@@ -28,7 +27,7 @@ Data outputs from these scripts are used to populate the ce-observatory - a dash
 
 ## Software requirements and setup
 
-Scripts in this repository are largely written in the programming language R. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and computer software requirements. We use targets and renv packages for a reproducible environment, saved here. Files are packaged within an R Project with relative file paths used to call data inputs and functions. These can be most easily navigated and ran within the R Studio IDE, though this can also be done in the terminal/command line.
+Scripts in this repository are largely written in the programming language R. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and computer software requirements. Files are packaged within an R Project with relative file paths used to call data inputs and functions. These can be most easily navigated and ran within the R Studio IDE, though this can also be done in the terminal/command line. We use targets and renv packages for a reproducible environment.
 
 The Python scripting language has also been used as part of the project in cases where it offers better performance or provides functions not otherwise available in R. Python scripts are largely presented within [Jupyter Notebooks](https://jupyter.org/install) - an open source IDE that requires installing the jupyter-notebook package in your Python environment, more information about which can be found [here](https://www.python.org/downloads/). In some cases, .py Python scripts are also used. These can be viewed and modified in a code editor such as Visual Studio Code and ran in the terminal/command line.
 

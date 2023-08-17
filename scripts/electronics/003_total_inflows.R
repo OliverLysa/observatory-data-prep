@@ -95,11 +95,6 @@ complete_inflows_long <- complete_inflows_wide %>%
                values_to = 'value') %>%
   rename(unit = variable)
 
-write_xlsx(complete_inflows_long, 
-          "./cleaned_data/inflows_indicators.xlsx")
-
-# Missing 0001, 0002, 0406, 0502, 0505, 0507, 0702
-
 # *******************************************************************************
 # Outlier detection and replacement
 # *******************************************************************************
@@ -130,6 +125,9 @@ by_col_spline <- na.spline(m) +
 
 # By row instead
 by_row <- t(na.approx(t(m)))
+
+write_xlsx(complete_inflows_long, 
+           "./cleaned_data/inflows_indicators.xlsx")
 
 # *******************************************************************************
 # Forecasts (including lightly interpolated data from prior step)
