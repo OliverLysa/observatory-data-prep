@@ -67,14 +67,14 @@ complete_inflows <- rbindlist(
     Prodcom_data_UNU),
   use.names = TRUE)
 
-# Pivot wide to create aggregate values then re-pivot long to estimate key aggregates
+# Pivot wide to create aggregate values
 # Indicators based on https://www.resourcepanel.org/global-material-flows-database
 complete_inflows_wide <- pivot_wider(complete_inflows, 
                          names_from = FlowTypeDescription, 
                          values_from = Value) %>%
   clean_names()
 
-# Turn domestic production NA values into a 0
+# Turn domestic production NA values into a 0 (to remove)
 complete_inflows_wide["domestic_production"][is.na(complete_inflows_wide["domestic_production"])] <- 0
 
 # Calculate key aggregates in wide format and then pivot longer
@@ -107,20 +107,32 @@ write_xlsx(complete_inflows_long,
 
 # Import UNU timeseries data in column form (can be calculated as a vector or matrix)
 # Perform rolling MAD
-runmad(x, 
-       k, 
-       center = runmed(x,k), 
-       constant = 3, 
-       endrule=c("mad"), 
-       align = c("center"))
+runmad(
+  x,
+  k,
+  center = runmed(x, k),
+  constant = 3,
+  endrule = c("mad"),
+  align = c("center")
+)
 
-# Linear interpolation (https://stackoverflow.com/questions/72867763/linear-interpolation-in-r-for-columns)
+# na.approx performs linear interpolation to replace outliers across whole dataframe, by column/UNU
 
-df$new_rates <- na.approx(df$rates)
-df
+by_col <- na.approx(m,
+                    # as na.approx by itself only covers interpolation and not extrapolation (i.e. misses end values),
+                    # also performs extrapolation with rule parameter where end-values are missing through using constant (i.e. last known value)
+                    rule = 2,
+                    maxgap = 10)
+
+# Interpolate using cubic spline method instead
+by_col_spline <- na.spline(m) +
+  0 * na.approx(m, na.rm = FALSE)
+
+# By row instead
+by_row <- t(na.approx(t(m)))
 
 # *******************************************************************************
-# Forecasts (of lightly interpolated data)
+# Forecasts (including lightly interpolated data from prior step)
 # *******************************************************************************
 #
 
