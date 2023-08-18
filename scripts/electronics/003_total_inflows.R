@@ -129,14 +129,16 @@ inflow_wide_outlier_replaced_interpolated <-
             # as na.approx by itself only covers interpolation and not extrapolation (i.e. misses end values),
             # also performs extrapolation with rule parameter where end-values are missing through using constant (i.e. last known value)
             rule = 2,
-            maxgap = 10)
+            maxgap = 10) %>%
+  as.data.frame()
 
 # Interpolate using cubic spline method instead
 inflow_wide_outlier_replaced_spline <-
   na.spline(inflow_wide_outlier_replaced_NA) +
   0 * na.approx(inflow_wide_outlier_replaced_NA,
                 na.rm = FALSE,
-                rule = 2)
+                rule = 2) %>%
+  as.data.frame()
 
 # *******************************************************************************
 # Forecasts (including lightly interpolated data from prior step)
