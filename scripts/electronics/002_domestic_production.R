@@ -245,9 +245,6 @@ prodcom_all_suppressed$PRCCODE <-
   trimws(prodcom_all_suppressed$PRCCODE, 
          which = c("both"))
 
-## USE STRAIGHT LINE INTERPOLATION 
-# Group by and use straight-line interpolation
-
 # Import trade data to calculate the trade ratio for suppressed data (in number of items)
 trade_data <- 
   read_csv("./cleaned_data/electronics_trade_ungrouped.csv") %>%

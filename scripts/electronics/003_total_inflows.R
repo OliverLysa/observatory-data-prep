@@ -148,23 +148,19 @@ inflow_wide_outlier_replaced_spline <-
 # Produce forecast of sales - arima with economic variable externally
 # Hierarchical time-series with bottom up aggregation approach to forecast construction
 
+# https://stackoverflow.com/questions/67564279/looping-with-arima-in-r
+
 # Import outturn sales data (back to 2001 currently).
 # 22 data point for annual time-step, 264 for monthly
-apparent_consumption <-
-  read_excel("forecast_inputs.xlsx", sheet = 1)
+inflow_wide_outlier_replaced_interpolated <-
+  read_excel("inflow_wide_outlier_replaced_NA.xlsx", sheet = 1)
 
 # Convert to time series format
-apparent_consumption <- ts(apparent_consumption$value,
+apparent_consumption <- ts(inflow_wide_outlier_replaced_interpolated,
                            start = 2001,
                            frequency = 1)
 
-# Generate ACF to define ARIMA parameters
-Acf(apparent_consumption)
-
-# Generate PACF to define ARIMA parameters
-Pacf(apparent_consumption)
-
-# Import forecasted external data (GDP,GVA, GDHI, HE)
+# Import forecasted external data
 external_forecasts_1 <-
   read_excel("gdp_forecast_1.xlsx", sheet = 2)
 
@@ -173,40 +169,18 @@ gdp_forecast_1 <- ts(external_forecasts_1$gdp_1,
                      start = 2022,
                      frequency = 1)
 
-# Trend
-
-# Create dummy variable (if needed)
-dummy <- apparent_consumption$dummy
-dummy_f <- rep(0, 28)
-dummy_f[2:5] <- c(1, 0.5, 0.25, 0.125)
-year_f <- seq(2022, 2050, 1)
-
-# Combine external predictive variables
-xreg_com <- cbind(gdp_forecast_1, dummy)
-xreg_com_f <- cbind(gdp_forecast_1, dummy_f)
-# Convert to timeseries
-xreg_com_f <- as.ts(xreg_com_f, start = 2022, frequency = 1)
-# Change column names
-colnames(xreg_com_f) <- colnames(xreg_com)
-
 # Define arima model of consumption
-arima_consumption <- Arima(
+arima_consumption <- auto.Arima(
+  # define univariate timeseries
   apparent_consumption,
-  order = c(1, 0, 0),
-  include.drift = F,
-  include.mean = T,
-  xreg = xreg_com
+  allowdrift = F,
+  xreg = gdp_forecast_1
 )
-
-# Coefficient test (generic function for performing z and (quasi-)t Wald tests of estimated coefficients)
-coeftest(arima_consumption,
-         # Define degrees of freedom
-         df =)
 
 # Generate forecast
 forecast_com <-
   forecast(
-    arima_com,
+    arima_consumption,
     h = 32,
     fan = F,
     level = 95,
