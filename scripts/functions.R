@@ -57,7 +57,7 @@ clean_prodcom <- function(df) {
 }
 
 # Add leading 0s to unu_key column up to 4 digits to help match to other data
-BoM_BEIS$UNU <- str_pad(BoM_BEIS$UNU, 4, pad = "0")
+# BoM_BEIS$UNU <- str_pad(BoM_BEIS$UNU, 4, pad = "0")
 
 # *******************************************************************************
 # Renaming functions
