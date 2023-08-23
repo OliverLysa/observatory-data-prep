@@ -108,7 +108,7 @@ lifespan_data <- read_excel("./cleaned_data/weibull_parameters.xlsx") %>%
 
 # Import inflow data to match to lifespan
 inflow_unu_mass_units <-
-  read_xlsx("./cleaned_data/inflow_unu_mass_units.xlsx")
+  read_xlsx("./cleaned_data/inflow_unu_mass.xlsx")
 
 # Merge inflow and lifespan data by unu_key
 inflow_weibull <-
@@ -118,6 +118,10 @@ inflow_weibull <-
     by = c("unu_key"),
     all.x = TRUE
   )
+
+# Write summary file
+write_xlsx(inflow_weibull, 
+           "./cleaned_data/inflow_weibull.xlsx")
 
 # Set up dataframe for outflow calculation based on Balde et al 2016. Create empty columns for all years in range of interest
 year_first <- min(as.integer(inflow_weibull$year))

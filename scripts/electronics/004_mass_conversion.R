@@ -62,14 +62,10 @@ UNU_mass <- read_csv(
 
 # Read inflow data and filter to consumption of units to multiply by mass
 inflows_indicators <-
-  read_xlsx("./cleaned_data/inflows_indicators.xlsx") %>%
-  filter(indicator == "apparent_consumption",
-         unit == "Units") %>%
+  read_xlsx("./cleaned_data/inflow_indicators_interpolated.xlsx") %>%
   mutate_at(c('year'), as.numeric) %>%
   na.omit() %>%
-  rename(variable = indicator) %>%
-  mutate(variable = gsub("apparent_consumption", "inflow", variable),
-         unit = gsub("Units", "unit", unit))
+  mutate(variable = "inflow")
 
 # Join by unu key and closest year
 # For each value in inflow_indicators year column, find the closest value in UNU_mass that is less than or equal to that x value.
@@ -86,21 +82,10 @@ inflow_mass <- left_join(inflows_indicators, UNU_mass, by) %>%
        value = 3) %>%
   mutate(variable = "inflow") %>%
   mutate(unit = "mass")
-
-# Bind the extracted data to create a complete dataset
-inflow_unu_mass_units <-
-  rbindlist(
-    list(
-      inflows_indicators,
-      inflow_mass
-    ),
-    use.names = TRUE
-  ) %>%
-  na.omit()
   
 # Write xlsx to the cleaned data folder
-write_xlsx(inflow_unu_mass_units, 
-           "./cleaned_data/inflow_unu_mass_units.xlsx")
+write_xlsx(inflow_mass, 
+           "./cleaned_data/inflow_unu_mass.xlsx")
 
 # *******************************************************************************
 # Extract BoM data from Babbitt 2019

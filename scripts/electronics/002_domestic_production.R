@@ -91,6 +91,32 @@ prodcom_all <-
   ) %>%
   na.omit()
 
+# Use g sub to remove unwanted characters in the code column
+prodcom_all <- prodcom_all %>%
+  # Remove everything in the code column following a hyphen
+  mutate(Code = gsub("\\-.*", "", Code),
+         # Remove SIC07 in the code column to stop the SIC-level codes from being deleted with the subsequent line
+         Code = gsub('SIC\\(07)', '', Code),
+         # Remove everything after the brackets/parentheses in the code column
+         Code = gsub("\\(.*", "", Code)
+  )
+
+# Rename columns so that they reflect the year for which data is available
+prodcom_all <- prodcom_all %>%
+  rename("2008" = 3,
+         "2009" = 4,
+         "2010" = 5,
+         "2011" = 6,
+         "2012" = 7,
+         "2013" = 8,
+         "2014" = 9,
+         "2015" = 10,
+         "2016" = 11,
+         "2017" = 12,
+         "2018" = 13,
+         "2019" = 14,
+         "2020" = 15)
+
 # Import Prodcom data covering 2021-22
 
 # Read all prodcom sheets into a list of sheets (2012-2022)
@@ -219,7 +245,7 @@ prodcom_all_suppressed <- prodcom_all %>%
 # [c] = confidential data suppressed to avoid disclosure - estimated 
 # [a] = data is suppressed to avoid disclosure and aggregated within the UK Manufacturer Sales of "Other" products - estimated
 
-# Pivot, filter out N/A and mutate to get prodcom data 2008-20 including suppressed values
+# Pivot, filter out N/A and mutate to get prodcom data including suppressed values
 prodcom_all_suppressed_21_on <- prodcom_all_21_on %>%
   pivot_longer(-c(
     `Code`,
@@ -239,6 +265,17 @@ prodcom_all_suppressed_21_on <- prodcom_all_21_on %>%
   select(-c(Variable)) %>%
   rename(Unit = Value,
          PRCCODE = Code)
+
+# Bind the extracted data to create a complete dataset
+prodcom_all_suppressed <-
+  rbindlist(
+    list(
+      prodcom_all_suppressed,
+      prodcom_all_suppressed_21_on
+    ),
+    use.names = FALSE
+  ) %>%
+  na.omit()
 
 # Remove leading and trailing white space 
 prodcom_all_suppressed$PRCCODE <- 
@@ -329,12 +366,15 @@ Grouped_all <- Grouped_all %>%
   rename(Value = estimated) %>%
   distinct()
 
-UNU_CN_PRODCOM <- read_xlsx("./classifications/concordance_tables/UNU_CN_PRODCOM_SIC.xlsx")
+UNU_CN_PRODCOM <- read_xlsx("./classifications/concordance_tables/UNU_CN_PRODCOM_SIC.xlsx") %>%
+  select(c(1,7)) %>%
+  distinct()
 
 # Merge prodcom data with UNU classification, summarise by UNU Key and filter volume rows not expressed in number of units
-Prodcom_data_UNU <- merge(Grouped_all,
-                                UNU_CN_PRODCOM,
-                                by="PRCCODE") %>%
+Prodcom_data_UNU <- left_join(Grouped_all,
+                              UNU_CN_PRODCOM,
+                              by="PRCCODE") %>%
+  na.omit() %>%
   group_by(`UNU KEY`, Year) %>%
   summarise(Value = sum(Value))
 

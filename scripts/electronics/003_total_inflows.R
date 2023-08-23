@@ -49,19 +49,14 @@ Prodcom_data_UNU <-
 
 # Filter prodcom variable column and mutate variable names to match the trade data
 Prodcom_data_UNU <- Prodcom_data_UNU %>%
-  filter(Variable != "£ per Number of items",
-         Variable != "£ per Kilogram") %>%
-  mutate(FlowTypeDescription = "domestic production") %>%
-  mutate(
-    Variable = gsub("Value £000\\'s", "Value", Variable),
-    Variable = gsub("Volume \\(Number of items)", "Units", Variable),
-    Variable = gsub("Volume \\(Kilogram)", "Mass", Variable)
-  )
+  mutate(FlowTypeDescription = "domestic production")
 
 # Import trade UNU data if not in global environment
 Summary_trade_UNU <-
   read_excel("./cleaned_data/Summary_trade_UNU.xlsx")  %>%
-  as.data.frame()
+  as.data.frame() %>%
+  filter(Variable == "Units") %>%
+  select(-c(Variable))
 
 # Bind/append prodcom and trade datasets to create a total inflow dataset
 complete_inflows <- rbindlist(list(Summary_trade_UNU,
@@ -93,26 +88,23 @@ complete_inflows_long <- complete_inflows_wide %>%
     import_dependency = (total_imports / (total_imports + total_exports))
   ) %>%
   pivot_longer(-c(unu_key,
-                  year,
-                  variable),
+                  year),
                names_to = "indicator",
-               values_to = 'value') %>%
-  rename(unit = variable)
+               values_to = 'value')
 
 write_xlsx(complete_inflows_long,
            "./cleaned_data/inflows_indicators.xlsx")
 
 # *******************************************************************************
-# Outlier detection and replacement
+# Automatic outlier detection and replacement
 # *******************************************************************************
 #
 
 # Import data, converts to wide format (Redo this, but at the level of individual components of apparent consumption)
 inflow_wide_outlier_replaced_NA <-
   read_xlsx("./cleaned_data/inflows_indicators.xlsx") %>%
-  filter(unit == "Units",
-         indicator == "apparent_consumption") %>%
-  select(-c(unit, indicator)) %>%
+  filter(indicator == "apparent_consumption") %>%
+  select(-c(indicator)) %>%
   pivot_wider(names_from = unu_key,
               values_from = value) %>%
   clean_names() %>%
@@ -130,7 +122,15 @@ inflow_wide_outlier_replaced_interpolated <-
             # also performs extrapolation with rule parameter where end-values are missing through using constant (i.e. last known value)
             rule = 2,
             maxgap = 10) %>%
-  as.data.frame()
+  as.data.frame() %>%
+  mutate(year = c(2008:2021), .before = x0101) %>%
+  pivot_longer(-year, 
+               names_to = "unu_key",
+               values_to = "value") %>%
+  mutate(`unu_key` = gsub("x", "", `unu_key`))
+
+write_xlsx(inflow_wide_outlier_replaced_interpolated,
+           "./cleaned_data/inflow_indicators_interpolated.xlsx")
 
 # Interpolate using cubic spline method instead
 inflow_wide_outlier_replaced_spline <-
@@ -139,6 +139,11 @@ inflow_wide_outlier_replaced_spline <-
                 na.rm = FALSE,
                 rule = 2) %>%
   as.data.frame()
+
+# Manual replacement
+
+# 26601280  (CN 901812 + 901813 + 901814 + 901819), Electro-diagnostic apparatus and apparatus for functional exploratory examination or for checking physiological parameters, INCLUDING: parts and accessories, scintigraphic apparatus, ultrasonic scanning apparatus, magnetic resonance imaging apparatus, EXCLUDING: electro-cardiographs
+
 
 # *******************************************************************************
 # Forecasts (including lightly interpolated data from prior step)
@@ -216,7 +221,9 @@ POM_data <- purrr::map_df(POM_sheet_names,
                           )) %>%
   # filter out NAs in column 1
   filter(Var.1 != "NA") %>%
+  # Add column called quarters
   mutate(quarters = case_when(str_detect(Var.1, "Period covered") ~ Var.1), .before = Var.1) %>%
+  # Fill column
   tidyr::fill(1) %>%
   filter(grepl('January - December', quarters)) %>%
   # make numeric and filter out anything but 1-14 in column 1

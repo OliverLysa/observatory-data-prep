@@ -77,7 +77,7 @@ outflow_routing <- read_excel(
 
 # Multiply percentages by ordinal score
 outflow_routing_weights <- read_excel(
-  "./cleaned_data/weights.xlsx")
+  "./intermediate_data/weights.xlsx")
 
 # Merge outflow routing with outflow routing weights
 outflow_routing_weighted <- merge(outflow_routing,
