@@ -88,7 +88,7 @@ write_xlsx(inflow_mass,
            "./cleaned_data/inflow_unu_mass.xlsx")
 
 # *******************************************************************************
-# Extract BoM data from Babbitt 2019
+# Extract BoM data from Babbitt 2019 - to get material formulation and component stages
 # *******************************************************************************
 
 # Download data file from the url
@@ -158,60 +158,66 @@ BoM_filter_list <- c("CRT Monitors",
 
 # Rename products to match the UNU colloquial classification, group by product, component and material to average across models and years, then filter to products for which data is held
 BoM_data_UNU <- BoM_data_bound %>%
-  mutate(product = gsub("Blu-ray player", 'Video & DVD', product),
-         product = gsub("CRT monitor", 'CRT Monitors', product),
-         product = gsub("CRT TV", 'CRT TVs', product),
-         product = gsub("Traditional desktop", 'Desktop PCs', product),
-         product = gsub("Fitness tracker", 'Small Household Items', product),
-         product = gsub("Laptop", 'Laptops', product),
-         product = gsub("LCD monitor", 'Flat Screen Monitors', product),
-         product = gsub("LCD TV", 'Flat Screen TVs', product),
-         product = gsub("MP3 player", 'Portable Audio', product),
-         product = gsub("Printer", 'Printers', product),
-         product = gsub("Smartphone", 'Mobile Phones', product),
-         product = gsub("Smart & non-smart thermostat", 'Household Monitoring', product),
-         product = gsub("MP3 Player", 'Portable Audio', product),
-         product = gsub("Drone", 'Toys', product)) %>%
+  mutate(
+    product = gsub("Blu-ray player", 'Video & DVD', product),
+    product = gsub("CRT monitor", 'CRT Monitors', product),
+    product = gsub("CRT TV", 'CRT TVs', product),
+    product = gsub("Traditional desktop", 'Desktop PCs', product),
+    product = gsub("Fitness tracker", 'Small Household Items', product),
+    product = gsub("Laptop", 'Laptops', product),
+    product = gsub("LCD monitor", 'Flat Screen Monitors', product),
+    product = gsub("LCD TV", 'Flat Screen TVs', product),
+    product = gsub("MP3 player", 'Portable Audio', product),
+    product = gsub("Printer", 'Printers', product),
+    product = gsub("Smartphone", 'Mobile Phones', product),
+    product = gsub("Smart & non-smart thermostat", 'Household Monitoring', product),
+    product = gsub("MP3 Player", 'Portable Audio', product),
+    product = gsub("Drone", 'Toys', product)
+  ) %>%
   filter(product %in% BoM_filter_list) %>%
-  mutate(across(everything(), ~replace(., . == "Case", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Casing", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Main body", "Body"))) %>%              
-  mutate(across(everything(), ~replace(., . == "Main assembly", "Body"))) %>%              
-  mutate(across(everything(), ~replace(., . == "Access panel assembly", "Body"))) %>%            
-  mutate(across(everything(), ~replace(., . == "Frame", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Case assembly", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Chasis bottom", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Chasis", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Cabinet", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Chasis top", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Inner frame", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Outer frame", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Drone (main body + camera)", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Other components*", "Other components"))) %>%
-  mutate(across(everything(), ~replace(., . == "ICs", "Induction coils"))) %>%
-  mutate(across(everything(), ~replace(., . == "Inductor coils", "Induction coils"))) %>%
-  mutate(across(everything(), ~replace(., . == "monitor cable", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "3D Glasses", "Controls"))) %>%
-  mutate(across(everything(), ~replace(., . == "Remote control", "Controls"))) %>%
-  mutate(across(everything(), ~replace(., . == "Remote", "Controls"))) %>%
-  mutate(across(everything(), ~replace(., . == "Fitness tracker body", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Buckle", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Band", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Hard drive", "Drives"))) %>%
-  mutate(across(everything(), ~replace(., . == "Optical drive", "Drives"))) %>%
-  mutate(across(everything(), ~replace(., . == "Cradle", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Power Supply", "Cable"))) %>%
-  mutate(across(everything(), ~replace(., . == "Disk drive", "Drives"))) %>%
-  mutate(across(everything(), ~replace(., . == "Brackets", "Body"))) %>%
-  mutate(across(everything(), ~replace(., . == "Socket", "Cable"))) %>%
-  mutate(across(everything(), ~replace(., . == "Power supply unit", "Power"))) %>%
-  mutate(across(everything(), ~replace(., . == "Interior modules", "Drives"))) %>%
-  mutate(across(everything(), ~replace(., . == "Fan", "Fan and heat sink"))) %>%
-  mutate(across(everything(), ~replace(., . == "Heat sink", "Fan and heat sink")))
-  
-BoM_data_UNU$product <- gsub("Laptops", "Laptops & Tablets", 
+    mutate(across(everything(), ~ replace(., . == "Case", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Casing", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Main body", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Main assembly", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Access panel assembly", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Frame", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Case assembly", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Chasis bottom", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Chasis", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Cabinet", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Chasis top", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Inner frame", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Outer frame", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Drone (main body + camera)", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Other components*", "Other components"))) %>%
+    mutate(across(everything(), ~ replace(., . == "ICs", "Induction coils"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Inductor coils", "Induction coils"))) %>%
+    mutate(across(everything(), ~ replace(., . == "monitor cable", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "3D Glasses", "Controls"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Remote control", "Controls"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Remote", "Controls"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Fitness tracker body", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Buckle", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Band", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Hard drive", "Drives"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Optical drive", "Drives"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Cradle", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Power Supply", "Cable"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Disk drive", "Drives"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Brackets", "Body"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Socket", "Cable"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Power supply unit", "Power"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Interior modules", "Drives"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Fan", "Fan and heat sink"))) %>%
+    mutate(across(everything(), ~ replace(., . == "Heat sink", "Fan and heat sink")))
+
+BoM_data_UNU$product <- gsub("Laptops", "Laptops & Tablets",
                              BoM_data_UNU$product)
-    
+
+# Write data file
+write_xlsx(BoM_data_UNU, 
+           "./cleaned_data/BoM_data_UNU.xlsx")
+
 # *******************************************************************************
 # Extract BoM data from BEIS 
 # *******************************************************************************
@@ -224,6 +230,28 @@ BoM_BEIS <-
 # Add leading 0s to unu_key column up to 4 digits to help match to other data
 BoM_BEIS$UNU <- str_pad(BoM_BEIS$UNU, 4, pad = "0")
 
+# UNU codes to remove
+remove <- c("0408", 
+            "0309", 
+            "0102",
+            "0304")
+
+# Pivot longer and filter
+BoM_BEIS_all <- BoM_BEIS %>%
+  select(-c(Make,
+            Model,
+            Year, 
+            Source)) %>%
+  filter(! UNU %in% remove) %>%
+  pivot_longer(-c(
+    UNU,
+    Product,
+    `Sub-type`,
+    Component),
+    names_to = "material", 
+    values_to = "value") %>%
+  drop_na(value) 
+
 # Write data file
-write_xlsx(BoM_data_UNU, 
-           "./cleaned_data/BoM_data_UNU.xlsx")
+write_xlsx(BoM_BEIS_all, 
+           "./cleaned_data/BoM_BEIS_all.xlsx")

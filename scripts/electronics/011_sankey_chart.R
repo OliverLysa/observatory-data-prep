@@ -38,9 +38,10 @@ source("./scripts/functions.R",
 options(scipen = 999)
 
 # *******************************************************************************
-# Electronics
+# Material formulation > Component manufacture
+# *******************************************************************************
 
-# Import BoM data
+# Import BoM data from Babbit
 BoM_sankey_input <- read_excel(
   "./cleaned_data/BoM_data_UNU.xlsx") %>%
   # remove non-numeric entries in year column to then be able to select the latest
@@ -64,32 +65,64 @@ BoM_sankey_input <- read_excel(
 
 # convert into % terms 
 BoM_sankey_percentage <- BoM_sankey_input %>% 
-  group_by(product, material) %>% 
+  group_by(product, material) %>%
   summarise(sum(value)) %>%
   rename(value = 3) %>%
   mutate(freq = value / sum(value)) %>%
   select(-value)
 
+# Import BoM data from BEIS
+BoM_BEIS_all <- read_xlsx("./cleaned_data/BoM_BEIS_all.xlsx")
+
+# Get subset of BoM BEIS all to add to Babbitt data 
+BoM_BEIS_grouped <- BoM_BEIS_all %>%
+  filter(material != "Total") %>%
+  group_by(UNU, material) %>%
+  summarise(value = mean(value)) %>%
+  mutate(freq = value / sum(value)) %>%
+  select(-value) %>%
+  rename("unu_key" = 1)
+
+# Get colloquial term
+BoM_BEIS_grouped <- left_join(BoM_BEIS_grouped, 
+                              UNU_colloquial, 
+                              by = c("unu_key"))
+
+# Drop unu_key
+BoM_BEIS_grouped <- BoM_BEIS_grouped[-1]
+
+# Bind datasets
+BoM_sankey_percentage <-
+  rbindlist(
+    list(
+      BoM_sankey_percentage,
+      BoM_BEIS_grouped
+    ),
+    use.names = TRUE
+)
+
 # Import inflow data from the stacked area chart to multiply the BoM by to get tonnes per year across inflow stages
 inflows <- read_excel(
-  "./cleaned_data/inflows_indicators.xlsx") %>%
-filter(indicator == "apparent_consumption",
-       unit == "Units")
+  "./cleaned_data/inflow_indicators_interpolated.xlsx")
 
+# Merge inflows and colloquial
 inflows <- merge(inflows, UNU_colloquial,
                    by = c("unu_key")) %>%
-  select(-c(unu_key, unit))
+  select(-c(unu_key))
 
 # Right joins the two files to multiply the BoM by flows to get flows in mass by year
 material_formulation <- right_join(BoM_sankey_input, inflows,
                              by = c("product")) %>%
   mutate(value = (value.x * value.y)/1000000) %>%
   select(-c(value.x,
-            indicator,
             value.y)) %>%
   filter(value >0) %>%
   mutate(across(c('value'), round, 2)) %>%
   mutate(flow = "material formulation_component manufacture")
+
+# *******************************************************************************
+# Component manufacture > product usage
+# *******************************************************************************
 
 # Duplicates the first file and renames columns to create the next sankey link through making long-format the BoM
 component_manufacture <- material_formulation %>% 
@@ -104,7 +137,9 @@ component_manufacture <- material_formulation %>%
          "value") %>%
   mutate(flow = "component manufacture_product usage")
 
-# Collected
+# *******************************************************************************
+# Usage > Collection/separation 
+# *******************************************************************************
 
 # Import collected data
 collected_all_54 <- read_excel(
@@ -141,8 +176,11 @@ collected_material <- right_join(BoM_sankey_percentage, collected,
   
 collected_material$target <- paste(collected_material$target, "collected", sep = "_")
 
-# Reuse 
+# *******************************************************************************
+# Collection > reuse
+# *******************************************************************************
 
+# Import reuse AATF data
 reuse_received_AATF_54 <- read_excel(
   "./cleaned_data/electronics_sankey/reuse_received_AATF_54.xlsx")
 
@@ -189,19 +227,59 @@ sankey_all <- rbindlist(
          value != 0) %>%
   mutate(across(c('value'), round, 2))
 
-# Write file 
-write_csv(sankey_all, 
-           "./cleaned_data/electronics_chart_sankey.csv")
+# *******************************************************************************
+# Collection > recycling
+# *******************************************************************************
 
 # Multiply recycling by BoM Sankey percentage
+recycling_received_AATF_54 <- read_excel(
+  "./cleaned_data/electronics_sankey/recycling_received_AATF_54.xlsx")
 
-# Network view exploration
+# Produce product usage > collected stage data in sankey format in mass by 
+# multiplying the proportions from the BoM to the mass flows
+# the difference between this, other collection and anticipated outflows based on lifespans is leakage
+recycling_received_AATF_54 <- merge(recycling_received_AATF_54, UNU_colloquial,
+                             by = c("unu_key")) %>%
+  mutate(source = product,
+         target = product) %>%
+  select("product", 
+         "source",
+         "target",
+         "year",
+         "value") %>%
+  mutate(flow = "collected_recycling AATF") %>%
+  filter(product %in% unique(component_manufacture$product)) %>%
+  mutate_at(c('year'), as.numeric)
 
-networkd3::forceNetwork(
-  Links = edges_d3, Nodes = nodes_d3,  
-  Source = "from", Target = "to",      # so the network is directed.
-  NodeID = "label", Group = "id", Value = "weight", 
-  opacity = 1, fontSize = 16, zoom = TRUE
-)
+# Right join the BoM proportion and mass collected per year
+recycling_received_AATF_54 <- right_join(BoM_sankey_percentage, recycling_received_AATF_54,
+                                           by = c("product")) %>%
+  mutate(mass = freq*value) %>%
+  select("product", 
+         "source",
+         "target",
+         "material",
+         "year",
+         "mass",
+         "flow") %>%
+  rename(value = mass)
 
-# Hierarchical clustering visualisation
+recycling_received_AATF_54$source <- paste(recycling_received_AATF_54$source, "collected", sep = "_")
+
+# Binds the files
+sankey_all <- rbindlist(
+  list(
+    material_formulation,
+    component_manufacture,
+    collected_material,
+    reuse_received_AATF_material),
+  use.names = TRUE) %>%
+  filter(year != 2022,
+         value != 0) %>%
+  mutate(across(c('value'), round, 2))
+
+# Write file 
+write_csv(sankey_all, 
+          "./cleaned_data/electronics_chart_sankey.csv")
+
+

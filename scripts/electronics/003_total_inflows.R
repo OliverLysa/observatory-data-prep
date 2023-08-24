@@ -140,11 +140,6 @@ inflow_wide_outlier_replaced_spline <-
                 rule = 2) %>%
   as.data.frame()
 
-# Manual replacement
-
-# 26601280  (CN 901812 + 901813 + 901814 + 901819), Electro-diagnostic apparatus and apparatus for functional exploratory examination or for checking physiological parameters, INCLUDING: parts and accessories, scintigraphic apparatus, ultrasonic scanning apparatus, magnetic resonance imaging apparatus, EXCLUDING: electro-cardiographs
-
-
 # *******************************************************************************
 # Forecasts (including lightly interpolated data from prior step)
 # *******************************************************************************
