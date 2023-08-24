@@ -123,6 +123,29 @@ inflow_weibull <-
 write_xlsx(inflow_weibull, 
            "./cleaned_data/inflow_weibull.xlsx")
 
+# *******************************************************************************
+# Import BEIS stock data and map to UNU classification
+
+BEIS_stock <- read_xlsx("./raw_data/ECUK_2022_Electrical_Products_tables.xlsx",
+                        sheet = "Table A2") %>%
+                row_to_names(row_number = 4, 
+                remove_rows_above = TRUE) %>%
+                filter(Year != "Last updated") %>%
+  pivot_longer(-Year, 
+               names_to = "product",
+               values_to = "value") %>%
+  filter(value != ".") %>%
+  na.omit() %>%
+  separate(2, c("product_group", "product"), "-") %>%
+  mutate_at(c('product'), trimws)
+
+# Write summary file
+write_xlsx(BEIS_stock, 
+           "./intermediate_data/BEIS_stock.xlsx")
+
+# *******************************************************************************
+## Calculate outflows
+
 # Set up dataframe for outflow calculation based on Balde et al 2016. Create empty columns for all years in range of interest
 year_first <- min(as.integer(inflow_weibull$year))
 year_last <- max(as.integer(inflow_weibull$year)) + 30

@@ -145,7 +145,7 @@ inflow_wide_outlier_replaced_spline <-
 # *******************************************************************************
 #
 
-# Produce forecast of sales - arima with economic variable externally
+# Produce forecast of sales - arima with economic variable externally (per capita GDP)
 # Hierarchical time-series with bottom up aggregation approach to forecast construction
 
 # https://stackoverflow.com/questions/67564279/looping-with-arima-in-r

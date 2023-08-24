@@ -208,7 +208,7 @@ prodcom_all_numeric <- prodcom_all %>%
 write_xlsx(prodcom_all_numeric, 
            "./cleaned_data/prodcom_all.xlsx")
 
-# Estimation of suppressed values
+# Estimation of suppressed values - review ratio approach (issue with data updates altering ratio over time & backwards revisions)
 # *******************************************************************************
 
 # This notation corresponds to the 2008-2020 dataset

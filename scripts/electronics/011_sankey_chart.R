@@ -1,8 +1,6 @@
 ##### **********************
 # Author: Oliver Lysaght
 # Purpose: Converts cleaned data into sankey format for presenting in sankey chart
-# Inputs:
-# Required updates:
 
 # *******************************************************************************
 # Packages
@@ -41,7 +39,7 @@ options(scipen = 999)
 # Material formulation > Component manufacture
 # *******************************************************************************
 
-# Import BoM data from Babbit
+# Import BoM data from Babbit (covering consumer electronics)
 BoM_sankey_input <- read_excel(
   "./cleaned_data/BoM_data_UNU.xlsx") %>%
   # remove non-numeric entries in year column to then be able to select the latest
@@ -63,7 +61,7 @@ BoM_sankey_input <- read_excel(
          "value") %>%
   mutate_at(c('value'), as.numeric)
 
-# convert into % terms 
+# convert product material composition into % terms (Converts Babbit into percentage format)
 BoM_sankey_percentage <- BoM_sankey_input %>% 
   group_by(product, material) %>%
   summarise(sum(value)) %>%
@@ -71,10 +69,10 @@ BoM_sankey_percentage <- BoM_sankey_input %>%
   mutate(freq = value / sum(value)) %>%
   select(-value)
 
-# Import BoM data from BEIS
+# Import BoM data from BEIS (covering also professional equipment)
 BoM_BEIS_all <- read_xlsx("./cleaned_data/BoM_BEIS_all.xlsx")
 
-# Get subset of BoM BEIS all to add to Babbitt data 
+# Exclude totals and summarise
 BoM_BEIS_grouped <- BoM_BEIS_all %>%
   filter(material != "Total") %>%
   group_by(UNU, material) %>%
@@ -83,15 +81,15 @@ BoM_BEIS_grouped <- BoM_BEIS_all %>%
   select(-value) %>%
   rename("unu_key" = 1)
 
-# Get colloquial term
+# Replace UNU code with colloquial terms
 BoM_BEIS_grouped <- left_join(BoM_BEIS_grouped, 
                               UNU_colloquial, 
                               by = c("unu_key"))
 
-# Drop unu_key
+# Drop unu_key column
 BoM_BEIS_grouped <- BoM_BEIS_grouped[-1]
 
-# Bind datasets
+# Bind Babbit and BEIS
 BoM_sankey_percentage <-
   rbindlist(
     list(
@@ -102,6 +100,7 @@ BoM_sankey_percentage <-
 )
 
 # Import inflow data from the stacked area chart to multiply the BoM by to get tonnes per year across inflow stages
+# This is already filtered on apparent consumption calculation
 inflows <- read_excel(
   "./cleaned_data/inflow_indicators_interpolated.xlsx")
 
@@ -110,7 +109,7 @@ inflows <- merge(inflows, UNU_colloquial,
                    by = c("unu_key")) %>%
   select(-c(unu_key))
 
-# Right joins the two files to multiply the BoM by flows to get flows in mass by year
+# Right joins the two files to multiply the BoM by flows in unit to derive flows in mass between materials and components of products, components and materials by year by year
 material_formulation <- right_join(BoM_sankey_input, inflows,
                              by = c("product")) %>%
   mutate(value = (value.x * value.y)/1000000) %>%
@@ -119,6 +118,23 @@ material_formulation <- right_join(BoM_sankey_input, inflows,
   filter(value >0) %>%
   mutate(across(c('value'), round, 2)) %>%
   mutate(flow = "material formulation_component manufacture")
+
+# Aggregated (lesser-level detail - for more aggregate sankey)
+material_formulation <- right_join(BoM_sankey_input, inflows,
+                                   by = c("product")) %>%
+  mutate(value = (value.x * value.y)/1000000) %>%
+  select(-c(value.x,
+            value.y)) %>%
+  filter(value >0) %>%
+  mutate(across(c('value'), round, 2)) %>%
+  mutate(flow = "material formulation_component manufacture")
+
+# Aggregated (lesser-level detail table)
+material_formulation_aggregated <- material_formulation %>%
+  mutate(source = "Material_formulation",
+         target = "Component_manufacture") %>%
+  group_by(product, source, target, material) %>%
+  summarise(value = sum(value))
 
 # *******************************************************************************
 # Component manufacture > product usage
@@ -145,6 +161,7 @@ component_manufacture <- material_formulation %>%
 # Usage > Collection/separation 
 # *******************************************************************************
 
+# Can either convert mass into units and then multiply by BoM or multiply by proportion table made in 004
 # Import collected data
 collected_all_54 <- read_excel(
   "./cleaned_data/electronics_sankey/collected_all_54.xlsx")
@@ -235,6 +252,7 @@ sankey_all <- rbindlist(
 # Collection > recycling
 # *******************************************************************************
 
+# To improve the composition of outflow, we would ideally know the age of products at time they exit the stock to link to time-varying inflow composition data
 # Multiply recycling by BoM Sankey percentage
 recycling_received_AATF_54 <- read_excel(
   "./cleaned_data/electronics_sankey/recycling_received_AATF_54.xlsx")
