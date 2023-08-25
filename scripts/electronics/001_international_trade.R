@@ -28,7 +28,8 @@ packages <- c("magrittr",
               "mixdist",
               "janitor",
               "future",
-              "furrr")
+              "furrr",
+              "rjson")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())
@@ -179,5 +180,15 @@ trade_terms_wot <-
   unlist() %>%
   as.character(CN)
 
-# For trade data pre-dating the UK trade API we use comtrade
+# *******************************************************************************
+# For trade data pre-dating the UK trade API we use comtrade (Python)
+
+# Import UK partner code
+string <- "http://comtrade.un.org/data/cache/partnerAreas.json"
+reporters <- fromJSON(file=string)
+reporters <- as.data.frame(t(sapply(reporters$results,rbind)))
+reporters <- reporters[reporters[[2]] == "United Kingdom",]
+
+# Default
+https://comtradeapi.un.org/public/v1/preview/{typeCode}/{freqCode}/{clCode}[?reporterCode][&period][&partnerCode][&partner2Code][&cmdCode][&flowCode][&customsCode][&motCode]
 
