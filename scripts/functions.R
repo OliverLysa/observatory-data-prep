@@ -59,6 +59,44 @@ clean_prodcom <- function(df) {
 # Add leading 0s to unu_key column up to 4 digits to help match to other data
 # BoM_BEIS$UNU <- str_pad(BoM_BEIS$UNU, 4, pad = "0")
 
+
+#Get first date in the time series
+first_date <- function(x){
+  a <- floor(min(x, na.rm = TRUE))
+}
+
+#Get latest date in the time series by specifying data frame and column e.g. RMC$Date
+latest_date <- function(x){
+  a <- ceiling(max(x, na.rm = TRUE))
+}
+
+#Get penultimate date in the time series by specifying data frame and column e.g. RMC$Date
+penultimate_date <- function(x){
+  a <- ceiling(max(x, na.rm = TRUE)-1)
+}
+
+#Get value in column of choice associated with latest date in time series (a = dataset e.g. RMC, x = column name for value of interest e.g. Quantity, b = date column)
+latest_value <- function(a, x, b){
+  e <- with(a, x[which.max(b)])
+}
+
+#Get penultimate value in column of choice associated with latest date in time series (a = dataset e.g. RMC, x = column name for value of interest e.g. Quantity, b = date column)
+penultimate_value <- function(a, x, b){
+  a <- with(a, x[which.max(b)-1])
+}
+
+# Shorten chart units
+addUnits <- function(n) 
+{
+  labels <- ifelse(n < 1000, n,  # less than thousands
+                   ifelse(n < 1e6, paste0(round(n/1e3), 'k'),  # in thousands
+                          ifelse(n < 1e9, paste0(round(n/1e6), 'M'),  # in millions
+                                 ifelse(n < 1e12, paste0(round(n/1e6), 'M'), # in billions
+                                 ))))
+  return(labels)
+}
+
+
 # *******************************************************************************
 # Renaming functions
 # *******************************************************************************
