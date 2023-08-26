@@ -188,7 +188,3 @@ string <- "http://comtrade.un.org/data/cache/partnerAreas.json"
 reporters <- fromJSON(file=string)
 reporters <- as.data.frame(t(sapply(reporters$results,rbind)))
 reporters <- reporters[reporters[[2]] == "United Kingdom",]
-
-# Default
-https://comtradeapi.un.org/public/v1/preview/{typeCode}/{freqCode}/{clCode}[?reporterCode][&period][&partnerCode][&partner2Code][&cmdCode][&flowCode][&customsCode][&motCode]
-
