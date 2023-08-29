@@ -33,7 +33,7 @@ The Python scripting language has also been used as part of the project in cases
 
 ## Updates
 
-The observatory has been designed to incorporate new data as it becomes available to help with trend assessment, monitoring and evaluation. On the dashboard front-end, this is achieved with scheduled content updates via Contentful. On the back-end, this is achieved through automated R and Python scripts for data extraction and processing, followed by automated PostgreSQL scripts for data storage. In R, we use the package 'cronR' to execute cronjobs in the MacOS environment, with a daily re-run schedule. Imported data undergoes a structure validation and content validation check to reduce risk of build failure on the front-end.
+The observatory has been designed to incorporate new data as it becomes available to help with trend assessment, monitoring and evaluation. On the dashboard front-end, this is achieved with scheduled content updates via Contentful. On the back-end, this is achieved through automated R and Python scripts for data extraction and processing, followed by automated PostgreSQL scripts for data storage. In R, we use the package 'cronR' to execute cronjobs in the MacOS environment, with a daily re-run schedule. Imported data undergoes structure, data type and content constraint validation to reduce risk of build failure on the front-end.
 
 # Folder and file descriptions
 
@@ -48,6 +48,8 @@ In a few cases, processing steps require exporting data outputs from the R/Pytho
 ## [cleaned_data](https://github.com/OliverLysa/observatory/tree/main/cleaned_data)
 
 Cleaned data outputs derived from raw and intermediate data files following processing in R, Python and/excel and which are added to the postgresql database backend for the observatory dashboard. Within the dashboard environment, cleaned data files may undergo additional processing such as on-the-fly aggregation or division of variables.
+
+![](images/Pasted%20Graphic.png){width="600"}
 
 ## scripts
 
@@ -249,15 +251,16 @@ Script converts unit-level inflow data into mass equivalents e.g. tonnes of lapt
 
 <summary>More info: Bill of materials</summary>
 
-A BoM is a hierarchical data object providing a list of the raw materials, components and instructions required to construct, manufacture, or repair a product. BoMs are generally used by firms to communicate information about a product as it moves along a value chain in order to help navigate regulations, efficiently manage inventory and to support product life-cycle assessments. Utilising component and material shares captured within a BoM data object alongside corresponding information on the volume/mass of flows (and stocks) of products/components, makes it possible to move between material, component and product flows (and stocks) at the micro level.
+A BoM is a hierarchical data object providing a list of the raw materials, components and instructions required to construct, manufacture, or repair a product. BoMs are generally used by firms to communicate information about a product as it moves along a value chain in order to help navigate regulations, efficiently manage inventory and to support product life-cycle assessments. Utilising component and material shares captured within a BoM data object alongside corresponding information on the volume/mass of flows (and stocks) of products/components, makes it possible to move between material, component and product flows (and stocks) at the micro level. Some of the difficulties of accessing complete BoM data are described [here](https://susproc.jrc.ec.europa.eu/product-bureau/sites/default/files/2020-07/CA_%20Prep%20Study_draft1_Feb2020.pdf) (pg. 177).
 
 </details>
 
 ##### Workflow
 
-1.  Extracts BoM data from Babbitt *et al.* 2019 and assigns these to UNU-KEYs
-2.  Matches BoM data to inflow data by UNU-KEY and multiplies annual unit-level data by BoM data to calculate apparent consumption in mass terms
-3.  Exports data to CSV format
+1.  Extracts BoM data in either absolute or proportion terms (as available) from listed sources and assigns these to UNU-KEYs. Converts all BoM data to a proportional basis.
+2.  Using mass data by UNU-KEY from Van Straalen *et al.* (2016) for its representativeness, (to be potentially updated with mass-based trade data in the medium-term followed by BoM based estimates coupled with product-market share data), multiplies this by BoM data in proportional terms to get mass by material/component for each UNU-KEY
+3.  Multiplies BoM data in mass terms by UNU-KEY with annual unit-level apparent consumption data to calculate flows of materials/components each year
+4.  Exports data to CSV format
 
 ##### Outputs
 
@@ -346,7 +349,7 @@ Calculates the route of products and materials leaving the stock (as our lifespa
 7.  Calculate domestic disposal (including incineration of material with energy recovery, without energy recovery and landfill)
 8.  Calculate exports
 
-Definitions in quotation marks from [Kirchher, Reike and Hekkert (2017)](https://pdf.sciencedirectassets.com/271808/1-s2.0-S0921344917X00104/1-s2.0-S0921344917302835/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAoaCXVzLWVhc3QtMSJHMEUCIFp9P2BGjCHqPBgb2xV19C6sgiM6xIwynQIwqHTZeRIbAiEA9vPeduKQMJGka6wLwCNDSd0fAhM4XlTcKct9YyVEqtUqvAUIk%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAFGgwwNTkwMDM1NDY4NjUiDLxImPnrwM%2B3l58gqyqQBS3kw5hBhmdwqbWqrnz9A%2FzouvmmJnHuUKqSSZqw40vay8fLzJdQDOiMjVciiv38xgtwMlGXKy56gOlLzo7Ck2iVFbldjFnvFeeWUcPk%2BvUv%2BvJx44IrdJEo4iDFB9A1zCOgQiHAWHjc2dsh91hUsgBvtFmgNGbWEEvjtVbwZ0N5913R50lUAjWyqSGk%2BZPhlJXTeNO7pGhgqz6qGn3YToqPz6pRYlbPki4v%2BqqNRL9Bi%2B%2FpNl7CNsFiETjwl0EPLMcx1JNsNmlkcrhHvNY%2B5vwkGKl7dx3nDeQPBcRUN%2FiEkOrPAHCzFltEwG4TUqpbQquCc%2B3MIYR0S2FVMDhF1gfj3fGQAerI3VVwLsPfxedKlM6g1VdHI6QiiSkBwj4%2FKhs9FjSoBlUxAlOBRnMWeI5U5EwsYJt5%2FgAhs%2F23RkhvAYFeJtIXSG%2F4aITfX5NAAz4aOVU%2BsZq0B6Iikmoe%2F0Vw82doqaHeLwES9f25pqZinPIo0dj6L%2BTsSjHm8x8yvL7UgLdqVKzBhYf0TmYulseS0fo8mfSdMfHJv%2BOaUYVpwjRISmjcAN%2FQ3tMnhAeLVvIR0ni8twSZTPkKsmr1G5Oja568uKYdYWcyQ9D%2BOIuP92FQfNrO3eBFczW0HcksaqmVUIZ93dDUutVLU%2BboS2pm39XqsbCAODS2bM0Niy%2FZIOQidmjTyWJWYFKZzsxvSSCXIsDddUVxYXWPFHGI6iM2oLoNNkDYV3qCAI92%2FWFpIKam7wDMfohqC9Jt3%2FIGx%2ByDOkQbnUWCStXYikeBRjWWAr9SgASGnXX%2BH7Lqbc7uAJv1woy3dUTCpvP2VGLzweghnVUZWIzqj4pKVWNklG4AXDOqkkzeDDEABRknaEAKMP244KUGOrEB79srAJRuPIFLwimi%2BNoOYR74QY6giHH9UJbs%2B3Mtw3kkwWesoeoigHc0gM74R%2BNVuAVe2XRoidC8k35WhCApRjN3ri0xBqm4fRL0ueC%2FcpuNxmaoRizvUzSN3USacfT79koKUYIehazW2LOZJ0nBQ0yUbfjuMRE%2BFz2iNVBd6Vhf7CU6wNFszwRhKciz7zWZmmbNz7zWNamCmfaexW4eBbSD8t%2FiDFdyJfSg6OIvmYBF&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230719T183149Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTY2TUPFYPI%2F20230719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9f73cbf3a05b1ed248358cdf71a38335dc91bfb00b3297a54647aab730e28be4&hash=dcaa3fd5d00981711e978218987ce1db48ef6bec8085a8b31781eac58bd54d80&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S0921344917302835&tid=spdf-82cdff6d-2c9b-487c-b36a-faa12036d8eb&sid=2216cd4c54eef848569a67e187efaadbe15bgxrqa&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=0f1c560a565b5604535e&rr=7e950b28ba233ac7&cc=us).
+Definitions in quotation marks from [Kirchher, Reike and Hekkert (2017)](https://pdf.sciencedirectassets.com/271808/1-s2.0-S0921344917X00104/1-s2.0-S0921344917302835/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAoaCXVzLWVhc3QtMSJHMEUCIFp9P2BGjCHqPBgb2xV19C6sgiM6xIwynQIwqHTZeRIbAiEA9vPeduKQMJGka6wLwCNDSd0fAhM4XlTcKct9YyVEqtUqvAUIk%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAFGgwwNTkwMDM1NDY4NjUiDLxImPnrwM%2B3l58gqyqQBS3kw5hBhmdwqbWqrnz9A%2FzouvmmJnHuUKqSSZqw40vay8fLzJdQDOiMjVciiv38xgtwMlGXKy56gOlLzo7Ck2iVFbldjFnvFeeWUcPk%2BvUv%2BvJx44IrdJEo4iDFB9A1zCOgQiHAWHjc2dsh91hUsgBvtFmgNGbWEEvjtVbwZ0N5913R50lUAjWyqSGk%2BZPhlJXTeNO7pGhgqz6qGn3YToqPz6pRYlbPki4v%2BqqNRL9Bi%2B%2FpNl7CNsFiETjwl0EPLMcx1JNsNmlkcrhHvNY%2B5vwkGKl7dx3nDeQPBcRUN%2FiEkOrPAHCzFltEwG4TUqpbQquCc%2B3MIYR0S2FVMDhF1gfj3fGQAerI3VVwLsPfxedKlM6g1VdHI6QiiSkBwj4%2FKhs9FjSoBlUxAlOBRnMWeI5U5EwsYJt5%2FgAhs%2F23RkhvAYFeJtIXSG%2F4aITfX5NAAz4aOVU%2BsZq0B6Iikmoe%2F0Vw82doqaHeLwES9f25pqZinPIo0dj6L%2BTsSjHm8x8yvL7UgLdqVKzBhYf0TmYulseS0fo8mfSdMfHJv%2BOaUYVpwjRISmjcAN%2FQ3tMnhAeLVvIR0ni8twSZTPkKsmr1G5Oja568uKYdYWcyQ9D%2BOIuP92FQfNrO3eBFczW0HcksaqmVUIZ93dDUutVLU%2BboS2pm39XqsbCAODS2bM0Niy%2FZIOQidmjTyWJWYFKZzsxvSSCXIsDddUVxYXWPFHGI6iM2oLoNNkDYV3qCAI92%2FWFpIKam7wDMfohqC9Jt3%2FIGx%2ByDOkQbnUWCStXYikeBRjWWAr9SgASGnXX%2BH7Lqbc7uAJv1woy3dUTCpvP2VGLzweghnVUZWIzqj4pKVWNklG4AXDOqkkzeDDEABRknaEAKMP244KUGOrEB79srAJRuPIFLwimi%2BNoOYR74QY6giHH9UJbs%2B3Mtw3kkwWesoeoigHc0gM74R%2BNVuAVe2XRoidC8k35WhCApRjN3ri0xBqm4fRL0ueC%2FcpuNxmaoRizvUzSN3USacfT79koKUYIehazW2LOZJ0nBQ0yUbfjuMRE%2BFz2iNVBd6Vhf7CU6wNFszwRhKciz7zWZmmbNz7zWNamCmfaexW4eBbSD8t%2FiDFdyJfSg6OIvmYBF&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230719T183149Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTY2TUPFYPI%2F20230719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9f73cbf3a05b1ed248358cdf71a38335dc91bfb00b3297a54647aab730e28be4&hash=dcaa3fd5d00981711e978218987ce1db48ef6bec8085a8b31781eac58bd54d80&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S0921344917302835&tid=spdf-82cdff6d-2c9b-487c-b36a-faa12036d8eb&sid=2216cd4c54eef848569a67e187efaadbe15bgxrqa&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=0f1c560a565b5604535e&rr=7e950b28ba233ac7&cc=us), based on [Cramer's](https://www.tandfonline.com/doi/full/10.1080/00139157.2017.1301167) (2017) 10 Rs.
 
 ##### Outputs
 
@@ -528,3 +531,8 @@ A script to import and clean data collated from Repair Cafes by the Open Repair 
 
 -   CSV containing data on repair success rate by product
 -   CSV containing data on lifespan until repair attempt by product
+
+## Weaknesses and areas for improvement
+
+1.  Several sources are updated sporadically or with no updates planned
+2.  Mapping of compositional data to UNU isn't weighted by market share i.e. compositional data is not always representative

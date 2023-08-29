@@ -143,6 +143,7 @@ BoM_data_bound <- BoM_data %>%
 # Create filter of products for which we have data
 BoM_filter_list <- c("CRT Monitors",
                      "Video & DVD",
+                     "CRT TVs",
                      "Desktop PCs",
                      "Small Household Items",
                      "Laptops",
@@ -154,7 +155,7 @@ BoM_filter_list <- c("CRT Monitors",
                      "Household Monitoring",
                      "Toys",
                      "Digital camera",
-                     "Games console")
+                     "Gaming console")
 
 # Rename products to match the UNU colloquial classification, group by product, component and material to average across models and years, then filter to products for which data is held
 BoM_data_UNU <- BoM_data_bound %>%
@@ -172,7 +173,8 @@ BoM_data_UNU <- BoM_data_bound %>%
     product = gsub("Smartphone", 'Mobile Phones', product),
     product = gsub("Smart & non-smart thermostat", 'Household Monitoring', product),
     product = gsub("MP3 Player", 'Portable Audio', product),
-    product = gsub("Drone", 'Toys', product)
+    product = gsub("Drone", 'Toys', product),
+    product = gsub("Digital camera", 'Cameras', product),
   ) %>%
   filter(product %in% BoM_filter_list) %>%
     mutate(across(everything(), ~ replace(., . == "Case", "Body"))) %>%

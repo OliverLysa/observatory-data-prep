@@ -149,6 +149,7 @@ inflow_wide_outlier_replaced_spline <-
 # Hierarchical time-series with bottom up aggregation approach to forecast construction
 
 # https://stackoverflow.com/questions/67564279/looping-with-arima-in-r
+# https://stackoverflow.com/questions/40195505/fitting-arima-model-to-multiple-time-series-and-storing-forecast-into-a-matrix
 
 # Import outturn sales data (back to 2001 currently).
 # 22 data point for annual time-step, 264 for monthly
