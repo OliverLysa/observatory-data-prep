@@ -41,6 +41,7 @@ extractor <- function(x) {
   return(trade_results)
 }
 
+# Use the comtrade API to extract historic trade data
 # Define get comtrade function
 get.Comtrade <- function(url="http://comtrade.un.org/api/get?"
                          ,maxrec=50000
