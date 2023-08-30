@@ -1,9 +1,6 @@
 ##### **********************
 # Author: Oliver Lysaght
 # Purpose:
-# Inputs:
-# Required annual updates:
-# The URL to download from
 
 # *******************************************************************************
 # Packages
@@ -50,66 +47,28 @@ source("./scripts/functions.R",
 options(scipen = 999)
 
 # *******************************************************************************
-# Mass data from https://github.com/Statistics-Netherlands/ewaste/blob/master/data/htbl_Key_Weight.csv
-# *******************************************************************************
-
-# Import mass data
-UNU_mass <- read_csv(
-  "./cleaned_data/htbl_Key_Weight.csv") %>%
-  clean_names() %>%
-  group_by(unu_key, year) %>%
-  summarise(value = mean(average_weight))
-
-# Read inflow data and filter to consumption of units to multiply by mass
-inflows_indicators <-
-  read_xlsx("./cleaned_data/inflow_indicators_interpolated.xlsx") %>%
-  mutate_at(c('year'), as.numeric) %>%
-  na.omit() %>%
-  mutate(variable = "inflow")
-
-# Join by unu key and closest year
-# For each value in inflow_indicators year column, find the closest value in UNU_mass that is less than or equal to that x value.
-by <- join_by(unu_key, closest(year >= year))
-inflow_mass <- left_join(inflows_indicators, UNU_mass, by) %>%
-  mutate_at(c("value.y"), as.numeric) %>%
-  # calculate mass inflow in tonnes (as mass given in kg/unit in source)
-  # https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf
-  mutate(mass_inflow = (value.x*value.y)/1000) %>%
-  select(c(`unu_key`,
-            `year.x`,
-            mass_inflow)) %>%
-  rename(year = 2,
-       value = 3) %>%
-  mutate(variable = "inflow") %>%
-  mutate(unit = "mass")
-  
-# Write xlsx to the cleaned data folder
-write_xlsx(inflow_mass, 
-           "./cleaned_data/inflow_unu_mass.xlsx")
-
-# *******************************************************************************
 # Extract BoM data from Babbitt 2019 - to get material formulation and component stages
 # *******************************************************************************
 
 # Download data file from the url
 download.file(
   "https://figshare.com/ndownloader/files/22858376",
-  "./raw_data/Product_BOM.xlsx"
+  "./raw_data/Product_BOM_Babbit.xlsx"
 )
 
 # Read all sheets for bill of materials
-BoM_sheet_names <- readxl::excel_sheets(
-  "./raw_data/Product_BOM.xlsx")
+BoM_sheet_names_Babbit <- readxl::excel_sheets(
+  "./raw_data/Product_BOM_Babbit.xlsx")
 
 # Import data mapped to sheet name 
-BoM_data <- purrr::map_df(BoM_sheet_names, 
+BoM_data_Babbit <- purrr::map_df(BoM_sheet_names_Babbit, 
                           ~dplyr::mutate(readxl::read_excel(
-                            "./raw_data/Product_BOM.xlsx", 
+                            "./raw_data/Product_BOM_Babbit.xlsx", 
                             sheet = .x), 
                             sheetname = .x))
 
 # Convert the list of dataframes to a single dataframe, rename columns and filter
-BoM_data_bound <- BoM_data %>%
+BoM_data_bound_Babbit <- BoM_data_Babbit %>%
   drop_na(2) %>%
   tidyr::fill(1) %>%
   select(-c(`Data From literature`,
@@ -141,7 +100,7 @@ BoM_data_bound <- BoM_data %>%
   mutate_at(c('product'), trimws)
 
 # Create filter of products for which we have data
-BoM_filter_list <- c("CRT Monitors",
+BoM_filter_list_Babbit <- c("CRT Monitors",
                      "Video & DVD",
                      "CRT TVs",
                      "Desktop PCs",
@@ -155,10 +114,12 @@ BoM_filter_list <- c("CRT Monitors",
                      "Household Monitoring",
                      "Toys",
                      "Digital camera",
-                     "Gaming console")
+                     "Gaming console",
+                     "Cameras")
 
+# TO REDO:
 # Rename products to match the UNU colloquial classification, group by product, component and material to average across models and years, then filter to products for which data is held
-BoM_data_UNU <- BoM_data_bound %>%
+BoM_data_UNU_Babbit <- BoM_data_bound_Babbit %>%
   mutate(
     product = gsub("Blu-ray player", 'Video & DVD', product),
     product = gsub("CRT monitor", 'CRT Monitors', product),
@@ -176,7 +137,7 @@ BoM_data_UNU <- BoM_data_bound %>%
     product = gsub("Drone", 'Toys', product),
     product = gsub("Digital camera", 'Cameras', product),
   ) %>%
-  filter(product %in% BoM_filter_list) %>%
+  filter(product %in% BoM_filter_list_Babbit) %>%
     mutate(across(everything(), ~ replace(., . == "Case", "Body"))) %>%
     mutate(across(everything(), ~ replace(., . == "Casing", "Body"))) %>%
     mutate(across(everything(), ~ replace(., . == "Main body", "Body"))) %>%
@@ -211,35 +172,52 @@ BoM_data_UNU <- BoM_data_bound %>%
     mutate(across(everything(), ~ replace(., . == "Power supply unit", "Power"))) %>%
     mutate(across(everything(), ~ replace(., . == "Interior modules", "Drives"))) %>%
     mutate(across(everything(), ~ replace(., . == "Fan", "Fan and heat sink"))) %>%
-    mutate(across(everything(), ~ replace(., . == "Heat sink", "Fan and heat sink")))
+    mutate(across(everything(), ~ replace(., . == "Heat sink", "Fan and heat sink"))) %>%
+    mutate_at(c('value', 'year'), as.numeric)
 
-BoM_data_UNU$product <- gsub("Laptops", "Laptops & Tablets",
-                             BoM_data_UNU$product)
+# Done separate due to issue with special character
+BoM_data_UNU_Babbit$product <- gsub("Laptops", "Laptops & Tablets",
+                             BoM_data_UNU_Babbit$product)
 
-# Write data file
-write_xlsx(BoM_data_UNU, 
-           "./cleaned_data/BoM_data_UNU.xlsx")
+# Return most recent model within each product group
+BoM_data_UNU_Babbit_latest <- BoM_data_UNU_Babbit %>%
+  # remove non-numeric entries in year column to then be able to select the latest
+  mutate_at(c('year'), trimws) %>%
+  mutate(year = gsub("[^0-9]", "", year)) %>%
+  # convert year to numeric
+  mutate_at(c('year'), as.numeric) %>%
+  # replace any products missing year with 1990 so that they are not exluded by the top_n conversion
+  replace_na(list(year = 1990)) %>%
+  # get data for most recent product within each group
+  group_by(product) %>%
+  top_n(1, abs(year)) 
+
+# convert product material composition into % terms (Converts Babbit into percentage format)
+BoM_data_UNU_Babbit_latest_percentage <- BoM_data_UNU_Babbit_latest %>% 
+  group_by(product, material) %>%
+  summarise(sum(value)) %>%
+  rename(value = 3) %>%
+  mutate(freq = value / sum(value)) %>%
+  select(-value)
 
 # *******************************************************************************
-# Extract BoM data from BEIS 
+# Extract BoM data from BEIS ICF Ecodesign report
 # *******************************************************************************
 
-# https://etl.beis.gov.uk/shared-files/3316/3713/8281/UK_ErP_Policy_Study_final_v4-stc_2_11_21.pdf
-
-BoM_BEIS <- 
-  read_xlsx("./cleaned_data/BoM_manual.xlsx")
+BoM_BEIS_absolute <- 
+  read_xlsx("./cleaned_data/BoM_manual.xlsx", sheet = 1)
 
 # Add leading 0s to unu_key column up to 4 digits to help match to other data
-BoM_BEIS$UNU <- str_pad(BoM_BEIS$UNU, 4, pad = "0")
+BoM_BEIS_absolute$UNU <- str_pad(BoM_BEIS_absolute$UNU, 4, pad = "0")
 
-# UNU codes to remove
+# UNU codes to remove due to overlapping with Babbit (Babbit prioritised)
 remove <- c("0408", 
             "0309", 
             "0102",
             "0304")
 
 # Pivot longer and filter
-BoM_BEIS_all <- BoM_BEIS %>%
+BoM_BEIS_absolute_long <- BoM_BEIS_absolute %>%
   select(-c(Make,
             Model,
             Year, 
@@ -252,8 +230,108 @@ BoM_BEIS_all <- BoM_BEIS %>%
     Component),
     names_to = "material", 
     values_to = "value") %>%
-  drop_na(value) 
+  drop_na(value)
+
+# Exclude totals and convert to proportions
+BoM_BEIS_percentage <- BoM_BEIS_absolute_long %>%
+  filter(material != "Total") %>%
+  group_by(UNU, material) %>%
+  summarise(value = mean(value)) %>%
+  mutate(freq = value / sum(value)) %>%
+  select(-value) %>%
+  rename("unu_key" = 1)
+
+# Replace UNU code with colloquial terms
+BoM_BEIS_percentage <- left_join(BoM_BEIS_percentage, 
+                              UNU_colloquial, 
+                              by = c("unu_key"))
+
+# Drop unu_key column
+BoM_BEIS_percentage <- BoM_BEIS_percentage[-1]
+
+# Import BEIS and other preparatory study data already in percentage terms 
+BoM_BEIS_proportions <- 
+  read_xlsx("./cleaned_data/BoM_manual.xlsx", sheet = 2)
+
+# Add leading 0s to unu_key column up to 4 digits to help match to other data
+BoM_BEIS_proportions$UNU <- str_pad(BoM_BEIS_proportions$UNU, 4, pad = "0")
+
+# Pivot longer and filter
+BoM_BEIS_proportions_long <- BoM_BEIS_proportions %>%
+  select(-c(Make,
+            Model,
+            Year,
+            `Sub-type`,
+            Component,
+            Product,
+            Source)) %>%
+  filter(! UNU %in% remove) %>%
+  pivot_longer(-c(
+    UNU),
+    names_to = "material", 
+    values_to = "value") %>%
+  drop_na(value) %>%
+  rename('unu_key' = UNU,
+         'freq' = value)
+
+# Replace UNU code with colloquial terms
+BoM_BEIS_proportions_long <- left_join(BoM_BEIS_proportions_long, 
+                                 UNU_colloquial, 
+                                 by = c("unu_key")) %>%
+  select(-c(unu_key))
+
+
+# Bind Babbit and BEIS sources
+BoM_percentage_UNU <-
+  rbindlist(
+    list(
+      BoM_BEIS_proportions_long,
+      BoM_BEIS_percentage,
+      BoM_data_UNU_Babbit_latest_percentage
+    ),
+    use.names = TRUE
+  )
 
 # Write data file
-write_xlsx(BoM_BEIS_all, 
-           "./cleaned_data/BoM_BEIS_all.xlsx")
+write_xlsx(BoM_percentage_UNU, 
+           "./cleaned_data/BoM_percentage_UNU.xlsx")
+
+# *******************************************************************************
+# Import mass data from https://github.com/Statistics-Netherlands/ewaste/blob/master/data/htbl_Key_Weight.csv
+# to convert inflows in unit terms to mass terms 
+# *******************************************************************************
+
+# Import average mass data by UNU from WOT project
+UNU_mass <- read_csv(
+  "./cleaned_data/htbl_Key_Weight.csv") %>%
+  clean_names() %>%
+  group_by(unu_key, year) %>%
+  summarise(value = mean(average_weight))
+
+# Read in interpolated inflow data and filter to consumption of units to then multiply by mass
+inflows_indicators <-
+  read_xlsx("./cleaned_data/inflow_indicators_interpolated.xlsx") %>%
+  mutate_at(c('year'), as.numeric) %>%
+  na.omit() %>%
+  mutate(variable = "inflow")
+
+# Join by unu key and closest year
+# For each value in inflow_indicators year column, find the closest value in UNU_mass that is less than or equal to that x value
+by <- join_by(unu_key, closest(year >= year))
+# Join
+inflow_mass <- left_join(inflows_indicators, UNU_mass, by) %>%
+  mutate_at(c("value.y"), as.numeric) %>%
+  # calculate mass inflow in tonnes (as mass given in kg/unit in source)
+  # https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf
+  mutate(mass_inflow = (value.x*value.y)/1000) %>%
+  select(c(`unu_key`,
+           `year.x`,
+           mass_inflow)) %>%
+  rename(year = 2,
+         value = 3) %>%
+  mutate(variable = "inflow") %>%
+  mutate(unit = "mass")
+
+# Write xlsx to the cleaned data folder
+write_xlsx(inflow_mass, 
+           "./cleaned_data/inflow_unu_mass.xlsx")

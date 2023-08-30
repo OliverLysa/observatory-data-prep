@@ -1,6 +1,6 @@
 # 🚀 CE observatory data processing
 
-*Author*: Oliver Lysaght (oliverlysaght\@icloud.com)
+*Contact*: Oliver Lysaght (oliverlysaght\@icloud.com)
 
 ## WORK IN PROGRESS
 
@@ -49,7 +49,7 @@ In a few cases, processing steps require exporting data outputs from the R/Pytho
 
 Cleaned data outputs derived from raw and intermediate data files following processing in R, Python and/excel and which are added to the postgresql database backend for the observatory dashboard. Within the dashboard environment, cleaned data files may undergo additional processing such as on-the-fly aggregation or division of variables.
 
-![](images/Pasted%20Graphic.png){width="600"}
+![](images/Pasted%20Graphic.png){width="86%"}
 
 ## scripts
 
@@ -534,5 +534,5 @@ A script to import and clean data collated from Repair Cafes by the Open Repair 
 
 ## Weaknesses and areas for improvement
 
-1.  Several sources are updated sporadically or with no updates planned
+1.  Several sources are updated sporadically or with no updates planned (e.g. generated through projects that have concluded)
 2.  Mapping of compositional data to UNU isn't weighted by market share i.e. compositional data is not always representative

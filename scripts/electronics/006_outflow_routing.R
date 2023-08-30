@@ -375,6 +375,13 @@ write_xlsx(received_AATF_reuse_54,
 
 ## EBAY DATA
 
+## Facebook marketplace
+
+# Cateogries: electronics, home goods
+# selenium
+
+# CEX
+
 # Terms used by product group 
 
 # Sayers 
