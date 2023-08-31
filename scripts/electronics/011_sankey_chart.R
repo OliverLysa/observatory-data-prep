@@ -36,81 +36,29 @@ source("./scripts/functions.R",
 options(scipen = 999)
 
 # *******************************************************************************
+# Proportional data
+# *******************************************************************************
+
+# Read proportion data
+# This approach assumes that proportions are the same across all years/value chain stages
+BoM_percentage_UNU <- read_xlsx(
+  "./cleaned_data/BoM_percentage_UNU.xlsx")
+
+# *******************************************************************************
 # Material formulation > Component manufacture
 # *******************************************************************************
 
-# Import BoM data from Babbit (covering consumer electronics)
-BoM_sankey_input <- read_excel(
-  "./cleaned_data/BoM_data_UNU.xlsx") %>%
-  # remove non-numeric entries in year column to then be able to select the latest
-  mutate_at(c('year'), trimws) %>%
-  mutate(year = gsub("[^0-9]", "", year)) %>%
-  # convert to numeric
-  mutate_at(c('year'), as.numeric) %>%
-  na.omit() %>%
-  # get data for most recent product within each group
-  group_by(product) %>%
-  top_n(1, abs(year)) %>%
-  # Renames columns
-  mutate(source = material) %>%
-  rename(target = component) %>%
-  select("product", 
-         "source",
-         "target",
-         "material",
-         "value") %>%
-  mutate_at(c('value'), as.numeric)
-
-# convert product material composition into % terms (Converts Babbit into percentage format)
-BoM_sankey_percentage <- BoM_sankey_input %>% 
-  group_by(product, material) %>%
-  summarise(sum(value)) %>%
-  rename(value = 3) %>%
-  mutate(freq = value / sum(value)) %>%
-  select(-value)
-
-# Import BoM data from BEIS (covering also professional equipment)
-BoM_BEIS_all <- read_xlsx("./cleaned_data/BoM_BEIS_all.xlsx")
-
-# Exclude totals and summarise
-BoM_BEIS_grouped <- BoM_BEIS_all %>%
-  filter(material != "Total") %>%
-  group_by(UNU, material) %>%
-  summarise(value = mean(value)) %>%
-  mutate(freq = value / sum(value)) %>%
-  select(-value) %>%
-  rename("unu_key" = 1)
-
-# Replace UNU code with colloquial terms
-BoM_BEIS_grouped <- left_join(BoM_BEIS_grouped, 
-                              UNU_colloquial, 
-                              by = c("unu_key"))
-
-# Drop unu_key column
-BoM_BEIS_grouped <- BoM_BEIS_grouped[-1]
-
-# Bind Babbit and BEIS
-BoM_sankey_percentage <-
-  rbindlist(
-    list(
-      BoM_sankey_percentage,
-      BoM_BEIS_grouped
-    ),
-    use.names = TRUE
-)
-
-# Import inflow data from the stacked area chart to multiply the BoM by to get tonnes per year across inflow stages
-# This is already filtered on apparent consumption calculation
-inflows <- read_excel(
-  "./cleaned_data/inflow_indicators_interpolated.xlsx")
+# Import interpolated inflow mass data
+inflow_unu_mass <- read_xlsx( 
+           "./cleaned_data/inflow_unu_mass.xlsx")
 
 # Merge inflows and colloquial
-inflows <- merge(inflows, UNU_colloquial,
+inflows <- merge(inflow_unu_mass, UNU_colloquial,
                    by = c("unu_key")) %>%
   select(-c(unu_key))
 
 # Right joins the two files to multiply the BoM by flows in unit to derive flows in mass between materials and components of products, components and materials by year by year
-material_formulation <- right_join(BoM_sankey_input, inflows,
+material_formulation <- right_join(BoM_percentage_UNU, inflows,
                              by = c("product")) %>%
   mutate(value = (value.x * value.y)/1000000) %>%
   select(-c(value.x,
@@ -157,19 +105,20 @@ component_manufacture <- material_formulation %>%
 # Repair/maintenance
 # *******************************************************************************
 
+
+
 # *******************************************************************************
 # Usage > Collection/separation 
 # *******************************************************************************
 
-# Can either convert mass into units and then multiply by BoM or multiply by proportion table made in 004
 # Import collected data
 collected_all_54 <- read_excel(
   "./cleaned_data/electronics_sankey/collected_all_54.xlsx")
 
-# Produce product usage > collected stage data in sankey format in mass by 
+# Produce product usage > collected stage data in mass sankey format by 
 # multiplying the proportions from the BoM to the mass flows
-# the difference between this, other collection and anticipated outflows based on lifespans is leakage
-collected <- merge(collected_all_54, UNU_colloquial,
+
+collected_PCS <- merge(collected_all_54, UNU_colloquial,
                                      by = c("unu_key")) %>%
   mutate(source = product,
          target = product) %>%
@@ -178,12 +127,11 @@ collected <- merge(collected_all_54, UNU_colloquial,
          "target",
          "year",
          "value") %>%
-  mutate(flow = "Product usage_collected") %>%
-  filter(product %in% unique(component_manufacture$product)) %>%
+  # filter(product %in% unique(component_manufacture$product)) %>%
   mutate_at(c('year'), as.numeric)
 
 # Right join the BoM proportion and mass collected per year
-collected_material <- right_join(BoM_sankey_percentage, collected,
+collected_material <- right_join(BoM_percentage_UNU, collected,
                                    by = c("product")) %>%
   mutate(mass = freq*value) %>%
   select("product", 
@@ -191,11 +139,10 @@ collected_material <- right_join(BoM_sankey_percentage, collected,
          "target",
          "material",
          "year",
-         "mass",
-         "flow") %>%
-  rename(value = mass)
-  
-collected_material$target <- paste(collected_material$target, "collected", sep = "_")
+         "mass") %>%
+  rename(value = mass) %>%
+  mutate(source = "usage",
+         target = "collected")
 
 # *******************************************************************************
 # Collection > reuse/resale
@@ -210,43 +157,25 @@ reuse_received_AATF_54 <- read_excel(
 # the difference between this, other collection and anticipated outflows based on lifespans is leakage
 reuse_received_AATF <- merge(reuse_received_AATF_54, UNU_colloquial,
                    by = c("unu_key")) %>%
-  mutate(source = product,
-         target = product) %>%
   select("product", 
-         "source",
-         "target",
          "year",
          "value") %>%
-  mutate(flow = "collected_reuse AATF") %>%
-  filter(product %in% unique(component_manufacture$product)) %>%
+  # filter(product %in% unique(component_manufacture$product)) %>%
   mutate_at(c('year'), as.numeric)
 
 # Right join the BoM proportion and mass collected per year
-reuse_received_AATF_material <- right_join(BoM_sankey_percentage, reuse_received_AATF,
+reuse_received_AATF_material <- right_join(BoM_percentage_UNU, reuse_received_AATF,
                                  by = c("product")) %>%
   mutate(mass = freq*value) %>%
   select("product", 
-         "source",
-         "target",
          "material",
          "year",
-         "mass",
-         "flow") %>%
-  rename(value = mass)
+         "mass") %>%
+  rename(value = mass) %>%
+  mutate(source = "collected",
+         target = "reuse")
 
-reuse_received_AATF_material$source <- paste(reuse_received_AATF_material$source, "collected", sep = "_")
-
-# Binds the files
-sankey_all <- rbindlist(
-  list(
-    material_formulation,
-    component_manufacture,
-    collected_material,
-    reuse_received_AATF_material),
-  use.names = TRUE) %>%
-  filter(year != 2022,
-         value != 0) %>%
-  mutate(across(c('value'), round, 2))
+# Needs to then be duplicated and combined to create remainder of the reuse loop
 
 # *******************************************************************************
 # Collection > recycling
@@ -262,31 +191,23 @@ recycling_received_AATF_54 <- read_excel(
 # the difference between this, other collection and anticipated outflows based on lifespans is leakage
 recycling_received_AATF_54 <- merge(recycling_received_AATF_54, UNU_colloquial,
                              by = c("unu_key")) %>%
-  mutate(source = product,
-         target = product) %>%
   select("product", 
-         "source",
-         "target",
          "year",
          "value") %>%
-  mutate(flow = "collected_recycling AATF") %>%
-  filter(product %in% unique(component_manufacture$product)) %>%
+  # filter(product %in% unique(component_manufacture$product)) %>%
   mutate_at(c('year'), as.numeric)
 
 # Right join the BoM proportion and mass collected per year
-recycling_received_AATF_54 <- right_join(BoM_sankey_percentage, recycling_received_AATF_54,
+recycling_received_AATF_54_material <- right_join(BoM_percentage_UNU, recycling_received_AATF_54,
                                            by = c("product")) %>%
   mutate(mass = freq*value) %>%
   select("product", 
-         "source",
-         "target",
          "material",
          "year",
-         "mass",
-         "flow") %>%
-  rename(value = mass)
-
-recycling_received_AATF_54$source <- paste(recycling_received_AATF_54$source, "collected", sep = "_")
+         "mass") %>%
+  rename(value = mass) %>%
+  mutate(source = "collected",
+         target = "recycle")
 
 # Binds the files
 sankey_all <- rbindlist(

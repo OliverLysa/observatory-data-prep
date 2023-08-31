@@ -47,8 +47,67 @@ source("./scripts/functions.R",
 options(scipen = 999)
 
 # *******************************************************************************
-# Maintenance/repair
+# Repair/maintenance
 # *******************************************************************************
+
+## Repair cafe activity 
+
+# Open repair data
+
+# Import data, filter to Great Britain
+Openrepair <- read_csv("./raw_data/OpenRepairData_v0.3_aggregate_202210.csv") %>%
+  filter(country == "GBR")
+
+# Reclassify products to UNU using ords_unu concordance table, group by UNU and year and summarise number of events, split by repair_status
+Openrepair_UNU <- read_csv("./classifications/concordance_tables/ords_unu.csv") %>%
+  select(1:4) %>%
+  right_join(Openrepair, by = "product_category_id") %>%
+  select(1:4,10:13,16) %>%
+  rename(year = event_date)
+
+# Remove the month identifier in the month ID column to be able to group by year
+# This feature can be removed for more time-granular data e.g. by month or quarter
+Openrepair_UNU$year <- 
+  substr(Openrepair_UNU$year, 1, 4)
+
+# Get count by UNU category
+Openrepair_UNU <- Openrepair_UNU %>%
+  group_by(unu_key, repair_status, year) %>%
+  count()
+
+# Add leading 0s to unu_key column up to 4 digits to help match to other data
+Openrepair_UNU$unu_key <- str_pad(Openrepair_UNU$unu_key, 4, pad = "0")
+
+# Convert into mass terms
+# Import average mass data by UNU from WOT project
+UNU_mass <- read_csv(
+  "./cleaned_data/htbl_Key_Weight.csv") %>%
+  clean_names() %>%
+  group_by(unu_key, year) %>%
+  summarise(value = mean(average_weight))
+
+# Join by unu key and closest year
+# For each value in inflow_indicators year column, find the closest value in UNU_mass that is less than or equal to that x value
+by <- join_by(unu_key, closest(year >= year))
+# Join
+Openrepair_UNU_mass <- merge(Openrepair_UNU, UNU_mass) %>%
+  # calculate mass inflow in tonnes (as mass given in kg/unit in source)
+  # https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf
+  mutate(mass = n*value) 
+
+# Combine result categories with assumptions for exiting the stock
+stock_exit_assumption <- c(1,0,0.5)
+repair_status <- c('Fixed', 'End of life', 'Repairable')
+stock_exit_assumption <- data.frame(stock_exit_assumption,repair_status)
+
+# Get stock exit value
+Openrepair_UNU_mass <- merge(Openrepair_UNU_mass, stock_exit_assumption) %>%
+  mutate(value = mass*stock_exit_assumption) %>%
+  select(1:3, 5) %>%
+  group_by(unu_key, year) %>%
+  summarise(value = sum(value))
+
+# Household repair activity
 
 # *******************************************************************************
 # Collection/separation 
@@ -231,23 +290,6 @@ write_xlsx(collected_all_54,
 # Difference between WEE collection and WEEE received may proxy collection-stage leakage 
 
 # *******************************************************************************
-# Repair/maintenance
-# *******************************************************************************
-
-# Open repair data
-
-# Import data, filter to britain
-Openrepair <- read_csv("./raw_data/OpenRepairData_v0.3_aggregate_202210.csv") %>%
-  filter(country == "GBR",
-         product_age != "NA",
-         product_age < 40, 
-         product_age > 0)
-
-# Reclassify products to UNU
-
-# Convert into mass terms
-
-# *******************************************************************************
 # Reuse/resale
 # *******************************************************************************
 
@@ -373,21 +415,19 @@ received_AATF_reuse_54 <- received_AATF_reuse_wide_54 %>%
 write_xlsx(received_AATF_reuse_54, 
            "./cleaned_data/electronics_sankey/reuse_received_AATF_54.xlsx")
 
+# Domestic reuse (B2C/C2C): 82Kt - https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf
+
 ## EBAY DATA
 
 ## Facebook marketplace
 
-# Cateogries: electronics, home goods
-# selenium
-
 # CEX
 
-# Terms used by product group 
+# Mapping to UNU
 
 # Sayers 
 # Commercial reuse (B2B): 90Kt
 # ITAM/D e.g large global operators like RDC-Computacenter, TES and SIMS: 90Kt - covers remanufacturing too
-# Domestic reuse (B2C/C2C): 82Kt - https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf
 # Returns under warranty: 102Kt
 
 # *******************************************************************************
