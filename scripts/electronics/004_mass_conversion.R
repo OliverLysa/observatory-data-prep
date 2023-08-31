@@ -117,7 +117,7 @@ BoM_filter_list_Babbit <- c("CRT Monitors",
                      "Gaming console",
                      "Cameras")
 
-# TO REDO:
+# TO REDO as external lookup table
 # Rename products to match the UNU colloquial classification, group by product, component and material to average across models and years, then filter to products for which data is held
 BoM_data_UNU_Babbit <- BoM_data_bound_Babbit %>%
   mutate(
@@ -178,6 +178,10 @@ BoM_data_UNU_Babbit <- BoM_data_bound_Babbit %>%
 # Done separate due to issue with special character
 BoM_data_UNU_Babbit$product <- gsub("Laptops", "Laptops & Tablets",
                              BoM_data_UNU_Babbit$product)
+
+# Write data file
+write_xlsx(BoM_data_UNU_Babbit, 
+           "./cleaned_data/BoM_data_UNU.xlsx")
 
 # Return most recent model within each product group
 BoM_data_UNU_Babbit_latest <- BoM_data_UNU_Babbit %>%
@@ -335,3 +339,4 @@ inflow_mass <- left_join(inflows_indicators, UNU_mass, by) %>%
 # Write xlsx to the cleaned data folder
 write_xlsx(inflow_mass, 
            "./cleaned_data/inflow_unu_mass.xlsx")
+

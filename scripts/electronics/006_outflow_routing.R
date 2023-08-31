@@ -50,9 +50,7 @@ options(scipen = 999)
 # Repair/maintenance
 # *******************************************************************************
 
-## Repair cafe activity 
-
-# Open repair data
+## Repair cafe activity - Open repair data
 
 # Import data, filter to Great Britain
 Openrepair <- read_csv("./raw_data/OpenRepairData_v0.3_aggregate_202210.csv") %>%
@@ -108,6 +106,8 @@ Openrepair_UNU_mass <- merge(Openrepair_UNU_mass, stock_exit_assumption) %>%
   summarise(value = sum(value))
 
 # Household repair activity
+
+# Repair activity by business
 
 # *******************************************************************************
 # Collection/separation 
