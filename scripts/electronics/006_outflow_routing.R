@@ -1,8 +1,7 @@
 ##### **********************
 # Author: Oliver Lysaght
 # Purpose: Script calculates the outflow routing from the use and collection nodes across the following pathways to estimate a 'circularity rate'
-# Inputs:
-# Required annual updates:
+# Required updates:
 # The URL to download from (check end June)
 # https://www.gov.uk/government/statistical-data-sets/waste-electrical-and-electronic-equipment-weee-in-the-uk
 # Defra's 'waste tracking' system should provide improved numbers for outflow destinations within the regulated waste system when in place
@@ -47,7 +46,7 @@ source("./scripts/functions.R",
 options(scipen = 999)
 
 # *******************************************************************************
-# Repair/maintenance
+# Repair
 # *******************************************************************************
 
 ## Repair cafe activity - Open repair data
@@ -68,7 +67,7 @@ Openrepair_UNU <- read_csv("./classifications/concordance_tables/ords_unu.csv") 
 Openrepair_UNU$year <- 
   substr(Openrepair_UNU$year, 1, 4)
 
-# Get count by UNU category
+# Get count by UNU category, year and repair status
 Openrepair_UNU <- Openrepair_UNU %>%
   group_by(unu_key, repair_status, year) %>%
   count()
@@ -77,7 +76,7 @@ Openrepair_UNU <- Openrepair_UNU %>%
 Openrepair_UNU$unu_key <- str_pad(Openrepair_UNU$unu_key, 4, pad = "0")
 
 # Convert into mass terms
-# Import average mass data by UNU from WOT project
+# Import average mass data by UNU
 UNU_mass <- read_csv(
   "./cleaned_data/htbl_Key_Weight.csv") %>%
   clean_names() %>%
@@ -93,12 +92,13 @@ Openrepair_UNU_mass <- merge(Openrepair_UNU, UNU_mass) %>%
   # https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf
   mutate(mass = n*value) 
 
-# Combine result categories with assumptions for exiting the stock
+# Combine result categories with assumptions for remaining in the stock
+# Fixed - taken as 100%, repairable as 50%, end of life as 0% i.e. will exit the stock
 stock_exit_assumption <- c(1,0,0.5)
 repair_status <- c('Fixed', 'End of life', 'Repairable')
 stock_exit_assumption <- data.frame(stock_exit_assumption,repair_status)
 
-# Get stock exit value
+# Get mass value of products retained in the stock through the repair cafes
 Openrepair_UNU_mass <- merge(Openrepair_UNU_mass, stock_exit_assumption) %>%
   mutate(value = mass*stock_exit_assumption) %>%
   select(1:3, 5) %>%
@@ -106,8 +106,18 @@ Openrepair_UNU_mass <- merge(Openrepair_UNU_mass, stock_exit_assumption) %>%
   summarise(value = sum(value))
 
 # Household repair activity
+# https://www2.deloitte.com/uk/en/pages/consumer-business/articles/sustainable-consumer.html
+# https://yougov.co.uk/topics/consumer/articles-reports/2021/07/01/right-repair-appliances-brits-fix
 
 # Repair activity by business
+# https://reuse-network.org.uk/wp-content/uploads/2021/05/Social-Impact-Report-2020.pdf - An estimated 3.4 million electrical and furniture items were reused in 2020
+# In warranty / out-of-warranty repairs
+# SIC codes:
+# 3313
+# 3314
+# 951
+# 9521
+# 9522
 
 # *******************************************************************************
 # Collection/separation 
@@ -290,7 +300,7 @@ write_xlsx(collected_all_54,
 # Difference between WEE collection and WEEE received may proxy collection-stage leakage 
 
 # *******************************************************************************
-# Reuse/resale
+# Reuse and resale
 # *******************************************************************************
 
 # Reported household & non-household reuse of WEEE received at an approved authorised treatment facility (AATF)
@@ -417,28 +427,31 @@ write_xlsx(received_AATF_reuse_54,
 
 # Domestic reuse (B2C/C2C): 82Kt - https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf
 
-## EBAY DATA
-
-## Facebook marketplace
-
+# EBAY DATA
+# Facebook marketplace
 # CEX
 
-# Mapping to UNU
-
-# Sayers 
+# Returns under warranty: 102Kt
+ 
 # Commercial reuse (B2B): 90Kt
 # ITAM/D e.g large global operators like RDC-Computacenter, TES and SIMS: 90Kt - covers remanufacturing too
-# Returns under warranty: 102Kt
+
+# Charity shop resale
 
 # *******************************************************************************
 # Refurbishment
 # *******************************************************************************
 
+# Amazon, Ebay
+
 # *******************************************************************************
 # Remanufacture
 # *******************************************************************************
 
-# Oakdene Hollins
+# Amazon, Ebay
+
+# Oakdene Hollins 2022 - no remanufacture identified for domestic appliances
+# European Remanufacturing Network market study
 # Industry report (2005) - remanufacturing industry association
 
 # *******************************************************************************
@@ -861,6 +874,3 @@ outflow_routing <- read_excel(
          route = gsub("Other", "refurbish", route),
          route = gsub("Take back scheme", "remanufacture", route),
          route = gsub("Unknown", "maintenance", route))
-
-
-# PYMC - Bayesian
