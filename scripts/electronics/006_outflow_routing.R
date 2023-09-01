@@ -17,11 +17,6 @@ packages <- c("magrittr",
               "tidyverse", 
               "readODS", 
               "data.table", 
-              "RSelenium", 
-              "netstat", 
-              "uktrade", 
-              "httr",
-              "jsonlite",
               "mixdist",
               "janitor")
 
@@ -49,7 +44,16 @@ options(scipen = 999)
 # Repair
 # *******************************************************************************
 
-## Repair cafe activity - Open repair data
+# *******************************************************************************
+# Household production
+# https://www2.deloitte.com/uk/en/pages/consumer-business/articles/sustainable-consumer.html
+# https://yougov.co.uk/topics/consumer/articles-reports/2021/07/01/right-repair-appliances-brits-fix
+
+# *******************************************************************************
+# Broken down in line with UK Sectoral Classification for the National Accounts to help link to MRIO 
+# Households and NPISHs
+
+## Open repair data
 
 # Import data, filter to Great Britain
 Openrepair <- read_csv("./raw_data/OpenRepairData_v0.3_aggregate_202210.csv") %>%
@@ -105,9 +109,6 @@ Openrepair_UNU_mass <- merge(Openrepair_UNU_mass, stock_exit_assumption) %>%
   group_by(unu_key, year) %>%
   summarise(value = sum(value))
 
-# Household repair activity
-# https://www2.deloitte.com/uk/en/pages/consumer-business/articles/sustainable-consumer.html
-# https://yougov.co.uk/topics/consumer/articles-reports/2021/07/01/right-repair-appliances-brits-fix
 
 # Repair activity by business
 # https://reuse-network.org.uk/wp-content/uploads/2021/05/Social-Impact-Report-2020.pdf - An estimated 3.4 million electrical and furniture items were reused in 2020
@@ -429,6 +430,7 @@ write_xlsx(received_AATF_reuse_54,
 
 # EBAY DATA
 # Facebook marketplace
+# https://github.com/passivebot/facebook-marketplace-scraper
 # CEX
 
 # Returns under warranty: 102Kt

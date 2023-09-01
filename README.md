@@ -1,12 +1,10 @@
-# 🚀 CE observatory data processing
+# 🚀 CE observatory data processing - electronics
 
 *Contact*: Oliver Lysaght (oliverlysaght\@icloud.com)
 
 ## WORK IN PROGRESS
 
 # Purpose
-
-*'Dashboards can be a powerful way of allowing access to large amounts of data, which can help people make decisions'* ([ONS, 2022](https://analysisfunction.civilservice.gov.uk/policy-store/top-tips-for-designing-dashboards/))
 
 A collection of scripts to:
 
@@ -15,7 +13,7 @@ A collection of scripts to:
 2.  transform these through steps including:
 
     1.  cleaning and reformatting;
-    2.  grouping and summarising;
+    2.  grouping by classifications and summarising;
     3.  data validation, interpolation and extrapolation;
     4.  calculating key variables/metrics; and
 
@@ -63,10 +61,14 @@ Individual scripts encompass extraction and transformation steps.
 
 #### [000_classification_matching.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/000_classification_matching.R)
 
-The observatory dashboard presents data on electronics using two classifications:
+The observatory dashboard presents product-level data on electronics using two classifications:
 
 1.  A 54 category '[UNU-KEY'](https://github.com/OliverLysa/observatory/blob/main/classifications/classifications/UNU.xlsx) classification (Wang et al., 2012; [Forti, Baldé and Kuehr, 2018](https://collections.unu.edu/eserv/UNU:6477/RZ_EWaste_Guidelines_LoRes.pdf)) - the objective of which is to group products by 'similar function, comparable material composition (in terms of hazardous substances and valuable materials) and related end-of-life attributes...in addition to...a homogeneous average weight and life-time distribution' ([Baldé *et al.* 2015](https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf)); and
 2.  A 14 category classification used by public authorities in the UK to report EEE/WEEE-related data against.
+
+Material classification
+
+Activity classification
 
 ##### Inputs
 
@@ -257,14 +259,14 @@ A BoM is a hierarchical data object providing a list of the raw materials, compo
 
 ##### Workflow
 
-1.  Extracts BoM data in either absolute or proportion terms (as available) from listed sources and assigns these to UNU-KEYs. Converts all BoM data to a proportional basis.
-2.  Using mass data by UNU-KEY from Van Straalen *et al.* (2016) for its representativeness, (to be potentially updated with mass-based trade data in the medium-term followed by BoM based estimates coupled with product-market share data), multiplies this by BoM data in proportional terms to get mass by material/component for each UNU-KEY
-3.  Multiplies BoM data in mass terms by UNU-KEY with annual unit-level apparent consumption data to calculate flows of materials/components each year
-4.  Exports data to CSV format
+1.  Extracts BoM data in either absolute or proportion terms (as available) from listed sources and assigns these to UNU-KEYs. Converts all BoM data to a proportional basis for use in sankey.
+2.  Using mass data by UNU-KEY from Van Straalen *et al.* (2016) for its representativeness, (to be potentially updated with mass-based trade data in the medium-term followed by BoM based estimates coupled with product-market share data), multiplies this by inflow data to get total mass inflow by material/component for each UNU-KEY
+3.  Exports data to CSV format
 
 ##### Outputs
 
--   A CSV of annual inflows by UNU-KEY in both unit and mass terms
+-   Compiled BoM data in proportion terms
+-   A CSV of annual inflows by UNU-KEY in mass terms
 
 ------------------------------------------------------------------------
 
