@@ -139,18 +139,18 @@ collected_PCS <- merge(collected_all_54, UNU_colloquial,
   mutate_at(c('year'), as.numeric)
 
 # Right join the BoM proportion and mass collected per year
-collected_material <- right_join(BoM_percentage_UNU, collected,
+collected_material <- right_join(BoM_percentage_UNU, collected_PCS,
                                    by = c("product")) %>%
   mutate(mass = freq*value) %>%
-  select("product", 
-         "source",
-         "target",
-         "material",
+  select("material",
+         "product",
          "year",
-         "mass") %>%
+         "mass",
+         "source",
+         "target") %>%
   rename(value = mass) %>%
   mutate(source = "consume",
-         target = "collected")
+         target = "collection")
 
 # *******************************************************************************
 # Collection > reuse/resale
@@ -180,7 +180,7 @@ reuse_received_AATF_material <- right_join(BoM_percentage_UNU, reuse_received_AA
          "year",
          "mass") %>%
   rename(value = mass) %>%
-  mutate(source = "collected",
+  mutate(source = "collection",
          target = "reuse")
 
 # Needs to then be duplicated and combined to create remainder of the reuse loop
@@ -214,10 +214,26 @@ recycling_received_AATF_54_material <- right_join(BoM_percentage_UNU, recycling_
          "year",
          "mass") %>%
   rename(value = mass) %>%
-  mutate(source = "collected",
+  mutate(source = "collection",
          target = "recycle")
 
-# Binds the files
+# *******************************************************************************
+# Collection > refurbishment
+# *******************************************************************************
+
+# *******************************************************************************
+# Collection > Remanufacture
+# *******************************************************************************
+
+# *******************************************************************************
+# Collection > Exports
+# *******************************************************************************
+
+# *******************************************************************************
+# Collection > Disposal
+# *******************************************************************************
+
+# Binds the sankey flows together
 sankey_all <- rbindlist(
   list(
     material_formulation,
@@ -228,14 +244,6 @@ sankey_all <- rbindlist(
   filter(year != 2022,
          value != 0) %>%
   mutate(across(c('value'), round, 2))
-
-# *******************************************************************************
-# Collection > refurbishment
-# *******************************************************************************
-
-# *******************************************************************************
-# Collection > Remanufacture
-# *******************************************************************************
 
 # Write file 
 write_csv(sankey_all, 
