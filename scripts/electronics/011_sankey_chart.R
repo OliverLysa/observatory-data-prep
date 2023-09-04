@@ -45,6 +45,14 @@ BoM_percentage_UNU <- read_xlsx(
   "./cleaned_data/BoM_percentage_UNU.xlsx")
 
 # *******************************************************************************
+# Extraction > Refinement
+# *******************************************************************************
+
+# *******************************************************************************
+# Refinement > Material formulation
+# *******************************************************************************
+
+# *******************************************************************************
 # Material formulation > Component manufacture
 # *******************************************************************************
 
@@ -57,58 +65,58 @@ inflows <- merge(inflow_unu_mass, UNU_colloquial,
                    by = c("unu_key")) %>%
   select(-c(unu_key))
 
-# Right joins the two files to multiply the BoM by flows in unit to derive flows in mass between materials and components of products, components and materials by year by year
+# Right joins the two files to multiply the BoM by flows in unit to derive flows in mass of materials and components of products by year
 material_formulation <- right_join(BoM_percentage_UNU, inflows,
                              by = c("product")) %>%
-  mutate(value = (value.x * value.y)/1000000) %>%
-  select(-c(value.x,
-            value.y)) %>%
+  # Multiply material composition (breakdown of total product) by inflows
+  mutate(value = (freq * value)) %>%
+  # Remove unwanted columns
+  select(-c(freq,
+            variable,
+            unit)) %>%
+  # Filter out 0 values
   filter(value >0) %>%
   mutate(across(c('value'), round, 2)) %>%
-  mutate(flow = "material formulation_component manufacture")
-
-# Aggregated (lesser-level detail - for more aggregate sankey)
-material_formulation <- right_join(BoM_sankey_input, inflows,
-                                   by = c("product")) %>%
-  mutate(value = (value.x * value.y)/1000000) %>%
-  select(-c(value.x,
-            value.y)) %>%
-  filter(value >0) %>%
-  mutate(across(c('value'), round, 2)) %>%
-  mutate(flow = "material formulation_component manufacture")
-
-# Aggregated (lesser-level detail table)
-material_formulation_aggregated <- material_formulation %>%
-  mutate(source = "Material_formulation",
-         target = "Component_manufacture") %>%
-  group_by(product, source, target, material) %>%
-  summarise(value = sum(value))
+  mutate(source = "material_formulation",
+         target = "component_manufacture")
 
 # *******************************************************************************
-# Component manufacture > product usage
+# Component manufacture > product assembly
 # *******************************************************************************
 
 # Duplicates the first file and renames columns to create the next sankey link through making long-format the BoM
 component_manufacture <- material_formulation %>% 
   mutate(source = target,
-         target = product) %>%
-  # Reorders columns
-  select("product", 
-         "source",
-         "target",
-         "material",
-         "year",
-         "value") %>%
-  mutate(flow = "component manufacture_product usage")
+         target = "product_assembly")
 
 # *******************************************************************************
-# Repair/maintenance
+# Product assembly > retail/distribute 
 # *******************************************************************************
 
-
+# Duplicates the first file and renames columns to create the next sankey link through making long-format the BoM
+product_assembly <- material_formulation %>% 
+  mutate(source = "product_assembly",
+         target = "retail_distribute")
 
 # *******************************************************************************
-# Usage > Collection/separation 
+# Retail/distribute > consume
+# *******************************************************************************
+
+# Duplicates the first file and renames columns to create the next sankey link through making long-format the BoM
+retail_distribute <- material_formulation %>% 
+  mutate(source = "retail_distribute",
+         target = "consume")
+
+# *******************************************************************************
+# Consume > repair/maintenance
+# *******************************************************************************
+
+# Write output to xlsx form
+read_xlsx(Openrepair_UNU_mass, 
+           "./cleaned_data/Openrepair_UNU_mass.xlsx")
+
+# *******************************************************************************
+# Consume > Collection 
 # *******************************************************************************
 
 # Import collected data
@@ -141,7 +149,7 @@ collected_material <- right_join(BoM_percentage_UNU, collected,
          "year",
          "mass") %>%
   rename(value = mass) %>%
-  mutate(source = "usage",
+  mutate(source = "consume",
          target = "collected")
 
 # *******************************************************************************
@@ -222,11 +230,11 @@ sankey_all <- rbindlist(
   mutate(across(c('value'), round, 2))
 
 # *******************************************************************************
-# Refurbishment
+# Collection > refurbishment
 # *******************************************************************************
 
 # *******************************************************************************
-# Remanufacture
+# Collection > Remanufacture
 # *******************************************************************************
 
 # Write file 

@@ -109,6 +109,9 @@ Openrepair_UNU_mass <- merge(Openrepair_UNU_mass, stock_exit_assumption) %>%
   group_by(unu_key, year) %>%
   summarise(value = sum(value))
 
+# Write output to xlsx form
+write_xlsx(Openrepair_UNU_mass, 
+           "./cleaned_data/Openrepair_UNU_mass.xlsx")
 
 # Repair activity by business
 # https://reuse-network.org.uk/wp-content/uploads/2021/05/Social-Impact-Report-2020.pdf - An estimated 3.4 million electrical and furniture items were reused in 2020
@@ -444,7 +447,8 @@ write_xlsx(received_AATF_reuse_54,
 # Refurbishment
 # *******************************************************************************
 
-# Amazon, Ebay
+# Amazon, Ebay, Backmarket, Music Magpie, Apple Refurbished
+# https://www.techradar.com/news/millions-of-brits-now-considering-buying-a-refurbished-smartphone
 
 # *******************************************************************************
 # Remanufacture
