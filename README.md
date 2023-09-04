@@ -19,7 +19,7 @@ A collection of scripts to:
 
 3.  export cleaned data outputs to an open source PostGreSQL database (supabase) for storage.
 
-Data outputs from these scripts are used to populate the ce-observatory - a dashboard providing for specific resource-product-industry categories, a detailed description of current baseline material and monetary flows as well as wider impacts, alongside the means to make comparison with alternative circular economy configurations. The ce-observatory can be viewed at the following URL:
+Data outputs from these scripts are used to populate the ce-observatory - a dashboard providing for specific resource-product-industry categories, a detailed description using high-quality data of current baseline material and monetary flows as well as wider impacts, alongside the means to make comparison with alternative circular economy configurations. The ce-observatory can be viewed at the following URL:
 
 # How to use
 
