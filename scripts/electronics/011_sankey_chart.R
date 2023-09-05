@@ -111,9 +111,18 @@ retail_distribute <- material_formulation %>%
 # Consume > repair/maintenance
 # *******************************************************************************
 
-# Write output to xlsx form
-read_xlsx(Openrepair_UNU_mass, 
-           "./cleaned_data/Openrepair_UNU_mass.xlsx")
+# Read open repair data in 
+repair <- 
+  read_xlsx("./cleaned_data/Openrepair_UNU_mass.xlsx") %>%
+  left_join(UNU_colloquial,
+             by = c("unu_key")) %>%
+  left_join(BoM_percentage_UNU,
+            by = c("product")) %>%
+  mutate(mass = freq*value) %>%
+  select(-c(unu_key, value, freq)) %>%
+  rename(value = mass) %>%
+  mutate(source = "consume",
+         target = "consume")
 
 # *******************************************************************************
 # Consume > Collection 
@@ -135,11 +144,11 @@ collected_PCS <- merge(collected_all_54, UNU_colloquial,
          "target",
          "year",
          "value") %>%
-  # filter(product %in% unique(component_manufacture$product)) %>%
+  filter(product %in% unique(material_formulation$product)) %>%
   mutate_at(c('year'), as.numeric)
 
 # Right join the BoM proportion and mass collected per year
-collected_material <- right_join(BoM_percentage_UNU, collected_PCS,
+collected <- right_join(BoM_percentage_UNU, collected_PCS,
                                    by = c("product")) %>%
   mutate(mass = freq*value) %>%
   select("material",
@@ -168,7 +177,7 @@ reuse_received_AATF <- merge(reuse_received_AATF_54, UNU_colloquial,
   select("product", 
          "year",
          "value") %>%
-  # filter(product %in% unique(component_manufacture$product)) %>%
+  filter(product %in% unique(material_formulation$product)) %>%
   mutate_at(c('year'), as.numeric)
 
 # Right join the BoM proportion and mass collected per year
@@ -184,12 +193,21 @@ reuse_received_AATF_material <- right_join(BoM_percentage_UNU, reuse_received_AA
          target = "reuse")
 
 # Needs to then be duplicated and combined to create remainder of the reuse loop
+reuse_return <- reuse_received_AATF_material %>%
+  mutate(source = "reuse",
+         target = "retail_distribute")
+
+reuse <- rbindlist(
+  list(
+    reuse_received_AATF_material,
+    reuse_return),
+  use.names = TRUE)
 
 # *******************************************************************************
 # Collection > recycling
 # *******************************************************************************
 
-# To improve the composition of outflow, we would ideally know the age of products at time they exit the stock to link to time-varying inflow composition data
+# To improve the composition of outflow, we would ideally know the age of products at time they exit the stock to link to time-varying inflow composition data when we have this
 # Multiply recycling by BoM Sankey percentage
 recycling_received_AATF_54 <- read_excel(
   "./cleaned_data/electronics_sankey/recycling_received_AATF_54.xlsx")
@@ -202,7 +220,7 @@ recycling_received_AATF_54 <- merge(recycling_received_AATF_54, UNU_colloquial,
   select("product", 
          "year",
          "value") %>%
-  # filter(product %in% unique(component_manufacture$product)) %>%
+  filter(product %in% unique(material_formulation$product)) %>%
   mutate_at(c('year'), as.numeric)
 
 # Right join the BoM proportion and mass collected per year
@@ -216,6 +234,17 @@ recycling_received_AATF_54_material <- right_join(BoM_percentage_UNU, recycling_
   rename(value = mass) %>%
   mutate(source = "collection",
          target = "recycle")
+
+# Needs to then be duplicated and combined to create remainder of the reuse loop
+recycling_return <- reuse_received_AATF_material %>%
+  mutate(source = "recycle",
+         target = "material_formulation")
+
+recycle <- rbindlist(
+  list(
+    recycling_received_AATF_54_material,
+    recycling_return),
+  use.names = TRUE)
 
 # *******************************************************************************
 # Collection > refurbishment
@@ -238,15 +267,20 @@ sankey_all <- rbindlist(
   list(
     material_formulation,
     component_manufacture,
-    collected_material,
-    reuse_received_AATF_material),
+    product_assembly,
+    retail_distribute,
+    collected,
+    repair,
+    reuse,
+    recycle),
   use.names = TRUE) %>%
-  filter(year != 2022,
-         value != 0) %>%
+  filter(value != 0,
+         material != "Total",
+         year <= 2021) %>%
   mutate(across(c('value'), round, 2))
 
 # Write file 
 write_csv(sankey_all, 
-          "./cleaned_data/electronics_chart_sankey.csv")
+          "./cleaned_data/electronics_chart_sankey_test.csv")
 
 

@@ -123,6 +123,10 @@ write_xlsx(Openrepair_UNU_mass,
 # 9521
 # 9522
 
+# One difficulty with using production statistics, is that firms report on behalf of their primary activity
+# The above codes therefore capture only values for firms for which repair is primary activity e..g omitting in-house repair activities of a retailer
+# Therefore consumption statistics e.g. family spending surveys may offer a wider and more accurate picture
+
 # *******************************************************************************
 # Collection/separation 
 # *******************************************************************************
