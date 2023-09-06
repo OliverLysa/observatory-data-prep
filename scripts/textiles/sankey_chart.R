@@ -79,7 +79,7 @@ textiles_sankey_projected <- read_excel(
   mutate(product = "Textiles",
          material = "Textiles")
 
-# Bind 2018 data and scenario data
+# Bind 2018 data and scenario data and name changes for consistency
 textiles_sankey <- rbindlist(
   list(
     textiles_sankey_links_2018,

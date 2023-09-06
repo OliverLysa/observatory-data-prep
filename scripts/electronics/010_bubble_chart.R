@@ -63,17 +63,17 @@ outflow_routing <- read_excel(
   names_to = "route", 
   values_to = "value") %>%
   filter(variable == "Percentage",
-         route != "Total") %>%
+         route != "total") %>%
   drop_na(value) %>%
   mutate(year = 2017) %>%
   select(-c(variable, unu_description)) %>%
-  mutate(route = gsub("General bin", "disposal", route),
-         route = gsub("Recycling", "recycling", route),
-         route = gsub("Sold", "resale", route),
-         route = gsub("Donation or re-use", "resale", route),
-         route = gsub("Other", "refurbish", route),
-         route = gsub("Take back scheme", "remanufacture", route),
-         route = gsub("Unknown", "maintenance", route))
+  mutate(route = gsub("general_bin", "disposal", route),
+         route = gsub("recycling", "recycling", route),
+         route = gsub("sold", "resale", route),
+         route = gsub("donation_or_re_use", "resale", route),
+         route = gsub("other", "refurbish", route),
+         route = gsub("take_back_scheme", "remanufacture", route),
+         route = gsub("unknown", "maintenance", route))
 
 # Multiply percentages by ordinal score
 outflow_routing_weights <- read_excel(
