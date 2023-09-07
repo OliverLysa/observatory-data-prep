@@ -123,7 +123,7 @@ Companies are self-assigned to at least one (and up to four) of a condensed list
 
 ------------------------------------------------------------------------
 
-#### [001_international_trade.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/002_international_trade.R)
+#### [001_international_trade.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/001_international_trade.R)
 
 Script extracts international trade data from the UKTradeInfo API using the 'uktrade' R package/wrapper.
 
@@ -148,7 +148,7 @@ Script extracts international trade data from the UKTradeInfo API using the 'ukt
 
 ------------------------------------------------------------------------
 
-#### [002_domestic_production.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/001_domestic_production.R)
+#### [002_domestic_production.R](https://github.com/OliverLysa/observatory/blob/main/scripts/electronics/002_domestic_production.R)
 
 Script extracts UK domestic production data from the annual ONS publication. Estimation of missing values through interpolation and outlier replacement is undertaken in script 003.
 
