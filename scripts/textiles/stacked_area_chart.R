@@ -56,16 +56,22 @@ options(scipen = 999)
 # Create filter list for variables
 filter_list <- c("Consumption",
                  "Non-UK disposals",
-                 "Residual waste")
+                 "Residual waste",
+                 "UK reuse",
+                 "Reused UK",
+                 "Reused non-UK")
 
 # Import sankey data 
 textiles_area <- read_csv(
           "./cleaned_data/textiles_sankey_links.csv") %>%
   filter(target %in% filter_list) %>%
   mutate(
-    target = gsub("Non-UK disposals", 'outflow', target),
-    target = gsub("Residual waste", 'outflow', target),
-    target = gsub("Consumption", 'inflow',target)) %>%
+    target = gsub("Consumption", 'consumption',target),
+    target = gsub("UK reuse", 'reuse',target),
+    target = gsub("Reused UK", 'reuse',target),
+    target = gsub("Reused non-UK", 'reuse',target),
+    target = gsub("Non-UK disposals", 'waste', target),
+    target = gsub("Residual waste", 'waste', target)) %>%
   group_by(target, year, scenario) %>%
   summarise(value = sum(value)) %>%
   clean_names() %>%

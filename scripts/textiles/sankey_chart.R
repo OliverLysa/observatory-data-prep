@@ -88,9 +88,9 @@ textiles_sankey <- rbindlist(
   mutate(value = value*1000) %>%
   mutate(across(c('value'), round, 1)) %>%
   mutate(across(everything(), ~ replace(., . == "Non-UK reuse", "Reused non-UK"))) %>%
-  mutate(across(everything(), ~ replace(., . == "Non-UK disposals", "Disposed non-UK")))
-
-# Write csv
-write_csv(textiles_sankey,
-  "./cleaned_data/textiles_sankey_links.csv")
+  mutate(across(everything(), ~ replace(., . == "Non-UK disposals", "Disposed non-UK"))) %>%
+  mutate(across(everything(), ~ replace(., . == "Reused UK", "UK reuse"))) %>%
+  filter(value != 0) %>%
+  write_csv(
+    "./cleaned_data/textiles_sankey_links.csv")
 
