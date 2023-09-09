@@ -58,7 +58,6 @@ filter_list <- c("Consumption",
                  "Non-UK disposals",
                  "Residual waste",
                  "UK reuse",
-                 "Reused UK",
                  "Reused non-UK")
 
 # Import sankey data 
@@ -75,9 +74,6 @@ textiles_area <- read_csv(
   group_by(target, year, scenario) %>%
   summarise(value = sum(value)) %>%
   clean_names() %>%
-  mutate(unit = "mass",
-         product = "Textiles") %>%
   rename(variable = target) %>%
+  mutate(product = "Textiles") %>%
   write_csv("./cleaned_data/textiles_chart_area.csv")
-
-# Separate out outflows
