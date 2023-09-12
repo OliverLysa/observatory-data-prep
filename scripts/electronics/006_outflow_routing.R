@@ -793,7 +793,8 @@ WDI_filter <- c("09 01 10",
 # Import summarised WDI data and filter to waste codes
 landfill_WDI <- read_xlsx("./raw_data/Landfill_Incineration/Landfill/Output/Landfill_Grouped_All_Waste.xlsx",
                                          sheet = 1) %>%
-  filter(Waste_Code %in% WDI_filter)
+  filter(Waste_Code %in% WDI_filter) %>%
+  filter(`Waste_Code` == "20 03 01")
 
 # Incineration monitoring reports
 incineration <- read_xlsx("./cleaned_data/incineration_EWC.xlsx",

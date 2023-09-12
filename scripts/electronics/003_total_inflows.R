@@ -38,6 +38,16 @@ if (any(installed_packages == FALSE)) {
 invisible(lapply(packages, library, character.only = TRUE))
 
 # *******************************************************************************
+# Functions and options
+# *******************************************************************************
+# Import functions
+source("./scripts/Functions.R", 
+       local = knitr::knit_global())
+
+# Stop scientific notation of numeric values
+options(scipen = 999)
+
+# *******************************************************************************
 # Apparent consumption calculation
 # *******************************************************************************
 #
@@ -58,8 +68,16 @@ Summary_trade_UNU <-
   filter(Variable == "Units") %>%
   select(-c(Variable))
 
+# Import trade data pre-2007
+Summary_trade_UNU_pre_2007 <-
+  read_excel("./cleaned_data/summary_trade_UNU_pre_2007.xlsx")  %>%
+  as.data.frame() %>%
+  filter(Variable == "Units") %>%
+  select(-c(Variable))
+
 # Bind/append prodcom and trade datasets to create a total inflow dataset
 complete_inflows <- rbindlist(list(Summary_trade_UNU,
+                                   Summary_trade_UNU_pre_2007,
                                    Prodcom_data_UNU),
                               use.names = TRUE)
 
@@ -70,7 +88,7 @@ complete_inflows_wide <- pivot_wider(complete_inflows,
                                      values_from = Value) %>%
   clean_names()
 
-# Turn domestic production NA values into a 0 (to remove)
+# Turn domestic production NA values into a 0
 complete_inflows_wide["domestic_production"][is.na(complete_inflows_wide["domestic_production"])] <-
   0
 
@@ -85,8 +103,7 @@ complete_inflows_long <- complete_inflows_wide %>%
     # production perspective - issue of duplication
     apparent_output = domestic_production + total_exports,
     apparent_input = domestic_production + total_imports,
-    import_dependency = (total_imports / (total_imports + total_exports))
-  ) %>%
+    import_dependency = (total_imports / (total_imports + total_exports))) %>%
   pivot_longer(-c(unu_key,
                   year),
                names_to = "indicator",
@@ -108,6 +125,8 @@ inflow_wide_outlier_replaced_NA <-
   pivot_wider(names_from = unu_key,
               values_from = value) %>%
   clean_names() %>%
+  mutate_at(c('year'), as.numeric) %>%
+  arrange(year) %>%
   select(-year) %>%
   mutate_at(
     .vars = vars(contains("x")),
@@ -123,7 +142,7 @@ inflow_wide_outlier_replaced_interpolated <-
             rule = 2,
             maxgap = 10) %>%
   as.data.frame() %>%
-  mutate(year = c(2008:2021), .before = x0101) %>%
+  mutate(year = c(2001:2021), .before = x0101) %>%
   pivot_longer(-year, 
                names_to = "unu_key",
                values_to = "value") %>%

@@ -42,7 +42,8 @@ options(scipen = 999)
 # Read proportion data
 # This approach assumes that proportions are the same across all years/value chain stages
 BoM_percentage_UNU <- read_xlsx(
-  "./cleaned_data/BoM_percentage_UNU.xlsx")
+  "./cleaned_data/BoM_percentage_UNU.xlsx") %>%
+  mutate_at(c('material'), trimws)
 
 # *******************************************************************************
 # Extraction > Refinement
@@ -276,11 +277,18 @@ sankey_all <- rbindlist(
   use.names = TRUE) %>%
   filter(value != 0,
          material != "Total",
-         year <= 2021) %>%
-  mutate(across(c('value'), round, 2))
+         year <= 2021,
+         year >= 2008) %>%
+  mutate(across(c('value'), round, 2)) %>%
+  mutate_at(c('material'), trimws) %>%
+  mutate(
+    material = gsub("Other metals", 'Metals (other)', material),
+    material = gsub("Other glass", 'Glass (other)', material),
+    material = gsub("Flat panel glass", 'Flat-panel glass', material))
+    
 
 # Write file 
 write_csv(sankey_all, 
-          "./cleaned_data/electronics_chart_sankey_test.csv")
+          "./cleaned_data/electronics_sankey_links.csv")
 
 

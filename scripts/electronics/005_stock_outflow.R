@@ -173,10 +173,11 @@ BEIS_stock_filtered <- BEIS_stock %>%
   filter(!grepl("(?i)Total",product)) %>%
   select(-product_group) %>%
   filter(product != "NA") %>%
-  mutate(value = value / 1000)
+  mutate(value = value / 1000000)
 
 ggplot(BEIS_stock_filtered, aes(fill=product, y=value, x=Year)) + 
   geom_bar(position="stack", stat="identity") +
+  theme(panel.background = element_rect(fill = "#FFFFFF")) +
   scale_x_discrete(
     breaks = seq(1970, 2022, 5)
   ) +
@@ -293,6 +294,13 @@ tbl_stock$stock <- tbl_stock$inflow_cumsum - tbl_stock$outflow_cumsum
 # Convert into dataframe
 tbl_stock <- as.data.frame(tbl_stock)
 
+# Remove negative stock values by incorporating the negative stock value into WEEE (occurring because of the apparent consumption approach)
+selection <- which (tbl_stock$stock < 0 )
+ if (length(selection) > 0){
+  tbl_stock[selection, "outflow"] <- tbl_stock[selection, "outflow"] - tbl_stock[selection, "stock"]
+  tbl_stock[selection, "stock"] <- 0
+ }
+
 # Select columns of interest for merge
 unu_stock <- tbl_stock %>%
   select(c("unu_key",
@@ -317,6 +325,3 @@ unu_inflow_stock_outflow <-
 # Write summary file
 write_xlsx(unu_inflow_stock_outflow, 
            "./cleaned_data/unu_inflow_stock_outflow.xlsx")
-
-# Stock data published by BEIS
-# https://www.gov.uk/government/statistics/energy-consumption-in-the-uk-2022

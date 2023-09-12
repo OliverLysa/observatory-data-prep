@@ -137,8 +137,10 @@ BoM_data_UNU_Babbit <- BoM_data_bound_Babbit %>%
     product = gsub("Drone", 'Toys', product),
     product = gsub("Digital camera", 'Cameras', product),
   ) %>%
+  # filter to products of interest
   filter(product %in% BoM_filter_list_Babbit) %>%
-    mutate(across(everything(), ~ replace(., . == "Case", "Body"))) %>%
+  # simplify compositional breakdown
+  mutate(across(everything(), ~ replace(., . == "Case", "Body"))) %>%
     mutate(across(everything(), ~ replace(., . == "Casing", "Body"))) %>%
     mutate(across(everything(), ~ replace(., . == "Main body", "Body"))) %>%
     mutate(across(everything(), ~ replace(., . == "Main assembly", "Body"))) %>%
@@ -202,7 +204,15 @@ BoM_data_UNU_Babbit_latest_percentage <- BoM_data_UNU_Babbit_latest %>%
   summarise(sum(value)) %>%
   rename(value = 3) %>%
   mutate(freq = value / sum(value)) %>%
-  select(-value)
+  select(-value) %>%
+  mutate(
+    material = gsub("Aluminum", 'Aluminium', material),
+    material = gsub("PCB", 'Electronics incl. PCB', material),
+    material = gsub("Steel", 'Ferrous', material),
+    material = gsub("Other metals", 'Other metals', material),
+    material = gsub("Flat panel glass", 'Flat panel glass', material),
+    material = gsub("Other glass", 'Other glass', material)) %>%
+  mutate_at(c('product'), trimws) 
 
 # *******************************************************************************
 # Extract BoM data from BEIS ICF Ecodesign report
@@ -214,7 +224,7 @@ BoM_BEIS_absolute <-
 # Add leading 0s to unu_key column up to 4 digits to help match to other data
 BoM_BEIS_absolute$UNU <- str_pad(BoM_BEIS_absolute$UNU, 4, pad = "0")
 
-# UNU codes to remove due to overlapping with Babbit (Babbit prioritised)
+# UNU codes to remove due to overlapping with Babbit (Babbit prioritised due to providing specific models)
 remove <- c("0408", 
             "0309", 
             "0102",
@@ -248,7 +258,11 @@ BoM_BEIS_percentage <- BoM_BEIS_absolute_long %>%
 # Replace UNU code with colloquial terms
 BoM_BEIS_percentage <- left_join(BoM_BEIS_percentage, 
                               UNU_colloquial, 
-                              by = c("unu_key"))
+                              by = c("unu_key")) %>%
+  mutate(
+    material = gsub("Electronics", 'Electronics incl. PCB', material),
+    material = gsub("Aluminum", 'Aluminium', material)) %>%
+  mutate_at(c('material'), trimws) 
 
 # Drop unu_key column
 BoM_BEIS_percentage <- BoM_BEIS_percentage[-1]
@@ -282,8 +296,11 @@ BoM_BEIS_proportions_long <- BoM_BEIS_proportions %>%
 BoM_BEIS_proportions_long <- left_join(BoM_BEIS_proportions_long, 
                                  UNU_colloquial, 
                                  by = c("unu_key")) %>%
-  select(-c(unu_key))
-
+  select(-c(unu_key)) %>%
+  mutate(
+    material = gsub("Electronics", 'Electronics incl. PCB', material),
+    material = gsub("Aluminum", 'Aluminium', material)) %>%
+  mutate_at(c('material'), trimws) 
 
 # Bind Babbit and BEIS sources
 BoM_percentage_UNU <-
@@ -294,7 +311,8 @@ BoM_percentage_UNU <-
       BoM_data_UNU_Babbit_latest_percentage
     ),
     use.names = TRUE
-  )
+  ) %>%
+  mutate_at(c('material'), trimws)
 
 # Write data file
 write_xlsx(BoM_percentage_UNU, 
