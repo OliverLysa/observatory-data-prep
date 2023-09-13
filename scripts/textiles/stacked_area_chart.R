@@ -75,5 +75,5 @@ textiles_area <- read_csv(
   summarise(value = sum(value)) %>%
   clean_names() %>%
   rename(variable = target) %>%
-  mutate(product = "Textiles") %>%
+  mutate(product = "Clothing") %>%
   write_csv("./cleaned_data/textiles_chart_area.csv")
