@@ -1,4 +1,4 @@
-# 🚀 CE observatory data processing - electronics
+# 🚀 CE observatory data processing
 
 *Contact*: Oliver Lysaght (oliverlysaght\@icloud.com)
 
