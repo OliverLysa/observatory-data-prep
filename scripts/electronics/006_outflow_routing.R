@@ -448,7 +448,7 @@ write_xlsx(received_AATF_reuse_54,
 # Charity shop resale
 
 # *******************************************************************************
-# Refurbishment
+# Refurbishment/reconditioning
 # *******************************************************************************
 
 # Amazon, Ebay, Backmarket, Music Magpie, Apple Refurbished

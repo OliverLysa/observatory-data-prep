@@ -164,6 +164,8 @@ inflow_wide_outlier_replaced_spline <-
 # *******************************************************************************
 #
 
+# augmented dickeyfuller unit root test, # plot autocorrelation function and partial acf to get correct order
+
 # Produce forecast of sales - arima with economic variable externally (per capita GDP)
 # Hierarchical time-series with bottom up aggregation approach to forecast construction
 

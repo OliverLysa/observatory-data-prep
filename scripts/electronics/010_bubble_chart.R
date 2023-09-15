@@ -79,6 +79,18 @@ outflow_routing <- read_excel(
 outflow_routing_weights <- read_excel(
   "./intermediate_data/weights.xlsx")
 
+# Scoring logic based on the EMF CE-model 
+
+# Reused: 10 
+# Recycling: 6
+# Downcycling: -6 
+# Export: -6 
+# Landfill: -8 
+# Lost: -8 
+# Leakage: -10 
+# Incineration: -10 
+# Buried: -10
+
 # Merge outflow routing with outflow routing weights
 outflow_routing_weighted <- merge(outflow_routing,
                                     outflow_routing_weights,

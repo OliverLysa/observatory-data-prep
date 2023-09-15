@@ -40,7 +40,7 @@ options(scipen = 999)
 # *******************************************************************************
 
 bubble_data <- read_excel(
-  "./raw_data/textiles/Outputs_ForDistribution_v2.xlsx",
+  "./raw_data/Outputs_ForDistribution_v3.xlsx",
   sheet = "Impacts") %>%
   pivot_wider(names_from = Impact, 
               values_from = Value) %>%
@@ -49,7 +49,19 @@ bubble_data <- read_excel(
          ghgs = gh_gs_mt,
          land = land_km2,
          water = water_million_m3) %>%
-  mutate_if(is.numeric, round, digits = 1) %>%
-  mutate(product = "Clothing") %>%
-  write_csv("./cleaned_data/textiles_chart_bubble.csv")
+  mutate_if(is.numeric, round, digits = 1)
 
+ratios <- read_excel(
+  "./raw_data/Outputs_ForDistribution_v3.xlsx",
+  sheet = "Ratios") %>%
+  clean_names() %>%
+  full_join(bubble_data, by = c("year", "scenario")) %>%
+  pivot_longer(-c(
+    waste_ratio,
+    reuse_ratio,
+    year,
+    scenario
+  ),
+  names_to = "impact_variable", 
+  values_to = "value") %>%
+  write_csv("./cleaned_data/textiles_chart_bubble.csv")
