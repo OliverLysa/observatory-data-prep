@@ -305,8 +305,6 @@ collected_all_54 <- collected_all_wide_54 %>%
 write_xlsx(collected_all_54, 
            "./cleaned_data/electronics_sankey/collected_all_54.xlsx")
 
-# Difference between WEE collection and WEEE received may proxy collection-stage leakage 
-
 # *******************************************************************************
 # Reuse and resale
 # *******************************************************************************
@@ -421,6 +419,7 @@ received_AATF_reuse_wide_54 <- read_xlsx("./intermediate_data/received_reuse_sum
 # Add leading 0s to unu_key column up to 4 digits to help match to other data
 received_AATF_reuse_wide_54$unu_key <- str_pad(received_AATF_reuse_wide_54$unu_key, 4, pad = "0")
 
+# Make long format
 received_AATF_reuse_54 <- received_AATF_reuse_wide_54 %>% 
   pivot_longer(-c(
     unu_key,
@@ -435,6 +434,7 @@ write_xlsx(received_AATF_reuse_54,
 
 # Domestic reuse (B2C/C2C): 82Kt - https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1077642/second-hand-sales-of-electrical-products.pdf
 
+# Direct resale: 
 # EBAY DATA
 # Facebook marketplace
 # https://github.com/passivebot/facebook-marketplace-scraper
@@ -872,7 +872,7 @@ outflow_routing <- read_excel(
   names_to = "route", 
   values_to = "value") %>%
   filter(variable == "Percentage",
-         route != "Total",
+         route != "total",
          value != 	
            0.000000000) %>%
   drop_na(value) %>%

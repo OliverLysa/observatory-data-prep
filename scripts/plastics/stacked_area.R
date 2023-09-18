@@ -46,35 +46,53 @@ options(scipen = 999)
 # *******************************************************************************
 # Data extraction
 # *******************************************************************************
-  
+
 # *******************************************************************************
-# Extract variables
-
-# Non-UK disposals vs. UK disposals
-# Recycled, UK reuse and non-UK reuse (aggregate)
-
-# Create filter list for variables
-filter_list <- c("Consumption",
-                 "Non-UK disposals",
-                 "Residual waste",
-                 "UK reuse",
-                 "Reused non-UK")
-
 # Import sankey data 
-textiles_area <- read_csv(
-  "./cleaned_data/textiles_sankey_links.csv") %>%
-  filter(target %in% filter_list) %>%
-  mutate(
-    target = gsub("Consumption", 'consumption',target),
-    target = gsub("UK reuse", 'reuse',target),
-    target = gsub("Reused UK", 'reuse',target),
-    target = gsub("Reused non-UK", 'reuse',target),
-    target = gsub("Non-UK disposals", 'waste', target),
-    target = gsub("Residual waste", 'waste', target)) %>%
-  group_by(target, year, scenario) %>%
-  summarise(value = sum(value)) %>%
-  clean_names() %>%
-  rename(variable = target) %>%
-  mutate(product = "Clothing") %>%
-  write_csv("./cleaned_data/textiles_chart_area.csv")
+SW_all <- read_excel(
+  "./plastics/received/210521_EXEmPlar_Sankey string_SW.xlsx",
+  sheet = "Sorting_SW") %>%
+  # remove the top row
+  slice(-1) %>%
+  # remove columns where all rows are na
+  select_if(function(x) !(all(is.na(x)) | all(x=="")))
+
+# Create inflow variable
+inflow <- SW_all %>%
+  select(7:8) %>%
+  rename(product = 1,
+         value = 2) %>%
+  mutate(variable = "inflow") %>%
+  na.omit()
+
+# Create collection variable
+collection <- SW_all %>%
+  select(15:16) %>%
+  rename(route = 1,
+         value = 2) %>%
+  mutate(variable = "collection") %>%
+  na.omit()
+
+# Create end of use variable
+treatment <- SW_all %>%
+  select(15:16) %>%
+  rename(route = 1,
+         value = 2) %>%
+  mutate(variable = "treatment") %>%
+  na.omit()
+
+# Create stacked all
+stacked_all <- rbindlist(
+  list(
+    inflow,
+    collection,
+    treatment),
+  use.names = FALSE) %>%
+  filter(product == "Total") %>%
+  mutate(scenario = "BAU",
+         year = "2018") %>%
+  mutate(product = gsub("Total", "Plastics", product)) %>%
+  mutate(across(c('value'), round, 2)) %>%
+  write_csv("./cleaned_data/plastics_chart_area.csv")
+
 

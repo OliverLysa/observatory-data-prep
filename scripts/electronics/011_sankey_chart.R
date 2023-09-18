@@ -123,7 +123,18 @@ repair <-
   select(-c(unu_key, value, freq)) %>%
   rename(value = mass) %>%
   mutate(source = "consume",
+         target = "repair")
+
+# Needs to then be duplicated and combined to create remainder of the reuse loop
+repair_return <- repair %>%
+  mutate(source = "repair",
          target = "consume")
+
+repair <- rbindlist(
+  list(
+    repair,
+    repair_return),
+  use.names = TRUE)
 
 # *******************************************************************************
 # Consume > Collection 
