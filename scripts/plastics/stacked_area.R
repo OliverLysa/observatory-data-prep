@@ -63,7 +63,8 @@ inflow <- SW_all %>%
   rename(product = 1,
          value = 2) %>%
   mutate(variable = "inflow") %>%
-  na.omit()
+  na.omit() %>%
+  filter(product != "Total")
 
 # Create collection variable
 collection <- SW_all %>%
@@ -71,7 +72,9 @@ collection <- SW_all %>%
   rename(route = 1,
          value = 2) %>%
   mutate(variable = "collection") %>%
-  na.omit()
+  filter(route == "Total") %>%
+  na.omit() %>%
+  rename(product = 1)
 
 # Create end of use variable
 treatment <- SW_all %>%
@@ -79,7 +82,9 @@ treatment <- SW_all %>%
   rename(route = 1,
          value = 2) %>%
   mutate(variable = "treatment") %>%
-  na.omit()
+  filter(route == "Total") %>%
+  na.omit() %>%
+  rename(product = 1)
 
 # Create stacked all
 stacked_all <- rbindlist(
@@ -88,7 +93,6 @@ stacked_all <- rbindlist(
     collection,
     treatment),
   use.names = FALSE) %>%
-  filter(product == "Total") %>%
   mutate(scenario = "BAU",
          year = "2018") %>%
   mutate(product = gsub("Total", "Plastics", product)) %>%

@@ -129,7 +129,7 @@ REE_stacked_area <-
     ),
     use.names = TRUE
   ) %>%
-  filter(grepl('Release rate 6|Release rate 7|Release rate 6 R|Release rate 7 R|Consume \\(use\\) S', variable)) %>%
+  filter(grepl('Release rate 6|Release rate 7|Release rate 6 R|Release rate 7 R|Consume \\(use\\) S|Virgin material 6', variable)) %>%
   select(-metric) %>%
   pivot_longer(-c(product, aggregation, scenario, variable),
                names_to = "year",
@@ -138,8 +138,11 @@ REE_stacked_area <-
          variable = gsub("Release rate 6", "Inflow", variable),
          variable = gsub("Release rate 7 R", "Outflow", variable),
          variable = gsub("Release rate 7", "Outflow", variable),
+         variable = gsub("Virgin material 6", "Inflow (virgin)", variable),
          variable = gsub("\"", "", variable),
          variable = gsub("Consume \\(use\\) S", "Stock", variable)) %>%
+  # Convert any negatives to 0
+  mutate(value = if_else(value < 0, 0, value)) %>%
   mutate(across(c('value'), round, 2)) %>%
   mutate(unit = "mass")
 

@@ -39,7 +39,7 @@ options(scipen = 999)
 # Import and export bubble data
 # *******************************************************************************
 
-bubble_data <- read_excel(
+kpi_data <- read_excel(
   "./raw_data/Outputs_ForDistribution_v3.xlsx",
   sheet = "Impacts") %>%
   pivot_wider(names_from = Impact, 
@@ -49,7 +49,8 @@ bubble_data <- read_excel(
          ghgs = gh_gs_mt,
          land = land_km2,
          water = water_million_m3) %>%
-  mutate_if(is.numeric, round, digits = 1)
+  mutate_if(is.numeric, round, digits = 1) %>%
+  write_csv("./cleaned_data/textiles_kpi.csv")
 
 ratios <- read_excel(
   "./raw_data/Outputs_ForDistribution_v3.xlsx",
@@ -64,4 +65,8 @@ ratios <- read_excel(
   ),
   names_to = "impact_variable", 
   values_to = "value") %>%
+  mutate(product = "Clothing") %>%
   write_csv("./cleaned_data/textiles_chart_bubble.csv")
+  
+  # Create KPI data
+  

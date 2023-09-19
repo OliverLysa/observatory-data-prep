@@ -22,6 +22,16 @@ read_excel_allsheets_ABS <- function(filename, tibble = FALSE) {
   x
 }
 
+# Read all sheets of ABS excel file
+read_excel_allsheets_BEIS_emissions_SIC <- function(filename, tibble = FALSE) {
+  # but if you would prefer a tibble output, pass tibble = TRUE
+  sheets <- readxl::excel_sheets(filename)
+  x <- lapply(sheets, function(X) readxl::read_excel(filename, sheet = X, skip = 4))
+  if(!tibble) x <- lapply(x, as.data.frame)
+  names(x) <- sheets
+  x
+}
+
 # Use the OTS package to extract trade data from the UKTradeInfo API
 extractor <- function(x) {
   trade_results <-
