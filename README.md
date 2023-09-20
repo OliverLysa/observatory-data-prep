@@ -31,7 +31,7 @@ The Python scripting language has also been used as part of the project in cases
 
 ## Updates
 
-The observatory has been designed to incorporate new data as it becomes available to help with trend assessment, monitoring and evaluation. On the dashboard front-end, this is achieved with scheduled content updates via Contentful. On the back-end, this is achieved through automated R and Python scripts for data extraction and processing, followed by automated PostgreSQL scripts for data storage. In R, we use the package 'cronR' to execute cronjobs in the MacOS environment, with a daily re-run schedule. Imported data undergoes structure, data type and content constraint validation to reduce risk of build failure on the front-end.
+The observatory has been designed to incorporate new data as it becomes available to help with timely insight, trend assessment, monitoring and evaluation. This is facilitated through automated R and Python scripts for data extraction and processing, followed by automated PostgreSQL scripts for data storage. Web hooks are used to trigger site rebuild following data updated. Imported data undergoes structure, data type and content constraint validation to reduce risk of build failure on the front-end.
 
 # Folder and file descriptions
 
@@ -45,9 +45,7 @@ In a few cases, processing steps require exporting data outputs from the R/Pytho
 
 ## [cleaned_data](https://github.com/OliverLysa/observatory/tree/main/cleaned_data)
 
-Cleaned data outputs derived from raw and intermediate data files following processing in R, Python and/excel and which are added to the postgresql database backend for the observatory dashboard. Within the dashboard environment, cleaned data files may undergo additional processing such as on-the-fly aggregation or division of variables.
-
-![](images/Pasted%20Graphic.png){width="86%"}
+Cleaned data outputs derived from raw and intermediate data files following processing in R, Python and/excel and which are added to the postgresql database backend for the observatory dashboard. Within the dashboard environment, cleaned data files may undergo additional processing such as on-the-fly aggregation.
 
 ## scripts
 
