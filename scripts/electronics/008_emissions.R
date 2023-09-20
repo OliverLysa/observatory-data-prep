@@ -105,7 +105,9 @@ ggplot(na.omit(Emissions_2_digit), aes(x= Year, y = Emissions, group = SIC_group
 
 ggplot(BEIS_emissions_electronics, aes(x = year, y = value, group = group_name)) +
   facet_wrap(vars(gas_name), nrow = 4) +
-  geom_line(aes(color=gas_name))
+  theme_light() +
+  geom_line(aes(color=group_name)) +
+  theme(legend.position="bottom")
 
 ## Consumption emissions
 

@@ -31,7 +31,7 @@ The Python scripting language has also been used as part of the project in cases
 
 ## Updates
 
-The observatory has been designed to incorporate new data as it becomes available to help with timely insight, trend assessment, monitoring and evaluation. This is facilitated through automated R and Python scripts for data extraction and processing, followed by automated PostgreSQL scripts for data storage. Web hooks are used to trigger site rebuild following data updated. Imported data undergoes structure, data type and content constraint validation to reduce risk of build failure on the front-end.
+The observatory has been designed to incorporate new data as it becomes available to help with timely insight, trend assessment, monitoring and evaluation. Web hooks are used to trigger site rebuild following data updates. Data updates are facilitated through R and Python scripts for data extraction and processing, and PostgreSQL scripts for data storage. Imported data undergoes structure, data type and content constraint validation to reduce risk of build failure on the front-end.
 
 # Folder and file descriptions
 
