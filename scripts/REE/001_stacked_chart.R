@@ -91,9 +91,9 @@ EV_high_lifespan_high_circularity <-
          scenario = "Extended_life_high_eol", .before = Time)
 
 # Create lookup for flows
-variable_name <- c('Inflow','Stock','Outflow','Inflow (virgin)')
-filter_name <- c('Total','Total','Total','Virgin')
-filter_lookup <- data.frame(variable_name, filter_name)
+variable <- c('Inflow','Stock','Outflow','Inflow (virgin)')
+filter <- c('Total','Total','Total','Virgin')
+filter_lookup <- data.frame(variable, filter)
 
 # Bind the extracted data to create a complete dataset, filter to variables of interest and rename these variables
 REE_stacked_area <-
@@ -121,15 +121,16 @@ REE_stacked_area <-
          variable = gsub("Release rate 6", "Inflow", variable),
          variable = gsub("Release rate 7 R", "Outflow", variable),
          variable = gsub("Release rate 7", "Outflow", variable),
-         variable = gsub("Virgin material 6", "", variable),
+         variable = gsub("Virgin material 6", "Inflow (virgin)", variable),
          variable = gsub("\"", "", variable),
          variable = gsub("Consume \\(use\\) S", "Stock", variable)) %>%
   # Convert any negatives to 0
   mutate(value = if_else(value < 0, 0, value)) %>%
-  mutate(across(c('value'), round, 2))
+  mutate(across(c('value'), round, 2)) %>%
+  right_join(filter_lookup, by = c("variable")) 
 
-right_join(gas_lookup, by = c("gas_number")) %>%
-  select(-c(gas_number)) %>%
+REE_stacked_area <- REE_stacked_area %>%
+  mutate(across(everything(), ~ replace(., . == "Inflow (virgin)", "Inflow")))
   
 # Write csv file
 write_csv(REE_stacked_area,

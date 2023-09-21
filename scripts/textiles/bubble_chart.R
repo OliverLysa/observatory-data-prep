@@ -50,6 +50,7 @@ kpi_data <- read_excel(
          land = land_km2,
          water = water_million_m3) %>%
   mutate_if(is.numeric, round, digits = 1) %>%
+  mutate(product = "Clothing") %>%
   write_csv("./cleaned_data/textiles_kpi.csv")
 
 ratios <- read_excel(
