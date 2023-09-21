@@ -74,6 +74,10 @@ BEIS_emissions_data <-
                names_to = 'year',
                values_to = 'value') 
 
+# Write output to xlsx form
+write_xlsx(BEIS_emissions_data, 
+           "./cleaned_data/electronics_emissions_production.xlsx")
+
 # Filter to SIC codes of interest
 filter <- c("26", "27")
 BEIS_emissions_electronics <- 
@@ -81,27 +85,6 @@ BEIS_emissions_electronics <-
   filter(group %in% filter) %>%
   select(-c(group,section)) %>%
   mutate_at(c('year','value'), as.numeric)
-
-# Write output to xlsx form
-write_xlsx(Emissions_2_digit, 
-           "./cleaned_data/electronics_emissions_production.xlsx")
-
-# Generate ggplot  
-ggplot(na.omit(Emissions_2_digit), aes(x= Year, y = Emissions, group = SIC_group)) +
-  theme_bw() +
-  geom_line(aes(color=SIC_group)) +
-  scale_y_continuous(
-    breaks = seq(0, 2000, 250),
-    minor_breaks = seq(0 , 1250, 125),
-    limits = c(0, 2000),
-    expand = c(0, 0)
-  ) +
-  scale_x_continuous(
-    breaks = seq(1990, 2020, 5), 
-    expand = c(0, 0.3)
-  ) +
-  ylab("(ktCO2e)") +
-  xlab("Year")
 
 ggplot(BEIS_emissions_electronics, aes(x = year, y = value, group = group_name)) +
   facet_wrap(vars(gas_name), nrow = 4) +
