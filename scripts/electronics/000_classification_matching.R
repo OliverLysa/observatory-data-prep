@@ -53,7 +53,19 @@ options(scipen = 999)
 # *******************************************************************************
 #
 
-## Link UNU to CN8 and PRDCODE - 1st method
+# Import correspondence table from WOT
+
+# Import UNU CN8 correspondence correspondence table
+WOT_UNU_CN8 <-
+  read_csv("./classifications/concordance_tables/wot2.0/cn-to-pcc-to-unu-mappings-in-WOT.csv") %>%
+  mutate(SIC2 = substr(PCC, 1, 2),
+         SIC4 = substr(PCC, 1, 4))
+
+# Write file
+write_xlsx(WOT_UNU_CN8, 
+           "./classifications/concordance_tables/WOT_UNU_CN8_PCC_SIC.xlsx")
+
+## OLD METHOD
 
 # Import UNU HS6 correspondence table
 UNU_HS6 <-
@@ -111,18 +123,4 @@ UNU_CN_PRODCOM$PRCCODE <-
 
 # Write file
 write_xlsx(UNU_CN_PRODCOM, 
-          "./classifications/concordance_tables/UNU_CN_PRODCOM_SIC.xlsx")
-
-## Link UNU to CN8 and PRDCODE - 2nd method
-
-# Import correspondence table from WOT 
-
-# Import UNU CN8 correspondence correspondence table
-WOT_UNU_CN8 <-
-  read_csv("./classifications/concordance_tables/wot2.0/cn-to-pcc-to-unu-mappings-in-WOT.csv") %>%
-  mutate(SIC2 = substr(PCC, 1, 2),
-         SIC4 = substr(PCC, 1, 4))
-
-# Write file
-write_xlsx(WOT_UNU_CN8, 
-           "./classifications/concordance_tables/WOT_UNU_CN8_PCC_SIC.xlsx")
+           "./classifications/concordance_tables/UNU_CN_PRODCOM_SIC.xlsx")

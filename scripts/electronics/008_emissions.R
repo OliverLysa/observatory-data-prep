@@ -1,7 +1,5 @@
 ##### **********************
 # Author: Oliver Lysaght
-# Purpose:
-# Inputs: Leeds carbon footprint data published by Defra (key Leeds contacts: Anne Owen, John Barrett)
 # Required annual updates:
 # The URL to download from
 
@@ -74,10 +72,6 @@ BEIS_emissions_data <-
                names_to = 'year',
                values_to = 'value') 
 
-# Write output to xlsx form
-write_xlsx(BEIS_emissions_data, 
-           "./cleaned_data/electronics_emissions_production.xlsx")
-
 # Filter to SIC codes of interest
 filter <- c("26", "27")
 BEIS_emissions_electronics <- 
@@ -91,6 +85,10 @@ ggplot(BEIS_emissions_electronics, aes(x = year, y = value, group = group_name))
   theme_light() +
   geom_line(aes(color=group_name)) +
   theme(legend.position="bottom")
+
+# Write output to xlsx form
+write_xlsx(BEIS_emissions_electronics, 
+           "./cleaned_data/electronics_emissions_production.xlsx")
 
 ## Consumption emissions
 

@@ -296,7 +296,6 @@ sankey_all <- rbindlist(
     material = gsub("Other metals", 'Metals (other)', material),
     material = gsub("Other glass", 'Glass (other)', material),
     material = gsub("Flat panel glass", 'Flat-panel glass', material))
-    
 
 # Write file 
 write_csv(sankey_all, 

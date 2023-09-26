@@ -71,14 +71,12 @@ GVA_2dig_current <-
   mutate(`SIC07 code` = gsub("\\).*", "", `SIC07 code`),
          `SIC07 code` = gsub(".*\\(", "", `SIC07 code`)) 
 
-# Retrieve SIC codes from lookup tablets
-codes <- SIC_sheets$Code
 # add relevant repair codes
-repair_codes <- c("33", "95")
+codes <- c("26", "27")
 
 # Filter to electronics sectors
 electronics_GVA <- GVA_2dig_current %>%
-  filter(`SIC07 code` %in% c(codes, repair_codes))
+  filter(`SIC07 code` %in% c(codes))
 
 # Convert to long-form
 electronics_GVA <- electronics_GVA %>%
@@ -93,6 +91,11 @@ electronics_GVA <- electronics_GVA %>%
   as.data.frame() %>%
   select(-`ITL region code`) %>%
   rename(SIC_group = `SIC07 code`)
+
+ggplot(electronics_GVA, aes(group=SIC_group, y=GVA, x=Year)) + 
+  geom_line(aes(color=SIC_group)) +
+  theme(panel.background = element_rect(fill = "#FFFFFF")) +
+  ylab("Millions")
 
 write_xlsx(electronics_GVA, 
            "./cleaned_data/electronics_GVA.xlsx") 

@@ -313,8 +313,8 @@ write_xlsx(collected_all_54,
 # Amount of WEEE that AATFs have reused themselves and sent onto others for reuse.
 
 # Apply download.file function in R
-download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160180/WEEE_received_at_an_approved_authorised_treatment_facility.ods",
-              "./raw_data/WEEE_received_AATF.ods")
+# download.file("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1160180/WEEE_received_at_an_approved_authorised_treatment_facility.ods",
+#              "./raw_data/WEEE_received_AATF.ods")
 
 # Extract and list all sheet names 
 received_AATF_sheet_names <- list_ods_sheets(
@@ -409,7 +409,7 @@ write_xlsx(received_AATF_reuse_summarised_wide,
 
 # Reimport the data after converting UK 14 to UNU 54 in excel, clean
 received_AATF_reuse_wide_54 <- read_xlsx("./intermediate_data/received_reuse_summarised_wide.xlsx",
-                                   sheet = 2) %>%
+                                   sheet = 1) %>%
   remove_empty() %>%
   rename(unu_key = 1,
          unu_description = 2) %>%
