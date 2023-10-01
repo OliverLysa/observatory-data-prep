@@ -204,6 +204,50 @@ prodcom_all_numeric <- prodcom_all %>%
   mutate_at(c('Value'), as.numeric) %>%
   mutate_at(c('Code'), trimws)
 
+# Pivot, filter out N/A and mutate to get prodcom data including suppressed values
+prodcom_all_numeric_21_on <- prodcom_all_21_on %>%
+  pivot_longer(-c(
+    `Code`,
+    `Variable`
+  ),
+  names_to = "Year", 
+  values_to = "Value") %>%
+  mutate(Value = gsub("[^0-9]", "", Value)) %>%
+  filter(Value > 0)
+
+# Bind the extracted data to create a complete dataset
+prodcom_all_numeric <-
+  rbindlist(
+    list(
+      prodcom_all_numeric,
+      prodcom_all_numeric_21_on
+    ),
+    use.names = TRUE
+  ) %>%
+  na.omit() %>%
+  filter(Variable == "Volume (Number of items)") %>%
+  mutate_at(c('Value'), as.numeric)
+
+UNU_CN_PRODCOM <- read_xlsx("./classifications/concordance_tables/UNU_CN_PRODCOM_SIC.xlsx") %>%
+  select(c(1,7)) %>%
+  distinct()
+
+# Merge prodcom data with UNU classification, summarise by UNU Key and filter volume rows not expressed in number of units
+Prodcom_data_UNU <- left_join(prodcom_all_numeric,
+                              UNU_CN_PRODCOM,
+                              by=c("Code" = "PRCCODE")) %>%
+  na.omit() %>%
+  group_by(`UNU KEY`, Year) %>%
+  summarise(Value = sum(Value))
+
+# Write summary file
+write_xlsx(Prodcom_data_UNU, 
+           "./cleaned_data/Prodcom_data_UNU.xlsx")
+
+
+
+
+
 # Estimation of suppressed values - review ratio approach (issue with data updates altering ratio over time & backwards revisions)
 # *******************************************************************************
 
@@ -271,8 +315,7 @@ prodcom_all_suppressed <-
     ),
     use.names = FALSE
   ) %>%
-  na.omit() %>%
-  mutate_at(c("Year"), as.numeric)
+  na.omit()
 
 # Remove leading and trailing white space 
 prodcom_all_suppressed$PRCCODE <- 
@@ -281,124 +324,10 @@ prodcom_all_suppressed$PRCCODE <-
 
 # Import trade data to calculate the trade ratio for suppressed data (in number of items)
 trade_data <- 
-  read_excel("./intermediate_data/Summary_trade.xlsx") %>%
+  read_csv("./cleaned_data/electronics_trade_ungrouped.csv") %>%
   mutate(FlowTypeDescription = gsub("EU Exports", "Exports", FlowTypeDescription),
          FlowTypeDescription = gsub("Non-EU Exports", "Exports", FlowTypeDescription)) %>%
-  filter(FlowTypeDescription == "Exports") %>%
-  filter(Variable == "sum(SuppUnit)")%>%
-  select("Year", 
-         "CommodityId",
-         "Value") %>%
-  mutate_at(c("Year"), as.numeric)
-
-# Import prodcom_cn condcordance table
-WOT_UNU_CN8 <- read_xlsx(
-           "./classifications/concordance_tables/WOT_UNU_CN8_PCC_SIC.xlsx") %>%
-  select(1:3) %>%
-  mutate_at(c("CN"), as.character) %>%
-  mutate_at(c("Year"), as.numeric)
-
-by <- join_by("CommodityId" == "CN", closest(Year >= Year))
-# Match trade data with prodcom code lookup
-Trade_matched <- left_join(trade_data,
-                           WOT_UNU_CN8,
-                          by) %>%
-  select(-c("Year.y")) %>%
-  rename(Year = 1,
-         CN = 2,
-         Exports = 3,
-         PRCCODE = 4)
-
-# Match trade data with prodcom data based on the previous lookup
-Trade_prodcom <- left_join(prodcom_all_suppressed,
-                           Trade_matched,
-                       by=c("PRCCODE","Year")) %>%
-  rename(Domestic = Unit) %>%
-  mutate(Domestic_numeric = Domestic) %>%
-  mutate(Domestic_numeric = gsub("S","", Domestic_numeric)) %>%
-  mutate_at(c('Domestic_numeric'), as.numeric)
-  
-# Calculate sum of units for all years in which data is available
-# Trade
-Grouped_trade <- Trade_prodcom %>%
-  na.omit() %>%
-  group_by(PRCCODE) %>%
-  summarise(Trade = sum(Exports, na.rm=TRUE)) 
-
-# Domestic production
-Grouped_domestic <- Trade_prodcom %>%
-  na.omit() %>%
-  group_by(PRCCODE) %>%
-  summarise(Domestic = sum(Domestic_numeric, na.rm=TRUE)) 
-
-# Match trade data with prodcom code lookup and calculate ratio between units
-Grouped_all <- merge(Grouped_trade,
-                       Grouped_domestic,
-                       by=c("PRCCODE")) %>%
-  mutate(ratio = Domestic/Trade) %>%
-  filter(ratio != c("Inf")) %>%
-  filter(ratio != c("NaN"))
-
-# Attach this ratio to dataframe with all exports
-Grouped_all <- left_join(Trade_prodcom,
-                         Grouped_all,
-                     by=c("PRCCODE")) 
-
-# Estimate missing number of units with the calculated ratio
-Grouped_all <- Grouped_all %>%
-  mutate(estimated = if_else(`Domestic.x` == "S", Trade*ratio, Domestic_numeric)) %>%
-  mutate(flag = if_else(`Domestic.x` == "S", "estimated", "actual")) %>%
-  select(c("PRCCODE", "Year", "estimated", "flag")) %>%
-  rename(Value = estimated) %>%
-  distinct()
-
-# Import UNU CN8 correspondence correspondence table
-WOT_UNU_CN8 <-
-  read_csv("./classifications/concordance_tables/wot2.0/cn-to-pcc-to-unu-mappings-in-WOT.csv")
-
-# Merge prodcom data with UNU classification, summarise by UNU Key and filter volume rows not expressed in number of units
-Prodcom_data_UNU <- left_join(Grouped_all,
-                              WOT_UNU_CN8,
-                              by = join_by("PRCCODE" == "PCC")) %>%
-  group_by(UNU, Year.x) %>%
-  summarise(Value = sum(Value, na.rm = TRUE))
-
-# Write summary file
-write_xlsx(Prodcom_data_UNU, 
-           "./cleaned_data/Prodcom_data_UNU.xlsx")
-
-# Alternative method
-
-# Merge prodcom data with UNU classification, summarise by UNU Key and filter volume rows not expressed in number of units
-Prodcom_data_UNU_WOT <- merge(prodcom_filtered_all,
-                          WOT_UNU_CN8,
-                          by.x=c("Code"),
-                          by.y=c("PCC")) %>%
-  group_by(`UNU`, Year.x, Variable) %>%
-  summarise(Value = sum(Value)) %>%
-  filter(Variable != "Volume (Kilogram)") %>%
-  rename(Year = 2)
-
-# Write summary file
-write_xlsx(Prodcom_data_UNU_WOT, 
-           "./cleaned_data/Prodcom_data_UNU_WOT.xlsx")
-
-# Write summary file
-Prodcom_data_UNU_WOT <- read_xlsx(
-           "./cleaned_data/Prodcom_data_UNU_WOT.xlsx") %>%
-  mutate(Value = Value/1000000)
-
-# CHART
-ggplot(Prodcom_data_UNU_WOT, aes(fill=UNU, y=Value, x=Year)) + 
-  geom_bar(stat="identity") +
-  theme(panel.background = element_rect(fill = "#FFFFFF")) +
-  facet_wrap(vars(Variable), nrow = 2, scales = "free") +
-  ylab("Millions")
-
-
-
-# Download prodcom data from Eurostat for pre-2008
-# API instructions: https://wikis.ec.europa.eu/display/EUROSTATHELP/API+-+Getting+started
+  filter(FlowTypeDescription == "Exports")
 
 # Remove the month identifier in the month ID column to be able to group by year
 trade_data$MonthId <- 
@@ -413,3 +342,84 @@ trade_data <- trade_data %>%
   group_by(MonthId, Cn8Code) %>%
   summarise(Unit = sum(SuppUnit)) %>%
   rename(Year = 1)
+
+# Import prodcom_cn condcordance table
+PRODCOM_CN <-
+  read_excel("./classifications/concordance_tables/PRODCOM_CN.xlsx")  %>%
+  as.data.frame() %>%
+  # Drop year, CN-split and prodtype columns
+  select(-c(`YEAR`,
+            `CN-Split`,
+            `PRODTYPE`)) %>%
+  na.omit()
+
+# Remove spaces from the CN code
+PRODCOM_CN$CNCODE <- 
+  gsub('\\s+', '', PRODCOM_CN$CNCODE)
+
+# Match trade data with prodcom code lookup
+Trade_prodcom <- merge(trade_data,
+                       PRODCOM_CN,
+                       by.x=c("Cn8Code"),
+                       by.y=c("CNCODE"))
+
+# Match trade data with prodcom data based on the previous lookup
+Trade_prodcom <- merge(Trade_prodcom,
+                       prodcom_all_suppressed,
+                       by=c("PRCCODE","Year")) %>%
+  rename(Trade = Unit.x,
+         Domestic = Unit.y) %>%
+  mutate(Domestic_numeric = Domestic) %>%
+  mutate(Domestic_numeric = gsub("S","", Domestic_numeric)) %>%
+  mutate_at(c('Domestic_numeric'), as.numeric)
+
+# Calculate sum of units for all years in which data is available
+# Trade
+Grouped_trade <- Trade_prodcom %>%
+  group_by(PRCCODE) %>%
+  summarise(Trade = sum(Trade)) 
+
+# Domestic production
+Grouped_domestic <- Trade_prodcom %>%
+  na.omit() %>%
+  group_by(PRCCODE) %>%
+  summarise(Domestic = sum(Domestic_numeric)) 
+
+# Match trade data with prodcom code lookup and calculate ratio between units
+Grouped_all <- merge(Grouped_trade,
+                     Grouped_domestic,
+                     by=c("PRCCODE")) %>%
+  mutate(ratio = Domestic/Trade) %>%
+  filter(ratio != c("Inf")) %>%
+  filter(ratio != c("NaN"))
+
+# Attach this ratio to dataframe with all exports
+Grouped_all <- left_join(Trade_prodcom,
+                         Grouped_all,
+                         by=c("PRCCODE")) 
+
+# Estimate missing number of units with the calculated ratio
+Grouped_all <- Grouped_all %>%
+  mutate(estimated = if_else(`Domestic.x` == "S", Trade.x*ratio, Domestic_numeric)) %>%
+  mutate(flag = if_else(`Domestic.x` == "S", "estimated", "actual")) %>%
+  select(c("PRCCODE", "Year", "estimated", "flag")) %>%
+  rename(Value = estimated) %>%
+  distinct()
+
+UNU_CN_PRODCOM <- read_xlsx("./classifications/concordance_tables/UNU_CN_PRODCOM_SIC.xlsx") %>%
+  select(c(1,7)) %>%
+  distinct()
+
+# Merge prodcom data with UNU classification, summarise by UNU Key and filter volume rows not expressed in number of units
+Prodcom_data_UNU <- left_join(Grouped_all,
+                              UNU_CN_PRODCOM,
+                              by="PRCCODE") %>%
+  na.omit() %>%
+  group_by(`UNU KEY`, Year) %>%
+  summarise(Value = sum(Value))
+
+# Write summary file
+write_xlsx(Prodcom_data_UNU, 
+           "./cleaned_data/Prodcom_data_UNU.xlsx")
+
+

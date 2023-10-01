@@ -328,25 +328,27 @@ UNU_mass <- read_csv(
   "./cleaned_data/htbl_Key_Weight.csv") %>%
   clean_names() %>%
   group_by(unu_key, year) %>%
-  summarise(value = mean(average_weight))
+  summarise(value = mean(average_weight)) %>%
+  rename(unu =1)
 
 # Read in interpolated inflow data and filter to consumption of units to then multiply by mass
-inflows_indicators <-
-  read_xlsx("./cleaned_data/inflow_indicators_interpolated.xlsx") %>%
+inflow_indicators <-
+  read_xlsx("./cleaned_data/inflow_indicators.xlsx") %>%
   mutate_at(c('year'), as.numeric) %>%
+  filter(indicator == "apparent_consumption") %>%
   na.omit() %>%
   mutate(variable = "inflow")
 
 # Join by unu key and closest year
 # For each value in inflow_indicators year column, find the closest value in UNU_mass that is less than or equal to that x value
-by <- join_by(unu_key, closest(year >= year))
+by <- join_by(unu, closest(year >= year))
 # Join
-inflow_mass <- left_join(inflows_indicators, UNU_mass, by) %>%
+inflow_mass <- left_join(inflow_indicators, UNU_mass, by) %>%
   mutate_at(c("value.y"), as.numeric) %>%
   # calculate mass inflow in tonnes (as mass given in kg/unit in source)
   # https://i.unu.edu/media/ias.unu.edu-en/project/2238/E-waste-Guidelines_Partnership_2015.pdf
   mutate(mass_inflow = (value.x*value.y)/1000) %>%
-  select(c(`unu_key`,
+  select(c(`unu`,
            `year.x`,
            mass_inflow)) %>%
   rename(year = 2,

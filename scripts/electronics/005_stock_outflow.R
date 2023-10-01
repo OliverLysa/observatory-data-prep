@@ -104,11 +104,12 @@ write_xlsx(unitar_lifespan,
 lifespan_data <- read_excel("./cleaned_data/weibull_parameters.xlsx") %>%
   filter(country == "NLFB") %>%
   select(1:3) %>%
-  mutate_at(c('shape', 'scale'), as.numeric) 
+  mutate_at(c('shape', 'scale'), as.numeric)
 
 # Import inflow data to match to lifespan
 inflow_unu_mass_units <-
-  read_xlsx("./cleaned_data/inflow_unu_mass.xlsx")
+  read_xlsx("./cleaned_data/inflow_unu_mass.xlsx") %>%
+  rename(unu_key = 1)
 
 # Merge inflow and lifespan data by unu_key
 inflow_weibull <-

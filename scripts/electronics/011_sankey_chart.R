@@ -59,12 +59,14 @@ BoM_percentage_UNU <- read_xlsx(
 
 # Import interpolated inflow mass data
 inflow_unu_mass <- read_xlsx( 
-           "./cleaned_data/inflow_unu_mass.xlsx")
+           "./cleaned_data/inflow_unu_mass.xlsx") %>%
+  rename(unu_key = 1)
 
 # Merge inflows and colloquial
 inflows <- merge(inflow_unu_mass, UNU_colloquial,
                    by = c("unu_key")) %>%
-  select(-c(unu_key))
+  select(-c(unu_key)) %>%
+  rename(product = 5)
 
 # Right joins the two files to multiply the BoM by flows in unit to derive flows in mass of materials and components of products by year
 material_formulation <- right_join(BoM_percentage_UNU, inflows,
@@ -288,7 +290,7 @@ sankey_all <- rbindlist(
   use.names = TRUE) %>%
   filter(value != 0,
          material != "Total",
-         year <= 2021,
+         year <= 2022,
          year >= 2008) %>%
   mutate(across(c('value'), round, 2)) %>%
   mutate_at(c('material'), trimws) %>%

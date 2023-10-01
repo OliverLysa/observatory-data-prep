@@ -55,7 +55,8 @@ options(scipen = 999)
 # Import prodcom UNU data if not in global environment
 Prodcom_data_UNU <-
   read_excel("./cleaned_data/Prodcom_data_UNU.xlsx")  %>%
-  as.data.frame()
+  as.data.frame() %>%
+  rename(UNU = 1)
 
 # Filter prodcom variable column and mutate variable names to match the trade data
 Prodcom_data_UNU <- Prodcom_data_UNU %>%
@@ -66,18 +67,11 @@ Summary_trade_UNU <-
   read_excel("./cleaned_data/Summary_trade_UNU.xlsx")  %>%
   as.data.frame() %>%
   filter(Variable == "Units") %>%
-  select(-c(Variable))
-
-# Import trade data pre-2007
-Summary_trade_UNU_pre_2007 <-
-  read_excel("./cleaned_data/summary_trade_UNU_pre_2007.xlsx")  %>%
-  as.data.frame() %>%
-  filter(Variable == "Units") %>%
-  select(-c(Variable))
+  select(-c(Variable)) %>%
+  rename(UNU = 1)
 
 # Bind/append prodcom and trade datasets to create a total inflow dataset
 complete_inflows <- rbindlist(list(Summary_trade_UNU,
-                                   Summary_trade_UNU_pre_2007,
                                    Prodcom_data_UNU),
                               use.names = TRUE)
 
@@ -104,13 +98,14 @@ complete_inflows_long <- complete_inflows_wide %>%
     apparent_output = domestic_production + total_exports,
     apparent_input = domestic_production + total_imports,
     import_dependency = (total_imports / (total_imports + total_exports))) %>%
-  pivot_longer(-c(unu_key,
+  pivot_longer(-c(unu,
                   year),
                names_to = "indicator",
-               values_to = 'value')
+               values_to = 'value') %>%
+  na.omit()
 
 write_xlsx(complete_inflows_long,
-           "./cleaned_data/inflows_indicators.xlsx")
+           "./cleaned_data/inflow_indicators.xlsx")
 
 # *******************************************************************************
 # Automatic outlier detection and replacement
@@ -119,10 +114,10 @@ write_xlsx(complete_inflows_long,
 
 # Import data, converts to wide format (Redo this, but at the level of individual components of apparent consumption)
 inflow_wide_outlier_replaced_NA <-
-  read_xlsx("./cleaned_data/inflows_indicators.xlsx") %>%
+  read_xlsx("./cleaned_data/inflow_indicators.xlsx") %>%
   filter(indicator == "apparent_consumption") %>%
   select(-c(indicator)) %>%
-  pivot_wider(names_from = unu_key,
+  pivot_wider(names_from = unu,
               values_from = value) %>%
   clean_names() %>%
   mutate_at(c('year'), as.numeric) %>%
@@ -130,8 +125,8 @@ inflow_wide_outlier_replaced_NA <-
   select(-year) %>%
   mutate_at(
     .vars = vars(contains("x")),
-    .funs = ~ ifelse(abs(.) > median(.) + 4 * mad(., constant = 1), NA, .),
-    ~ ifelse(abs(.) > median(.) - 4 * mad(., constant = 1), NA, .)
+    .funs = ~ ifelse(abs(.) > median(.) + 5 * mad(., constant = 1), NA, .),
+    ~ ifelse(abs(.) > median(.) - 5 * mad(., constant = 1), NA, .)
   )
 
 # Replace outliers (now NAs) by column/UNU across whole dataframe using straight-line interpolation
@@ -142,7 +137,7 @@ inflow_wide_outlier_replaced_interpolated <-
             rule = 2,
             maxgap = 10) %>%
   as.data.frame() %>%
-  mutate(year = c(2001:2021), .before = x0101) %>%
+  mutate(year = c(2001:2022), .before = x0101) %>%
   pivot_longer(-year, 
                names_to = "unu_key",
                values_to = "value") %>%
@@ -258,13 +253,15 @@ POM_data <- purrr::map_df(POM_sheet_names,
   mutate(year = gsub("\\_.*", "", year))
 
 # Pivot long to input to charts
-POM_data <- POM_data %>%
+POM_data2 <- POM_data %>%
   pivot_longer(-c(product,
                   year),
                names_to = "end_use",
-               values_to = "value") # %>%
-  # filter(year == "2022") %>%
-  # mutate_at(c('value'), as.numeric)
+               values_to = "value") %>%
+  filter(year == "2022") %>%
+  mutate_at(c('value'), as.numeric) %>%
+  group_by(year) %>%
+  summarise(value = sum(value))
 
 # ggplot(POM_data, aes(fill=end_use, y=value, x = reorder(product, value, FUN = sum))) + 
 #  geom_bar(position="stack", stat="identity") +

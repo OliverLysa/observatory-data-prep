@@ -65,7 +65,10 @@ WOT_UNU_CN8 <-
 write_xlsx(WOT_UNU_CN8, 
            "./classifications/concordance_tables/WOT_UNU_CN8_PCC_SIC.xlsx")
 
-## OLD METHOD
+# *******************************************************************************
+# ## OLD METHOD
+# *******************************************************************************
+#
 
 # Import UNU HS6 correspondence table
 UNU_HS6 <-
