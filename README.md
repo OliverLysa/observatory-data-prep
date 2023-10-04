@@ -1,8 +1,8 @@
 # 🚀 CE observatory data processing
 
-*Contact*: Oliver Lysaght (oliverlysaght\@icloud.com)
-
 ## WORK IN PROGRESS
+
+*If you identify any issues, please contact*: Oliver Lysaght (oliverlysaght\@icloud.com)
 
 # Purpose
 
