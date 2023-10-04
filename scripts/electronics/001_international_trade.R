@@ -67,7 +67,7 @@ trade_terms <-
 
 # If a subset of those codes are sought, these can be selected by index position
 # Using this as in some cases, a memory issue arise with full list for electronics
-trade_terms <- trade_terms[98:307]
+# trade_terms <- trade_terms[98:307]
 
 # Create a for loop that goes through the trade terms, extracts the data using the extractor function (in function script) based on the uktrade wrapper
 # and prints the results to a list of dataframes
@@ -82,20 +82,6 @@ for (i in seq_along(trade_terms)) {
 # Bind the list of returned dataframes to a single dataframe
 bind <- 
  dplyr::bind_rows(res)
-
-# Bind the list of returned dataframes to a single dataframe
-bind2 <- 
-  dplyr::bind_rows(res)
-
-# Bind outputs if required
-bind <-
-  rbindlist(
-    list(
-      bind,
-      bind2
-    ),
-    use.names = TRUE
-  )
   
 # If you have not used the in-built lookup codes in the uktrade R package, the flow-types need to be described
 bind <- bind %>%
