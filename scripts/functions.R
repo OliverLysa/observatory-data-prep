@@ -168,7 +168,7 @@ addUnits <- function(n)
 # Import user-friendly names for codes
 UNU_colloquial <- read_xlsx( 
   "./classifications/classifications/UNU_colloquial.xlsx") %>%
-  rename(product = unu_description)
+  dplyr::rename(product = unu_description)
 
 # *******************************************************************************
 # statistical functions

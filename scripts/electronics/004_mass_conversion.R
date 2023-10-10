@@ -77,7 +77,7 @@ BoM_data_bound_Babbit <- BoM_data_Babbit %>%
   row_to_names(row_number = 1, 
                remove_rows_above = TRUE) %>%
   filter(`Product name` != "Product name") %>%
-  rename(model = `Product name`,
+  dplyr::rename(model = `Product name`,
          component = Component,
          product = 15) %>%
   pivot_longer(-c(
@@ -250,10 +250,10 @@ BoM_BEIS_absolute_long <- BoM_BEIS_absolute %>%
 BoM_BEIS_percentage <- BoM_BEIS_absolute_long %>%
   filter(material != "Total") %>%
   group_by(UNU, material) %>%
-  summarise(value = mean(value)) %>%
+  summarise(value = sum(value)) %>%
   mutate(freq = value / sum(value)) %>%
   select(-value) %>%
-  rename("unu_key" = 1)
+  dplyr::rename("unu_key" = 1)
 
 # Replace UNU code with colloquial terms
 BoM_BEIS_percentage <- left_join(BoM_BEIS_percentage, 
@@ -314,9 +314,36 @@ BoM_percentage_UNU <-
   ) %>%
   mutate_at(c('material'), trimws)
 
-# Write data file
-write_xlsx(BoM_percentage_UNU, 
-           "./cleaned_data/BoM_percentage_UNU.xlsx")
+BoM_percentage_UNU$material <-
+  str_remove_all(BoM_percentage_UNU$material, "[^A-z|0-9|-|(|)|[:punct:]|\\s]")
+
+BoM_percentage_UNU$material <- 
+  gsub('[^[:alnum:] ]','',BoM_percentage_UNU$material)
+
+BoM_percentage_UNU <- BoM_percentage_UNU %>%
+  filter(freq != 0,
+         material != "Total") %>%
+  mutate(material = gsub("Other glass","Glass other", material),
+         material = gsub("Flat panel glass","Flatpanelglass", material),
+         material = gsub("Liion battery","Liionbattery", material))
+
+BoM_percentage_UNU$material <-factor(BoM_percentage_UNU$material, levels=c('Others',
+                                                                           'Glass other',
+                                                                           'Flatpanelglass',
+                                                                           'Plastic',
+                                                                           'Liionbattery',
+                                                                           'Electronics incl PCB',
+                                                                           'Metals other',
+                                                                           'Copper',
+                                                                           'Aluminium',
+                                                                           'Ferrous'))
+
+# Stacked + percent
+ggplot(na.omit(BoM_percentage_UNU), aes(fill=material, y=freq, x=product)) + 
+  geom_bar(position="fill", stat="identity") +
+  coord_flip() +
+  scale_fill_viridis_d(direction = -1) +
+  guides(fill = guide_legend(reverse = TRUE))
 
 # *******************************************************************************
 # Import mass data from https://github.com/Statistics-Netherlands/ewaste/blob/master/data/htbl_Key_Weight.csv

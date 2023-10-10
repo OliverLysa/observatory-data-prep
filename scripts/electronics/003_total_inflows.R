@@ -201,7 +201,7 @@ forecast_com <-
     h = 32,
     fan = F,
     level = 95,
-    xreg = xreg_com_f
+    xreg = gdp_forecast_1
   )
 
 # Create dataframe with forecasted data compiled
@@ -253,15 +253,15 @@ POM_data <- purrr::map_df(POM_sheet_names,
   mutate(year = gsub("\\_.*", "", year))
 
 # Pivot long to input to charts
-POM_data2 <- POM_data %>%
-  pivot_longer(-c(product,
-                  year),
-               names_to = "end_use",
-               values_to = "value") %>%
-  filter(year == "2022") %>%
-  mutate_at(c('value'), as.numeric) %>%
-  group_by(year) %>%
-  summarise(value = sum(value))
+# POM_data2 <- POM_data %>%
+#  pivot_longer(-c(product,
+#                  year),
+#               names_to = "end_use",
+#               values_to = "value") %>%
+#  filter(year == "2022") %>%
+#  mutate_at(c('value'), as.numeric) %>%
+#  group_by(year) %>%
+#  summarise(value = sum(value))
 
 # ggplot(POM_data, aes(fill=end_use, y=value, x = reorder(product, value, FUN = sum))) + 
 #  geom_bar(position="stack", stat="identity") +
