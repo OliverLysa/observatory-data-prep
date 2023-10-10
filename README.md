@@ -1,8 +1,6 @@
-# 🚀 CE observatory data processing
+# CE observatory data processing
 
-## WORK IN PROGRESS
-
-*If you identify any issues, please contact*: Oliver Lysaght (oliverlysaght\@icloud.com)
+## WORK IN PROGRESS 🚀 
 
 # Purpose
 
@@ -31,7 +29,7 @@ The Python scripting language has also been used as part of the project in cases
 
 ## Updates
 
-The observatory has been designed to incorporate new data as it becomes available to help with timely insight, trend assessment, monitoring and evaluation. Web hooks are used to trigger site rebuild following data updates. Data updates are ran through scheduled extraction scripts, with imported data undergoing structure, data type and content validation to reduce risk of build failure on the front-end.
+The observatory has been designed to incorporate new data as it becomes available to help with timely insight, trend assessment, monitoring and evaluation. Web hooks are used to trigger site rebuild following data updates. Data is updated through scheduled extraction scripts, with imported data undergoing structure, data type and content validation to reduce risk of site build failure.
 
 # Folder and file descriptions
 
@@ -45,14 +43,18 @@ In a few cases, processing steps require exporting data outputs from the R/Pytho
 
 ## [cleaned_data](https://github.com/OliverLysa/observatory/tree/main/cleaned_data)
 
-Cleaned data outputs derived from raw and intermediate data files following processing in R, Python and/excel and which are added to the postgresql database backend for the observatory dashboard. Within the dashboard environment, cleaned data files may undergo additional processing such as on-the-fly aggregation.
+Cleaned data outputs derived from raw and intermediate data files following processing in R, Python and/excel and which are added to the postgresql database. Within the dashboard environment, cleaned data files may undergo additional processing such as on-the-fly aggregation.
 
 ## scripts
 
 ### [functions.R](https://github.com/OliverLysa/observatory/blob/main/scripts/functions.R)
 
-A collection of custom user-defined functions regularly used throughout the data processing pipeline and not otherwise provided in R packages.
+A collection of custom functions regularly used throughout the data processing pipeline and not otherwise provided in R packages.
 
 ## Product-group specific
 
 [Electronics scripts readme](https://github.com/OliverLysa/observatory-data-prep/blob/main/electronics_readme.md)
+
+## Feedback
+
+*If you identify any issues, please contact*: Oliver Lysaght (oliverlysaght\@icloud.com)
