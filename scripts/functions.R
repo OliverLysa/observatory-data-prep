@@ -22,7 +22,7 @@ read_excel_allsheets_ABS <- function(filename, tibble = FALSE) {
   x
 }
 
-# Read all sheets of ABS excel file
+# Read all sheets of BEIS emissions data
 read_excel_allsheets_BEIS_emissions_SIC <- function(filename, tibble = FALSE) {
   # but if you would prefer a tibble output, pass tibble = TRUE
   sheets <- readxl::excel_sheets(filename)
