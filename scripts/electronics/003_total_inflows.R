@@ -253,25 +253,26 @@ POM_data <- purrr::map_df(POM_sheet_names,
   mutate(year = gsub("\\_.*", "", year))
 
 # Pivot long to input to charts
-# POM_data2 <- POM_data %>%
-#  pivot_longer(-c(product,
-#                  year),
-#               names_to = "end_use",
-#               values_to = "value") %>%
-#  filter(year == "2022") %>%
-#  mutate_at(c('value'), as.numeric) %>%
-#  group_by(year) %>%
-#  summarise(value = sum(value))
+POM_data2 <- POM_data %>%
+  pivot_longer(-c(product,
+                  year),
+               names_to = "end_use",
+               values_to = "value") %>%
+  mutate_at(c('value'), as.numeric) %>%
+  filter(year == "2022") %>%
+  mutate_at(c('value'), as.numeric) %>%
+  group_by(year) %>%
+  summarise(value = sum(value))
 
-# ggplot(POM_data, aes(fill=end_use, y=value, x = reorder(product, value, FUN = sum))) + 
-#  geom_bar(position="stack", stat="identity") +
-#  theme(panel.background = element_rect(fill = "#FFFFFF")) +
-#  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
-#  xlab("product group") +
-#  ylab("tonnes") +
-#  scale_y_continuous(
-#    breaks = seq(0, 700000, 100000)
-#  )
+ggplot(POM_data2, aes(fill=end_use, y=value, x = year)) + 
+  geom_bar(position="stack", stat="identity") +
+  facet_wrap(vars(product), nrow = 5) +
+  theme(panel.background = element_rect(fill = "#FFFFFF")) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+  ylab("tonnes") +
+  scale_y_continuous(
+    breaks = seq(0, 500000, 100000)
+  )
 
 # Write output to xlsx form
 write_xlsx(POM_data,

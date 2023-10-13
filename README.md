@@ -25,11 +25,11 @@ Data outputs from these scripts are used to populate the ce-observatory - a dash
 
 Scripts in this repository are largely written in the programming language R. Please see [here](https://rstudio-education.github.io/hopr/starting.html) for more information on running R scripts and computer software requirements. Files are packaged within an R Project with relative file paths used to call data inputs and functions. These can be most easily navigated and ran within the R Studio IDE, though this can also be done in the terminal/command line. We use targets and renv packages for a reproducible environment.
 
-The Python scripting language has also been used as part of the project in cases where it offers better performance or provides functions not otherwise available in R. Python scripts are largely presented within [Jupyter Notebooks](https://jupyter.org/install) - an open source IDE that requires installing the jupyter-notebook package in your Python environment, more information about which can be found [here](https://www.python.org/downloads/). In some cases, .py Python scripts are also used. These can be viewed and modified in a code editor such as Visual Studio Code and ran in the terminal/command line.
+The Python scripting language has also been used as part of the project in cases where it offers better performance or provides functions not otherwise available in R. Python scripts are largely presented within [Jupyter Notebooks](https://jupyter.org/install) - an open source IDE that requires installing the jupyter-notebook package in your Python environment, more information about which can be found [here](https://www.python.org/downloads/). In some cases, .py Python scripts are also used. These can be viewed and mosdified in a code editor such as Visual Studio Code and ran in the terminal/command line.
 
 ## Updates
 
-The observatory has been designed to incorporate new data as it becomes available to help with timely insight, trend assessment, monitoring and evaluation. Web hooks are used to trigger site rebuild following data updates. Data is updated through scheduled extraction scripts, with imported data undergoing structure, data type and content validation to reduce risk of site build failure.
+The observatory has been designed to incorporate new data as it becomes available to help with timely insight, trend assessment, monitoring and evaluation. Web hooks are used to trigger site rebuild following data updates. Data are updated through scheduled extraction scripts, with imported data undergoing structure, data type and content validation to reduce risk of site build failure.
 
 # Folder and file descriptions
 
