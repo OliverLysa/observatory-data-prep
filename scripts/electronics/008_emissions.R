@@ -273,7 +273,6 @@ reallocated_energy_data <-
                names_to = 'year',
                values_to = 'value')
 
-
 # *******************************************************************************
 # MATERIAL FOOTPRINT
 
@@ -307,10 +306,6 @@ mf_product <- read_ods("./raw_data/England_material_footprint.ods",
   mutate(product = sub("(.)", "\\U\\1", product, perl=TRUE)) %>%
   filter(product %in% filter_list) %>%
   mutate_at(c('value'), as.numeric)
-
-B <- mf_product %>%
-  group_by(year, material_name) %>%
-  summarise(sum(value))
 
 # Create chart
 ggplot(mf_product, aes(x = year, y = value, group = material_name)) +
@@ -360,31 +355,3 @@ ggplot(cf_product, aes(x = year, y = value, group = product)) +
   geom_line(aes(color=product), size=1) +
   theme_light() +
   theme(legend.position="bottom")
-
-GG1 <- read_excel("./Input/GG/2106240841_DA_GHGI_1990-2019_Final_Issue1.2.xlsx", sheet = 2) 
-
-GG1 <- GG1[c(16,198:207), c(2:27)] %>%
-  row_to_names(row_number = 1) %>%
-  pivot_longer(-c(IPCC), names_to = c("Year")) %>%
-  filter(Year != "BaseYear", IPCC != "Total") 
-
-GG1$IPCC <- GG1$IPCC %>% replace_na("Total") 
-
-GG1$Year <- as.numeric(as.character(GG1$Year))
-GG1$value <- as.numeric(as.character(GG1$value))
-
-GG1 <- GG1 %>% mutate_if(is.numeric, round, digits=0) 
-
-GG1maxyr <- latest_date(GG1$Year)
-GG1penmaxyr <- penultimate_date(GG1$Year)
-
-GG1plot <- ggplot(GG1,
-                  aes(fill = IPCC, x = Year, y = value)) +
-  theme_bw() +
-  geom_bar(position = "stack", stat = "identity") +
-  scale_x_continuous(breaks = seq(1990, GG1maxyr, 2)) +
-  scale_y_continuous(breaks=seq(0, 60000, 10000), limits=c(0, 60000)) +
-  theme(axis.title.x = element_blank()) +
-  theme(axis.title.y = element_blank()) +
-  theme(legend.position="bottom") +
-  theme(text = element_text(size=8))
