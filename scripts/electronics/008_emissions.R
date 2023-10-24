@@ -32,7 +32,28 @@ if (any(installed_packages == FALSE)) {
 invisible(lapply(packages, library, character.only = TRUE))
 
 # *******************************************************************************
-# EMISSIONS
+# Functions and options
+# *******************************************************************************
+# Import functions
+source("./scripts/Functions.R", 
+       local = knitr::knit_global())
+
+# Stop scientific notation of numeric values
+options(scipen = 999)
+
+# Specify SIC codes of interest
+filter <- c("26", "27", "28")
+
+# Specify COICOP codes of interest
+filter_list <- c("Household appliances",
+                 "Tools and equipment for house and garden",
+                 "Medical products appliances and equipment",
+                 "Telephone and telefax equipment",
+                 "Audio-visual photo and info processing equipment",
+                 "Other recreational equipment etc")
+
+# *******************************************************************************
+# PRODUCTION EMISSIONS BY SIC - territorial basis
 
 # Production emissions from BEIS (covering 7 Kyoto gases)
 download.file(
@@ -72,8 +93,7 @@ BEIS_emissions_data <-
                names_to = 'year',
                values_to = 'value') 
 
-# Filter to SIC codes of interest
-filter <- c("26", "27")
+# Filtered dataset for chart
 BEIS_emissions_electronics <- 
   BEIS_emissions_data %>%
   filter(group %in% filter) %>%
@@ -83,16 +103,181 @@ BEIS_emissions_electronics <-
 ggplot(BEIS_emissions_electronics, aes(x = year, y = value, group = group_name)) +
   facet_wrap(vars(gas_name), nrow = 4) +
   theme_light() +
-  geom_line(aes(color=group_name)) +
+  geom_line(aes(color=group_name), size= 1) +
   theme(legend.position="bottom")
 
 # Write output to xlsx form
 write_xlsx(BEIS_emissions_electronics, 
            "./cleaned_data/electronics_emissions_production.xlsx")
 
-## Material footprint
+# *******************************************************************************
+# ACID RAIN PRECURSORS - RESIDENCY BASIS BASIS
 
-# Material footprint
+# Download
+download.file(
+  "https://www.ons.gov.uk/file?uri=/economy/environmentalaccounts/datasets/ukenvironmentalaccountsatmosphericemissionsacidrainprecursoremissionsbyeconomicsectorandgasunitedkingdom/current/atmosphericemissionsacidrainprecursors.xlsx",
+  "./raw_data/ACID RAIN PRECURSORS.xlsx"
+)
+
+# Create lookup for gases
+precursor_number <- c(1,2,3,4)
+name <- c('Total','SO2','NOX','NH3')
+precursor_lookup <- data.frame(precursor_number, name)
+
+# Read in sheet names and convert columns to character to enable bind
+acid_rain_precursors_sheets <- read_excel_allsheets_ONS(
+  "./raw_data/ACID RAIN PRECURSORS.xlsx") %>%
+  lapply(\(x) mutate(x, across(.fns = as.character)))
+
+# Remove covering sheets containing cover and contents
+acid_rain_precursors_sheets = acid_rain_precursors_sheets[-c(1)]
+
+# Bind rows to create one single dataframe, filter, rename, pivot and filter again
+acid_rain_precursors_data <-
+  dplyr::bind_rows(acid_rain_precursors_sheets) %>%
+  rename(SIC = 1,
+         Section = 2,
+         SIC_Description = 3) %>%
+  drop_na(SIC, Section, SIC_Description) %>%
+  mutate(precursor_number = ((row_number()-1) %/% 129)+1) %>%
+  right_join(precursor_lookup, by = c("precursor_number")) %>%
+  select(-c(precursor_number)) %>%
+  pivot_longer(-c(SIC, Section, SIC_Description, name),
+               names_to = 'year',
+               values_to = 'value') %>%
+  mutate_at(c('value'), as.numeric) %>%
+  mutate(value = value * 1000) %>%
+  rename(tonnes_SO2_equivalent = value)
+
+# *******************************************************************************
+# HEAVY METAL POLLUTANTS - RESIDENCY BASIS BASIS
+
+# Download
+download.file(
+  "https://www.ons.gov.uk/file?uri=/economy/environmentalaccounts/datasets/ukenvironmentalaccountsatmosphericemissionsheavymetalpollutantemissionsbyeconomicsectorandgasunitedkingdom/current/atmosphericemissionsheavymetals.xlsx",
+  "./raw_data/HEAVY METAL POLLUTANTS.xlsx"
+)
+
+# Create lookup for gases
+pollutant_number <- c(1,2,3,4,5,6,7,8,9,10)
+pollutant_name <- c('Arsenic',
+                    'Cadmium',
+                    'Chromium',
+                    'Copper',
+                    'Lead',
+                    'Mercury',
+                    'Nickel',
+                    'Selenium',
+                    'Vanadium',
+                    'Zinc')
+pollutant_lookup <- data.frame(pollutant_number, pollutant_name)
+
+# Read in sheet names and convert columns to character to enable bind
+heavy_metal_pollutants_sheets <- read_excel_allsheets_ONS(
+  "./raw_data/HEAVY METAL POLLUTANTS.xlsx") %>%
+  lapply(\(x) mutate(x, across(.fns = as.character)))
+
+# Remove covering sheets containing cover and contents
+heavy_metal_pollutants_sheets = heavy_metal_pollutants_sheets[-c(1)]
+
+# Bind rows to create one single dataframe, filter, rename, pivot and filter again
+heavy_metal_pollutants_data <-
+  dplyr::bind_rows(heavy_metal_pollutants_sheets) %>%
+  rename(SIC = 1,
+         Section = 2,
+         SIC_Description = 3) %>%
+  drop_na(SIC, Section, SIC_Description) %>%
+  mutate(pollutant_number = ((row_number()-1) %/% 129)+1) %>%
+  right_join(pollutant_lookup, by = c("pollutant_number")) %>%
+  select(-c(pollutant_number)) %>%
+  pivot_longer(-c(SIC, Section, SIC_Description, pollutant_name),
+               names_to = 'year',
+               values_to = 'value')
+
+# *******************************************************************************
+# OTHER POLLUTANTS - RESIDENCY BASIS BASIS
+
+# Download
+download.file(
+  "https://www.ons.gov.uk/file?uri=/economy/environmentalaccounts/datasets/ukenvironmentalaccountsatmosphericemissionsemissionsofotherpollutantsbyeconomicsectorandgasunitedkingdom/current/atmosphericemissionsotherpollutants.xlsx",
+  "./raw_data/OTHER POLLUTANTS.xlsx"
+)
+
+# Create lookup for gases
+pollutant_number <- c(1,2,3,4,5,6)
+pollutant_name <- c('PM10',
+                    'PM2.5',
+                    'CO',
+                    'NMVOC',
+                    'Benzene',
+                    '1,3-Butadiene')
+pollutant_lookup <- data.frame(pollutant_number, pollutant_name)
+
+# Read in sheet names and convert columns to character to enable bind
+other_pollutants_sheets <- read_excel_allsheets_ONS(
+  "./raw_data/OTHER POLLUTANTS.xlsx") %>%
+  lapply(\(x) mutate(x, across(.fns = as.character)))
+
+# Remove covering sheets containing cover and contents
+other_pollutants_sheets = other_pollutants_sheets[-c(1)]
+
+# Bind rows to create one single dataframe, filter, rename, pivot and filter again
+other_pollutants_data <-
+  dplyr::bind_rows(other_pollutants_sheets) %>%
+  rename(SIC = 1,
+         Section = 2,
+         SIC_Description = 3) %>%
+  drop_na(SIC, Section, SIC_Description) %>%
+  mutate(pollutant_number = ((row_number()-1) %/% 129)+1) %>%
+  right_join(pollutant_lookup, by = c("pollutant_number")) %>%
+  select(-c(pollutant_number)) %>%
+  pivot_longer(-c(SIC, Section, SIC_Description, pollutant_name),
+               names_to = 'year',
+               values_to = 'value')
+
+# *******************************************************************************
+# REALLOCATED ENERGY CONSUMPTION
+
+# Download
+download.file(
+  "https://www.ons.gov.uk/file?uri=/economy/environmentalaccounts/datasets/ukenvironmentalaccountsenergyreallocatedenergyconsumptionandenergyintensityunitedkingdom/current/12energyintensitybyindustry.xlsx",
+  "./raw_data/REALLOCATED ENERGY.xlsx"
+)
+
+# Create lookup for gases
+energy_number <- c(1,2,3)
+energy_name <- c('Reallocated energy (Mtoe)',
+                    'Reallocated energy (TJ)',
+                    'Energy intensity (TJ)')
+energy_lookup <- data.frame(energy_number, energy_name)
+
+# Read in sheet names and convert columns to character to enable bind
+reallocated_energy_sheets <- read_excel_allsheets_ONS(
+  "./raw_data/REALLOCATED ENERGY.xlsx") %>%
+  lapply(\(x) mutate(x, across(.fns = as.character)))
+
+# Remove covering sheets containing cover and contents
+reallocated_energy_sheets = reallocated_energy_sheets[-c(1)]
+
+# Bind rows to create one single dataframe, filter, rename, pivot and filter again
+reallocated_energy_data <-
+  dplyr::bind_rows(reallocated_energy_sheets) %>%
+  rename(SIC = 1,
+         Section = 2,
+         SIC_Description = 3) %>%
+  drop_na(SIC, Section, SIC_Description) %>%
+  mutate(energy_number = ((row_number()-1) %/% 129)+1) %>%
+  right_join(energy_lookup, by = c("energy_number")) %>%
+  select(-c(energy_number)) %>%
+  pivot_longer(-c(SIC, Section, SIC_Description, energy_name),
+               names_to = 'year',
+               values_to = 'value')
+
+
+# *******************************************************************************
+# MATERIAL FOOTPRINT
+
+# Download file
 download.file(
   "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1176404/2020_Defra_results_England.ods",
   "./raw_data/England_material_footprint.ods"
@@ -102,14 +287,6 @@ download.file(
 material_number <- c(1,2,3,4,5)
 material_name <- c('Total','Biomass','Metallic ores','Fossil fuels','Non-metallic minerals')
 material_lookup <- data.frame(material_number, material_name)
-
-# Create filter list for products
-filter_list <- c("Household appliances",
-                 "Tools and equipment for house and garden",
-                 "Medical products appliances and equipment",
-                 "Telephone and telefax equipment",
-                 "Audio-visual photo and info processing equipment",
-                 "Other recreational equipment etc")
 
 # Import data and filter
 mf_product <- read_ods("./raw_data/England_material_footprint.ods",
@@ -131,15 +308,22 @@ mf_product <- read_ods("./raw_data/England_material_footprint.ods",
   filter(product %in% filter_list) %>%
   mutate_at(c('value'), as.numeric)
 
+B <- mf_product %>%
+  group_by(year, material_name) %>%
+  summarise(sum(value))
+
 # Create chart
-ggplot(mf_product, aes(x = year, y = value, group = product)) +
-  facet_wrap(vars(material_name), nrow = 4, scales = "free") +
-  geom_line(aes(color=product)) +
+ggplot(mf_product, aes(x = year, y = value, group = material_name)) +
+  facet_wrap(vars(product), nrow = 4, scales = "free") +
+  geom_line(aes(color=material_name), size= 1) +
   theme_light() +
-  theme(legend.position="bottom")
+  theme(legend.position="bottom") +
+  theme(plot.title = element_text(size=22))
 
-## Consumption emissions
+# *******************************************************************************
+# CARBON FOOTPRINT
 
+# Download file
 download.file(
   "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1175932/2023_03_21_Defra_results_England_rev.ods",
   "./raw_data/England_carbon_footprint.ods"
@@ -149,14 +333,6 @@ download.file(
 emissions_number <- c(1,2)
 emissions_name <- c('Greenhouse Gas emissions','Carbon Dioxide emissions')
 emissions_lookup <- data.frame(emissions_number, emissions_name)
-
-# Create filter list for products
-filter_list <- c("Household appliances",
-                 "Tools and equipment for house and garden",
-                 "Medical products appliances and equipment",
-                 "Telephone and telefax equipment",
-                 "Audio-visual photo and info processing equipment",
-                 "Other recreational equipment etc")
 
 # Import data and filter
 cf_product <- read_ods("./raw_data/England_carbon_footprint.ods",
@@ -181,7 +357,7 @@ cf_product <- read_ods("./raw_data/England_carbon_footprint.ods",
 # Create chart
 ggplot(cf_product, aes(x = year, y = value, group = product)) +
   facet_wrap(vars(emissions_name), nrow = 2) +
-  geom_line(aes(color=product)) +
+  geom_line(aes(color=product), size=1) +
   theme_light() +
   theme(legend.position="bottom")
 
