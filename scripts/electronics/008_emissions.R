@@ -91,24 +91,23 @@ BEIS_emissions_data <-
   select(-c(gas_number)) %>%
   pivot_longer(-c(group, section, group_name, gas_name),
                names_to = 'year',
-               values_to = 'value') 
+               values_to = 'value') %>%
+  mutate(source = "ONS Environmental Accounts",
+         basis = "territorial")
 
-# Filtered dataset for chart
+# Filtered dataset for chart electronics 
 BEIS_emissions_electronics <- 
   BEIS_emissions_data %>%
   filter(group %in% filter) %>%
   select(-c(group,section)) %>%
   mutate_at(c('year','value'), as.numeric)
 
+# Create chart
 ggplot(BEIS_emissions_electronics, aes(x = year, y = value, group = group_name)) +
   facet_wrap(vars(gas_name), nrow = 4) +
   theme_light() +
   geom_line(aes(color=group_name), size= 1) +
   theme(legend.position="bottom")
-
-# Write output to xlsx form
-write_xlsx(BEIS_emissions_electronics, 
-           "./cleaned_data/electronics_emissions_production.xlsx")
 
 # *******************************************************************************
 # ACID RAIN PRECURSORS - RESIDENCY BASIS BASIS
@@ -147,7 +146,9 @@ acid_rain_precursors_data <-
                values_to = 'value') %>%
   mutate_at(c('value'), as.numeric) %>%
   mutate(value = value * 1000) %>%
-  rename(tonnes_SO2_equivalent = value)
+  rename(tonnes_SO2_equivalent = value) %>%
+  mutate(source = "ONS Environmental Accounts",
+         basis = "residency")
 
 # *******************************************************************************
 # HEAVY METAL POLLUTANTS - RESIDENCY BASIS BASIS
@@ -192,7 +193,9 @@ heavy_metal_pollutants_data <-
   select(-c(pollutant_number)) %>%
   pivot_longer(-c(SIC, Section, SIC_Description, pollutant_name),
                names_to = 'year',
-               values_to = 'value')
+               values_to = 'value') %>%
+  mutate(source = "ONS Environmental Accounts",
+         basis = "residency")
 
 # *******************************************************************************
 # OTHER POLLUTANTS - RESIDENCY BASIS BASIS
@@ -233,7 +236,9 @@ other_pollutants_data <-
   select(-c(pollutant_number)) %>%
   pivot_longer(-c(SIC, Section, SIC_Description, pollutant_name),
                names_to = 'year',
-               values_to = 'value')
+               values_to = 'value') %>%
+  mutate(source = "ONS Environmental Accounts",
+         basis = "residency")
 
 # *******************************************************************************
 # REALLOCATED ENERGY CONSUMPTION
@@ -271,7 +276,34 @@ reallocated_energy_data <-
   select(-c(energy_number)) %>%
   pivot_longer(-c(SIC, Section, SIC_Description, energy_name),
                names_to = 'year',
-               values_to = 'value')
+               values_to = 'value') %>%
+  mutate(source = "ONS Environmental Accounts",
+         basis = "residency")
+
+# *******************************************************************************
+# PRODUCTION BASIS ALL
+
+# Bind datasets
+production_impacts_all <-
+  rbindlist(
+    list(
+      BEIS_emissions_data,
+      acid_rain_precursors_data,
+      heavy_metal_pollutants_data,
+      other_pollutants_data,
+      reallocated_energy_data
+    ),
+    use.names = FALSE
+  ) %>%
+  rename(SIC = 1,
+         Section = 2,
+         SIC_Description = 3,
+         variable = 4)
+
+
+# Write output to xlsx form
+write_xlsx(production_impacts_all, 
+           "./cleaned_data/production_impacts_all.xlsx")
 
 # *******************************************************************************
 # MATERIAL FOOTPRINT
