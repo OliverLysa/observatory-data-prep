@@ -92,7 +92,7 @@ BEIS_emissions_data <-
   pivot_longer(-c(group, section, group_name, gas_name),
                names_to = 'year',
                values_to = 'value') %>%
-  mutate(source = "ONS Environmental Accounts",
+  mutate(source = "BEIS",
          basis = "territorial")
 
 # Filtered dataset for chart electronics 
@@ -300,10 +300,25 @@ production_impacts_all <-
          SIC_Description = 3,
          variable = 4)
 
-
 # Write output to xlsx form
 write_xlsx(production_impacts_all, 
            "./cleaned_data/production_impacts_all.xlsx")
+
+# Filtered dataset for chart electronics 
+production_impacts_electronics <- 
+  production_impacts_all %>%
+  filter(SIC %in% filter) %>%
+  mutate_at(c('year','value'), as.numeric) %>%
+  filter(! variable %in% c("Reallocated energy (TJ)", 
+                     "Total",
+                     "Total GHGs"))
+
+# Create chart
+ggplot(production_impacts_electronics, aes(x = year, y = value, group = SIC)) +
+  facet_wrap(vars(variable), nrow = 8, scales = "free") +
+  theme_light() +
+  geom_line(aes(color=SIC), size= 1) +
+  theme(legend.position="bottom")
 
 # *******************************************************************************
 # MATERIAL FOOTPRINT
